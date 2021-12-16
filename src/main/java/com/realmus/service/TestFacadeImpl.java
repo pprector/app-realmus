@@ -1,25 +1,31 @@
 package com.realmus.service;
 
 
+import com.realmus.common.result.ResultModel;
+import com.realmus.facade.Test;
+import com.realmus.facade.request.User;
 import lombok.Data;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@RestController
-public class TestFacadeImpl {
-    @RequestMapping("/test")
-    public User test() {
-        User user = new User();
-        user.age = "13";
-        user.name= "测试";
-        return user;
+@RestController("/test")
+public class TestFacadeImpl implements Test {
+
+
+
+    @Override
+    public ResultModel<User> pageUser() {
+        return null;
     }
 
-    @Data
-    public class User {
-        private String name;
-        private String age;
+
+
+
+    @Override
+    public ResultModel<Object> addUser(User user) {
+
+        return null;
     }
 }
