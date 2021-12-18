@@ -1,7 +1,9 @@
 package com.realmus.repository.mapper;
 
 import com.realmus.repository.model.Test;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface TestMapper {
     /**
      * delete by primary key

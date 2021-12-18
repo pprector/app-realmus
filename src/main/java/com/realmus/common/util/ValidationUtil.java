@@ -2,8 +2,8 @@ package com.realmus.common.util;
 
 import com.realmus.common.error.BizErrorEnum;
 import com.realmus.common.error.BizException;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;

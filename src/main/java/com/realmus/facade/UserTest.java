@@ -5,7 +5,7 @@ import com.realmus.facade.request.User;
 import com.realmus.service.TestFacadeImpl;
 import org.apache.ibatis.jdbc.Null;
 
-public interface Test {
+public interface UserTest {
     /**
      * 测试分页查询
      *
