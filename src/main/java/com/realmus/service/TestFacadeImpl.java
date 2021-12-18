@@ -10,9 +10,9 @@ import com.realmus.domain.service.TestService;
 import com.realmus.facade.UserTest;
 import com.realmus.facade.request.User;
 import com.realmus.service.converter.TestConverter;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
 import org.mapstruct.factory.Mappers;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,8 +34,8 @@ public class TestFacadeImpl implements UserTest {
 
     @Override
     public ResultModel<Object> addUser(User user) {
-        logger.debug("TestFacadeImpl addUser request : {0}", user);
-        //ValidationUtil.validate(user);
+        logger.info("=====TestFacadeImpl addUser request : " + user);
+        ValidationUtil.validate(user);
         try {
             UserEntity userEntity = mapper.TestTOUserEntity(user);
             long addUser = testService.addUser(userEntity);
