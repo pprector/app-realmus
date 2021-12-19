@@ -22,7 +22,7 @@ public class ResultUtil {
     public static <T> ResultModel<T> success(T data) {
         ResultModel result = new ResultModel();
         result.setStatus(GeneralEnum.YES.getCode());
-        result.setData(data);
+        result.setResult(data);
         return result;
     }
 
@@ -36,7 +36,7 @@ public class ResultUtil {
     public static <T> ResultModel<T> fail(String message) {
         ResultModel result = new ResultModel();
         result.setStatus(GeneralEnum.NO.getCode());
-        result.setMessage(new Message(message));
+        result.setMessage(message);
 
         return result;
     }

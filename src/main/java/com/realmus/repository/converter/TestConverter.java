@@ -2,11 +2,9 @@ package com.realmus.repository.converter;
 
 
 import com.realmus.domain.entity.UserEntity;
-import com.realmus.facade.request.User;
 import com.realmus.repository.model.Test;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-
 
 /**
  * @author hkpeng
@@ -16,7 +14,7 @@ import org.mapstruct.Mapping;
 @Mapper
 public interface TestConverter {
 
-    @Mapping(target = "name", source = "userName")
+   @Mapping(target = "name", source = "userName")
     @Mapping(target = "id", source = "userId")
     Test toTest(UserEntity user);
 }

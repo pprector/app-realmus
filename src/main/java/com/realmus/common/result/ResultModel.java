@@ -17,25 +17,12 @@ public class ResultModel<T> {
      */
     private Integer status;
     /**
-     * 当前页
-     */
-    private Integer pageIndex;
-    /**
-     * 总记录
-     */
-    private Integer totalCount;
-    /**
-     * 页面大小
-     */
-    private Integer pageSize;
-
-    /**
      * 数据
      */
-    private T data;
+    private T result;
     /**
      * 错误信息
      */
-    private Message message;
+    private String message;
 
 }
