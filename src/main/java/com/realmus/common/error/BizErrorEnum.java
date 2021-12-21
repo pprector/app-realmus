@@ -9,10 +9,15 @@ import lombok.Getter;
 
 @Getter
 public enum BizErrorEnum {
+
+    /**
+     * 位置错误001
+     */
+    E001("001", "服务器出错了!"),
     /**
      * 业务 001
      */
-    A001("001", "入参不对哎!");
+    A001("002", "入参不对哎!");
 
 
     private String code;

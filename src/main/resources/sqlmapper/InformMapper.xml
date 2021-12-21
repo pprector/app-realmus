@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.realmus.repository.mapper.InformMapper">
+  <resultMap id="BaseResultMap" type="com.realmus.repository.model.InformDO">
+    <!--@mbg.generated-->
+    <!--@Table inform-->
+    <id column="inform_id" jdbcType="VARCHAR" property="informId" />
+    <result column="emali_code" jdbcType="VARCHAR" property="emaliCode" />
+    <result column="is_emali" jdbcType="TINYINT" property="isEmali" />
+    <result column="phone_code" jdbcType="VARCHAR" property="phoneCode" />
+    <result column="is_note" jdbcType="TINYINT" property="isNote" />
+    <result column="inform_message" jdbcType="VARCHAR" property="informMessage" />
+    <result column="is_documentary" jdbcType="TINYINT" property="isDocumentary" />
+    <result column="merchandiser" jdbcType="VARCHAR" property="merchandiser" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="is_valid" jdbcType="TINYINT" property="isValid" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    inform_id, emali_code, is_emali, phone_code, is_note, inform_message, is_documentary, 
+    merchandiser, remarks, is_valid, modifier, gmt_modified
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from inform
+    where inform_id = #{informId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from inform
+    where inform_id = #{informId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.realmus.repository.model.InformDO">
+    <!--@mbg.generated-->
+    insert into inform (inform_id, emali_code, is_emali, 
+      phone_code, is_note, inform_message, 
+      is_documentary, merchandiser, remarks, 
+      is_valid, modifier, gmt_modified
+      )
+    values (#{informId,jdbcType=VARCHAR}, #{emaliCode,jdbcType=VARCHAR}, #{isEmali,jdbcType=TINYINT}, 
+      #{phoneCode,jdbcType=VARCHAR}, #{isNote,jdbcType=TINYINT}, #{informMessage,jdbcType=VARCHAR}, 
+      #{isDocumentary,jdbcType=TINYINT}, #{merchandiser,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{isValid,jdbcType=TINYINT}, #{modifier,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.realmus.repository.model.InformDO">
+    <!--@mbg.generated-->
+    insert into inform
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="informId != null">
+        inform_id,
+      </if>
+      <if test="emaliCode != null">
+        emali_code,
+      </if>
+      <if test="isEmali != null">
+        is_emali,
+      </if>
+      <if test="phoneCode != null">
+        phone_code,
+      </if>
+      <if test="isNote != null">
+        is_note,
+      </if>
+      <if test="informMessage != null">
+        inform_message,
+      </if>
+      <if test="isDocumentary != null">
+        is_documentary,
+      </if>
+      <if test="merchandiser != null">
+        merchandiser,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="isValid != null">
+        is_valid,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="informId != null">
+        #{informId,jdbcType=VARCHAR},
+      </if>
+      <if test="emaliCode != null">
+        #{emaliCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isEmali != null">
+        #{isEmali,jdbcType=TINYINT},
+      </if>
+      <if test="phoneCode != null">
+        #{phoneCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isNote != null">
+        #{isNote,jdbcType=TINYINT},
+      </if>
+      <if test="informMessage != null">
+        #{informMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="isDocumentary != null">
+        #{isDocumentary,jdbcType=TINYINT},
+      </if>
+      <if test="merchandiser != null">
+        #{merchandiser,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="isValid != null">
+        #{isValid,jdbcType=TINYINT},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.realmus.repository.model.InformDO">
+    <!--@mbg.generated-->
+    update inform
+    <set>
+      <if test="emaliCode != null">
+        emali_code = #{emaliCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isEmali != null">
+        is_emali = #{isEmali,jdbcType=TINYINT},
+      </if>
+      <if test="phoneCode != null">
+        phone_code = #{phoneCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isNote != null">
+        is_note = #{isNote,jdbcType=TINYINT},
+      </if>
+      <if test="informMessage != null">
+        inform_message = #{informMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="isDocumentary != null">
+        is_documentary = #{isDocumentary,jdbcType=TINYINT},
+      </if>
+      <if test="merchandiser != null">
+        merchandiser = #{merchandiser,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="isValid != null">
+        is_valid = #{isValid,jdbcType=TINYINT},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where inform_id = #{informId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.realmus.repository.model.InformDO">
+    <!--@mbg.generated-->
+    update inform
+    set emali_code = #{emaliCode,jdbcType=VARCHAR},
+      is_emali = #{isEmali,jdbcType=TINYINT},
+      phone_code = #{phoneCode,jdbcType=VARCHAR},
+      is_note = #{isNote,jdbcType=TINYINT},
+      inform_message = #{informMessage,jdbcType=VARCHAR},
+      is_documentary = #{isDocumentary,jdbcType=TINYINT},
+      merchandiser = #{merchandiser,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      is_valid = #{isValid,jdbcType=TINYINT},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+    where inform_id = #{informId,jdbcType=VARCHAR}
+  </update>
+</mapper>

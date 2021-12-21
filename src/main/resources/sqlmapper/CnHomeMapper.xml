@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.realmus.repository.mapper.CnHomeMapper">
+  <resultMap id="BaseResultMap" type="com.realmus.repository.model.HomeDO">
+    <!--@mbg.generated-->
+    <!--@Table cn_home-->
+    <id column="info_id" jdbcType="VARCHAR" property="infoId" />
+    <result column="info_type" jdbcType="TINYINT" property="infoType" />
+    <result column="relation_id" jdbcType="VARCHAR" property="relationId" />
+    <result column="info_url" jdbcType="VARCHAR" property="infoUrl" />
+    <result column="info_title" jdbcType="VARCHAR" property="infoTitle" />
+    <result column="info_description" jdbcType="VARCHAR" property="infoDescription" />
+    <result column="info_content" jdbcType="VARCHAR" property="infoContent" />
+    <result column="info_weight" jdbcType="TINYINT" property="infoWeight" />
+    <result column="info_time" jdbcType="TIMESTAMP" property="infoTime" />
+    <result column="is_valid" jdbcType="TINYINT" property="isValid" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    info_id, info_type, relation_id, info_url, info_title, info_description, info_content, 
+    info_weight, info_time, is_valid, modifier, gmt_modified
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from cn_home
+    where info_id = #{infoId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from cn_home
+    where info_id = #{infoId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.realmus.repository.model.HomeDO">
+    <!--@mbg.generated-->
+    insert into cn_home (info_id, info_type, relation_id, 
+      info_url, info_title, info_description, 
+      info_content, info_weight, info_time, 
+      is_valid, modifier, gmt_modified
+      )
+    values (#{infoId,jdbcType=VARCHAR}, #{infoType,jdbcType=TINYINT}, #{relationId,jdbcType=VARCHAR}, 
+      #{infoUrl,jdbcType=VARCHAR}, #{infoTitle,jdbcType=VARCHAR}, #{infoDescription,jdbcType=VARCHAR}, 
+      #{infoContent,jdbcType=VARCHAR}, #{infoWeight,jdbcType=TINYINT}, #{infoTime,jdbcType=TIMESTAMP}, 
+      #{isValid,jdbcType=TINYINT}, #{modifier,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.realmus.repository.model.HomeDO">
+    <!--@mbg.generated-->
+    insert into cn_home
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="infoId != null">
+        info_id,
+      </if>
+      <if test="infoType != null">
+        info_type,
+      </if>
+      <if test="relationId != null">
+        relation_id,
+      </if>
+      <if test="infoUrl != null">
+        info_url,
+      </if>
+      <if test="infoTitle != null">
+        info_title,
+      </if>
+      <if test="infoDescription != null">
+        info_description,
+      </if>
+      <if test="infoContent != null">
+        info_content,
+      </if>
+      <if test="infoWeight != null">
+        info_weight,
+      </if>
+      <if test="infoTime != null">
+        info_time,
+      </if>
+      <if test="isValid != null">
+        is_valid,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="infoId != null">
+        #{infoId,jdbcType=VARCHAR},
+      </if>
+      <if test="infoType != null">
+        #{infoType,jdbcType=TINYINT},
+      </if>
+      <if test="relationId != null">
+        #{relationId,jdbcType=VARCHAR},
+      </if>
+      <if test="infoUrl != null">
+        #{infoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="infoTitle != null">
+        #{infoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="infoDescription != null">
+        #{infoDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="infoContent != null">
+        #{infoContent,jdbcType=VARCHAR},
+      </if>
+      <if test="infoWeight != null">
+        #{infoWeight,jdbcType=TINYINT},
+      </if>
+      <if test="infoTime != null">
+        #{infoTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isValid != null">
+        #{isValid,jdbcType=TINYINT},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.realmus.repository.model.HomeDO">
+    <!--@mbg.generated-->
+    update cn_home
+    <set>
+      <if test="infoType != null">
+        info_type = #{infoType,jdbcType=TINYINT},
+      </if>
+      <if test="relationId != null">
+        relation_id = #{relationId,jdbcType=VARCHAR},
+      </if>
+      <if test="infoUrl != null">
+        info_url = #{infoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="infoTitle != null">
+        info_title = #{infoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="infoDescription != null">
+        info_description = #{infoDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="infoContent != null">
+        info_content = #{infoContent,jdbcType=VARCHAR},
+      </if>
+      <if test="infoWeight != null">
+        info_weight = #{infoWeight,jdbcType=TINYINT},
+      </if>
+      <if test="infoTime != null">
+        info_time = #{infoTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isValid != null">
+        is_valid = #{isValid,jdbcType=TINYINT},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where info_id = #{infoId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.realmus.repository.model.Home">
+    <!--@mbg.generated-->
+    update cn_home
+    set info_type = #{infoType,jdbcType=TINYINT},
+      relation_id = #{relationId,jdbcType=VARCHAR},
+      info_url = #{infoUrl,jdbcType=VARCHAR},
+      info_title = #{infoTitle,jdbcType=VARCHAR},
+      info_description = #{infoDescription,jdbcType=VARCHAR},
+      info_content = #{infoContent,jdbcType=VARCHAR},
+      info_weight = #{infoWeight,jdbcType=TINYINT},
+      info_time = #{infoTime,jdbcType=TIMESTAMP},
+      is_valid = #{isValid,jdbcType=TINYINT},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+    where info_id = #{infoId,jdbcType=VARCHAR}
+  </update>
+</mapper>

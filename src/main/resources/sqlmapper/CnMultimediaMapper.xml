@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.realmus.repository.mapper.CnMultimediaMapper">
+  <resultMap id="BaseResultMap" type="com.realmus.repository.model.MultimediaDO">
+    <!--@mbg.generated-->
+    <!--@Table cn_multimedia-->
+    <id column="multimedia_id" jdbcType="VARCHAR" property="multimediaId" />
+    <result column="multimedia_type" jdbcType="TINYINT" property="multimediaType" />
+    <result column="multimedia_url" jdbcType="VARCHAR" property="multimediaUrl" />
+    <result column="multimedia_desc" jdbcType="VARCHAR" property="multimediaDesc" />
+    <result column="is_valid" jdbcType="TINYINT" property="isValid" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    multimedia_id, multimedia_type, multimedia_url, multimedia_desc, is_valid, modifier, 
+    gmt_modified
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from cn_multimedia
+    where multimedia_id = #{multimediaId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from cn_multimedia
+    where multimedia_id = #{multimediaId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.realmus.repository.model.MultimediaDO">
+    <!--@mbg.generated-->
+    insert into cn_multimedia (multimedia_id, multimedia_type, multimedia_url, 
+      multimedia_desc, is_valid, modifier, 
+      gmt_modified)
+    values (#{multimediaId,jdbcType=VARCHAR}, #{multimediaType,jdbcType=TINYINT}, #{multimediaUrl,jdbcType=VARCHAR}, 
+      #{multimediaDesc,jdbcType=VARCHAR}, #{isValid,jdbcType=TINYINT}, #{modifier,jdbcType=VARCHAR}, 
+      #{gmtModified,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.realmus.repository.model.MultimediaDO">
+    <!--@mbg.generated-->
+    insert into cn_multimedia
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="multimediaId != null">
+        multimedia_id,
+      </if>
+      <if test="multimediaType != null">
+        multimedia_type,
+      </if>
+      <if test="multimediaUrl != null">
+        multimedia_url,
+      </if>
+      <if test="multimediaDesc != null">
+        multimedia_desc,
+      </if>
+      <if test="isValid != null">
+        is_valid,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="multimediaId != null">
+        #{multimediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="multimediaType != null">
+        #{multimediaType,jdbcType=TINYINT},
+      </if>
+      <if test="multimediaUrl != null">
+        #{multimediaUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="multimediaDesc != null">
+        #{multimediaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="isValid != null">
+        #{isValid,jdbcType=TINYINT},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.realmus.repository.model.MultimediaDO">
+    <!--@mbg.generated-->
+    update cn_multimedia
+    <set>
+      <if test="multimediaType != null">
+        multimedia_type = #{multimediaType,jdbcType=TINYINT},
+      </if>
+      <if test="multimediaUrl != null">
+        multimedia_url = #{multimediaUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="multimediaDesc != null">
+        multimedia_desc = #{multimediaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="isValid != null">
+        is_valid = #{isValid,jdbcType=TINYINT},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where multimedia_id = #{multimediaId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.realmus.repository.model.MultimediaDO">
+    <!--@mbg.generated-->
+    update cn_multimedia
+    set multimedia_type = #{multimediaType,jdbcType=TINYINT},
+      multimedia_url = #{multimediaUrl,jdbcType=VARCHAR},
+      multimedia_desc = #{multimediaDesc,jdbcType=VARCHAR},
+      is_valid = #{isValid,jdbcType=TINYINT},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+    where multimedia_id = #{multimediaId,jdbcType=VARCHAR}
+  </update>
+</mapper>
