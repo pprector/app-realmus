@@ -19,7 +19,8 @@ public class DoTOEntity {
         entity.setNavigationName(navigationDO.getNavigationName());
         entity.setH5Url(navigationDO.getNavigationUrl());
         entity.setNavigationTier(navigationDO.getNavigationTier());
-
+        entity.setNavigationParentId(navigationDO.getNavigationParentId());
+        entity.setWeight(navigationDO.getWeight());
         return entity;
     }
 }

@@ -20,5 +20,5 @@ public interface NavigationFacade {
      *
      * @return
      */
-    ResultModel<List<PageNavigationResponse>> getNavigationInfo();
+    ResultModel<List<PageNavigationResponse>> getNavigationInfo(Integer type);
 }

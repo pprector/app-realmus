@@ -38,6 +38,10 @@ public class NavigationEntity {
      */
     private Integer navigationTier;
     /**
+     * 权重
+     */
+    private Integer weight;
+    /**
      * 子导航栏
      */
     List<NavigationEntity> sonNavigationList;

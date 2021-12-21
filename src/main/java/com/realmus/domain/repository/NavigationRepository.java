@@ -1,5 +1,6 @@
 package com.realmus.domain.repository;
 
+import com.realmus.common.enums.LanguageEnum;
 import com.realmus.domain.entity.NavigationEntity;
 
 import java.util.List;
@@ -11,5 +12,15 @@ import java.util.List;
  */
 
 public interface NavigationRepository {
-    List<NavigationEntity> getNavigationInfo();
+    /**
+     * 查询导航栏
+     * @return
+     */
+    List<NavigationEntity> getNavigationEnglishInfo(LanguageEnum languageEnum);
+
+    /**
+     * 查询导航栏
+     * @return
+     */
+    List<NavigationEntity> getNavigationChineseInfo(LanguageEnum languageEnum);
 }

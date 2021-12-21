@@ -167,7 +167,7 @@
     </set>
     where info_id = #{infoId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.realmus.repository.model.Home">
+  <update id="updateByPrimaryKey" parameterType="com.realmus.repository.model.HomeDO">
     <!--@mbg.generated-->
     update cn_home
     set info_type = #{infoType,jdbcType=TINYINT},

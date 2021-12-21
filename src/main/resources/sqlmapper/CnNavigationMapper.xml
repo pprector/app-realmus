@@ -9,6 +9,7 @@
         <result column="navigation_url" jdbcType="VARCHAR" property="navigationUrl"/>
         <result column="navigation_tier" jdbcType="TINYINT" property="navigationTier"/>
         <result column="navigation_parent_id" jdbcType="VARCHAR" property="navigationParentId"/>
+        <result column="weight" jdbcType="TINYINT" property="weight"/>
         <result column="is_valid" jdbcType="TINYINT" property="isValid"/>
         <result column="modifier" jdbcType="VARCHAR" property="modifier"/>
         <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
@@ -16,179 +17,16 @@
     <sql id="Base_Column_List">
         <!--@mbg.generated-->
         navigation_id, navigation_name, navigation_url, navigation_tier, navigation_parent_id,
-        is_valid, modifier, gmt_modified
+        is_valid, modifier, gmt_modified,weight
     </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-        <!--@mbg.generated-->
-    select 
-
-        <include refid="Base_Column_List"/>
-
-            from cn_navigation
-            where navigation_id = #{navigationId,jdbcType=VARCHAR}
-
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-        <!--@mbg.generated-->
-    delete from cn_navigation
-    where navigation_id = #{navigationId,jdbcType=VARCHAR}
-
-    </delete>
-    <insert id="insert" parameterType="com.realmus.repository.model.NavigationDO">
-        <!--@mbg.generated-->
-    insert into cn_navigation (navigation_id, navigation_name, navigation_url, 
-      navigation_tier, navigation_parent_id, is_valid, 
-      modifier, gmt_modified)
-    values (#{navigationId,jdbcType=VARCHAR}, #{navigationName,jdbcType=VARCHAR}, #{navigationUrl,jdbcType=VARCHAR}, 
-      #{navigationTier,jdbcType=TINYINT}, #{navigationParentId,jdbcType=VARCHAR}, #{isValid,jdbcType=TINYINT}, 
-      #{modifier,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP})
-
-    </insert>
-    <insert id="insertSelective" parameterType="com.realmus.repository.model.NavigationDO">
-        <!--@mbg.generated-->
-    insert into cn_navigation
-
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="navigationId != null">
-                navigation_id,
-
-            </if>
-            <if test="navigationName != null">
-
-                        navigation_name,
-
-            </if>
-            <if test="navigationUrl != null">
-
-                        navigation_url,
-
-            </if>
-            <if test="navigationTier != null">
-
-                        navigation_tier,
-
-            </if>
-            <if test="navigationParentId != null">
-
-                        navigation_parent_id,
-
-            </if>
-            <if test="isValid != null">
-
-                        is_valid,
-
-            </if>
-            <if test="modifier != null">
-
-                        modifier,
-
-            </if>
-            <if test="gmtModified != null">
-
-                        gmt_modified,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="navigationId != null">
-                #{navigationId,jdbcType=VARCHAR},
-
-            </if>
-            <if test="navigationName != null">
-
-                        #{navigationName,jdbcType=VARCHAR},
-
-            </if>
-            <if test="navigationUrl != null">
-
-                        #{navigationUrl,jdbcType=VARCHAR},
-
-            </if>
-            <if test="navigationTier != null">
-
-                        #{navigationTier,jdbcType=TINYINT},
-
-            </if>
-            <if test="navigationParentId != null">
-
-                        #{navigationParentId,jdbcType=VARCHAR},
-
-            </if>
-            <if test="isValid != null">
-
-                        #{isValid,jdbcType=TINYINT},
-
-            </if>
-            <if test="modifier != null">
-
-                        #{modifier,jdbcType=VARCHAR},
-
-            </if>
-            <if test="gmtModified != null">
-
-                        #{gmtModified,jdbcType=TIMESTAMP},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.realmus.repository.model.NavigationDO">
-        <!--@mbg.generated-->
-    update cn_navigation
-
-        <set>
-            <if test="navigationName != null">
-                navigation_name = #{navigationName,jdbcType=VARCHAR},
-
-            </if>
-            <if test="navigationUrl != null">
-
-                        navigation_url = #{navigationUrl,jdbcType=VARCHAR},
-
-            </if>
-            <if test="navigationTier != null">
-
-                        navigation_tier = #{navigationTier,jdbcType=TINYINT},
-
-            </if>
-            <if test="navigationParentId != null">
-
-                        navigation_parent_id = #{navigationParentId,jdbcType=VARCHAR},
-
-            </if>
-            <if test="isValid != null">
-
-                        is_valid = #{isValid,jdbcType=TINYINT},
-
-            </if>
-            <if test="modifier != null">
-
-                        modifier = #{modifier,jdbcType=VARCHAR},
-
-            </if>
-            <if test="gmtModified != null">
-
-                        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-            </if>
-        </set>
-
-            where navigation_id = #{navigationId,jdbcType=VARCHAR}
-
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.realmus.repository.model.NavigationDO">
-        <!--@mbg.generated-->
-    update cn_navigation
-    set navigation_name = #{navigationName,jdbcType=VARCHAR},
-      navigation_url = #{navigationUrl,jdbcType=VARCHAR},
-      navigation_tier = #{navigationTier,jdbcType=TINYINT},
-      navigation_parent_id = #{navigationParentId,jdbcType=VARCHAR},
-      is_valid = #{isValid,jdbcType=TINYINT},
-      modifier = #{modifier,jdbcType=VARCHAR},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
-    where navigation_id = #{navigationId,jdbcType=VARCHAR}
-
-    </update>
     <!--查询所有数据-->
     <select id="findAllNavigationInfo" resultMap="BaseResultMap">
-        select
+
+                select
+
         <include refid="Base_Column_List"/>
-        from cn_navigation
+
+                from cn_navigation
+
     </select>
 </mapper>

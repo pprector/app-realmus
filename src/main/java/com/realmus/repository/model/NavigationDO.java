@@ -47,7 +47,11 @@ public class NavigationDO {
     */
     @ApiModelProperty(value="导航父级ID")
     private String navigationParentId;
-
+    /**
+     * 权重
+     */
+    @ApiModelProperty(value="权重")
+    private Integer weight;
     /**
     * 有效标识 0失效 1生效
     */
