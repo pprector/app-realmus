@@ -20,8 +20,9 @@ public enum ModuleEnum {
     private String value;
 
 
-    ModuleEnum(Integer i, String 轮播图) {
-
+    ModuleEnum(Integer code, String value) {
+        this.code = code;
+        this.value = value;
     }
 
     public static ModuleEnum getModuleEnum(Integer code) {

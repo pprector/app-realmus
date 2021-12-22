@@ -20,8 +20,9 @@ public enum MultimediaEnum {
     private String value;
 
 
-    MultimediaEnum(Integer i, String 轮播图) {
-
+    MultimediaEnum(Integer code, String value) {
+        this.code = code;
+        this.value = value;
     }
 
     public static MultimediaEnum getMultimediaEnum(Integer code) {
