@@ -16,9 +16,7 @@ import java.io.Serializable;
 @Setter
 @Getter
 @ToString
-public class Navigation implements Serializable {
-
-    private static final long serialVersionId = 1L;
+public class Navigation {
     /**
      * 导航栏ID
      */

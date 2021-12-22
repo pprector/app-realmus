@@ -1,6 +1,6 @@
 package com.realmus.repository.mapper;
 
-import com.realmus.repository.model.MultimediaDO;
+import com.realmus.repository.model.MultimediaRelationDO;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -10,46 +10,46 @@ import org.apache.ibatis.annotations.Mapper;
     
     
 @Mapper
-public interface CnMultimediaMapper {
+public interface MultimediaRelationMapper {
     /**
      * delete by primary key
-     * @param multimediaId primaryKey
+     * @param relationId primaryKey
      * @return deleteCount
      */
-    int deleteByPrimaryKey(String multimediaId);
+    int deleteByPrimaryKey(String relationId);
 
     /**
      * insert record to table
      * @param record the record
      * @return insert count
      */
-    int insert(MultimediaDO record);
+    int insert(MultimediaRelationDO record);
 
     /**
      * insert record to table selective
      * @param record the record
      * @return insert count
      */
-    int insertSelective(MultimediaDO record);
+    int insertSelective(MultimediaRelationDO record);
 
     /**
      * select by primary key
-     * @param multimediaId primary key
+     * @param relationId primary key
      * @return object by primary key
      */
-    MultimediaDO selectByPrimaryKey(String multimediaId);
+    MultimediaRelationDO selectByPrimaryKey(String relationId);
 
     /**
      * update record selective
      * @param record the updated record
      * @return update count
      */
-    int updateByPrimaryKeySelective(MultimediaDO record);
+    int updateByPrimaryKeySelective(MultimediaRelationDO record);
 
     /**
      * update record
      * @param record the updated record
      * @return update count
      */
-    int updateByPrimaryKey(MultimediaDO record);
+    int updateByPrimaryKey(MultimediaRelationDO record);
 }

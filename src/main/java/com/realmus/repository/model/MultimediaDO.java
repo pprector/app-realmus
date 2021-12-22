@@ -28,7 +28,7 @@ public class MultimediaDO {
     * 媒体类型1:图片,2.视频
     */
     @ApiModelProperty(value="媒体类型1:图片,2.视频")
-    private Byte multimediaType;
+    private Integer multimediaType;
 
     /**
     * 获取连接地址
@@ -46,7 +46,7 @@ public class MultimediaDO {
     * 有效标识 0失效 1生效
     */
     @ApiModelProperty(value="有效标识 0失效 1生效")
-    private Byte isValid;
+    private Integer isValid;
 
     /**
     * 修改者

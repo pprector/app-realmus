@@ -1,102 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.realmus.repository.mapper.CnMultimediaRelationMapper">
-  <resultMap id="BaseResultMap" type="com.realmus.repository.model.MultimediaRelationDO">
-    <!--@mbg.generated-->
-    <!--@Table cn_multimedia_relation-->
-    <id column="relation_id" jdbcType="VARCHAR" property="relationId" />
-    <result column="multimedia_id" jdbcType="VARCHAR" property="multimediaId" />
-    <result column="is_valid" jdbcType="TINYINT" property="isValid" />
-    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
-    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    relation_id, multimedia_id, is_valid, modifier, gmt_modified
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from cn_multimedia_relation
-    where relation_id = #{relationId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    <!--@mbg.generated-->
-    delete from cn_multimedia_relation
-    where relation_id = #{relationId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.realmus.repository.model.MultimediaRelationDO">
-    <!--@mbg.generated-->
-    insert into cn_multimedia_relation (relation_id, multimedia_id, is_valid, 
-      modifier, gmt_modified)
-    values (#{relationId,jdbcType=VARCHAR}, #{multimediaId,jdbcType=VARCHAR}, #{isValid,jdbcType=TINYINT}, 
-      #{modifier,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.realmus.repository.model.MultimediaRelationDO">
-    <!--@mbg.generated-->
-    insert into cn_multimedia_relation
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="relationId != null">
-        relation_id,
-      </if>
-      <if test="multimediaId != null">
-        multimedia_id,
-      </if>
-      <if test="isValid != null">
-        is_valid,
-      </if>
-      <if test="modifier != null">
-        modifier,
-      </if>
-      <if test="gmtModified != null">
-        gmt_modified,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="relationId != null">
-        #{relationId,jdbcType=VARCHAR},
-      </if>
-      <if test="multimediaId != null">
-        #{multimediaId,jdbcType=VARCHAR},
-      </if>
-      <if test="isValid != null">
-        #{isValid,jdbcType=TINYINT},
-      </if>
-      <if test="modifier != null">
-        #{modifier,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtModified != null">
-        #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.realmus.repository.model.MultimediaRelationDO">
-    <!--@mbg.generated-->
-    update cn_multimedia_relation
-    <set>
-      <if test="multimediaId != null">
-        multimedia_id = #{multimediaId,jdbcType=VARCHAR},
-      </if>
-      <if test="isValid != null">
-        is_valid = #{isValid,jdbcType=TINYINT},
-      </if>
-      <if test="modifier != null">
-        modifier = #{modifier,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtModified != null">
-        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where relation_id = #{relationId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.realmus.repository.model.MultimediaRelationDO">
-    <!--@mbg.generated-->
-    update cn_multimedia_relation
-    set multimedia_id = #{multimediaId,jdbcType=VARCHAR},
-      is_valid = #{isValid,jdbcType=TINYINT},
-      modifier = #{modifier,jdbcType=VARCHAR},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
-    where relation_id = #{relationId,jdbcType=VARCHAR}
-  </update>
+<mapper namespace="com.realmus.repository.mapper.MultimediaRelationMapper">
+    <resultMap id="BaseResultMap" type="com.realmus.repository.model.MultimediaRelationDO">
+        <!--@mbg.generated-->
+        <!--@Table cn_multimedia_relation-->
+        <id column="relation_id" jdbcType="VARCHAR" property="relationId"/>
+        <result column="multimedia_id" jdbcType="VARCHAR" property="multimediaId"/>
+        <result column="is_valid" jdbcType="TINYINT" property="isValid"/>
+        <result column="modifier" jdbcType="VARCHAR" property="modifier"/>
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        relation_id, multimedia_id, is_valid, modifier, gmt_modified
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from cn_multimedia_relation
+        where relation_id = #{relationId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete
+        from cn_multimedia_relation
+        where relation_id = #{relationId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.realmus.repository.model.MultimediaRelationDO">
+        <!--@mbg.generated-->
+        insert into cn_multimedia_relation (relation_id, multimedia_id, is_valid,
+                                            modifier, gmt_modified)
+        values (#{relationId,jdbcType=VARCHAR}, #{multimediaId,jdbcType=VARCHAR}, #{isValid,jdbcType=TINYINT},
+                #{modifier,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="com.realmus.repository.model.MultimediaRelationDO">
+        <!--@mbg.generated-->
+        insert into cn_multimedia_relation
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="relationId != null">
+                relation_id,
+            </if>
+            <if test="multimediaId != null">
+                multimedia_id,
+            </if>
+            <if test="isValid != null">
+                is_valid,
+            </if>
+            <if test="modifier != null">
+                modifier,
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="relationId != null">
+                #{relationId,jdbcType=VARCHAR},
+            </if>
+            <if test="multimediaId != null">
+                #{multimediaId,jdbcType=VARCHAR},
+            </if>
+            <if test="isValid != null">
+                #{isValid,jdbcType=TINYINT},
+            </if>
+            <if test="modifier != null">
+                #{modifier,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.realmus.repository.model.MultimediaRelationDO">
+        <!--@mbg.generated-->
+        update cn_multimedia_relation
+        <set>
+            <if test="multimediaId != null">
+                multimedia_id = #{multimediaId,jdbcType=VARCHAR},
+            </if>
+            <if test="isValid != null">
+                is_valid = #{isValid,jdbcType=TINYINT},
+            </if>
+            <if test="modifier != null">
+                modifier = #{modifier,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where relation_id = #{relationId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.realmus.repository.model.MultimediaRelationDO">
+        <!--@mbg.generated-->
+        update cn_multimedia_relation
+        set multimedia_id = #{multimediaId,jdbcType=VARCHAR},
+            is_valid      = #{isValid,jdbcType=TINYINT},
+            modifier      = #{modifier,jdbcType=VARCHAR},
+            gmt_modified  = #{gmtModified,jdbcType=TIMESTAMP}
+        where relation_id = #{relationId,jdbcType=VARCHAR}
+    </update>
 </mapper>

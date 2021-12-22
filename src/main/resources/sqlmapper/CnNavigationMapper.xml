@@ -21,12 +21,9 @@
     </sql>
     <!--查询所有数据-->
     <select id="findAllNavigationInfo" resultMap="BaseResultMap">
-
-                select
-
+        select
         <include refid="Base_Column_List"/>
-
-                from cn_navigation
-
+        from cn_navigation
+        where is_valid = 1
     </select>
 </mapper>

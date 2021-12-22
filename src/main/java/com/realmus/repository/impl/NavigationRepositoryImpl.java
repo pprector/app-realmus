@@ -30,15 +30,17 @@ public class NavigationRepositoryImpl implements NavigationRepository {
 
 
     @Override
-    public List<NavigationEntity> getNavigationEnglishInfo(LanguageEnum languageEnum) {
-        throw new BizException(BizErrorEnum.A001);
-    }
-
-    @Override
     public List<NavigationEntity> getNavigationChineseInfo(LanguageEnum languageEnum) {
+        List<NavigationDO> navigationDOList = null;
+        switch (languageEnum) {
+            case CHINESE:
+                navigationDOList = cnNavigationMapper.findAllNavigationInfo();
+                break;
+            case ENGLISH:
+                throw new BizException(BizErrorEnum.A001);
+        }
 
-        List<NavigationDO> navigationDOList = cnNavigationMapper.findAllNavigationInfo();
-        //LV1
+        //数据处理
         return toNavigationEntityList(navigationDOList);
     }
 

@@ -31,7 +31,7 @@ public class NavigationService {
      * @return
      */
     public List<NavigationEntity> getNavigationInfo(LanguageEnum languageEnum) {
-        logger.info("=====NavigationFacadeImpl getNavigationInfo request : ");
+        logger.info("=====NavigationService getNavigationInfo request : ");
         //查询出所有数据
         List<NavigationEntity> navigationEntityList = null;
         switch (languageEnum) {
@@ -43,4 +43,6 @@ public class NavigationService {
         }
         return navigationEntityList;
     }
+
+
 }

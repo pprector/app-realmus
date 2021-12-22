@@ -1,6 +1,12 @@
 package com.realmus.repository.converter;
 
+import com.realmus.common.enums.ModuleEnum;
+import com.realmus.common.enums.MultimediaEnum;
+import com.realmus.domain.entity.BannerEntity;
+import com.realmus.domain.entity.MultimediaEntity;
 import com.realmus.domain.entity.NavigationEntity;
+import com.realmus.repository.model.HomeDO;
+import com.realmus.repository.model.MultimediaDO;
 import com.realmus.repository.model.NavigationDO;
 
 /**
@@ -22,5 +28,37 @@ public class DoTOEntity {
         entity.setNavigationParentId(navigationDO.getNavigationParentId());
         entity.setWeight(navigationDO.getWeight());
         return entity;
+    }
+
+    public static BannerEntity toBannerEntity(HomeDO homeDO) {
+        if (homeDO == null) {
+            return null;
+        }
+        BannerEntity entity = new BannerEntity();
+        entity.setInfoId(homeDO.getInfoId());
+        entity.setInfoType(ModuleEnum.getModuleEnum(homeDO.getInfoType()));
+        entity.setH5Url(homeDO.getInfoUrl());
+        entity.setInfoTitle(homeDO.getInfoTitle());
+        entity.setInfoDescription(homeDO.getInfoDescription());
+        entity.setInfoContent(homeDO.getInfoContent());
+
+        MultimediaEntity multimediaEntity = new MultimediaEntity();
+        multimediaEntity.setRelationId(homeDO.getRelationId());
+
+        entity.setMultimedia(multimediaEntity);
+        return entity;
+    }
+
+    public static MultimediaEntity toMultimediaEntity(String relationId, MultimediaDO multimediaDO) {
+        if (multimediaDO == null) {
+            return null;
+        }
+        MultimediaEntity entity = new MultimediaEntity();
+        entity.setRelationId(relationId);
+        entity.setMultimediaId(multimediaDO.getMultimediaId());
+        entity.setMultimediaType(MultimediaEnum.getMultimediaEnum(multimediaDO.getMultimediaType()));
+        entity.setMultimediaUrl(multimediaDO.getMultimediaUrl());
+        return entity;
+
     }
 }

@@ -1,21 +1,22 @@
 package com.realmus.domain.repository;
 
 import com.realmus.common.enums.LanguageEnum;
+import com.realmus.domain.entity.HomeInfoEntity;
 import com.realmus.domain.entity.NavigationEntity;
 
 import java.util.List;
 
 /**
  * @author hkpeng
- * 导航栏操作
- * @date 2021/12/21 - 11:27
+ * @date 2021/12/22 - 14:45
  */
 
-public interface NavigationRepository {
-
+public interface HomeRepository {
     /**
-     * 查询导航栏
+     * 获取Home 信息
+     *
      * @return
      */
-    List<NavigationEntity> getNavigationChineseInfo(LanguageEnum languageEnum);
+    HomeInfoEntity getHomeInfoChinese(LanguageEnum languageEnum);
+
 }
