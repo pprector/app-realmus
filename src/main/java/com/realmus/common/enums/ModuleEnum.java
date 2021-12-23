@@ -12,8 +12,11 @@ import lombok.Getter;
 @Getter
 public enum ModuleEnum {
 
-    BANNER(1, "轮播图");
+    BANNER(1, "轮播图"),
 
+    COMPANY(2, "轮播图")
+
+            ;
 
     private Integer code;
 

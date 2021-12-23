@@ -30,5 +30,9 @@ public class MultimediaEntity {
      * 媒体获取地址
      */
     private String multimediaUrl;
+    /**
+     * 媒体描述信息
+     */
+    private String description;
 
 }

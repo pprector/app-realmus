@@ -2,8 +2,10 @@
 package com.realmus.service.converter;
 
 import com.realmus.domain.entity.BannerEntity;
+import com.realmus.domain.entity.CompanyEntity;
 import com.realmus.domain.entity.HomeInfoEntity;
 import com.realmus.facade.param.Banner;
+import com.realmus.facade.param.Company;
 import com.realmus.facade.response.QueryHomeResponse;
 
 import java.util.List;
@@ -26,7 +28,35 @@ public class HomeInfoConverter {
         //轮播
         List<Banner> bannerList = bannerEntityList.stream().map(HomeInfoConverter::toBanner).collect(Collectors.toList());
         homeResponse.setBannerList(bannerList);
+        //关于我们
+        CompanyEntity companyEntity = homeInfoEntity.getCompany();
+        homeResponse.setCompany(toCompany(companyEntity));
+
         return homeResponse;
+    }
+
+    private static Company toCompany(CompanyEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        Company company = new Company();
+        if (entity.getBackgroundImg() != null) {
+            company.setBackgroundImg(entity.getBackgroundImg().getMultimediaUrl());
+        }
+        if (entity.getPromotionalMp4() != null) {
+            company.setPromotionalMp4(entity.getPromotionalMp4().getMultimediaUrl());
+        }
+        if (entity.getVideoBackgroundImg() != null) {
+            company.setVideoBackgroundImg(entity.getVideoBackgroundImg().getMultimediaUrl());
+        }
+        company.setInfoId(entity.getInfoId());
+        company.setInfoType(entity.getInfoType().getCode());
+        company.setH5Url(entity.getH5Url());
+        company.setInfoTitle(entity.getInfoTitle());
+        company.setInfoDescription(entity.getInfoDescription());
+        company.setInfoContent(entity.getInfoContent());
+
+        return company;
     }
 
 
@@ -41,10 +71,9 @@ public class HomeInfoConverter {
         banner.setInfoTitle(entity.getInfoTitle());
         banner.setInfoDescription(entity.getInfoDescription());
         banner.setInfoContent(entity.getInfoContent());
-        if (entity.getMultimedia() != null){
-            banner.setImgUrl(entity.getMultimedia().getMultimediaUrl());
+        if (entity.getBannerImg() != null) {
+            banner.setImgUrl(entity.getBannerImg().getMultimediaUrl());
         }
-
         return banner;
     }
 }

@@ -1,12 +1,12 @@
 package com.realmus.domain.service;
 
+import com.realmus.common.enums.ConstantEnum;
 import com.realmus.common.enums.LanguageEnum;
-import com.realmus.common.error.BizErrorEnum;
-import com.realmus.common.error.BizException;
+import com.realmus.common.enums.MultimediaEnum;
 import com.realmus.domain.entity.BannerEntity;
+import com.realmus.domain.entity.CompanyEntity;
 import com.realmus.domain.entity.HomeInfoEntity;
 import com.realmus.domain.entity.MultimediaEntity;
-import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.domain.repository.HomeRepository;
 import com.realmus.domain.repository.MultimediaRepository;
 import org.slf4j.Logger;
@@ -48,11 +48,31 @@ public class HomeService {
         //1.填充轮播图媒体
         List<BannerEntity> bannerList = homeInfoEntity.getBannerList();
         for (BannerEntity bannerEntity : bannerList) {
-            if (bannerEntity.getMultimedia() == null) {
+            if (bannerEntity.getBannerImg() == null) {
                 continue;
             }
-            MultimediaEntity multimediaEntityOne = multimediaRepository.getMultimediaEntityOne(bannerEntity.getMultimedia().getRelationId());
-            bannerEntity.setMultimedia(multimediaEntityOne);
+            MultimediaEntity multimediaEntityOne = multimediaRepository.getMultimediaEntityOne(bannerEntity.getBannerImg().getRelationId());
+            bannerEntity.setBannerImg(multimediaEntityOne);
+        }
+
+        //2.填充模块2关于公司媒体信息
+        CompanyEntity companyEntity = homeInfoEntity.getCompany();
+        List<MultimediaEntity> companyMultimediaEntityList = multimediaRepository.getMultimediaEntityList(companyEntity.getRelationId());
+        for (MultimediaEntity multimediaEntity : companyMultimediaEntityList) {
+            if (multimediaEntity.getMultimediaType() == MultimediaEnum.IMG && ConstantEnum.CONSTANT_1.getDesc().equals(multimediaEntity.getDescription())) {
+                companyEntity.setBackgroundImg(multimediaEntity);
+                continue;
+            }
+
+            if (multimediaEntity.getMultimediaType() == MultimediaEnum.IMG && ConstantEnum.CONSTANT_3.getDesc().equals(multimediaEntity.getDescription())) {
+                companyEntity.setVideoBackgroundImg(multimediaEntity);
+                continue;
+            }
+
+            if (multimediaEntity.getMultimediaType() == MultimediaEnum.VIDEO && ConstantEnum.CONSTANT_2.getDesc().equals(multimediaEntity.getDescription())) {
+                companyEntity.setPromotionalMp4(multimediaEntity);
+                continue;
+            }
         }
         return homeInfoEntity;
     }

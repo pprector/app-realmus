@@ -3,6 +3,7 @@ package com.realmus.repository.converter;
 import com.realmus.common.enums.ModuleEnum;
 import com.realmus.common.enums.MultimediaEnum;
 import com.realmus.domain.entity.BannerEntity;
+import com.realmus.domain.entity.CompanyEntity;
 import com.realmus.domain.entity.MultimediaEntity;
 import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.repository.model.HomeDO;
@@ -45,7 +46,7 @@ public class DoTOEntity {
         MultimediaEntity multimediaEntity = new MultimediaEntity();
         multimediaEntity.setRelationId(homeDO.getRelationId());
 
-        entity.setMultimedia(multimediaEntity);
+        entity.setBannerImg(multimediaEntity);
         return entity;
     }
 
@@ -58,7 +59,23 @@ public class DoTOEntity {
         entity.setMultimediaId(multimediaDO.getMultimediaId());
         entity.setMultimediaType(MultimediaEnum.getMultimediaEnum(multimediaDO.getMultimediaType()));
         entity.setMultimediaUrl(multimediaDO.getMultimediaUrl());
+        entity.setDescription(multimediaDO.getMultimediaDesc());
         return entity;
+    }
 
+    public static CompanyEntity toCompanyEntity(HomeDO homeDO) {
+        if (homeDO == null) {
+            return null;
+        }
+        CompanyEntity entity = new CompanyEntity();
+        entity.setInfoId(homeDO.getInfoId());
+        entity.setInfoType(ModuleEnum.getModuleEnum(homeDO.getInfoType()));
+        entity.setH5Url(homeDO.getInfoUrl());
+        entity.setInfoTitle(homeDO.getInfoTitle());
+        entity.setInfoDescription(homeDO.getInfoDescription());
+        entity.setInfoContent(homeDO.getInfoContent());
+
+        entity.setRelationId(homeDO.getRelationId());
+        return entity;
     }
 }

@@ -19,4 +19,10 @@ public class HomeInfoEntity {
      * 模块 轮播图 数据
      */
     List<BannerEntity> bannerList;
+    /**
+     * 模块2 公司简介  视频介绍
+     */
+    CompanyEntity company;
+
+
 }

@@ -5,6 +5,7 @@ import com.realmus.common.enums.ModuleEnum;
 import com.realmus.common.error.BizErrorEnum;
 import com.realmus.common.error.BizException;
 import com.realmus.domain.entity.BannerEntity;
+import com.realmus.domain.entity.CompanyEntity;
 import com.realmus.domain.entity.HomeInfoEntity;
 import com.realmus.domain.repository.HomeRepository;
 import com.realmus.repository.converter.DoTOEntity;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -53,6 +55,13 @@ public class HomeRepositoryImpl implements HomeRepository {
         }).sorted(Comparator.comparing(HomeDO::getInfoWeight).reversed())
                 .map(DoTOEntity::toBannerEntity).collect(Collectors.toList());
         infoEntity.setBannerList(bannerEntityList);
+
+
+        //获取模块2 公司信息
+        Optional<CompanyEntity> optionalCompany = homeDOList.stream().filter(homeDO -> {
+            return ModuleEnum.COMPANY.getCode().equals(homeDO.getInfoType());
+        }).map(DoTOEntity::toCompanyEntity).findFirst();
+        infoEntity.setCompany(optionalCompany.get());
 
         return infoEntity;
     }

@@ -2,6 +2,8 @@ package com.realmus.domain.repository;
 
 import com.realmus.domain.entity.MultimediaEntity;
 
+import java.util.List;
+
 /**
  * @author hkpeng
  * 查询媒体信息操作
@@ -16,4 +18,12 @@ public interface MultimediaRepository {
      * @return
      */
     MultimediaEntity getMultimediaEntityOne(String relationId);
+
+    /**
+     * 根据关联Id 获取媒体组
+     *
+     * @param relationId
+     * @return
+     */
+    List<MultimediaEntity> getMultimediaEntityList(String relationId);
 }

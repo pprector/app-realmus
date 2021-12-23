@@ -17,39 +17,12 @@ import javax.swing.*;
 @Setter
 @Getter
 @ToString
-public class BannerEntity {
-    /**
-     * 信息Id
-     */
-    private String infoId;
+public class BannerEntity extends PublicInfoEntity {
 
-    /**
-     * 模块 枚举
-     */
-    private ModuleEnum infoType;
-
-    /**
-     * 信息 H5链接
-     */
-    private String h5Url;
     /**
      * 图片获取地址
      */
-    private MultimediaEntity multimedia;
-    /**
-     * 标题
-     */
-    private String infoTitle;
-
-    /**
-     * 描述
-     */
-    private String infoDescription;
-
-    /**
-     * 内容
-     */
-    private String infoContent;
+    private MultimediaEntity bannerImg;
 
 
 }

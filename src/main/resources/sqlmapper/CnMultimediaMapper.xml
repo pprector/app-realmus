@@ -28,4 +28,15 @@
                 where relation_id = #{relationId,jdbcType=VARCHAR}
                 )
     </select>
+
+    <select id="getMultimediaEntityList" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from cn_multimedia
+        where multimedia_id in (
+                SELECT multimedia_id
+                from cn_multimedia_relation
+                where relation_id = #{relationId,jdbcType=VARCHAR}
+                )
+    </select>
 </mapper>
