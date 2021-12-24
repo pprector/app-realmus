@@ -24,14 +24,17 @@ public class HomeInfoConverter {
         }
         QueryHomeResponse homeResponse = new QueryHomeResponse();
 
-        List<BannerEntity> bannerEntityList = homeInfoEntity.getBannerList();
         //轮播
+        List<BannerEntity> bannerEntityList = homeInfoEntity.getBannerList();
         List<Banner> bannerList = bannerEntityList.stream().map(HomeInfoConverter::toBanner).collect(Collectors.toList());
         homeResponse.setBannerList(bannerList);
         //关于我们
         CompanyEntity companyEntity = homeInfoEntity.getCompany();
         homeResponse.setCompany(toCompany(companyEntity));
-
+        //模块3 优势小 banner
+        List<BannerEntity> advantageBannerEntityList = homeInfoEntity.getAdvantageBanner();
+        List<Banner> advantageBannerList = advantageBannerEntityList.stream().map(HomeInfoConverter::toBanner).collect(Collectors.toList());
+        homeResponse.setAdvantageBannerList(advantageBannerList);
         return homeResponse;
     }
 

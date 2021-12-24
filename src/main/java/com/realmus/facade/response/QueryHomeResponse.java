@@ -31,4 +31,10 @@ public class QueryHomeResponse {
     @ApiModelProperty(example = "home 模块2,企业信息 ")
     private Company company;
 
+    /**
+     * 轮播图信息集合
+     */
+    @ApiModelProperty(example = "home 模块3，优势信息4个小banner信息 ")
+    private List<Banner> advantageBannerList;
+
 }

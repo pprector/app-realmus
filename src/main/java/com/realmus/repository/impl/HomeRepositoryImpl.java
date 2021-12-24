@@ -63,6 +63,14 @@ public class HomeRepositoryImpl implements HomeRepository {
         }).map(DoTOEntity::toCompanyEntity).findFirst();
         infoEntity.setCompany(optionalCompany.get());
 
+        //获取模块3  优势小 Banner 的数据
+        List<BannerEntity> advantageBannerList = homeDOList.stream().filter(homeDO -> {
+            return ModuleEnum.ADVANTAGE_BANNER.getCode().equals(homeDO.getInfoType());
+        }).sorted(Comparator.comparing(HomeDO::getInfoWeight).reversed())
+                .map(DoTOEntity::toBannerEntity).collect(Collectors.toList());
+        infoEntity.setAdvantageBanner(advantageBannerList);
+
+
         return infoEntity;
     }
 

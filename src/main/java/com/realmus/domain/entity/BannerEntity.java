@@ -24,5 +24,4 @@ public class BannerEntity extends PublicInfoEntity {
      */
     private MultimediaEntity bannerImg;
 
-
 }

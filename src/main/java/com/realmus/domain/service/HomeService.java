@@ -74,6 +74,17 @@ public class HomeService {
                 continue;
             }
         }
+        //1.填充小轮播图
+        List<BannerEntity> advantageBannerList = homeInfoEntity.getAdvantageBanner();
+        for (BannerEntity bannerEntity : advantageBannerList) {
+            if (bannerEntity.getBannerImg() == null) {
+                continue;
+            }
+            MultimediaEntity multimediaEntityOne = multimediaRepository.getMultimediaEntityOne(bannerEntity.getBannerImg().getRelationId());
+            bannerEntity.setBannerImg(multimediaEntityOne);
+        }
+
+
         return homeInfoEntity;
     }
 
