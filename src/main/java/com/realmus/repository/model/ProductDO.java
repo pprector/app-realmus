@@ -25,12 +25,6 @@ public class ProductDO {
     private String productId;
 
     /**
-    * 产品一级类型
-    */
-    @ApiModelProperty(value="产品一级类型")
-    private Byte productLv1typeCd;
-
-    /**
     * 产品类型一级类型Name
     */
     @ApiModelProperty(value="产品类型一级类型Name")
@@ -41,12 +35,6 @@ public class ProductDO {
     */
     @ApiModelProperty(value="1媒体ID")
     private String productLv1RelationId;
-
-    /**
-    * 产品类型二级级类型cd
-    */
-    @ApiModelProperty(value="产品类型二级级类型cd")
-    private Byte productLv2typeCd;
 
     /**
     * 产品类型二级级类型Name
@@ -82,7 +70,7 @@ public class ProductDO {
     * 产品权重
     */
     @ApiModelProperty(value="产品权重")
-    private Byte productWeight;
+    private Integer productWeight;
 
     /**
     * 3媒体ID
@@ -94,7 +82,7 @@ public class ProductDO {
     *  有效标识 0失效 1生效
     */
     @ApiModelProperty(value=" 有效标识 0失效 1生效")
-    private Byte isValid;
+    private Integer isValid;
 
     @ApiModelProperty(value="")
     private String modifier;

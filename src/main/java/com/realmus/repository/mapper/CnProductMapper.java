@@ -2,54 +2,29 @@ package com.realmus.repository.mapper;
 
 import com.realmus.repository.model.ProductDO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
-* @author hkpeng
-* @date 2021/12/21 - 11:27
-*/
-    
-    
+ * @author hkpeng
+ * @date 2021/12/21 - 11:27
+ */
+
+
 @Mapper
 public interface CnProductMapper {
-    /**
-     * delete by primary key
-     * @param productId primaryKey
-     * @return deleteCount
-     */
-    int deleteByPrimaryKey(String productId);
 
     /**
-     * insert record to table
-     * @param record the record
-     * @return insert count
+     * 批量新增 产品信息
+     *
+     * @param productDOList
      */
-    int insert(ProductDO record);
+    void insertProductDOList(@Param("productDOList")List<ProductDO> productDOList);
 
     /**
-     * insert record to table selective
-     * @param record the record
-     * @return insert count
+     * 根据名称批量删除
+     * @param productNameList
      */
-    int insertSelective(ProductDO record);
-
-    /**
-     * select by primary key
-     * @param productId primary key
-     * @return object by primary key
-     */
-    ProductDO selectByPrimaryKey(String productId);
-
-    /**
-     * update record selective
-     * @param record the updated record
-     * @return update count
-     */
-    int updateByPrimaryKeySelective(ProductDO record);
-
-    /**
-     * update record
-     * @param record the updated record
-     * @return update count
-     */
-    int updateByPrimaryKey(ProductDO record);
+    void deleteByNameList(@Param("productNameList") List<String> productNameList);
 }

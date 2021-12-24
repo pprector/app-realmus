@@ -1,222 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.realmus.repository.mapper.CnProductMapper">
-  <resultMap id="BaseResultMap" type="com.realmus.repository.model.ProductDO">
-    <!--@mbg.generated-->
-    <!--@Table cn_product-->
-    <id column="product_id" jdbcType="VARCHAR" property="productId" />
-    <result column="product_lv1type_cd" jdbcType="TINYINT" property="productLv1typeCd" />
-    <result column="product_lv1type" jdbcType="VARCHAR" property="productLv1type" />
-    <result column="product_lv1_relation_id" jdbcType="VARCHAR" property="productLv1RelationId" />
-    <result column="product_lv2type_cd" jdbcType="TINYINT" property="productLv2typeCd" />
-    <result column="product_lv2type" jdbcType="VARCHAR" property="productLv2type" />
-    <result column="product_lv2_relation_id" jdbcType="VARCHAR" property="productLv2RelationId" />
-    <result column="product_name" jdbcType="VARCHAR" property="productName" />
-    <result column="product_ingredient" jdbcType="VARCHAR" property="productIngredient" />
-    <result column="product_describe" jdbcType="VARCHAR" property="productDescribe" />
-    <result column="product_weight" jdbcType="TINYINT" property="productWeight" />
-    <result column="product_relation_id" jdbcType="VARCHAR" property="productRelationId" />
-    <result column="is_valid" jdbcType="TINYINT" property="isValid" />
-    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
-    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    product_id, product_lv1type_cd, product_lv1type, product_lv1_relation_id, product_lv2type_cd, 
-    product_lv2type, product_lv2_relation_id, product_name, product_ingredient, product_describe, 
-    product_weight, product_relation_id, is_valid, modifier, gmt_modified
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from cn_product
-    where product_id = #{productId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    <!--@mbg.generated-->
-    delete from cn_product
-    where product_id = #{productId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.realmus.repository.model.ProductDO">
-    <!--@mbg.generated-->
-    insert into cn_product (product_id, product_lv1type_cd, product_lv1type, 
-      product_lv1_relation_id, product_lv2type_cd, 
-      product_lv2type, product_lv2_relation_id, product_name, 
-      product_ingredient, product_describe, product_weight, 
-      product_relation_id, is_valid, modifier, 
-      gmt_modified)
-    values (#{productId,jdbcType=VARCHAR}, #{productLv1typeCd,jdbcType=TINYINT}, #{productLv1type,jdbcType=VARCHAR}, 
-      #{productLv1RelationId,jdbcType=VARCHAR}, #{productLv2typeCd,jdbcType=TINYINT}, 
-      #{productLv2type,jdbcType=VARCHAR}, #{productLv2RelationId,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, 
-      #{productIngredient,jdbcType=VARCHAR}, #{productDescribe,jdbcType=VARCHAR}, #{productWeight,jdbcType=TINYINT}, 
-      #{productRelationId,jdbcType=VARCHAR}, #{isValid,jdbcType=TINYINT}, #{modifier,jdbcType=VARCHAR}, 
-      #{gmtModified,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.realmus.repository.model.ProductDO">
-    <!--@mbg.generated-->
-    insert into cn_product
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="productId != null">
-        product_id,
-      </if>
-      <if test="productLv1typeCd != null">
-        product_lv1type_cd,
-      </if>
-      <if test="productLv1type != null">
-        product_lv1type,
-      </if>
-      <if test="productLv1RelationId != null">
-        product_lv1_relation_id,
-      </if>
-      <if test="productLv2typeCd != null">
-        product_lv2type_cd,
-      </if>
-      <if test="productLv2type != null">
-        product_lv2type,
-      </if>
-      <if test="productLv2RelationId != null">
-        product_lv2_relation_id,
-      </if>
-      <if test="productName != null">
-        product_name,
-      </if>
-      <if test="productIngredient != null">
-        product_ingredient,
-      </if>
-      <if test="productDescribe != null">
-        product_describe,
-      </if>
-      <if test="productWeight != null">
-        product_weight,
-      </if>
-      <if test="productRelationId != null">
-        product_relation_id,
-      </if>
-      <if test="isValid != null">
-        is_valid,
-      </if>
-      <if test="modifier != null">
-        modifier,
-      </if>
-      <if test="gmtModified != null">
-        gmt_modified,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="productId != null">
-        #{productId,jdbcType=VARCHAR},
-      </if>
-      <if test="productLv1typeCd != null">
-        #{productLv1typeCd,jdbcType=TINYINT},
-      </if>
-      <if test="productLv1type != null">
-        #{productLv1type,jdbcType=VARCHAR},
-      </if>
-      <if test="productLv1RelationId != null">
-        #{productLv1RelationId,jdbcType=VARCHAR},
-      </if>
-      <if test="productLv2typeCd != null">
-        #{productLv2typeCd,jdbcType=TINYINT},
-      </if>
-      <if test="productLv2type != null">
-        #{productLv2type,jdbcType=VARCHAR},
-      </if>
-      <if test="productLv2RelationId != null">
-        #{productLv2RelationId,jdbcType=VARCHAR},
-      </if>
-      <if test="productName != null">
-        #{productName,jdbcType=VARCHAR},
-      </if>
-      <if test="productIngredient != null">
-        #{productIngredient,jdbcType=VARCHAR},
-      </if>
-      <if test="productDescribe != null">
-        #{productDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="productWeight != null">
-        #{productWeight,jdbcType=TINYINT},
-      </if>
-      <if test="productRelationId != null">
-        #{productRelationId,jdbcType=VARCHAR},
-      </if>
-      <if test="isValid != null">
-        #{isValid,jdbcType=TINYINT},
-      </if>
-      <if test="modifier != null">
-        #{modifier,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtModified != null">
-        #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.realmus.repository.model.ProductDO">
-    <!--@mbg.generated-->
-    update cn_product
-    <set>
-      <if test="productLv1typeCd != null">
-        product_lv1type_cd = #{productLv1typeCd,jdbcType=TINYINT},
-      </if>
-      <if test="productLv1type != null">
-        product_lv1type = #{productLv1type,jdbcType=VARCHAR},
-      </if>
-      <if test="productLv1RelationId != null">
-        product_lv1_relation_id = #{productLv1RelationId,jdbcType=VARCHAR},
-      </if>
-      <if test="productLv2typeCd != null">
-        product_lv2type_cd = #{productLv2typeCd,jdbcType=TINYINT},
-      </if>
-      <if test="productLv2type != null">
-        product_lv2type = #{productLv2type,jdbcType=VARCHAR},
-      </if>
-      <if test="productLv2RelationId != null">
-        product_lv2_relation_id = #{productLv2RelationId,jdbcType=VARCHAR},
-      </if>
-      <if test="productName != null">
-        product_name = #{productName,jdbcType=VARCHAR},
-      </if>
-      <if test="productIngredient != null">
-        product_ingredient = #{productIngredient,jdbcType=VARCHAR},
-      </if>
-      <if test="productDescribe != null">
-        product_describe = #{productDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="productWeight != null">
-        product_weight = #{productWeight,jdbcType=TINYINT},
-      </if>
-      <if test="productRelationId != null">
-        product_relation_id = #{productRelationId,jdbcType=VARCHAR},
-      </if>
-      <if test="isValid != null">
-        is_valid = #{isValid,jdbcType=TINYINT},
-      </if>
-      <if test="modifier != null">
-        modifier = #{modifier,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtModified != null">
-        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where product_id = #{productId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.realmus.repository.model.ProductDO">
-    <!--@mbg.generated-->
-    update cn_product
-    set product_lv1type_cd = #{productLv1typeCd,jdbcType=TINYINT},
-      product_lv1type = #{productLv1type,jdbcType=VARCHAR},
-      product_lv1_relation_id = #{productLv1RelationId,jdbcType=VARCHAR},
-      product_lv2type_cd = #{productLv2typeCd,jdbcType=TINYINT},
-      product_lv2type = #{productLv2type,jdbcType=VARCHAR},
-      product_lv2_relation_id = #{productLv2RelationId,jdbcType=VARCHAR},
-      product_name = #{productName,jdbcType=VARCHAR},
-      product_ingredient = #{productIngredient,jdbcType=VARCHAR},
-      product_describe = #{productDescribe,jdbcType=VARCHAR},
-      product_weight = #{productWeight,jdbcType=TINYINT},
-      product_relation_id = #{productRelationId,jdbcType=VARCHAR},
-      is_valid = #{isValid,jdbcType=TINYINT},
-      modifier = #{modifier,jdbcType=VARCHAR},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
-    where product_id = #{productId,jdbcType=VARCHAR}
-  </update>
+    <resultMap id="BaseResultMap" type="com.realmus.repository.model.ProductDO">
+        <!--@mbg.generated-->
+        <!--@Table cn_product-->
+        <id column="product_id" jdbcType="VARCHAR" property="productId"/>
+        <result column="product_lv1type" jdbcType="VARCHAR" property="productLv1type"/>
+        <result column="product_lv1_relation_id" jdbcType="VARCHAR" property="productLv1RelationId"/>
+        <result column="product_lv2type" jdbcType="VARCHAR" property="productLv2type"/>
+        <result column="product_lv2_relation_id" jdbcType="VARCHAR" property="productLv2RelationId"/>
+        <result column="product_name" jdbcType="VARCHAR" property="productName"/>
+        <result column="product_ingredient" jdbcType="VARCHAR" property="productIngredient"/>
+        <result column="product_describe" jdbcType="VARCHAR" property="productDescribe"/>
+        <result column="product_weight" jdbcType="TINYINT" property="productWeight"/>
+        <result column="product_relation_id" jdbcType="VARCHAR" property="productRelationId"/>
+        <result column="is_valid" jdbcType="TINYINT" property="isValid"/>
+        <result column="modifier" jdbcType="VARCHAR" property="modifier"/>
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        product_id, product_lv1type, product_lv1_relation_id,
+        product_lv2type, product_lv2_relation_id, product_name, product_ingredient, product_describe,
+        product_weight, product_relation_id, is_valid, modifier, gmt_modified
+    </sql>
+
+    <insert id="insertProductDOList">
+        insert into cn_product(
+        <include refid="Base_Column_List"/>
+        )values
+        <foreach collection="productDOList" item="item" separator=",">
+            (#{item.productId,jdbcType=VARCHAR},
+             #{item.productLv1type,jdbcType=VARCHAR},
+             #{item.productLv1RelationId,jdbcType=VARCHAR},
+             #{item.productLv2type,jdbcType=VARCHAR},
+             #{item.productLv2RelationId,jdbcType=VARCHAR},
+             #{item.productName,jdbcType=VARCHAR},
+             #{item.productIngredient,jdbcType=VARCHAR},
+             #{item.productDescribe,jdbcType=VARCHAR},
+             #{item.productWeight,jdbcType=INTEGER},
+             #{item.productRelationId,jdbcType=VARCHAR},
+             1, #{item.modifier,jdbcType=VARCHAR},
+             now())
+        </foreach>
+    </insert>
+    <!--批量删除-->
+    <delete id="deleteByNameList">
+        delete
+        from cn_product
+                where product_name in
+        <foreach collection="productNameList" open="(" close=")" item="product" separator=",">
+            #{product,jdbcType=VARCHAR}
+        </foreach>
+    </delete>
 </mapper>
