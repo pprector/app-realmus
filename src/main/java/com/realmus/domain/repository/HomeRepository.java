@@ -1,6 +1,7 @@
 package com.realmus.domain.repository;
 
 import com.realmus.common.enums.LanguageEnum;
+import com.realmus.domain.entity.AboutUsEntity;
 import com.realmus.domain.entity.HomeInfoEntity;
 import com.realmus.domain.entity.NavigationEntity;
 
@@ -19,4 +20,10 @@ public interface HomeRepository {
      */
     HomeInfoEntity getHomeInfoChinese(LanguageEnum languageEnum);
 
+    /**
+     * 获取关于我们信息
+     * @param languageEnum
+     * @return
+     */
+    AboutUsEntity getAboutUsInfo(LanguageEnum languageEnum);
 }

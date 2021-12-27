@@ -1,11 +1,11 @@
 package com.realmus.repository.converter;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.realmus.common.enums.ExtendTypeEnum;
 import com.realmus.common.enums.ModuleEnum;
 import com.realmus.common.enums.MultimediaEnum;
-import com.realmus.domain.entity.BannerEntity;
-import com.realmus.domain.entity.CompanyEntity;
-import com.realmus.domain.entity.MultimediaEntity;
-import com.realmus.domain.entity.NavigationEntity;
+import com.realmus.domain.entity.*;
 import com.realmus.repository.model.HomeDO;
 import com.realmus.repository.model.MultimediaDO;
 import com.realmus.repository.model.NavigationDO;
@@ -31,24 +31,27 @@ public class DoTOEntity {
         return entity;
     }
 
-    public static BannerEntity toBannerEntity(HomeDO homeDO) {
-        if (homeDO == null) {
+    public static ExtensionEntity toExtensionEntity(NavigationDO navigationDO) {
+        if (navigationDO == null) {
             return null;
         }
-        BannerEntity entity = new BannerEntity();
-        entity.setInfoId(homeDO.getInfoId());
-        entity.setInfoType(ModuleEnum.getModuleEnum(homeDO.getInfoType()));
-        entity.setH5Url(homeDO.getInfoUrl());
-        entity.setInfoTitle(homeDO.getInfoTitle());
-        entity.setInfoDescription(homeDO.getInfoDescription());
-        entity.setInfoContent(homeDO.getInfoContent());
+        ExtensionEntity entity = new ExtensionEntity();
+        entity.setExtendId(navigationDO.getNavigationId());
+        ExtendTypeEnum extendTypeEnum = ExtendTypeEnum.getLanguageEnum(navigationDO.getNavigationId());
+        entity.setExtendType(extendTypeEnum);
 
-        MultimediaEntity multimediaEntity = new MultimediaEntity();
-        multimediaEntity.setRelationId(homeDO.getRelationId());
-
-        entity.setBannerImg(multimediaEntity);
+        String extendJson = navigationDO.getExtendJson();
+        switch (extendTypeEnum) {
+            case HOME_INFO:
+                HomeInfoEntity homeInfoEntity = JSONObject.parseObject(extendJson, HomeInfoEntity.class);
+                entity.setExtension(homeInfoEntity);
+                break;
+            case ABOUT_US:
+                break;
+        }
         return entity;
     }
+
 
     public static MultimediaEntity toMultimediaEntity(String relationId, MultimediaDO multimediaDO) {
         if (multimediaDO == null) {
@@ -63,19 +66,5 @@ public class DoTOEntity {
         return entity;
     }
 
-    public static CompanyEntity toCompanyEntity(HomeDO homeDO) {
-        if (homeDO == null) {
-            return null;
-        }
-        CompanyEntity entity = new CompanyEntity();
-        entity.setInfoId(homeDO.getInfoId());
-        entity.setInfoType(ModuleEnum.getModuleEnum(homeDO.getInfoType()));
-        entity.setH5Url(homeDO.getInfoUrl());
-        entity.setInfoTitle(homeDO.getInfoTitle());
-        entity.setInfoDescription(homeDO.getInfoDescription());
-        entity.setInfoContent(homeDO.getInfoContent());
 
-        entity.setRelationId(homeDO.getRelationId());
-        return entity;
-    }
 }

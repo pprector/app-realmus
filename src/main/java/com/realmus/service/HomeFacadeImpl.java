@@ -6,7 +6,7 @@ import com.realmus.common.error.BizException;
 import com.realmus.common.result.ResultModel;
 import com.realmus.common.util.ResultUtil;
 import com.realmus.domain.entity.HomeInfoEntity;
-import com.realmus.domain.service.HomeService;
+import com.realmus.domain.service.NavigationService;
 import com.realmus.facade.HomeFacade;
 import com.realmus.facade.response.QueryHomeResponse;
 import com.realmus.service.converter.HomeInfoConverter;
@@ -32,7 +32,7 @@ public class HomeFacadeImpl implements HomeFacade {
     private static final Logger logger = LoggerFactory.getLogger(HomeFacadeImpl.class);
 
     @Autowired
-    private HomeService homeService;
+    private NavigationService navigationService;
 
 
     @ApiOperation(value = "Home 全量信息获取", httpMethod = "GET")
@@ -42,7 +42,7 @@ public class HomeFacadeImpl implements HomeFacade {
     public ResultModel<QueryHomeResponse> getHomeInfo(@PathVariable Integer type) {
         logger.info("=====HomeFacadeImpl getHomeInfo request : ");
         try {
-            HomeInfoEntity homeInfoEntity = homeService.getHomeInfo(LanguageEnum.getLanguageEnum(type));
+            HomeInfoEntity homeInfoEntity = navigationService.getHomeInfo(LanguageEnum.getLanguageEnum(type));
             QueryHomeResponse homeResponse = HomeInfoConverter.toQueryHomeResponse(homeInfoEntity);
             return ResultUtil.success(homeResponse);
         } catch (BizException e) {

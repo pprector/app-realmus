@@ -9,21 +9,37 @@
         <result column="navigation_url" jdbcType="VARCHAR" property="navigationUrl"/>
         <result column="navigation_tier" jdbcType="TINYINT" property="navigationTier"/>
         <result column="navigation_parent_id" jdbcType="VARCHAR" property="navigationParentId"/>
-        <result column="weight" jdbcType="TINYINT" property="weight"/>
         <result column="is_valid" jdbcType="TINYINT" property="isValid"/>
         <result column="modifier" jdbcType="VARCHAR" property="modifier"/>
         <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+        <result column="extend_json" jdbcType="VARCHAR" property="extendJson"/>
     </resultMap>
     <sql id="Base_Column_List">
         <!--@mbg.generated-->
         navigation_id, navigation_name, navigation_url, navigation_tier, navigation_parent_id,
-        is_valid, modifier, gmt_modified,weight
+        is_valid, modifier, gmt_modified,extend_json
     </sql>
+    <sql id="Base_Column_One">
+        <!--@mbg.generated-->
+        navigation_id, navigation_name, navigation_url, navigation_tier, navigation_parent_id,
+        is_valid, modifier, gmt_modified
+    </sql>
+
     <!--查询所有数据-->
     <select id="findAllNavigationInfo" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_One"/>
         from cn_navigation
         where is_valid = 1
+        group by gmt_modified
+    </select>
+    <!--根据ID 查询 包晗扩展信息-->
+    <select id="findNavigationInfoById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cn_navigation
+        where navigation_id = #{navigationId,jdbcType=VARCHAR}
+        and is_valid = 1
+        group by gmt_modified
     </select>
 </mapper>

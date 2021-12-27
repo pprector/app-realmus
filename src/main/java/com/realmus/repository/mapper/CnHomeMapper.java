@@ -2,6 +2,7 @@ package com.realmus.repository.mapper;
 
 import com.realmus.repository.model.HomeDO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,5 +19,5 @@ public interface CnHomeMapper {
      *
      * @return
      */
-    List<HomeDO> findAllHomeInfo();
+    HomeDO findAllHomeInfo(@Param("navigationId") String navigationId);
 }

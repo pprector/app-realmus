@@ -1,8 +1,11 @@
 package com.realmus.domain.service;
 
+import com.realmus.common.enums.ExtendTypeEnum;
 import com.realmus.common.enums.LanguageEnum;
 import com.realmus.common.error.BizErrorEnum;
 import com.realmus.common.error.BizException;
+import com.realmus.domain.entity.ExtensionEntity;
+import com.realmus.domain.entity.HomeInfoEntity;
 import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.domain.repository.NavigationRepository;
 import com.realmus.repository.model.NavigationDO;
@@ -33,16 +36,20 @@ public class NavigationService {
     public List<NavigationEntity> getNavigationInfo(LanguageEnum languageEnum) {
         logger.info("=====NavigationService getNavigationInfo request : ");
         //查询出所有数据
-        List<NavigationEntity> navigationEntityList = null;
-        switch (languageEnum) {
-            case CHINESE:
-                navigationEntityList = navigationRepository.getNavigationChineseInfo(languageEnum);
-                break;
-            case ENGLISH:
-                throw new BizException(BizErrorEnum.A001);
-        }
+        List<NavigationEntity> navigationEntityList = navigationRepository.getNavigationChineseInfo(languageEnum);
         return navigationEntityList;
     }
 
+    /**
+     * 获取首页信息
+     *
+     * @param languageEnum
+     * @return
+     */
+    public HomeInfoEntity getHomeInfo(LanguageEnum languageEnum) {
 
+        ExtensionEntity<HomeInfoEntity> extendInfo = navigationRepository.findExtendInfo(languageEnum, ExtendTypeEnum.HOME_INFO.getId());
+        HomeInfoEntity homeInfoEntity = extendInfo.getExtension();
+        return homeInfoEntity;
+    }
 }

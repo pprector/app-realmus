@@ -5,6 +5,7 @@ import com.realmus.common.enums.LanguageEnum;
 import com.realmus.common.enums.TierEnum;
 import com.realmus.common.error.BizErrorEnum;
 import com.realmus.common.error.BizException;
+import com.realmus.domain.entity.ExtensionEntity;
 import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.domain.repository.NavigationRepository;
 import com.realmus.facade.param.Navigation;
@@ -43,6 +44,29 @@ public class NavigationRepositoryImpl implements NavigationRepository {
         //数据处理
         return toNavigationEntityList(navigationDOList);
     }
+
+    /**
+     * 查询扩展信息
+     *
+     * @param languageEnum
+     * @param navigationId
+     * @return
+     */
+    @Override
+    public ExtensionEntity findExtendInfo(LanguageEnum languageEnum, String navigationId) {
+        NavigationDO navigationDO = null;
+        ExtensionEntity extensionEntity = null;
+        switch (languageEnum) {
+            case CHINESE:
+                navigationDO = cnNavigationMapper.findNavigationInfoById(navigationId);
+                extensionEntity  =DoTOEntity.toExtensionEntity(navigationDO);
+                break;
+            case ENGLISH:
+                throw new BizException(BizErrorEnum.A001);
+        }
+        return extensionEntity;
+    }
+
 
     private List<NavigationEntity> toNavigationEntityList(List<NavigationDO> navigationDOList) {
         //LV1

@@ -27,4 +27,8 @@ public class HomeInfoEntity {
      * 模块三 小Banner
      */
     private List<BannerEntity> advantageBanner;
+    /**
+     * 服务项目 集合
+     */
+    private List<ServiceItemEntity> serviceItemList;
 }
