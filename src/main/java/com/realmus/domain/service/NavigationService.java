@@ -4,6 +4,7 @@ import com.realmus.common.enums.ExtendTypeEnum;
 import com.realmus.common.enums.LanguageEnum;
 import com.realmus.common.error.BizErrorEnum;
 import com.realmus.common.error.BizException;
+import com.realmus.domain.entity.AboutUsEntity;
 import com.realmus.domain.entity.ExtensionEntity;
 import com.realmus.domain.entity.HomeInfoEntity;
 import com.realmus.domain.entity.NavigationEntity;
@@ -51,5 +52,18 @@ public class NavigationService {
         ExtensionEntity<HomeInfoEntity> extendInfo = navigationRepository.findExtendInfo(languageEnum, ExtendTypeEnum.HOME_INFO.getId());
         HomeInfoEntity homeInfoEntity = extendInfo.getExtension();
         return homeInfoEntity;
+    }
+
+    /**
+     * 获取关于我们信息
+     *
+     * @param languageEnum
+     * @return
+     */
+    public AboutUsEntity getAboutUsInfo(LanguageEnum languageEnum) {
+        ExtensionEntity<AboutUsEntity> extendInfo = navigationRepository.findExtendInfo(languageEnum, ExtendTypeEnum.ABOUT_US.getId());
+        AboutUsEntity homeInfoEntity = extendInfo.getExtension();
+        return homeInfoEntity;
+
     }
 }

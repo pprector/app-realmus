@@ -1,13 +1,16 @@
 
 package com.realmus.service.converter;
 
+import com.realmus.domain.entity.AboutUsEntity;
 import com.realmus.domain.entity.BannerEntity;
 import com.realmus.domain.entity.CompanyEntity;
 import com.realmus.domain.entity.HomeInfoEntity;
 import com.realmus.facade.param.Banner;
 import com.realmus.facade.param.Company;
+import com.realmus.facade.response.AboutUsResponse;
 import com.realmus.facade.response.QueryHomeResponse;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,7 +19,7 @@ import java.util.stream.Collectors;
  * @date 2021/12/22 - 14:29
  */
 
-public class HomeInfoConverter {
+public class InfoConverter {
 
     public static QueryHomeResponse toQueryHomeResponse(HomeInfoEntity homeInfoEntity) {
         if (homeInfoEntity == null) {
@@ -26,14 +29,14 @@ public class HomeInfoConverter {
 
         //轮播
         List<BannerEntity> bannerEntityList = homeInfoEntity.getBannerList();
-        List<Banner> bannerList = bannerEntityList.stream().map(HomeInfoConverter::toBanner).collect(Collectors.toList());
+        List<Banner> bannerList = bannerEntityList.stream().map(InfoConverter::toBanner).collect(Collectors.toList());
         homeResponse.setBannerList(bannerList);
         //关于我们
         CompanyEntity companyEntity = homeInfoEntity.getCompany();
         homeResponse.setCompany(toCompany(companyEntity));
         //模块3 优势小 banner
         List<BannerEntity> advantageBannerEntityList = homeInfoEntity.getAdvantageBanner();
-        List<Banner> advantageBannerList = advantageBannerEntityList.stream().map(HomeInfoConverter::toBanner).collect(Collectors.toList());
+        List<Banner> advantageBannerList = advantageBannerEntityList.stream().map(InfoConverter::toBanner).collect(Collectors.toList());
         homeResponse.setAdvantageBannerList(advantageBannerList);
         return homeResponse;
     }
@@ -78,5 +81,23 @@ public class HomeInfoConverter {
             banner.setImgUrl(entity.getBannerImg().getMultimediaUrl());
         }
         return banner;
+    }
+
+    public static AboutUsResponse toAboutUsResponse(AboutUsEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        AboutUsResponse response = new AboutUsResponse();
+        response.setBanner(toBanner(entity.getBanner()));
+        response.setCompany(toCompany(entity.getCompany()));
+
+        if (entity.getCourseBannerList() != null) {
+            List<Banner> bannerList = entity.getCourseBannerList().stream().map(InfoConverter::toBanner).collect(Collectors.toList());
+            response.setCourseBannerList(bannerList);
+        }
+        if (entity.getImgUrl() != null) {
+            response.setImgUrl(entity.getImgUrl().getMultimediaUrl());
+        }
+        return response;
     }
 }

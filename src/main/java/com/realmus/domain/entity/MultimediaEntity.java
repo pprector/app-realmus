@@ -15,14 +15,6 @@ import lombok.ToString;
 @ToString
 public class MultimediaEntity {
     /**
-     * 关联ID
-     */
-    private String relationId;
-    /**
-     * 媒体
-     */
-    private String multimediaId;
-    /**
      * 媒体类型
      */
     private MultimediaEnum multimediaType;

@@ -13,16 +13,17 @@
         <result column="modifier" jdbcType="VARCHAR" property="modifier"/>
         <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
         <result column="extend_json" jdbcType="VARCHAR" property="extendJson"/>
+        <result column="weight" jdbcType="TINYINT" property="weight"/>
     </resultMap>
     <sql id="Base_Column_List">
         <!--@mbg.generated-->
         navigation_id, navigation_name, navigation_url, navigation_tier, navigation_parent_id,
-        is_valid, modifier, gmt_modified,extend_json
+        is_valid, modifier, gmt_modified,extend_json,weight
     </sql>
     <sql id="Base_Column_One">
         <!--@mbg.generated-->
         navigation_id, navigation_name, navigation_url, navigation_tier, navigation_parent_id,
-        is_valid, modifier, gmt_modified
+        is_valid, modifier, gmt_modified,weight
     </sql>
 
     <!--查询所有数据-->

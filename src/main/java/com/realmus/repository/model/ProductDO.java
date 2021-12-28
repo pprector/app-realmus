@@ -42,11 +42,6 @@ public class ProductDO {
     @ApiModelProperty(value="产品类型二级级类型Name")
     private String productLv2type;
 
-    /**
-    * 2媒体ID
-    */
-    @ApiModelProperty(value="2媒体ID")
-    private String productLv2RelationId;
 
     /**
     * 产品名称

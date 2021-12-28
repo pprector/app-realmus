@@ -47,6 +47,8 @@ public class DoTOEntity {
                 entity.setExtension(homeInfoEntity);
                 break;
             case ABOUT_US:
+                AboutUsEntity aboutUsEntity = JSONObject.parseObject(extendJson, AboutUsEntity.class);
+                entity.setExtension(aboutUsEntity);
                 break;
         }
         return entity;
@@ -58,8 +60,6 @@ public class DoTOEntity {
             return null;
         }
         MultimediaEntity entity = new MultimediaEntity();
-        entity.setRelationId(relationId);
-        entity.setMultimediaId(multimediaDO.getMultimediaId());
         entity.setMultimediaType(MultimediaEnum.getMultimediaEnum(multimediaDO.getMultimediaType()));
         entity.setMultimediaUrl(multimediaDO.getMultimediaUrl());
         entity.setDescription(multimediaDO.getMultimediaDesc());
