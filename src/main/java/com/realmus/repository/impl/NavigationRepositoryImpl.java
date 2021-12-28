@@ -70,7 +70,7 @@ public class NavigationRepositoryImpl implements NavigationRepository {
         NavigationDO navigationDO = EntityToDo.toNavigationDO(navigation);
         switch (languageEnum) {
             case CHINESE:
-                cnNavigationMapper.updateNavigationById(navigation);
+                cnNavigationMapper.updateByPrimaryKeySelective(navigationDO);
                 break;
             case ENGLISH:
                 throw new BizException(BizErrorEnum.A001);

@@ -18,13 +18,48 @@
     <sql id="Base_Column_List">
         <!--@mbg.generated-->
         navigation_id, navigation_name, navigation_url, navigation_tier, navigation_parent_id,
-        is_valid, modifier, gmt_modified,extend_json,weight
+        is_valid, modifier, gmt_modified, extend_json, weight
     </sql>
     <sql id="Base_Column_One">
         <!--@mbg.generated-->
         navigation_id, navigation_name, navigation_url, navigation_tier, navigation_parent_id,
-        is_valid, modifier, gmt_modified,weight
+        is_valid, modifier, gmt_modified, weight
     </sql>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.realmus.repository.model.NavigationDO">
+        <!--@mbg.generated-->
+        update cn_navigation
+        <set>
+            <if test="navigationName != null">
+                navigation_name = #{navigationName,jdbcType=VARCHAR},
+            </if>
+            <if test="navigationUrl != null">
+                navigation_url = #{navigationUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="navigationTier != null">
+                navigation_tier = #{navigationTier,jdbcType=TINYINT},
+            </if>
+            <if test="navigationParentId != null">
+                navigation_parent_id = #{navigationParentId,jdbcType=VARCHAR},
+            </if>
+            <if test="isValid != null">
+                is_valid = #{isValid,jdbcType=TINYINT},
+            </if>
+            <if test="modifier != null">
+                modifier = #{modifier,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="extendJson != null">
+                extend_json = #{extendJson,jdbcType=VARCHAR},
+            </if>
+            <if test="weight != null">
+                weight = #{weight,jdbcType=TINYINT},
+            </if>
+        </set>
+        where navigation_id = #{navigationId,jdbcType=VARCHAR}
+    </update>
 
     <!--查询所有数据-->
     <select id="findAllNavigationInfo" resultMap="BaseResultMap">
@@ -44,7 +79,4 @@
         group by gmt_modified
     </select>
 
-    <update id="updateNavigationById">
-
-    </update>
 </mapper>
