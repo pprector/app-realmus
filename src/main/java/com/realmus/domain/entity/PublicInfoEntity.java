@@ -15,10 +15,6 @@ import lombok.ToString;
 @ToString
 public class PublicInfoEntity {
 
-    /**
-     * 信息Id
-     */
-    private String infoId;
 
     /**
      * 模块 枚举

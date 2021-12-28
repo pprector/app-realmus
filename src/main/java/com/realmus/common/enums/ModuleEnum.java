@@ -16,7 +16,9 @@ public enum ModuleEnum {
 
     COMPANY(2, "关于我们"),
 
-    ADVANTAGE_BANNER(3, "优势小banner");
+    ADVANTAGE_BANNER(3, "优势小banner"),
+
+    ABOUT_US_BANNER(6, "关于我们抬头banner");
 
     private Integer code;
 

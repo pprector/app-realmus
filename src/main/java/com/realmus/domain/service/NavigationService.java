@@ -66,9 +66,9 @@ public class NavigationService {
     /**
      * 数据更新模块
      */
-    public void updateNavigationInfo(NavigationEntity navigation) {
+    public void updateNavigationInfo(LanguageEnum languageEnum, NavigationEntity navigation) {
         //1.根据ID更新
-        navigationRepository.updateNavigationInfo(navigation);
+        navigationRepository.updateNavigationInfo(languageEnum, navigation);
     }
 
 }
