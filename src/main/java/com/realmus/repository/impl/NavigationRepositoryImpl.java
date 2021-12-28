@@ -1,14 +1,11 @@
 package com.realmus.repository.impl;
 
-import com.realmus.common.enums.GeneralEnum;
 import com.realmus.common.enums.LanguageEnum;
 import com.realmus.common.enums.TierEnum;
 import com.realmus.common.error.BizErrorEnum;
 import com.realmus.common.error.BizException;
-import com.realmus.domain.entity.ExtensionEntity;
 import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.domain.repository.NavigationRepository;
-import com.realmus.facade.param.Navigation;
 import com.realmus.repository.converter.DoTOEntity;
 import com.realmus.repository.mapper.CnNavigationMapper;
 import com.realmus.repository.model.NavigationDO;
@@ -53,18 +50,18 @@ public class NavigationRepositoryImpl implements NavigationRepository {
      * @return
      */
     @Override
-    public ExtensionEntity findExtendInfo(LanguageEnum languageEnum, String navigationId) {
+    public NavigationEntity findExtendInfo(LanguageEnum languageEnum, String navigationId) {
         NavigationDO navigationDO = null;
-        ExtensionEntity extensionEntity = null;
+        NavigationEntity navigationEntity = null;
         switch (languageEnum) {
             case CHINESE:
                 navigationDO = cnNavigationMapper.findNavigationInfoById(navigationId);
-                extensionEntity  =DoTOEntity.toExtensionEntity(navigationDO);
+                navigationEntity = DoTOEntity.toNavigationEntity(navigationDO);
                 break;
             case ENGLISH:
                 throw new BizException(BizErrorEnum.A001);
         }
-        return extensionEntity;
+        return navigationEntity;
     }
 
 
@@ -85,8 +82,8 @@ public class NavigationRepositoryImpl implements NavigationRepository {
         for (NavigationEntity entity : navigationEntityList) {
             List<NavigationEntity> entityItem = navigationEntityLv2List.stream().filter(item -> {
                 return entity.getNavigationId().equals(item.getNavigationParentId());
-            }).sorted(Comparator.comparing(NavigationEntity::getWeight).reversed())
-                    .collect(Collectors.toList());
+            }).collect(Collectors.toList());
+            
             entity.setSonNavigationList(entityItem);
         }
         return navigationEntityList;

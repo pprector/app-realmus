@@ -23,6 +23,6 @@ class NavigationFacadeImplTest {
     @Test
     void getNavigationInfo() {
         ResultModel<List<PageNavigationResponse>> navigationInfo = navigationFacade.getNavigationInfo(1);
-        System.out.println(JSON.toJSONString(navigationInfo,true));
+        System.out.println(JSON.toJSONString(navigationInfo, true));
     }
 }

@@ -2,14 +2,10 @@ package com.realmus.domain.service;
 
 import com.realmus.common.enums.ExtendTypeEnum;
 import com.realmus.common.enums.LanguageEnum;
-import com.realmus.common.error.BizErrorEnum;
-import com.realmus.common.error.BizException;
 import com.realmus.domain.entity.AboutUsEntity;
-import com.realmus.domain.entity.ExtensionEntity;
 import com.realmus.domain.entity.HomeInfoEntity;
 import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.domain.repository.NavigationRepository;
-import com.realmus.repository.model.NavigationDO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +32,7 @@ public class NavigationService {
      */
     public List<NavigationEntity> getNavigationInfo(LanguageEnum languageEnum) {
         logger.info("=====NavigationService getNavigationInfo request : ");
-        //查询出所有数据
+        //查询导航栏 无扩展信息
         List<NavigationEntity> navigationEntityList = navigationRepository.getNavigationChineseInfo(languageEnum);
         return navigationEntityList;
     }
@@ -48,8 +44,8 @@ public class NavigationService {
      * @return
      */
     public HomeInfoEntity getHomeInfo(LanguageEnum languageEnum) {
-
-        ExtensionEntity<HomeInfoEntity> extendInfo = navigationRepository.findExtendInfo(languageEnum, ExtendTypeEnum.HOME_INFO.getId());
+        //根据ID获取详情数据
+        NavigationEntity<HomeInfoEntity> extendInfo = navigationRepository.findExtendInfo(languageEnum, ExtendTypeEnum.HOME_INFO.getId());
         HomeInfoEntity homeInfoEntity = extendInfo.getExtension();
         return homeInfoEntity;
     }
@@ -61,9 +57,15 @@ public class NavigationService {
      * @return
      */
     public AboutUsEntity getAboutUsInfo(LanguageEnum languageEnum) {
-        ExtensionEntity<AboutUsEntity> extendInfo = navigationRepository.findExtendInfo(languageEnum, ExtendTypeEnum.ABOUT_US.getId());
+        NavigationEntity<AboutUsEntity> extendInfo = navigationRepository.findExtendInfo(languageEnum, ExtendTypeEnum.ABOUT_US.getId());
         AboutUsEntity homeInfoEntity = extendInfo.getExtension();
         return homeInfoEntity;
-
     }
+
+
+    /**
+     * 数据更新模块
+     */
+
+
 }

@@ -9,6 +9,7 @@ import com.realmus.domain.entity.*;
 import com.realmus.repository.model.HomeDO;
 import com.realmus.repository.model.MultimediaDO;
 import com.realmus.repository.model.NavigationDO;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * @author hkpeng
@@ -28,19 +29,21 @@ public class DoTOEntity {
         entity.setNavigationTier(navigationDO.getNavigationTier());
         entity.setNavigationParentId(navigationDO.getNavigationParentId());
         entity.setWeight(navigationDO.getWeight());
-        return entity;
+        if (StringUtils.isNotEmpty(navigationDO.getExtendJson())) {
+            //扩展信息 封装
+            return toExtensionNavigationEntity(entity, navigationDO.getExtendJson());
+        } else {
+            return entity;
+        }
+
     }
 
-    public static ExtensionEntity toExtensionEntity(NavigationDO navigationDO) {
-        if (navigationDO == null) {
+    private static NavigationEntity toExtensionNavigationEntity(NavigationEntity entity, String extendJson) {
+        if (entity == null) {
             return null;
         }
-        ExtensionEntity entity = new ExtensionEntity();
-        entity.setExtendId(navigationDO.getNavigationId());
-        ExtendTypeEnum extendTypeEnum = ExtendTypeEnum.getLanguageEnum(navigationDO.getNavigationId());
-        entity.setExtendType(extendTypeEnum);
+        ExtendTypeEnum extendTypeEnum = ExtendTypeEnum.getLanguageEnum(entity.getNavigationId());
 
-        String extendJson = navigationDO.getExtendJson();
         switch (extendTypeEnum) {
             case HOME_INFO:
                 HomeInfoEntity homeInfoEntity = JSONObject.parseObject(extendJson, HomeInfoEntity.class);

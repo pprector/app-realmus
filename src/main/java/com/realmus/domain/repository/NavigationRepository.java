@@ -1,9 +1,7 @@
 package com.realmus.domain.repository;
 
 import com.realmus.common.enums.LanguageEnum;
-import com.realmus.domain.entity.ExtensionEntity;
 import com.realmus.domain.entity.NavigationEntity;
-import com.realmus.facade.param.Navigation;
 
 import java.util.List;
 
@@ -28,5 +26,5 @@ public interface NavigationRepository {
      *
      * @return
      */
-    ExtensionEntity findExtendInfo(LanguageEnum languageEnum, String navigationId);
+    NavigationEntity findExtendInfo(LanguageEnum languageEnum, String navigationId);
 }

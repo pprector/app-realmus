@@ -31,12 +31,14 @@ public class NavigationConverter {
         pageNavigationResponse.setH5Url(entityList.getH5Url());
         pageNavigationResponse.setNavigationTier(entityList.getNavigationTier());
 
-        List<Navigation> navigationList = entityList.getSonNavigationList().stream().map(
-                NavigationConverter::toNavigation).collect(Collectors.toList());
+        List<NavigationEntity> sonNavigationList = entityList.getSonNavigationList();
+        List<Navigation> navigationList = sonNavigationList.stream().map(NavigationConverter::toNavigation).collect(Collectors.toList());
+
         pageNavigationResponse.setSonNavigationList(navigationList);
 
         return pageNavigationResponse;
     }
+
 
     public static Navigation toNavigation(NavigationEntity entity) {
         if (entity == null) {

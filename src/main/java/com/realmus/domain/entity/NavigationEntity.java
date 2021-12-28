@@ -4,6 +4,7 @@ import com.realmus.facade.param.Navigation;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.apache.poi.ss.formula.functions.T;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @ToString
 @Getter
 @Setter
-public class NavigationEntity {
+public class NavigationEntity<T> {
     /**
      * 导航栏ID
      */
@@ -45,4 +46,8 @@ public class NavigationEntity {
      * 子导航栏
      */
     List<NavigationEntity> sonNavigationList;
+    /**
+     * 扩展信息JSON
+     */
+    private T extension;
 }
