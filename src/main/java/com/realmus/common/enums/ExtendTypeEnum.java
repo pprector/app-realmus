@@ -13,7 +13,11 @@ public enum ExtendTypeEnum {
 
     HOME_INFO("1640068138", "Home首页", "HomeInfoEntity"),
 
-    ABOUT_US("1640068311", "关于我们", "AboutUsEntity");
+    ABOUT_US("1640068311", "关于我们", "AboutUsEntity"),
+
+    NEWS("1640068343", "新闻中心", "NewsEntity"),
+
+    RD("1640068346", "制造研发(R&D)", "RDEntity");
 
 
     private String id;

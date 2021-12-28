@@ -53,19 +53,16 @@ public class DoTOEntity {
                 AboutUsEntity aboutUsEntity = JSONObject.parseObject(extendJson, AboutUsEntity.class);
                 entity.setExtension(aboutUsEntity);
                 break;
-        }
-        return entity;
-    }
+            case NEWS:
+                NewsEntity newsEntity = JSONObject.parseObject(extendJson, NewsEntity.class);
+                entity.setExtension(newsEntity);
+                break;
+            case RD:
+                RDEntity rdEntity = JSONObject.parseObject(extendJson, RDEntity.class);
+                entity.setExtension(rdEntity);
+                break;
 
-
-    public static MultimediaEntity toMultimediaEntity(String relationId, MultimediaDO multimediaDO) {
-        if (multimediaDO == null) {
-            return null;
         }
-        MultimediaEntity entity = new MultimediaEntity();
-        entity.setMultimediaType(MultimediaEnum.getMultimediaEnum(multimediaDO.getMultimediaType()));
-        entity.setMultimediaUrl(multimediaDO.getMultimediaUrl());
-        entity.setDescription(multimediaDO.getMultimediaDesc());
         return entity;
     }
 
