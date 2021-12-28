@@ -1,5 +1,6 @@
 package com.realmus.repository.mapper;
 
+import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.repository.model.NavigationDO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -28,4 +29,11 @@ public interface CnNavigationMapper {
      * @return
      */
     NavigationDO findNavigationInfoById(@Param("navigationId") String navigationId);
+
+    /**
+     * 更新 导航栏信息
+     *
+     * @param navigation
+     */
+    void updateNavigationById(NavigationEntity navigation);
 }

@@ -1,7 +1,12 @@
 package com.realmus.repository.converter;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.realmus.common.enums.GeneralEnum;
 import com.realmus.common.util.IdWorker;
+import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.domain.entity.ProductEntity;
+import com.realmus.repository.model.NavigationDO;
 import com.realmus.repository.model.ProductDO;
 
 import java.util.Date;
@@ -38,5 +43,23 @@ public class EntityToDo {
 
         return productDO;
 
+    }
+
+    public static NavigationDO toNavigationDO(NavigationEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        NavigationDO navigationDO = new NavigationDO();
+        navigationDO.setNavigationId(entity.getNavigationId());
+        navigationDO.setNavigationName(entity.getNavigationName());
+        navigationDO.setNavigationUrl(entity.getH5Url());
+        navigationDO.setExtendJson(JSONObject.toJSONString(entity.getExtension()));
+        navigationDO.setNavigationTier(entity.getNavigationTier());
+        navigationDO.setNavigationParentId(entity.getNavigationParentId());
+        navigationDO.setWeight(entity.getWeight());
+        navigationDO.setIsValid(GeneralEnum.YES.getCode());
+        navigationDO.setModifier("phk");
+        navigationDO.setGmtModified(new Date());
+        return navigationDO;
     }
 }

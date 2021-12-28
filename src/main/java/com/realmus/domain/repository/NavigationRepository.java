@@ -27,4 +27,11 @@ public interface NavigationRepository {
      * @return
      */
     NavigationEntity findExtendInfo(LanguageEnum languageEnum, String navigationId);
+
+    /**
+     * 更新 导航数据
+     *
+     * @param navigation
+     */
+    void updateNavigationInfo(LanguageEnum languageEnum,NavigationEntity navigation);
 }

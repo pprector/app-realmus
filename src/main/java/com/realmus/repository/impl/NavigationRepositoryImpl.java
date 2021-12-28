@@ -7,6 +7,7 @@ import com.realmus.common.error.BizException;
 import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.domain.repository.NavigationRepository;
 import com.realmus.repository.converter.DoTOEntity;
+import com.realmus.repository.converter.EntityToDo;
 import com.realmus.repository.mapper.CnNavigationMapper;
 import com.realmus.repository.model.NavigationDO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +65,19 @@ public class NavigationRepositoryImpl implements NavigationRepository {
         return navigationEntity;
     }
 
+    @Override
+    public void updateNavigationInfo(LanguageEnum languageEnum, NavigationEntity navigation) {
+        NavigationDO navigationDO = EntityToDo.toNavigationDO(navigation);
+        switch (languageEnum) {
+            case CHINESE:
+                cnNavigationMapper.updateNavigationById(navigation);
+                break;
+            case ENGLISH:
+                throw new BizException(BizErrorEnum.A001);
+        }
+
+    }
+
 
     private List<NavigationEntity> toNavigationEntityList(List<NavigationDO> navigationDOList) {
         //LV1
@@ -83,7 +97,7 @@ public class NavigationRepositoryImpl implements NavigationRepository {
             List<NavigationEntity> entityItem = navigationEntityLv2List.stream().filter(item -> {
                 return entity.getNavigationId().equals(item.getNavigationParentId());
             }).collect(Collectors.toList());
-            
+
             entity.setSonNavigationList(entityItem);
         }
         return navigationEntityList;

@@ -13,6 +13,8 @@ public enum GeneralEnum {
 
     NO(0, "否");
 
+
+
     private Integer code;
 
     private String value;
