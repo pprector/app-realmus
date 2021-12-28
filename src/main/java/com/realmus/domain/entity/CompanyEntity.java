@@ -14,7 +14,6 @@ import lombok.ToString;
 @ToString
 public class CompanyEntity extends PublicInfoEntity {
 
-    private String relationId;
     /**
      * 背景图
      */
@@ -24,7 +23,6 @@ public class CompanyEntity extends PublicInfoEntity {
      * 视频
      */
     private MultimediaEntity promotionalMp4;
-
 
     /**
      * 视频背景图

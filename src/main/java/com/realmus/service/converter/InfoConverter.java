@@ -93,9 +93,6 @@ public class InfoConverter {
             List<Banner> bannerList = entity.getCourseBannerList().stream().map(InfoConverter::toBanner).collect(Collectors.toList());
             response.setCourseBannerList(bannerList);
         }
-        if (entity.getImgUrl() != null) {
-            response.setImgUrl(entity.getImgUrl().getMultimediaUrl());
-        }
         return response;
     }
 }

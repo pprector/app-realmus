@@ -32,8 +32,12 @@ public class AboutUsEntity {
      */
     private List<BannerEntity> courseBannerList;
     /**
-     * 证书中心 一个图
+     * 数据展示
      */
-    private MultimediaEntity imgUrl;
+    private DataDisplayEntity dataDisplayEntity;
+    /**
+     * 证书中心 N个图
+     */
+    private List<MultimediaEntity> imgUrlList;
 
 }

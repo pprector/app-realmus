@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,6 +25,10 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 @SpringBootTest
 class NavigationFacadeImplTest {
+    private String str1 = "上海Realmus成立于2010年，是一家集研发、生产、批发为一体的专业公司。 瑞玛斯致力于世界各地的膳食补充剂基地。  \n" +
+            "瑞勒姆斯凭借近20年的研发和生产经验，不断完善和完善研发和生产的高精度系统。 满足客户对高品质产品与服务的需求。  ";
+
+
     @Autowired
     private NavigationFacade navigationFacade;
     @Autowired
@@ -74,7 +79,53 @@ class NavigationFacadeImplTest {
         bannerEntity.setInfoDescription("专业的健康食品化妆品供应商");
         bannerEntity.setInfoContent("");
         aboutUsEntity.setBanner(bannerEntity);
+        //模块2 关于百合 视频
+        CompanyEntity companyEntity = new CompanyEntity();
 
+        MultimediaEntity videoBackgroundImg = new MultimediaEntity();
+        videoBackgroundImg.setMultimediaType(MultimediaEnum.IMG);
+        videoBackgroundImg.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/videocover.jpg");
+        videoBackgroundImg.setDescription("视频封面图");
+        companyEntity.setVideoBackgroundImg(videoBackgroundImg);
+
+        MultimediaEntity backgroundImg = new MultimediaEntity();
+        backgroundImg.setMultimediaType(MultimediaEnum.IMG);
+        backgroundImg.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/background2.jpg");
+        backgroundImg.setDescription("背景图片");
+        companyEntity.setBackgroundImg(backgroundImg);
+
+        MultimediaEntity promotionalMp4 = new MultimediaEntity();
+        promotionalMp4.setMultimediaType(MultimediaEnum.VIDEO);
+        promotionalMp4.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/promotional.mp4");
+        promotionalMp4.setDescription("关于我们视频");
+        companyEntity.setPromotionalMp4(promotionalMp4);
+
+        companyEntity.setInfoType(ModuleEnum.COMPANY);
+        companyEntity.setH5Url("url");
+        companyEntity.setInfoTitle("关于百合");
+        companyEntity.setInfoDescription("专业的健康食品化妆品供应商");
+        companyEntity.setInfoContent(str1);
+        aboutUsEntity.setCompany(companyEntity);
+        // 模块3 数据展示
+        DataDisplayEntity displayEntity = new DataDisplayEntity();
+
+        MultimediaEntity displayImgEntity = new MultimediaEntity();
+        displayImgEntity.setMultimediaType(MultimediaEnum.IMG);
+        displayImgEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/background2.jpg");
+        displayImgEntity.setDescription("数据详情背景图");
+        displayEntity.setBackground(displayImgEntity);
+
+        List<DataDetailsEntity> dataDetailsEntityList = new ArrayList<>();
+        dataDetailsEntityList.add(new DataDetailsEntity("30","公顷","区域范围"));
+        dataDetailsEntityList.add(new DataDetailsEntity("79800","平方米","全世界客户覆盖"));
+        dataDetailsEntityList.add(new DataDetailsEntity(">1600","种类","产品种类"));
+        dataDetailsEntityList.add(new DataDetailsEntity("70","百万瓶","年生产"));
+
+        displayEntity.setDataDetailsList(dataDetailsEntityList);
+        aboutUsEntity.setDataDisplayEntity(displayEntity);
+
+
+        // 模块4 资质信息
         //更新
         aboutUs.setExtension(aboutUsEntity);
         navigationService.updateNavigationInfo(LanguageEnum.CHINESE, aboutUs);
