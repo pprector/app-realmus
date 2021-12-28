@@ -8,16 +8,12 @@ import com.realmus.common.result.ResultModel;
 import com.realmus.common.util.ExcelListener;
 import com.realmus.common.util.ResultUtil;
 import com.realmus.common.util.ValidationUtil;
-import com.realmus.domain.entity.NavigationEntity;
-import com.realmus.domain.entity.ProductEntity;
+import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.domain.service.ProductService;
 import com.realmus.facade.ProductFacade;
 import com.realmus.facade.request.ProductExcel;
-import com.realmus.facade.response.PageNavigationResponse;
-import com.realmus.service.converter.NavigationConverter;
 import com.realmus.service.converter.ProductFacadeConverter;
 import io.swagger.annotations.Api;
-import org.apache.poi.ss.formula.functions.T;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,8 +46,8 @@ public class ProductFacadeImpl implements ProductFacade {
             ExcelListener excelListener = new ExcelListener();
             EasyExcel.read(file, ProductExcel.class, excelListener).sheet().doRead();
             List<Object> dataList = excelListener.getDataList();
-            List<ProductEntity> productEntityList = dataList.stream().map(ProductFacadeConverter::toProductEntity).collect(Collectors.toList());
-            productService.addProductList(LanguageEnum.getLanguageEnum(type), productEntityList);
+            List<ProductInfoEntity> productInfoEntityList = dataList.stream().map(ProductFacadeConverter::toProductEntity).collect(Collectors.toList());
+            productService.addProductList(LanguageEnum.getLanguageEnum(type), productInfoEntityList);
             return ResultUtil.success(null);
         } catch (BizException e) {
             logger.error("=====ProductFacadeImpl  productInfoImpl  BizException :}", e);

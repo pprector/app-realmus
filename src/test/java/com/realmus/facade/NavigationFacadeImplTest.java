@@ -68,7 +68,7 @@ class NavigationFacadeImplTest {
         multimediaEntity.setDescription("关于我们banner");
         bannerEntity.setBannerImg(multimediaEntity);
 
-        bannerEntity.setInfoType(ModuleEnum.ABOUT_US_BANNER);
+        bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("url");
         bannerEntity.setInfoTitle("关于我们");
         bannerEntity.setInfoDescription("专业的健康食品化妆品供应商");
@@ -86,7 +86,7 @@ class NavigationFacadeImplTest {
     @Test
     public void updateNewsEntityInfo() {
         //1. 查询数据
-        NavigationEntity<NewsEntity> navigationEntity= navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.NEWS.getId());
+        NavigationEntity<NewsEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.NEWS.getId());
         System.out.println(JSON.toJSONString(navigationEntity, true));
         //数据封装
         NewsEntity newsEntity = new NewsEntity();
@@ -97,7 +97,7 @@ class NavigationFacadeImplTest {
         multimediaEntity.setDescription("新闻中心banner");
         bannerEntity.setBannerImg(multimediaEntity);
 
-        bannerEntity.setInfoType(ModuleEnum.NEWS_BANNER);
+        bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("url");
         bannerEntity.setInfoTitle("新闻中心");
         bannerEntity.setInfoDescription("为全民健康");
@@ -116,7 +116,7 @@ class NavigationFacadeImplTest {
     @Test
     public void updateRDEntityInfo() {
         //1. 查询数据
-        NavigationEntity<RDEntity> navigationEntity= navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.RD.getId());
+        NavigationEntity<RDEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.RD.getId());
         System.out.println(JSON.toJSONString(navigationEntity, true));
         //数据封装
         RDEntity rdEntity = new RDEntity();
@@ -127,7 +127,7 @@ class NavigationFacadeImplTest {
         multimediaEntity.setDescription("制造研发banner");
         bannerEntity.setBannerImg(multimediaEntity);
 
-        bannerEntity.setInfoType(ModuleEnum.NEWS_BANNER);
+        bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("url");
         bannerEntity.setInfoTitle("制造研发(R&D)");
         bannerEntity.setInfoDescription("致力打造全球领先的营养保健品智能工厂");
@@ -138,5 +138,126 @@ class NavigationFacadeImplTest {
         navigationEntity.setExtension(rdEntity);
         navigationService.updateNavigationInfo(LanguageEnum.CHINESE, navigationEntity);
     }
+
+
+    /**
+     * 更新 产品中心 数据
+     */
+    @Test
+    public void updatePRODUCTEntityInfo() {
+        //1. 查询数据
+        NavigationEntity<RDEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.PRODUCT.getId());
+        System.out.println(JSON.toJSONString(navigationEntity, true));
+        //数据封装
+        RDEntity rdEntity = new RDEntity();
+        BannerEntity bannerEntity = new BannerEntity();
+        MultimediaEntity multimediaEntity = new MultimediaEntity();
+        multimediaEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner4.jpg");
+        multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
+        multimediaEntity.setDescription("产品中心banner");
+        bannerEntity.setBannerImg(multimediaEntity);
+
+        bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        bannerEntity.setH5Url("url");
+        bannerEntity.setInfoTitle("产品中心");
+        bannerEntity.setInfoDescription("做一家受人尊重的企业,做一声良心质量的产品");
+        bannerEntity.setInfoContent("");
+
+        rdEntity.setBanner(bannerEntity);
+        //更新
+        navigationEntity.setExtension(rdEntity);
+        navigationService.updateNavigationInfo(LanguageEnum.CHINESE, navigationEntity);
+    }
+
+
+    /**
+     * 更新 产品中心 数据
+     */
+    @Test
+    public void updateBrandEntityInfo() {
+        //1. 查询数据
+        NavigationEntity<BrandEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.BRAND.getId());
+        System.out.println(JSON.toJSONString(navigationEntity, true));
+        //数据封装
+        BrandEntity brandEntity = new BrandEntity();
+        BannerEntity bannerEntity = new BannerEntity();
+        MultimediaEntity multimediaEntity = new MultimediaEntity();
+        multimediaEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner6.jpg");
+        multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
+        multimediaEntity.setDescription("品牌中心banner");
+        bannerEntity.setBannerImg(multimediaEntity);
+
+        bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        bannerEntity.setH5Url("url");
+        bannerEntity.setInfoTitle("品牌中心");
+        bannerEntity.setInfoDescription("精准营养,健康赋能");
+        bannerEntity.setInfoContent("");
+
+        brandEntity.setBanner(bannerEntity);
+        //更新
+        navigationEntity.setExtension(brandEntity);
+        navigationService.updateNavigationInfo(LanguageEnum.CHINESE, navigationEntity);
+    }
+
+
+    /**
+     * 更新 外贸出口 数据
+     */
+    @Test
+    public void updateForeignEntityInfo() {
+        //1. 查询数据
+        NavigationEntity<BrandEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.FOREIGN.getId());
+        System.out.println(JSON.toJSONString(navigationEntity, true));
+        //数据封装
+        BrandEntity brandEntity = new BrandEntity();
+        BannerEntity bannerEntity = new BannerEntity();
+        MultimediaEntity multimediaEntity = new MultimediaEntity();
+        multimediaEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner5.jpg");
+        multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
+        multimediaEntity.setDescription("外贸出口banner");
+        bannerEntity.setBannerImg(multimediaEntity);
+
+        bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        bannerEntity.setH5Url("url");
+        bannerEntity.setInfoTitle("外贸出口");
+        bannerEntity.setInfoDescription("来自中国, 面向全球");
+        bannerEntity.setInfoContent("");
+
+        brandEntity.setBanner(bannerEntity);
+        //更新
+        navigationEntity.setExtension(brandEntity);
+        navigationService.updateNavigationInfo(LanguageEnum.CHINESE, navigationEntity);
+    }
+
+
+    /**
+     * 更新 联系我们 数据
+     */
+    @Test
+    public void updateContactUsEntityInfo() {
+        //1. 查询数据
+        NavigationEntity<BrandEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.CONTACT_US.getId());
+        System.out.println(JSON.toJSONString(navigationEntity, true));
+        //数据封装
+        BrandEntity brandEntity = new BrandEntity();
+        BannerEntity bannerEntity = new BannerEntity();
+        MultimediaEntity multimediaEntity = new MultimediaEntity();
+        multimediaEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner7.jpg");
+        multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
+        multimediaEntity.setDescription("联系我们banner");
+        bannerEntity.setBannerImg(multimediaEntity);
+
+        bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        bannerEntity.setH5Url("url");
+        bannerEntity.setInfoTitle("联系我们");
+        bannerEntity.setInfoDescription("一段佳话,从这里留言开始");
+        bannerEntity.setInfoContent("");
+
+        brandEntity.setBanner(bannerEntity);
+        //更新
+        navigationEntity.setExtension(brandEntity);
+        navigationService.updateNavigationInfo(LanguageEnum.CHINESE, navigationEntity);
+    }
+
 
 }

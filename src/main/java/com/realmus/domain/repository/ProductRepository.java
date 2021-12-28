@@ -1,7 +1,7 @@
 package com.realmus.domain.repository;
 
 import com.realmus.common.enums.LanguageEnum;
-import com.realmus.domain.entity.ProductEntity;
+import com.realmus.domain.entity.ProductInfoEntity;
 
 import java.util.List;
 
@@ -17,5 +17,5 @@ public interface ProductRepository {
      * @param languageEnum
      * @param entityList
      */
-    void addProductList(LanguageEnum languageEnum, List<ProductEntity> entityList);
+    void addProductList(LanguageEnum languageEnum, List<ProductInfoEntity> entityList);
 }

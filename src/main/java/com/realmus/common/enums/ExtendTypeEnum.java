@@ -17,7 +17,15 @@ public enum ExtendTypeEnum {
 
     NEWS("1640068343", "新闻中心", "NewsEntity"),
 
-    RD("1640068346", "制造研发(R&D)", "RDEntity");
+    PRODUCT("1640068339", "产品中心", "NewsEntity"),
+
+    RD("1640068346", "制造研发(R&D)", "RDEntity"),
+
+    CONTACT_US("1640068351", "联系我们", "ContactUsEntity"),
+
+    FOREIGN("1640068348", "外贸出口", "ForeignEntity"),
+
+    BRAND("1640068328", "品牌中心", "BrandEntity");
 
 
     private String id;

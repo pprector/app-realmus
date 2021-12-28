@@ -1,7 +1,7 @@
 package com.realmus.domain.service;
 
 import com.realmus.common.enums.LanguageEnum;
-import com.realmus.domain.entity.ProductEntity;
+import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.domain.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ public class ProductService {
     private ProductRepository productRepository;
 
 
-    public void addProductList(LanguageEnum languageEnum, List<ProductEntity> entityList) {
+    public void addProductList(LanguageEnum languageEnum, List<ProductInfoEntity> entityList) {
         logger.info("=====ProductService addProductList request : " + entityList);
         productRepository.addProductList(languageEnum, entityList);
     }

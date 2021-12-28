@@ -1,6 +1,6 @@
 package com.realmus.service.converter;
 
-import com.realmus.domain.entity.ProductEntity;
+import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.facade.request.ProductExcel;
 
 /**
@@ -10,20 +10,20 @@ import com.realmus.facade.request.ProductExcel;
 
 public class ProductFacadeConverter {
 
-    public static ProductEntity toProductEntity(Object obj) {
+    public static ProductInfoEntity toProductEntity(Object obj) {
         if (obj == null) {
             return null;
         }
         ProductExcel productExcel = (ProductExcel) obj;
 
-        ProductEntity entity = new ProductEntity();
+        ProductInfoEntity entity = new ProductInfoEntity();
         entity.setProductName(productExcel.getProductName());
 
-        ProductEntity lv1 = new ProductEntity();
+        ProductInfoEntity lv1 = new ProductInfoEntity();
         lv1.setProductName(productExcel.getProductLv1Type());
         entity.setProductLv1(lv1);
 
-        ProductEntity lv2 = new ProductEntity();
+        ProductInfoEntity lv2 = new ProductInfoEntity();
         lv2.setProductName(productExcel.getProductLv2Type());
         entity.setProductLv2(lv2);
         entity.setIngredient(productExcel.getIngredient());

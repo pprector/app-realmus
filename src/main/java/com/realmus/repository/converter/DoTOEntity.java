@@ -61,6 +61,22 @@ public class DoTOEntity {
                 RDEntity rdEntity = JSONObject.parseObject(extendJson, RDEntity.class);
                 entity.setExtension(rdEntity);
                 break;
+            case PRODUCT:
+                ProductEntity productEntity = JSONObject.parseObject(extendJson, ProductEntity.class);
+                entity.setExtension(productEntity);
+                break;
+            case BRAND:
+                BrandEntity brandEntity = JSONObject.parseObject(extendJson, BrandEntity.class);
+                entity.setExtension(brandEntity);
+                break;
+            case FOREIGN:
+                ForeignEntity foreignEntity = JSONObject.parseObject(extendJson, ForeignEntity.class);
+                entity.setExtension(foreignEntity);
+                break;
+            case CONTACT_US:
+                ContactUsEntity contactUsEntity = JSONObject.parseObject(extendJson, ContactUsEntity.class);
+                entity.setExtension(contactUsEntity);
+                break;
 
         }
         return entity;

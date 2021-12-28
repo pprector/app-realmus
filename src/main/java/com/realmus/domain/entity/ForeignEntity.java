@@ -6,17 +6,14 @@ import lombok.ToString;
 
 /**
  * @author hkpeng
- * 产品模块
- * @date 2021/12/28 - 15:44
+ * @date 2021/12/28 - 15:51
  */
 @Setter
 @Getter
 @ToString
-public class ProductEntity {
+public class ForeignEntity {
     /**
      * 轮播 Banner
      */
     private BannerEntity banner;
-
-
 }
