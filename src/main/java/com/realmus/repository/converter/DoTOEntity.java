@@ -1,13 +1,8 @@
 package com.realmus.repository.converter;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.realmus.common.enums.ExtendTypeEnum;
-import com.realmus.common.enums.ModuleEnum;
-import com.realmus.common.enums.MultimediaEnum;
 import com.realmus.domain.entity.*;
-import com.realmus.repository.model.HomeDO;
-import com.realmus.repository.model.MultimediaDO;
 import com.realmus.repository.model.NavigationDO;
 import org.apache.commons.lang.StringUtils;
 
