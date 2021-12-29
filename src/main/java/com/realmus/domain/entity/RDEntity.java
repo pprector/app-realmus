@@ -20,7 +20,20 @@ public class RDEntity {
     /**
      * RD 详情之 智能工厂
      */
-    RDIntelligentPlantEntity intelligentPlant;
+    private RDIntelligentPlantEntity intelligentPlant;
+    /**
+     * 研发创新模块
+     */
+    private RDIInfoEntity rdiInfo;
+    /**
+     * CNAS 实验室
+     */
+    private RDLaboratoryEntity rdLaboratory;
+
+    /**
+     * CNAS 质量管理
+     */
+    private RDQualityEntity rdQuality;
 
 
 }

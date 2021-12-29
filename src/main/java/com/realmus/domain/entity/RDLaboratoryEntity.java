@@ -14,6 +14,10 @@ import lombok.ToString;
 @Setter
 public class RDLaboratoryEntity {
     /**
+     * 主banner
+     */
+    private BannerEntity mainBanner;
+    /**
      * 检测中心
      */
     private BannerEntity testingCenterBanner;

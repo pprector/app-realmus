@@ -14,6 +14,10 @@ import lombok.ToString;
 @ToString
 public class RDQualityEntity {
     /**
+     * 主 banner
+     */
+    private BannerEntity mainBanner;
+    /**
      * 质量管理描述
      */
     private BannerEntity qualityBanner;

@@ -12,7 +12,12 @@ import lombok.ToString;
 @ToString
 @Getter
 @Setter
-public class RDIInfoEntity{
+public class RDIInfoEntity {
+    /**
+     * 主 bannner
+     */
+    private BannerEntity mainBanner;
+
     /**
      * 研发标题
      */

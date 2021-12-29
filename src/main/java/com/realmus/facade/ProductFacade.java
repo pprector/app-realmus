@@ -18,4 +18,6 @@ public interface ProductFacade {
      * @return
      */
     ResultModel<Object> productInfoImpl(Integer type, File file);
+
+
 }
