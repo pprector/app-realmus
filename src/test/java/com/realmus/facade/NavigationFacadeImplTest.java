@@ -372,8 +372,86 @@ class NavigationFacadeImplTest {
         rdiInfoEntity.setTeamBanner(mainBanner5);
 
         rdiInfoEntity.setPatentBanner(mainBanner6);
+        //4. CNAS实验室
+        RDLaboratoryEntity laboratory = new RDLaboratoryEntity();
+
+        BannerEntity mainBanner7 = new BannerEntity();
+        MultimediaEntity bannerImg7 = new MultimediaEntity();
+        bannerImg7.setMultimediaType(MultimediaEnum.IMG);
+        bannerImg7.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/shiyanshi1.jpg");
+        bannerImg7.setDescription("实验室");
+
+        mainBanner7.setBannerImg(bannerImg7);
+        mainBanner7.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        mainBanner7.setH5Url("url");
+        mainBanner7.setInfoTitle("CNAS实验室");
+        mainBanner7.setInfoDescription("权威认证 高标准检测能力");
+        mainBanner7.setInfoContent("CNAS实验室认可标准的检测中心\n" +
+                "配备美国Agilent、waters、德国塞卡姆等进口研发检验设备70余台套\n" +
+                "检测项目超过300余项、鉴定100余项、开发分析方法40余项");
+        laboratory.setMainBanner(mainBanner7);
+
+        BannerEntity mainBanner8 = new BannerEntity();
+        MultimediaEntity bannerImg8 = new MultimediaEntity();
+        bannerImg8.setMultimediaType(MultimediaEnum.IMG);
+        bannerImg8.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/shiyanshi2.jpg");
+        bannerImg8.setDescription("实验室");
+
+        mainBanner8.setBannerImg(bannerImg8);
+        mainBanner8.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        mainBanner8.setH5Url("url");
+        mainBanner8.setInfoTitle("CNAS实验室认可标准的检测中心");
+        mainBanner8.setInfoDescription("顺利通过CNAS认可监督评审及现场审核，以第一方实验室获得认可资格");
+        mainBanner8.setInfoContent("");
+        laboratory.setTestingCenterBanner1(mainBanner8);
+
+        BannerEntity mainBanner9 = new BannerEntity();
+        MultimediaEntity bannerImg9 = new MultimediaEntity();
+        bannerImg9.setMultimediaType(MultimediaEnum.IMG);
+        bannerImg9.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/shiyanshi3.jpg");
+        bannerImg9.setDescription("实验室");
+
+        mainBanner9.setBannerImg(bannerImg9);
+        mainBanner9.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        mainBanner9.setH5Url("url");
+        mainBanner9.setInfoTitle("CNAS实验室认可标准的检测中心");
+        mainBanner9.setInfoDescription("顺利通过CNAS认可监督评审及现场审核，以第一方实验室获得认可资格");
+        mainBanner9.setInfoContent("");
+        laboratory.setTestingCenterBanner2(mainBanner9);
+
+        BannerEntity mainBanner10 = new BannerEntity();
+        MultimediaEntity bannerImg10 = new MultimediaEntity();
+        bannerImg10.setMultimediaType(MultimediaEnum.IMG);
+        bannerImg10.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/shiyanshi4.jpg");
+        bannerImg10.setDescription("实验室");
+
+        mainBanner10.setBannerImg(bannerImg10);
+        mainBanner10.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        mainBanner10.setH5Url("url");
+        mainBanner10.setInfoTitle("检测项目超过400余项");
+        mainBanner10.setInfoDescription("");
+        mainBanner10.setInfoContent("包含植提鉴别70余项，其他分析类项目酸价、过氧化值、维生素类、元素分析类、氨基酸类、植提类功效指标、农残、真菌毒素类、微生物类等，每年度参与覆盖理化指标、功效成分（液相、气相）、重金属、微生物等全领域的能力验证计划，均满意通过。");
+        laboratory.setTestItemBanner(mainBanner10);
+
+
+        BannerEntity mainBanner11 = new BannerEntity();
+        MultimediaEntity bannerImg11 = new MultimediaEntity();
+        bannerImg11.setMultimediaType(MultimediaEnum.IMG);
+        bannerImg11.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/shiyanshi5.jpg");
+        bannerImg11.setDescription("实验室");
+
+        mainBanner11.setBannerImg(bannerImg11);
+        mainBanner11.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        mainBanner11.setH5Url("url");
+        mainBanner11.setInfoTitle("配备美国Agilent、waters\n" +
+                "德国塞卡姆等\n" +
+                "进口研发检验设备70余台套");
+        mainBanner11.setInfoDescription("");
+        mainBanner11.setInfoContent("拥有电感耦合等离子体质谱仪（ICP-MS）、液相质谱仪（LC/MS）、液相色谱仪（HPLC）、气相色谱仪（GC）、气质联用仪、氨基酸分析仪、瑞士步琪凯氏定氮仪、水活度测定仪、原子吸收分光光度计、RGF-7800原子荧光分光光度计等先进检测设备，及智能拉力机、顶空气体分析仪等包材检测设备。");
+        laboratory.setEquipmentBanner(mainBanner10);
 
         //更新
+        rdEntity.setRdLaboratory(laboratory);
         rdEntity.setBanner(bannerEntity);
         rdEntity.setIntelligentPlant(intelligentPlant);
         rdEntity.setRdiInfo(rdiInfoEntity);

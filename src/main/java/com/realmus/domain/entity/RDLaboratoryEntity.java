@@ -20,7 +20,11 @@ public class RDLaboratoryEntity {
     /**
      * 检测中心
      */
-    private BannerEntity testingCenterBanner;
+    private BannerEntity testingCenterBanner1;
+    /**
+     * 检测中心
+     */
+    private BannerEntity testingCenterBanner2;
 
     /**
      * 检测项目
@@ -28,7 +32,7 @@ public class RDLaboratoryEntity {
     private BannerEntity testItemBanner;
 
     /**
-     * 检测中心
+     * 检测设备
      */
     private BannerEntity equipmentBanner;
 
