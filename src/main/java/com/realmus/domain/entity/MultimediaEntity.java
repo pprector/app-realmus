@@ -1,9 +1,11 @@
 package com.realmus.domain.entity;
 
 import com.realmus.common.enums.MultimediaEnum;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.apache.ibatis.annotations.ConstructorArgs;
 
 /**
  * @author hkpeng

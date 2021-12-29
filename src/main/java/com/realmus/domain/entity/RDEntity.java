@@ -17,5 +17,10 @@ public class RDEntity {
      * 轮播 Banner
      */
     private BannerEntity banner;
+    /**
+     * RD 详情之 智能工厂
+     */
+    RDIntelligentPlantEntity intelligentPlant;
+
 
 }

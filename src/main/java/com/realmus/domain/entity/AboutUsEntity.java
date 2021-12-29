@@ -38,6 +38,6 @@ public class AboutUsEntity {
     /**
      * 证书中心 N个图
      */
-    private List<MultimediaEntity> imgUrlList;
+    private List<MultimediaEntity> certificationList;
 
 }

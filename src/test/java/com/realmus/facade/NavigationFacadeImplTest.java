@@ -116,16 +116,50 @@ class NavigationFacadeImplTest {
         displayEntity.setBackground(displayImgEntity);
 
         List<DataDetailsEntity> dataDetailsEntityList = new ArrayList<>();
-        dataDetailsEntityList.add(new DataDetailsEntity("30","公顷","区域范围"));
-        dataDetailsEntityList.add(new DataDetailsEntity("79800","平方米","全世界客户覆盖"));
-        dataDetailsEntityList.add(new DataDetailsEntity(">1600","种类","产品种类"));
-        dataDetailsEntityList.add(new DataDetailsEntity("70","百万瓶","年生产"));
+        dataDetailsEntityList.add(new DataDetailsEntity("30", "公顷", "区域范围"));
+        dataDetailsEntityList.add(new DataDetailsEntity("79800", "平方米", "全世界客户覆盖"));
+        dataDetailsEntityList.add(new DataDetailsEntity(">1600", "种类", "产品种类"));
+        dataDetailsEntityList.add(new DataDetailsEntity("70", "百万瓶", "年生产"));
 
         displayEntity.setDataDetailsList(dataDetailsEntityList);
         aboutUsEntity.setDataDisplayEntity(displayEntity);
 
-
         // 模块4 资质信息
+        List<MultimediaEntity> multimediaEntityList = new ArrayList<>();
+
+        MultimediaEntity certification1 = new MultimediaEntity();
+        certification1.setMultimediaType(MultimediaEnum.IMG);
+        certification1.setDescription("证书信息");
+        certification1.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/zizhi1.png");
+
+        MultimediaEntity certification2 = new MultimediaEntity();
+        certification2.setMultimediaType(MultimediaEnum.IMG);
+        certification2.setDescription("证书信息");
+        certification2.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/zizhi2.png");
+
+        MultimediaEntity certification3 = new MultimediaEntity();
+        certification3.setMultimediaType(MultimediaEnum.IMG);
+        certification3.setDescription("证书信息");
+        certification3.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/zizhi3.png");
+
+
+        MultimediaEntity certification4 = new MultimediaEntity();
+        certification4.setMultimediaType(MultimediaEnum.IMG);
+        certification4.setDescription("证书信息");
+        certification4.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/zizhi4.png");
+
+        MultimediaEntity certification5 = new MultimediaEntity();
+        certification5.setMultimediaType(MultimediaEnum.IMG);
+        certification5.setDescription("证书信息");
+        certification5.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/zizhi5.png");
+
+        multimediaEntityList.add(certification1);
+        multimediaEntityList.add(certification2);
+        multimediaEntityList.add(certification3);
+        multimediaEntityList.add(certification4);
+        multimediaEntityList.add(certification5);
+        aboutUsEntity.setCertificationList(multimediaEntityList);
+
         //更新
         aboutUs.setExtension(aboutUsEntity);
         navigationService.updateNavigationInfo(LanguageEnum.CHINESE, aboutUs);
@@ -162,7 +196,7 @@ class NavigationFacadeImplTest {
 
 
     /**
-     * 更新 制造中心 数据
+     * 更新 智造中心 数据
      */
     @Test
     public void updateRDEntityInfo() {
@@ -175,12 +209,12 @@ class NavigationFacadeImplTest {
         MultimediaEntity multimediaEntity = new MultimediaEntity();
         multimediaEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner2.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
-        multimediaEntity.setDescription("制造研发banner");
+        multimediaEntity.setDescription("智造研发banner");
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("url");
-        bannerEntity.setInfoTitle("制造研发(R&D)");
+        bannerEntity.setInfoTitle("智造研发(R&D)");
         bannerEntity.setInfoDescription("致力打造全球领先的营养保健品智能工厂");
         bannerEntity.setInfoContent("");
 
