@@ -1,7 +1,9 @@
 package com.realmus.facade.response;
 
+import com.realmus.domain.entity.DataDisplayEntity;
 import com.realmus.facade.param.Banner;
 import com.realmus.facade.param.Company;
+import com.realmus.facade.param.DataDisplay;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,6 +31,9 @@ AboutUsResponse {
     @ApiModelProperty(example = "发展历程 轮播图")
     private List<Banner> courseBannerList;
 
-    @ApiModelProperty(example = "证书中心 一个大图")
-    private String imgUrl;
+    @ApiModelProperty(example = "数据展示 对象")
+    private DataDisplay dataDisplay;
+
+    @ApiModelProperty(example = "证书中心 N个图")
+    private List<String> imgUrlList;
 }

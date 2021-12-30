@@ -1,12 +1,11 @@
 
 package com.realmus.service.converter;
 
-import com.realmus.domain.entity.AboutUsEntity;
-import com.realmus.domain.entity.BannerEntity;
-import com.realmus.domain.entity.CompanyEntity;
-import com.realmus.domain.entity.HomeInfoEntity;
+import com.realmus.domain.entity.*;
 import com.realmus.facade.param.Banner;
 import com.realmus.facade.param.Company;
+import com.realmus.facade.param.DataDetails;
+import com.realmus.facade.param.DataDisplay;
 import com.realmus.facade.response.AboutUsResponse;
 import com.realmus.facade.response.QueryHomeResponse;
 
@@ -93,6 +92,38 @@ public class InfoConverter {
             List<Banner> bannerList = entity.getCourseBannerList().stream().map(InfoConverter::toBanner).collect(Collectors.toList());
             response.setCourseBannerList(bannerList);
         }
+        //数据展示模块
+        DataDisplayEntity displayEntity = entity.getDataDisplayEntity();
+        DataDisplay dataDisplay = toDataDisplay(displayEntity);
+        response.setDataDisplay(dataDisplay);
+
         return response;
+    }
+
+
+    public static DataDisplay toDataDisplay(DataDisplayEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        DataDisplay display = new DataDisplay();
+        if (entity.getBackground() != null) {
+            display.setBackground(entity.getBackground().getMultimediaUrl());
+        }
+
+        display.setDataDetailsList(entity.getDataDetailsList()
+                .stream().map(InfoConverter::toDataDetails).collect(Collectors.toList()));
+
+        return display;
+    }
+
+    public static DataDetails toDataDetails(DataDetailsEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        DataDetails details = new DataDetails();
+        details.setNumber(entity.getNumber());
+        details.setUnits(entity.getUnits());
+        details.setDesc(entity.getDesc());
+        return details;
     }
 }

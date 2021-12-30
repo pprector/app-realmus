@@ -1,9 +1,7 @@
 package com.realmus.common.util;
 
 import com.realmus.common.enums.GeneralEnum;
-import com.realmus.common.result.Message;
 import com.realmus.common.result.ResultModel;
-import com.realmus.service.HomeFacadeImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +13,7 @@ import org.slf4j.LoggerFactory;
  */
 
 public class ResultUtil {
-    private static final Logger logger = LoggerFactory.getLogger(HomeFacadeImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(ResultUtil.class);
 
     /**
      * 返回成功结果

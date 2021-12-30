@@ -448,9 +448,77 @@ class NavigationFacadeImplTest {
                 "进口研发检验设备70余台套");
         mainBanner11.setInfoDescription("");
         mainBanner11.setInfoContent("拥有电感耦合等离子体质谱仪（ICP-MS）、液相质谱仪（LC/MS）、液相色谱仪（HPLC）、气相色谱仪（GC）、气质联用仪、氨基酸分析仪、瑞士步琪凯氏定氮仪、水活度测定仪、原子吸收分光光度计、RGF-7800原子荧光分光光度计等先进检测设备，及智能拉力机、顶空气体分析仪等包材检测设备。");
-        laboratory.setEquipmentBanner(mainBanner10);
+        laboratory.setEquipmentBanner(mainBanner11);
+        //5.质量管理
+        RDQualityEntity quality = new RDQualityEntity();
+
+        BannerEntity mainBanner12 = new BannerEntity();
+        MultimediaEntity bannerImg12 = new MultimediaEntity();
+        bannerImg12.setMultimediaType(MultimediaEnum.IMG);
+        bannerImg12.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/zhiliang1.jpg");
+        bannerImg12.setDescription("质量管控");
+
+        mainBanner12.setBannerImg(bannerImg12);
+        mainBanner12.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        mainBanner12.setH5Url("url");
+        mainBanner12.setInfoTitle("质量管理");
+        mainBanner12.setInfoDescription("卓越精进 永不止步");
+        mainBanner12.setInfoContent("恪守一套严格的质量管理体系，规范生产、全程质控、严格检验，从配料到成品设立了多道质量关键点，保证每一粒产品都是有质量生命。");
+        quality.setMainBanner(mainBanner12);
+
+        BannerEntity mainBanner13 = new BannerEntity();
+        MultimediaEntity bannerImg13 = new MultimediaEntity();
+        bannerImg13.setMultimediaType(MultimediaEnum.IMG);
+        bannerImg13.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/zhiliang2.jpg");
+        bannerImg13.setDescription("质量管控");
+
+        mainBanner13.setBannerImg(bannerImg13);
+        mainBanner13.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        mainBanner13.setH5Url("url");
+        mainBanner13.setInfoTitle("打造全链条的质量管理体系");
+        mainBanner13.setInfoDescription("");
+        mainBanner13.setInfoContent("从产品设计、供应商管理、生产过程控制、检验过程、产品追溯及售后管理等五个方面设立多道质量监控及质量服务。\n" +
+                "\n" +
+                "公司由自动化的生产工厂向数字化、智能化工厂转型，通过MES管理系统，采用可视化的管理模式，通过人机料法环等环节，从现场状况监控，用料追踪管理，讯息及时反馈、质量管理分析、超控超差预警及分析等方面实行全场面动态现场管控，实现产品的全过程追溯，确保每一粒产品的质量生命。\n" +
+                "\n" +
+                "通过MES、ERP、WMS、SRM等系统的互联互通，提供可靠的制造数据管理为计划排程、生产调度、库存、质量、成本等提供可靠的数据依据，实现更低成本、更高性能、更大柔性的生产制造能力，实现百合智能制造。");
+        quality.setQualityBanner(mainBanner13);
+
+
+        BannerEntity mainBanner14 = new BannerEntity();
+        MultimediaEntity bannerImg14 = new MultimediaEntity();
+        bannerImg14.setMultimediaType(MultimediaEnum.IMG);
+        bannerImg14.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/zhiliang3.jpg");
+        bannerImg14.setDescription("质量管控");
+
+        mainBanner14.setBannerImg(bannerImg14);
+        mainBanner14.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        mainBanner14.setH5Url("url");
+        mainBanner14.setInfoTitle("一体化智能运营管理平台");
+        mainBanner14.setInfoDescription("");
+        mainBanner14.setInfoContent("基于现代化精益管理理念，依托人工智能、移动物联网、大数据、云等新一代技术，SRM供应商管理平台重塑百合股份庞大的供应商关系网，优化供应商关系管理。企业内外高效协同，快速发货、收货，整体进度实时可见，线上查看未对账明细，建立对账单，财务核对，对账准确、高效，打造和谐商业生态和企业利益共同体。同时，通过物流、商流、资金流和信息流“四流合一”，实现企业一体化智能运营。");
+        quality.setPlatformBanner(mainBanner14);
+
+
+        BannerEntity mainBanner15 = new BannerEntity();
+        MultimediaEntity bannerImg15 = new MultimediaEntity();
+        bannerImg15.setMultimediaType(MultimediaEnum.IMG);
+        bannerImg15.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/zhiliang4.jpg");
+        bannerImg15.setDescription("质量管控");
+
+        mainBanner15.setBannerImg(bannerImg15);
+        mainBanner15.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        mainBanner15.setH5Url("url");
+        mainBanner15.setInfoTitle("智能物流管理系统");
+        mainBanner15.setInfoDescription("");
+        mainBanner15.setInfoContent("通过智能物流系统有效联接各类智能设备、移动终端、企业管理系统，全面覆盖收货、质检、入库、领/发料、销售出库、调拨、盘点等业务流程，实现内部物流移动化、透明化、精益化、智能化的“四化”管理，从而提高效率，降低成本，增加效益，强化行业竞争力。");
+        quality.setLogisticsBanner(mainBanner15);
+
+
+
 
         //更新
+        rdEntity.setRdQuality(quality);
         rdEntity.setRdLaboratory(laboratory);
         rdEntity.setBanner(bannerEntity);
         rdEntity.setIntelligentPlant(intelligentPlant);
