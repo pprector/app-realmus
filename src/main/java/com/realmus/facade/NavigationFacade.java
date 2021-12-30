@@ -40,7 +40,6 @@ public interface NavigationFacade {
      * @return
      */
     ResultModel<AboutUsResponse> getAboutUsInfo(Integer type);
-
     /**
      * 获取 智造研发  信息
      *

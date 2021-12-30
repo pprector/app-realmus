@@ -25,12 +25,6 @@ public class EntityToDo {
         }
         ProductDO productDO = new ProductDO();
         productDO.setProductId(IdWorker.getNextId());
-        if (entity.getProductLv1() != null) {
-            productDO.setProductLv1type(entity.getProductLv1().getProductName());
-        }
-        if (entity.getProductLv2() != null) {
-            productDO.setProductLv2type(entity.getProductLv2().getProductName());
-        }
         productDO.setProductName(entity.getProductName());
         productDO.setProductIngredient(entity.getIngredient());
         productDO.setProductDescribe(entity.getDescription());

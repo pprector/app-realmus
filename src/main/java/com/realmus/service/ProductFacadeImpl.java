@@ -46,7 +46,7 @@ public class ProductFacadeImpl implements ProductFacade {
             ExcelListener excelListener = new ExcelListener();
             EasyExcel.read(file, ProductExcel.class, excelListener).sheet().doRead();
             List<Object> dataList = excelListener.getDataList();
-            List<ProductInfoEntity> productInfoEntityList = dataList.stream().map(ProductFacadeConverter::toProductEntity).collect(Collectors.toList());
+            List<ProductInfoEntity> productInfoEntityList = ProductFacadeConverter.toProductEntity(dataList);
             productService.addProductList(LanguageEnum.getLanguageEnum(type), productInfoEntityList);
             return ResultUtil.success(null);
         } catch (BizException e) {

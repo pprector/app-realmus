@@ -28,5 +28,4 @@ public class ProductExcel {
     @ExcelProperty(value = "主要原料", index = 4)
     private String ingredient;
 
-
 }

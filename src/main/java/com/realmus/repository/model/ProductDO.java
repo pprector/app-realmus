@@ -9,11 +9,11 @@ import lombok.ToString;
 
 /**
 * @author hkpeng
-* @date 2021/12/21 - 11:27
+* @date 2021/12/30 - 17:23
 */
     
     
-@ApiModel(value="com-realmus-repository-model-CnProduct")
+@ApiModel(value="com-realmus-repository-model-ProductDO")
 @Getter
 @Setter
 @ToString
@@ -25,29 +25,16 @@ public class ProductDO {
     private String productId;
 
     /**
-    * 产品类型一级类型Name
-    */
-    @ApiModelProperty(value="产品类型一级类型Name")
-    private String productLv1type;
-
-    /**
-    * 1媒体ID
-    */
-    @ApiModelProperty(value="1媒体ID")
-    private String productLv1RelationId;
-
-    /**
-    * 产品类型二级级类型Name
-    */
-    @ApiModelProperty(value="产品类型二级级类型Name")
-    private String productLv2type;
-
-
-    /**
     * 产品名称
     */
     @ApiModelProperty(value="产品名称")
     private String productName;
+
+    /**
+    * 父Id, 如果无为0
+    */
+    @ApiModelProperty(value="父Id, 如果无为0")
+    private String parentId;
 
     /**
     * 产品成分
@@ -68,10 +55,10 @@ public class ProductDO {
     private Integer productWeight;
 
     /**
-    * 3媒体ID
+    * 产品媒体扩展信息
     */
-    @ApiModelProperty(value="3媒体ID")
-    private String productRelationId;
+    @ApiModelProperty(value="产品媒体扩展信息")
+    private String extendJson;
 
     /**
     *  有效标识 0失效 1生效

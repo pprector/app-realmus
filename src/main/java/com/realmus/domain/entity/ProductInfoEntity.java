@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 /**
  * @author hkpeng
  * 产品信息Entity
@@ -14,28 +16,28 @@ import lombok.ToString;
 @ToString
 public class ProductInfoEntity {
     /**
+     * 产品id
+     */
+    private String productId;
+    /**
      * 产品名称
      */
     private String productName;
     /**
-     * 产品一级
+     * 该分类下 实体
      */
-    private ProductInfoEntity ProductLv1;
-    /**
-     * 产品
-     */
-    private ProductInfoEntity ProductLv2;
+    private List<ProductInfoEntity> sonProductInfoList;
     /**
      * 原料
      */
     private String Ingredient;
     /**
-     * 功能简要
+     * 描述信息
      */
     private String description;
     /**
-     * 产品图片
+     * 产品图片集合
      */
-    private MultimediaEntity multimedia;
+    private List<MultimediaEntity> multimediaList;
 
 }
