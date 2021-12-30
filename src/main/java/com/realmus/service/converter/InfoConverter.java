@@ -2,12 +2,10 @@
 package com.realmus.service.converter;
 
 import com.realmus.domain.entity.*;
-import com.realmus.facade.param.Banner;
-import com.realmus.facade.param.Company;
-import com.realmus.facade.param.DataDetails;
-import com.realmus.facade.param.DataDisplay;
+import com.realmus.facade.param.*;
 import com.realmus.facade.response.AboutUsResponse;
 import com.realmus.facade.response.QueryHomeResponse;
+import com.realmus.facade.response.RDResponse;
 
 import java.util.Collections;
 import java.util.List;
@@ -126,4 +124,85 @@ public class InfoConverter {
         details.setDesc(entity.getDesc());
         return details;
     }
+
+    public static RDResponse toRDResponse(RDEntity rdEntity) {
+        if (rdEntity == null) {
+            return null;
+        }
+        RDResponse rdResponse = new RDResponse();
+        rdResponse.setBanner(toBanner(rdEntity.getBanner()));
+        rdResponse.setIntelligentPlant(toIntelligentPlant(rdEntity.getIntelligentPlant()));
+        rdResponse.setRdiInfo(toRdiInfo(rdEntity.getRdiInfo()));
+        rdResponse.setRdLaboratory(toRdLaboratory(rdEntity.getRdLaboratory()));
+        rdResponse.setRdQuality(toRdQuality(rdEntity.getRdQuality()));
+
+        return rdResponse;
+    }
+
+    private static RDQuality toRdQuality(RDQualityEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        RDQuality quality = new RDQuality();
+        quality.setMainBanner(toBanner(entity.getMainBanner()));
+        quality.setQualityBanner(toBanner(entity.getQualityBanner()));
+        quality.setPlatformBanner(toBanner(entity.getPlatformBanner()));
+        quality.setLogisticsBanner(toBanner(entity.getLogisticsBanner()));
+
+        return quality;
+    }
+
+    private static RDLaboratory toRdLaboratory(RDLaboratoryEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        RDLaboratory rdLaboratory = new RDLaboratory();
+        rdLaboratory.setMainBanner(toBanner(entity.getMainBanner()));
+        rdLaboratory.setTestingCenterBanner1(toBanner(entity.getTestingCenterBanner1()));
+        rdLaboratory.setTestingCenterBanner2(toBanner(entity.getTestingCenterBanner2()));
+        rdLaboratory.setTestItemBanner(toBanner(entity.getTestItemBanner()));
+        rdLaboratory.setEquipmentBanner(toBanner(entity.getEquipmentBanner()));
+
+        return rdLaboratory;
+
+    }
+
+    private static RDIInfo toRdiInfo(RDIInfoEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        RDIInfo info = new RDIInfo();
+        info.setMainBanner(toBanner(entity.getMainBanner()));
+        info.setHeadLine(entity.getHeadLine());
+        info.setDescription(entity.getDescription());
+        info.setDatabaseBanner(toBanner(entity.getDatabaseBanner()));
+        info.setTeamBanner(toBanner(entity.getTeamBanner()));
+        info.setPatentBanner(toBanner(entity.getPatentBanner()));
+
+        return info;
+    }
+
+    private static RDIntelligentPlant toIntelligentPlant(RDIntelligentPlantEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        RDIntelligentPlant plant = new RDIntelligentPlant();
+        plant.setMainBanner(toBanner(entity.getMainBanner()));
+        plant.setFactoryBanner(toBanner(entity.getFactoryBanner()));
+
+        plant.setVideoList(entity.getVideoList().stream().map(InfoConverter::toVideo).collect(Collectors.toList()));
+
+        return plant;
+    }
+
+    public static Video toVideo(VideoEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        Video video = new Video();
+        video.setCoverImgUrl(entity.getCoverImgUrl());
+        video.setMultimediaUrl(entity.getMultimediaUrl());
+        return video;
+    }
 }
+

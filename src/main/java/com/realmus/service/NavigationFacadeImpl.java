@@ -8,11 +8,13 @@ import com.realmus.common.util.ResultUtil;
 import com.realmus.domain.entity.AboutUsEntity;
 import com.realmus.domain.entity.HomeInfoEntity;
 import com.realmus.domain.entity.NavigationEntity;
+import com.realmus.domain.entity.RDEntity;
 import com.realmus.domain.service.NavigationService;
 import com.realmus.facade.NavigationFacade;
 import com.realmus.facade.response.AboutUsResponse;
 import com.realmus.facade.response.PageNavigationResponse;
 import com.realmus.facade.response.QueryHomeResponse;
+import com.realmus.facade.response.RDResponse;
 import com.realmus.service.converter.InfoConverter;
 import com.realmus.service.converter.NavigationConverter;
 import io.swagger.annotations.Api;
@@ -92,6 +94,22 @@ public class NavigationFacadeImpl implements NavigationFacade {
             AboutUsEntity aboutUsEntity = navigationService.getAboutUsInfo(LanguageEnum.getLanguageEnum(type));
             AboutUsResponse homeResponse = InfoConverter.toAboutUsResponse(aboutUsEntity);
             return ResultUtil.success(homeResponse);
+        } catch (BizException e) {
+            logger.error("=====BizException  NavigationFacadeImpl getNavigationInfo request :}", e);
+            return ResultUtil.fail(e.getMessage());
+        } catch (Exception e) {
+            logger.error("=====Exception  NavigationFacadeImpl  getNavigationInfo : ", e);
+            return ResultUtil.fail(BizErrorEnum.E001.getMessage());
+        }
+    }
+
+    @Override
+    public ResultModel<RDResponse> getRDInfo(Integer type) {
+        logger.info("=====NavigationFacadeImpl getRDInfo request : ");
+        try {
+            RDEntity rdEntity = navigationService.getRDInfo(LanguageEnum.getLanguageEnum(type));
+            RDResponse rdResponse = InfoConverter.toRDResponse(rdEntity);
+            return ResultUtil.success(rdResponse);
         } catch (BizException e) {
             logger.error("=====BizException  NavigationFacadeImpl getNavigationInfo request :}", e);
             return ResultUtil.fail(e.getMessage());

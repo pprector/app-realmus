@@ -5,6 +5,7 @@ import com.realmus.common.enums.LanguageEnum;
 import com.realmus.domain.entity.AboutUsEntity;
 import com.realmus.domain.entity.HomeInfoEntity;
 import com.realmus.domain.entity.NavigationEntity;
+import com.realmus.domain.entity.RDEntity;
 import com.realmus.domain.repository.NavigationRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,4 +72,8 @@ public class NavigationService {
         navigationRepository.updateNavigationInfo(languageEnum, navigation);
     }
 
+    public RDEntity getRDInfo(LanguageEnum languageEnum) {
+        NavigationEntity<RDEntity> extendInfo = navigationRepository.findExtendInfo(languageEnum, ExtendTypeEnum.RD.getId());
+        return extendInfo.getExtension();
+    }
 }

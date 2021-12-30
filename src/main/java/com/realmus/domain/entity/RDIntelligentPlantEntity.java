@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.w3c.dom.stylesheets.LinkStyle;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -29,4 +30,5 @@ public class RDIntelligentPlantEntity {
      * 工厂视频集合
      */
     List<VideoEntity> videoList;
+
 }

@@ -4,6 +4,7 @@ import com.realmus.common.result.ResultModel;
 import com.realmus.facade.response.AboutUsResponse;
 import com.realmus.facade.response.PageNavigationResponse;
 import com.realmus.facade.response.QueryHomeResponse;
+import com.realmus.facade.response.RDResponse;
 
 import java.util.List;
 
@@ -39,4 +40,12 @@ public interface NavigationFacade {
      * @return
      */
     ResultModel<AboutUsResponse> getAboutUsInfo(Integer type);
+
+    /**
+     * 获取 智造研发  信息
+     *
+     * @param type
+     * @return
+     */
+    ResultModel<RDResponse> getRDInfo(Integer type);
 }
