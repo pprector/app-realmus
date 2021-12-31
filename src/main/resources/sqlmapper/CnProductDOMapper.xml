@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.realmus.repository.mapper.CnProductMapper">
+    <resultMap id="BaseResultMap" type="com.realmus.repository.model.ProductDO">
+        <!--@mbg.generated-->
+        <!--@Table cn_product-->
+        <id column="product_id" jdbcType="VARCHAR" property="productId"/>
+        <result column="product_name" jdbcType="VARCHAR" property="productName"/>
+        <result column="parent_id" jdbcType="VARCHAR" property="parentId"/>
+        <result column="product_ingredient" jdbcType="VARCHAR" property="productIngredient"/>
+        <result column="product_describe" jdbcType="VARCHAR" property="productDescribe"/>
+        <result column="product_weight" jdbcType="TINYINT" property="productWeight"/>
+        <result column="extend_json" jdbcType="VARCHAR" property="extendJson"/>
+        <result column="is_valid" jdbcType="TINYINT" property="isValid"/>
+        <result column="modifier" jdbcType="VARCHAR" property="modifier"/>
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        product_id, product_name, parent_id, product_ingredient, product_describe, product_weight,
+        extend_json, is_valid, modifier, gmt_modified
+    </sql>
+
+    <insert id="insertProductDOList">
+        insert into cn_product(
+        <include refid="Base_Column_List"/>
+        )values
+        <foreach collection="productDOList" item="item" separator=",">
+            (#{item.productId,jdbcType=VARCHAR},
+             #{item.productName,jdbcType=VARCHAR},
+             #{item.parentId,jdbcType=VARCHAR},
+             #{item.productIngredient,jdbcType=VARCHAR},
+             #{item.productDescribe,jdbcType=VARCHAR},
+             #{item.productWeight,jdbcType=INTEGER},
+             #{item.extendJson,jdbcType=VARCHAR},
+             1, #{item.modifier,jdbcType=VARCHAR},
+             now())
+        </foreach>
+    </insert>
+    <!--批量删除-->
+    <delete id="deleteByNameList">
+        delete
+        from cn_product
+                where product_name in
+        <foreach collection="productNameList" open="(" close=")" item="product" separator=",">
+            #{product,jdbcType=VARCHAR}
+        </foreach>
+    </delete>
+</mapper>

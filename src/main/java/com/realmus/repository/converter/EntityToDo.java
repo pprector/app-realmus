@@ -8,7 +8,9 @@ import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.repository.model.NavigationDO;
 import com.realmus.repository.model.ProductDO;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author hkpeng
@@ -18,23 +20,50 @@ import java.util.Date;
 public class EntityToDo {
     private static final Integer productWeight = 100;
 
-    public static ProductDO toProductDO(ProductInfoEntity entity) {
+    public static List<ProductDO> toProductDO(List<ProductInfoEntity> entityList) {
 
-        if (entity == null) {
+        if (entityList == null) {
             return null;
         }
-        ProductDO productDO = new ProductDO();
-        productDO.setProductId(IdWorker.getNextId());
-        productDO.setProductName(entity.getProductName());
-        productDO.setProductIngredient(entity.getIngredient());
-        productDO.setProductDescribe(entity.getDescription());
-        productDO.setProductWeight(productWeight);
-        productDO.setIsValid(1);
-        productDO.setModifier("phk");
-        productDO.setGmtModified(new Date());
+        List<ProductDO> productDOList = new ArrayList<>();
 
+        for (ProductInfoEntity entity : entityList) {
+            ProductDO productDO = new ProductDO();
+            productDO.setProductId(IdWorker.getNextId());
+            productDO.setProductName(entity.getProductName());
+            productDO.setProductWeight(productWeight);
+            productDO.setParentId("0");
+            productDO.setIsValid(1);
+            productDO.setModifier("phk");
+            productDO.setGmtModified(new Date());
+            for (ProductInfoEntity sonEntity : entity.getSonProductInfoList()) {
+                ProductDO sonProductDO = new ProductDO();
+                sonProductDO.setProductId(IdWorker.getNextId());
+                sonProductDO.setProductName(sonEntity.getProductName());
+                sonProductDO.setProductWeight(productWeight);
+                sonProductDO.setParentId(productDO.getProductId());
+                sonProductDO.setIsValid(1);
+                sonProductDO.setModifier("phk");
+                sonProductDO.setGmtModified(new Date());
+                for (ProductInfoEntity infoEntity : sonEntity.getSonProductInfoList()) {
+                    ProductDO productInfoDO = new ProductDO();
+                    productInfoDO.setProductId(IdWorker.getNextId());
+                    productInfoDO.setProductName(infoEntity.getProductName());
+                    productInfoDO.setProductWeight(productWeight);
+                    productInfoDO.setParentId(sonProductDO.getProductId());
+                    productInfoDO.setProductIngredient(infoEntity.getIngredient());
+                    productInfoDO.setProductDescribe(infoEntity.getDescription());
+                    productInfoDO.setIsValid(1);
+                    productInfoDO.setModifier("phk");
+                    productInfoDO.setGmtModified(new Date());
+                    productDOList.add(productInfoDO);
+                }
+                productDOList.add(sonProductDO);
+            }
+            productDOList.add(productDO);
+        }
 
-        return productDO;
+        return productDOList;
 
     }
 

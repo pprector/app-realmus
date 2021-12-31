@@ -1,9 +1,11 @@
 package com.realmus.service.converter;
 
+import com.alibaba.excel.util.CollectionUtils;
 import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.facade.request.ProductExcel;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -35,7 +37,7 @@ public class ProductFacadeConverter {
             //填充二级分类
             List<ProductInfoEntity> son2ProductInfoList = new ArrayList<>();
             for (ProductExcel productExcel : productExcelList) {
-                if (lv1Name.equals(productExcel.getProductLv1Type())) {
+                if (lv1Name.equals(productExcel.getProductLv1Type()) && isNotExist(son2ProductInfoList, productExcel.getProductLv2Type())) {
                     ProductInfoEntity productInfoEntity = new ProductInfoEntity();
                     productInfoEntity.setProductName(productExcel.getProductLv2Type());
                     //填充三级
@@ -59,5 +61,18 @@ public class ProductFacadeConverter {
 
         return ProductInfoList;
 
+    }
+
+    //判断当前名称是否存在集合中
+    private static boolean isNotExist(List<ProductInfoEntity> son2ProductInfoList, String name) {
+        if (CollectionUtils.isEmpty(son2ProductInfoList)) {
+            return true;
+        }
+        for (ProductInfoEntity infoEntity : son2ProductInfoList) {
+            if (name.equals(infoEntity.getProductName())) {
+                return false;
+            }
+        }
+        return true;
     }
 }

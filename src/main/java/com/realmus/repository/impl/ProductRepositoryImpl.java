@@ -28,7 +28,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public void addProductList(LanguageEnum languageEnum, List<ProductInfoEntity> entityList) {
         //数据转换
-        List<ProductDO> productDOList = entityList.stream().map(EntityToDo::toProductDO).collect(Collectors.toList());
+        List<ProductDO> productDOList = EntityToDo.toProductDO(entityList);
         //提取产品名称   删除
         List<String> productNameList = productDOList.stream().map(ProductDO::getProductName).collect(Collectors.toList());
 
