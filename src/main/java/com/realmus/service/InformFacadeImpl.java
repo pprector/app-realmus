@@ -16,3 +16,4 @@ public class InformFacadeImpl  implements InformFacade {
         return null;
     }
 }
+

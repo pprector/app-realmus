@@ -16,6 +16,7 @@ import com.realmus.facade.response.ProductResponse;
 import com.realmus.service.converter.ProductFacadeConverter;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -63,7 +64,11 @@ public class ProductFacadeImpl implements ProductFacade {
 
     @Override
     @ApiOperation(value = "产品信息模块 根据产品1级分类名称获取数据", httpMethod = "GET")
-    @ApiImplicitParam(name = "type", value = "语言类型", required = true, dataType = "int")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "type", value = "语言类型", required = true, dataType = "int"),
+            @ApiImplicitParam(name = "type", value = "产品一级分类名称", required = true, dataType = "string")
+    }
+    )
     @GetMapping("/{type}/{lv1Name}")
     public ResultModel<ProductResponse> getProductInfo(@PathVariable Integer type, @PathVariable String lv1Name) {
         logger.info("=====ProductFacadeImpl productInfoImpl request : " + lv1Name);
