@@ -26,4 +26,25 @@ public class ProductService {
         logger.info("=====ProductService addProductList request : " + entityList);
         productRepository.addProductList(languageEnum, entityList);
     }
+
+    /**
+     * 根据 一级分类获取数据
+     *
+     * @param languageEnum
+     * @param lv1Name
+     * @return
+     */
+    public ProductInfoEntity getProductInfo(LanguageEnum languageEnum, String lv1Name) {
+        //1. 获取ID
+        ProductInfoEntity productLv1 = productRepository.getProductInfoIdByLv1Name(languageEnum, lv1Name);
+
+        //2.获取二级分类
+        List<ProductInfoEntity> productInfoLv2List = productRepository.getProductInfoLv2List(languageEnum, productLv1.getProductId());
+
+        //3.填充二级分类数据
+        productInfoLv2List = productRepository.fillProductInfoLv2List(languageEnum, productInfoLv2List);
+
+        productLv1.setSonProductInfoList(productInfoLv2List);
+        return productLv1;
+    }
 }

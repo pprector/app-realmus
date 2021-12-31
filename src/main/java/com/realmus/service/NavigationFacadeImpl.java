@@ -102,9 +102,11 @@ public class NavigationFacadeImpl implements NavigationFacade {
             return ResultUtil.fail(BizErrorEnum.E001.getMessage());
         }
     }
-
+    @ApiOperation(value = "智造研发 全量信息获取", httpMethod = "GET")
+    @ApiImplicitParam(name = "type", value = "语言类型", required = true, dataType = "int")
     @Override
-    public ResultModel<RDResponse> getRDInfo(Integer type) {
+    @GetMapping("/dr/{type}")
+    public ResultModel<RDResponse> getRDInfo(@PathVariable Integer type) {
         logger.info("=====NavigationFacadeImpl getRDInfo request : ");
         try {
             RDEntity rdEntity = navigationService.getRDInfo(LanguageEnum.getLanguageEnum(type));

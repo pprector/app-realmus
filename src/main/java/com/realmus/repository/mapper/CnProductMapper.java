@@ -20,11 +20,29 @@ public interface CnProductMapper {
      *
      * @param productDOList
      */
-    void insertProductDOList(@Param("productDOList")List<ProductDO> productDOList);
+    void insertProductDOList(@Param("productDOList") List<ProductDO> productDOList);
 
     /**
      * 根据名称批量删除
+     *
      * @param productNameList
      */
     void deleteByNameList(@Param("productNameList") List<String> productNameList);
+
+    /**
+     * 根据名称查询数据
+     *
+     * @param lv1Name
+     * @return
+     */
+    ProductDO getProductInfoIdByLv1Name(@Param("lv1Name") String lv1Name);
+
+    /**
+     * 根据ID 获取二级分类
+     *
+     * @param productId
+     * @return
+     */
+    List<ProductDO> getProductInfoIdByParentId(@Param("productId") String productId);
+
 }

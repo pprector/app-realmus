@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * @author hkpeng
+ * 产品信息返回数据
  * @date 2021/12/29 - 16:43
  */
 @Setter
@@ -19,33 +20,32 @@ import java.util.List;
 public class ProductResponse {
 
     /**
+     * 产品id
+     */
+    @ApiModelProperty(example = "产品id")
+    private String productId;
+    /**
      * 产品名称
      */
-    @ApiModelProperty(example = "产品名称 ")
+    @ApiModelProperty(example = "产品名称-一级分类-二级分类")
     private String productName;
     /**
-     * 产品一级
+     * 该分类下 实体
      */
-    @ApiModelProperty(example = "产品一级名称 ")
-    private String ProductLv1Name;
-    /**
-     * 产品二级
-     */
-    @ApiModelProperty(example = "产品二级名称 ")
-    private String ProductLv2Name;
+    @ApiModelProperty(example = "产品名称-一级分类-二级分类")
+    private List<ProductResponse> sonProductInfoList;
     /**
      * 原料
      */
-    @ApiModelProperty(example = "原料 ")
+    @ApiModelProperty(example = "产品名称-一级分类-二级分类")
     private String Ingredient;
     /**
-     * 功能简要
+     * 描述信息
      */
-    @ApiModelProperty(example = "功能简要 ")
+    @ApiModelProperty(example = "产品名称-一级分类-二级分类")
     private String description;
     /**
-     * 产品图片
+     * 产品图片集合
      */
-    @ApiModelProperty(example = "产品名称 ")
-    private List<String> multimediaUrlList;
+    private String imgUrl;
 }

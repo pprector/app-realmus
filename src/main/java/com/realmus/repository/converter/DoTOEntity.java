@@ -1,9 +1,11 @@
 package com.realmus.repository.converter;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.realmus.common.enums.ExtendTypeEnum;
 import com.realmus.domain.entity.*;
 import com.realmus.repository.model.NavigationDO;
+import com.realmus.repository.model.ProductDO;
 import org.apache.commons.lang.StringUtils;
 
 /**
@@ -77,5 +79,23 @@ public class DoTOEntity {
         return entity;
     }
 
+    /**
+     * 产品信息 DO转Entity
+     *
+     * @param productDO
+     * @return
+     */
+    public static ProductInfoEntity toProductInfoEntity(ProductDO productDO) {
+        if (productDO == null) {
+            return null;
+        }
+        ProductInfoEntity infoEntity = new ProductInfoEntity();
+        infoEntity.setProductId(productDO.getProductId());
+        infoEntity.setProductName(productDO.getProductName());
+        infoEntity.setIngredient(productDO.getProductIngredient());
+        infoEntity.setDescription(productDO.getProductDescribe());
+        infoEntity.setMultimedia(JSON.parseObject(productDO.getExtendJson(), MultimediaEntity.class));
 
+        return infoEntity;
+    }
 }

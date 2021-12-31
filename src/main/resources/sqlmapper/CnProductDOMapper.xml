@@ -46,4 +46,19 @@
             #{product,jdbcType=VARCHAR}
         </foreach>
     </delete>
+
+    <select id="getProductInfoIdByLv1Name" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cn_product
+        where product_name = #{lv1Name,jdbcType=VARCHAR}
+    </select>
+    <!--查询二级分类-->
+    <select id="getProductInfoIdByParentId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cn_product
+        where parent_id = #{productId,jdbcType=VARCHAR}
+        order by product_weight desc
+    </select>
 </mapper>

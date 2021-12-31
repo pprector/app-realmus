@@ -38,6 +38,6 @@ public class ProductInfoEntity {
     /**
      * 产品图片集合
      */
-    private List<MultimediaEntity> multimediaList;
+    private MultimediaEntity multimedia;
 
 }

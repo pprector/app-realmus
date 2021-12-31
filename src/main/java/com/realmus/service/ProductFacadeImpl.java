@@ -12,8 +12,11 @@ import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.domain.service.ProductService;
 import com.realmus.facade.ProductFacade;
 import com.realmus.facade.request.ProductExcel;
+import com.realmus.facade.response.ProductResponse;
 import com.realmus.service.converter.ProductFacadeConverter;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +40,7 @@ public class ProductFacadeImpl implements ProductFacade {
     private ProductService productService;
 
     @Override
-    @PostMapping("/{type}")
+    @PostMapping("/impl/{type}")
     public ResultModel<Object> productInfoImpl(@PathVariable Integer type, @RequestBody File file) {
         ValidationUtil.validate(file);
         logger.info("=====ProductFacadeImpl productInfoImpl request : " + file.getName());
@@ -49,6 +52,25 @@ public class ProductFacadeImpl implements ProductFacade {
             List<ProductInfoEntity> productInfoEntityList = ProductFacadeConverter.toProductEntity(dataList);
             productService.addProductList(LanguageEnum.getLanguageEnum(type), productInfoEntityList);
             return ResultUtil.success(null);
+        } catch (BizException e) {
+            logger.error("=====ProductFacadeImpl  productInfoImpl  BizException :}", e);
+            return ResultUtil.fail(e.getMessage());
+        } catch (Exception e) {
+            logger.error("=====ProductFacadeImpl  productInfoImpl  Exception : ", e);
+            return ResultUtil.fail(BizErrorEnum.E001.getMessage());
+        }
+    }
+
+    @Override
+    @ApiOperation(value = "产品信息模块 根据产品1级分类名称获取数据", httpMethod = "GET")
+    @ApiImplicitParam(name = "type", value = "语言类型", required = true, dataType = "int")
+    @GetMapping("/{type}/{lv1Name}")
+    public ResultModel<ProductResponse> getProductInfo(@PathVariable Integer type, @PathVariable String lv1Name) {
+        logger.info("=====ProductFacadeImpl productInfoImpl request : " + lv1Name);
+        try {
+            ProductInfoEntity productInfoEntity = productService.getProductInfo(LanguageEnum.getLanguageEnum(type), lv1Name);
+
+            return ResultUtil.success(ProductFacadeConverter.ProductResponse(productInfoEntity));
         } catch (BizException e) {
             logger.error("=====ProductFacadeImpl  productInfoImpl  BizException :}", e);
             return ResultUtil.fail(e.getMessage());
