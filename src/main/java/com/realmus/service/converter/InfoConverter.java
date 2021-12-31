@@ -52,7 +52,6 @@ public class InfoConverter {
         if (entity.getVideoBackgroundImg() != null) {
             company.setVideoBackgroundImg(entity.getVideoBackgroundImg().getMultimediaUrl());
         }
-        company.setInfoType(entity.getInfoType().getCode());
         company.setH5Url(entity.getH5Url());
         company.setInfoTitle(entity.getInfoTitle());
         company.setInfoDescription(entity.getInfoDescription());
@@ -67,7 +66,7 @@ public class InfoConverter {
             return null;
         }
         Banner banner = new Banner();
-        banner.setInfoType(entity.getInfoType().getCode());
+
         banner.setH5Url(entity.getH5Url());
         banner.setInfoTitle(entity.getInfoTitle());
         banner.setInfoDescription(entity.getInfoDescription());

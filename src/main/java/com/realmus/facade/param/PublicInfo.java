@@ -14,11 +14,6 @@ import lombok.ToString;
 @ToString
 public class PublicInfo {
 
-    @ApiModelProperty(example = "信息Id")
-    private String infoId;
-
-    @ApiModelProperty(example = "信息模块Code")
-    private Integer infoType;
 
     @ApiModelProperty(example = "信息模块链接地址")
     private String h5Url;
