@@ -22,8 +22,8 @@ class ProductFacadeImplTest {
 
     @Test
     void productInfoImpl() {
-        File file = new File("C:\\Users\\issuser\\Desktop\\realmus_img\\产品信息.xls");
-        ResultModel<Object> resultModel = productFacade.productInfoImpl(1, file);
+        File file = new File("C:\\Users\\issuser\\Desktop\\realmus_img\\Enrealmus产品信息.xlsx");
+        ResultModel<Object> resultModel = productFacade.productInfoImpl(2, file);
         System.out.println(resultModel);
     }
 

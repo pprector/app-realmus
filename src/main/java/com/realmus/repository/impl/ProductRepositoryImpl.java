@@ -8,6 +8,7 @@ import com.realmus.domain.repository.ProductRepository;
 import com.realmus.repository.converter.DoTOEntity;
 import com.realmus.repository.converter.EntityToDo;
 import com.realmus.repository.mapper.CnProductMapper;
+import com.realmus.repository.mapper.EnProductMapper;
 import com.realmus.repository.model.NavigationDO;
 import com.realmus.repository.model.ProductDO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Autowired
     private CnProductMapper cnProductMapper;
 
+    @Autowired
+    private EnProductMapper enProductMapper;
+
 
     @Override
     public void addProductList(LanguageEnum languageEnum, List<ProductInfoEntity> entityList) {
@@ -42,7 +46,8 @@ public class ProductRepositoryImpl implements ProductRepository {
                 cnProductMapper.insertProductDOList(productDOList);
                 break;
             case ENGLISH:
-                throw new BizException(BizErrorEnum.A001);
+                enProductMapper.deleteByNameList(productNameList);
+                enProductMapper.insertProductDOList(productDOList);
         }
     }
 
