@@ -4,15 +4,28 @@ import com.realmus.common.result.ResultModel;
 import com.realmus.facade.InformFacade;
 import com.realmus.facade.request.PageInformRequest;
 import com.realmus.facade.response.PageInformResponse;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author hkpeng
  * @date 2021/12/30 - 15:41
  */
-
+@RestController
+@Api(tags = "短信通知数据分页查询")
 public class InformFacadeImpl  implements InformFacade {
+
+
+    @ApiOperation(value = "短信通知数据分页查询", httpMethod = "POST")
+    @ApiImplicitParam(name = "type", value = "语言类型", required = true, dataType = "int")
     @Override
+    @GetMapping("/inform/{type}")
     public ResultModel<PageInformResponse> pageInform(PageInformRequest request) {
+
+
         return null;
     }
 }
