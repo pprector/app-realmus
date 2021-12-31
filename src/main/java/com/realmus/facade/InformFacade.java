@@ -1,8 +1,11 @@
 package com.realmus.facade;
 
 import com.realmus.common.result.ResultModel;
+import com.realmus.common.util.PageResult;
 import com.realmus.facade.request.PageInformRequest;
 import com.realmus.facade.response.PageInformResponse;
+
+import java.util.List;
 
 /**
  * @author hkpeng
@@ -24,5 +27,5 @@ public interface InformFacade {
      * @param request
      * @return
      */
-    ResultModel<PageInformResponse> pageInform(PageInformRequest request);
+    ResultModel<PageResult<PageInformResponse>> pageInform(PageInformRequest request);
 }

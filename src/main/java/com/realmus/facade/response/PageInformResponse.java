@@ -15,7 +15,7 @@ import java.util.Date;
 @Setter
 @Getter
 @ToString
-public class PageInformResponse extends PagingResponse{
+public class PageInformResponse{
     /**
      * 通知ID
      */
