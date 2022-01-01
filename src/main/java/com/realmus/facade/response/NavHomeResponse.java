@@ -18,7 +18,7 @@ import java.util.List;
 @Setter
 @Getter
 @ToString
-public class HomeResponse {
+public class NavHomeResponse {
     /**
      * 轮播图信息集合
      */

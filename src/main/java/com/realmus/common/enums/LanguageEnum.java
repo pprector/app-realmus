@@ -10,20 +10,20 @@ import com.realmus.common.error.BizException;
 
 public enum LanguageEnum {
 
-    CHINESE(1, "中文"),
+    CHINESE("CN", "中文"),
 
-    ENGLISH(2, "英文");
+    ENGLISH("EN", "英文");
 
-    private Integer code;
+    private String code;
 
     private String value;
 
-    LanguageEnum(Integer code, String value) {
+    LanguageEnum(String code, String value) {
         this.code = code;
         this.value = value;
     }
 
-    public static LanguageEnum getLanguageEnum(Integer code) {
+    public static LanguageEnum getLanguageEnum(String code) {
         if (code == null) {
             return null;
         }

@@ -2,7 +2,7 @@ package com.realmus.service.converter;
 
 import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.facade.param.Navigation;
-import com.realmus.facade.response.PageNavigationResponse;
+import com.realmus.facade.response.NavigationResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,11 +19,11 @@ public class NavigationConverter {
      * @param entityList
      * @return
      */
-    public static PageNavigationResponse toPageNavigationResponseList(NavigationEntity entityList) {
+    public static NavigationResponse toPageNavigationResponseList(NavigationEntity entityList) {
         if (entityList == null) {
             return null;
         }
-        PageNavigationResponse pageNavigationResponse = new PageNavigationResponse();
+        NavigationResponse pageNavigationResponse = new NavigationResponse();
         pageNavigationResponse.setId(entityList.getNavigationId());
         pageNavigationResponse.setNavName(entityList.getNavigationName());
         pageNavigationResponse.setH5Url(entityList.getH5Url());

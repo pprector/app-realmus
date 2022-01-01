@@ -3,6 +3,7 @@ package com.realmus.facade;
 import com.realmus.common.result.ResultModel;
 import com.realmus.facade.response.ProductResponse;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 
 /**
@@ -18,7 +19,7 @@ public interface ProductFacade {
      * @param file
      * @return
      */
-    ResultModel<Object> productInfoImpl(Integer type, File file);
+    ResultModel<Object> productInfoImpl(String type, File file);
 
 
     /**
@@ -27,7 +28,7 @@ public interface ProductFacade {
      * @param
      * @return
      */
-    ResultModel<ProductResponse> getProductInfo(Integer type, String lv1Name);
+    ResultModel<ProductResponse> getProductInfo(String lv1Name, HttpServletRequest httpServletRequest);
 
 
 }

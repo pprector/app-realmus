@@ -27,6 +27,16 @@ public class NavigationService {
     private NavigationRepository navigationRepository;
 
     /**
+     * 查询导航栏扩展信息 根据Id
+     *
+     * @return
+     */
+    public NavigationEntity getNavigationExtendInfo(LanguageEnum languageEnum,String navId) {
+            return navigationRepository.findExtendInfo(languageEnum, navId);
+    }
+
+
+    /**
      * 查询导航栏
      *
      * @return

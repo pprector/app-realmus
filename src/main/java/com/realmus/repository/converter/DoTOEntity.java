@@ -74,7 +74,6 @@ public class DoTOEntity {
                 ContactUsEntity contactUsEntity = JSONObject.parseObject(extendJson, ContactUsEntity.class);
                 entity.setExtension(contactUsEntity);
                 break;
-
         }
         return entity;
     }

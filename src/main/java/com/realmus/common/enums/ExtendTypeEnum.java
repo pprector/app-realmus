@@ -17,7 +17,7 @@ public enum ExtendTypeEnum {
 
     NEWS("1640068343", "新闻中心", "NewsEntity"),
 
-    PRODUCT("1640068339", "产品中心", "NewsEntity"),
+    PRODUCT("1640068339", "产品中心", "ProductEntity"),
 
     RD("1640068346", "制造研发(R&D)", "RDEntity"),
 

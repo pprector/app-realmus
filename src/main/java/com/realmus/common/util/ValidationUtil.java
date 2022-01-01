@@ -2,6 +2,7 @@ package com.realmus.common.util;
 
 import com.realmus.common.error.BizErrorEnum;
 import com.realmus.common.error.BizException;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +14,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * 入参校验工具类
+ * 校验工具类
  *
  * @author hkpeng
  * @date 2021/12/17 - 9:11
@@ -35,6 +36,16 @@ public class ValidationUtil {
             throw new BizException(BizErrorEnum.A001.getMessage() + map);
         }
     }
+    /**
+     * 字符串校验
+     */
+    public static void checkout(String str,BizErrorEnum bizErrorEnum){
+        if (StringUtils.isBlank(str)){
+            throw new BizException(bizErrorEnum);
+        }
+    }
+
+
 
 
 

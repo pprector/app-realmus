@@ -1,9 +1,9 @@
 package com.realmus.facade.response;
 
-import com.realmus.domain.entity.DataDisplayEntity;
 import com.realmus.facade.param.Banner;
 import com.realmus.facade.param.Company;
 import com.realmus.facade.param.DataDisplay;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,8 +19,9 @@ import java.util.List;
 @Setter
 @Getter
 @ToString
+@ApiModel(value = "关于我们 信息")
 public class
-AboutUsResponse {
+NavAboutUsResponse {
 
     @ApiModelProperty(example = "关于我们 banner")
     private Banner banner;

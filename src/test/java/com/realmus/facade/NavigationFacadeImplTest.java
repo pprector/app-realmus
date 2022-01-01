@@ -9,15 +9,14 @@ import com.realmus.common.result.ResultModel;
 import com.realmus.domain.entity.*;
 import com.realmus.domain.repository.NavigationRepository;
 import com.realmus.domain.service.NavigationService;
-import com.realmus.facade.response.PageNavigationResponse;
+import com.realmus.facade.response.NavigationResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author hkpeng
@@ -40,7 +39,7 @@ class NavigationFacadeImplTest {
 
     @Test
     void getNavigationInfo() {
-        ResultModel<List<PageNavigationResponse>> navigationInfo = navigationFacade.getNavigationInfo(1);
+        ResultModel<List<NavigationResponse>> navigationInfo = navigationFacade.getNavigationInfo(null);
         System.out.println(JSON.toJSONString(navigationInfo, true));
     }
 

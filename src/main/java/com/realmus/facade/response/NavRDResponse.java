@@ -14,7 +14,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class RDResponse {
+public class NavRDResponse {
     /**
      * 轮播 Banner
      */

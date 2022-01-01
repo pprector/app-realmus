@@ -17,7 +17,7 @@ import java.util.List;
 @Setter
 @Getter
 @ToString
-public class PageNavigationResponse {
+public class NavigationResponse {
 
     /**
      * 导航栏ID

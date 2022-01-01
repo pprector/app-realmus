@@ -23,7 +23,7 @@ class ProductFacadeImplTest {
     @Test
     void productInfoImpl() {
         File file = new File("C:\\Users\\issuser\\Desktop\\realmus_img\\Enrealmus产品信息.xlsx");
-        ResultModel<Object> resultModel = productFacade.productInfoImpl(2, file);
+        ResultModel<Object> resultModel = productFacade.productInfoImpl("CH", file);
         System.out.println(resultModel);
     }
 
@@ -31,7 +31,7 @@ class ProductFacadeImplTest {
     @Test
     void getProductInfo() {
 
-        ResultModel<ProductResponse> productInfo = productFacade.getProductInfo(1, "软糖 GUMMY");
+        ResultModel<ProductResponse> productInfo = productFacade.getProductInfo("软糖 GUMMY",null);
         System.out.println(JSON.toJSONString(productInfo, true));
     }
 }

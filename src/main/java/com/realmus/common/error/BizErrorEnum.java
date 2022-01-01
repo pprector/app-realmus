@@ -27,7 +27,12 @@ public enum BizErrorEnum {
     /**
      * 输入语言不存在
      */
-    A004("004", "当前Id 信息不存在!");
+    A004("004", "当前Id 信息不存在!"),
+
+    /**
+     * 输入语言不存在
+     */
+    A005("005", "Request 中 不存在语音标识!");
 
 
     private String code;
