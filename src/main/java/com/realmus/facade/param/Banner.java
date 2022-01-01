@@ -18,5 +18,5 @@ import javax.swing.*;
 @ToString
 public class Banner extends PublicInfo {
     @ApiModelProperty(example = "信息模块图片获取地址")
-    private String imgUrl;
+    private Img img;
 }

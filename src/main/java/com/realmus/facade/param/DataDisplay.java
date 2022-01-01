@@ -19,7 +19,7 @@ public class DataDisplay {
      * 数据展示背景图片
      */
     @ApiModelProperty(example = "数据展示背景图片")
-    private String bgImg;
+    private Img bgImg;
 
     @ApiModelProperty(example = "数据展示集合")
     private List<DataDetails> dataDetailsList;

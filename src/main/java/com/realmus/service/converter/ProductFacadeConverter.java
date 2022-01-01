@@ -1,6 +1,7 @@
 package com.realmus.service.converter;
 
 import com.realmus.domain.entity.ProductInfoEntity;
+import com.realmus.facade.param.Img;
 import com.realmus.facade.request.ProductExcel;
 import com.realmus.facade.response.ProductResponse;
 import org.springframework.util.CollectionUtils;
@@ -90,7 +91,7 @@ public class ProductFacadeConverter {
         response.setIngredient(entity.getIngredient());
         response.setDesc(entity.getDescription());
         if (entity.getMultimedia() != null) {
-            response.setImgUrl(entity.getMultimedia().getMultimediaUrl());
+            response.setImg(new Img(entity.getMultimedia().getMultimediaUrl(),entity.getMultimedia().getDescription()));
         }
         return response;
     }

@@ -1,5 +1,6 @@
 package com.realmus.facade.response;
 
+import com.realmus.facade.param.Img;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -46,5 +47,5 @@ public class ProductResponse {
      * 产品图片集合
      */
     @ApiModelProperty(example = "产品图片")
-    private String imgUrl;
+    private Img img;
 }

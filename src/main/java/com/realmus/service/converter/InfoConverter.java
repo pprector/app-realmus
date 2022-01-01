@@ -32,7 +32,7 @@ public class InfoConverter {
         NavHomeResponse homeResponse = new NavHomeResponse();
 
         //轮播
-        List<BannerEntity> bannerEntityList = homeInfoEntity.getBannerList().getData();
+        List<BannerEntity> bannerEntityList = homeInfoEntity.getBannerList();
         List<Banner> bannerList = bannerEntityList.stream().map(InfoConverter::toBanner).collect(Collectors.toList());
         homeResponse.setBannerList(bannerList);
         //关于我们
@@ -79,7 +79,7 @@ public class InfoConverter {
         banner.setDesc(entity.getInfoDescription());
         banner.setContent(entity.getInfoContent());
         if (entity.getBannerImg() != null) {
-            banner.setImgUrl(entity.getBannerImg().getMultimediaUrl());
+            banner.setImg(new Img(entity.getBannerImg().getMultimediaUrl(),entity.getBannerImg().getDescription()));
         }
         return banner;
     }
@@ -111,7 +111,7 @@ public class InfoConverter {
         }
         DataDisplay display = new DataDisplay();
         if (entity.getBackground() != null) {
-            display.setBgImg(entity.getBackground().getMultimediaUrl());
+            display.setBgImg(new Img(entity.getBackground().getMultimediaUrl(),entity.getBackground().getDescription()));
         }
 
         display.setDataDetailsList(entity.getDataDetailsList()
@@ -206,7 +206,7 @@ public class InfoConverter {
             return null;
         }
         Video video = new Video();
-        video.setVideoImgUrl(entity.getCoverImgUrl());
+        video.setVideoImg(new Img(entity.getCoverImgUrl(),"视频背景图"));
         video.setVideoUrl(entity.getMultimediaUrl());
         return video;
     }

@@ -3,6 +3,7 @@ package com.realmus.facade.response;
 import com.realmus.facade.param.Banner;
 import com.realmus.facade.param.Company;
 import com.realmus.facade.param.DataDisplay;
+import com.realmus.facade.param.Img;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -36,5 +37,5 @@ NavAboutUsResponse {
     private DataDisplay dataDisplay;
 
     @ApiModelProperty(example = "证书中心 N个图")
-    private List<String> imgUrlList;
+    private List<Img> imgList;
 }
