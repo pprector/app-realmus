@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.io.Serializable;
-
 /**
  * @author hkpeng
  * 导航栏 数据
@@ -21,12 +19,12 @@ public class Navigation {
      * 导航栏ID
      */
     @ApiModelProperty(example = "子导航栏ID")
-    private String navigationId;
+    private String id;
     /**
      * 导航栏名称
      */
     @ApiModelProperty(example = "子导航栏名称")
-    private String navigationName;
+    private String navName;
     /**
      * 跳转地址
      */
@@ -36,5 +34,5 @@ public class Navigation {
      * 导航层级
      */
     @ApiModelProperty(example = "子导航栏层级")
-    private Integer navigationTier;
+    private Integer navTier;
 }

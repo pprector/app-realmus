@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -24,12 +23,12 @@ public class PageNavigationResponse {
      * 导航栏ID
      */
     @ApiModelProperty(example = "导航栏ID")
-    private String navigationId;
+    private String id;
     /**
      * 导航栏名称
      */
     @ApiModelProperty(example = "导航栏名称")
-    private String navigationName;
+    private String navName;
     /**
      * 跳转地址
      */
@@ -39,11 +38,11 @@ public class PageNavigationResponse {
      * 导航层级
      */
     @ApiModelProperty(example = "导航栏层级")
-    private Integer navigationTier;
+    private Integer navTier;
     /**
      * 子导航栏
      */
     @ApiModelProperty(example = "子导航栏集合")
-    List<Navigation> sonNavigationList;
+    List<Navigation> subset;
 
 }

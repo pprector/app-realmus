@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Date;
-
 /**
  * @author hkpeng
  * 获取消息通知 返回体
@@ -20,7 +18,7 @@ public class PageInformResponse extends PagingResponse{
      * 通知ID
      */
     @ApiModelProperty(value="通知ID")
-    private String informId;
+    private String id;
 
     /**
      * 邮箱号
@@ -50,7 +48,7 @@ public class PageInformResponse extends PagingResponse{
      * 消息体
      */
     @ApiModelProperty(value="消息体")
-    private String informMessage;
+    private String message;
 
     /**
      * 是否跟进

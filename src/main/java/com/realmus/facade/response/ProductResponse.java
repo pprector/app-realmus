@@ -1,7 +1,5 @@
 package com.realmus.facade.response;
 
-import com.realmus.domain.entity.MultimediaEntity;
-import com.realmus.domain.entity.ProductInfoEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,29 +21,30 @@ public class ProductResponse {
      * 产品id
      */
     @ApiModelProperty(example = "产品id")
-    private String productId;
+    private String id;
     /**
      * 产品名称
      */
     @ApiModelProperty(example = "产品名称-一级分类-二级分类")
-    private String productName;
+    private String proName;
     /**
      * 该分类下 实体
      */
     @ApiModelProperty(example = "产品名称-一级分类-二级分类")
-    private List<ProductResponse> sonProductInfoList;
+    private List<ProductResponse> subset;
     /**
      * 原料
      */
-    @ApiModelProperty(example = "产品名称-一级分类-二级分类")
+    @ApiModelProperty(example = "原料")
     private String Ingredient;
     /**
      * 描述信息
      */
-    @ApiModelProperty(example = "产品名称-一级分类-二级分类")
-    private String description;
+    @ApiModelProperty(example = "描述信息")
+    private String desc;
     /**
      * 产品图片集合
      */
+    @ApiModelProperty(example = "产品图片")
     private String imgUrl;
 }

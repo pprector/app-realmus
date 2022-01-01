@@ -19,11 +19,11 @@ public class PublicInfo {
     private String h5Url;
 
     @ApiModelProperty(example = "信息 标题头")
-    private String infoTitle;
+    private String title;
 
     @ApiModelProperty(example = "信息 描述 ")
-    private String infoDescription;
+    private String desc;
 
     @ApiModelProperty(example = "信息 内容")
-    private String infoContent;
+    private String content;
 }

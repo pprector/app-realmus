@@ -4,10 +4,9 @@ package com.realmus.service.converter;
 import com.realmus.domain.entity.*;
 import com.realmus.facade.param.*;
 import com.realmus.facade.response.AboutUsResponse;
-import com.realmus.facade.response.QueryHomeResponse;
+import com.realmus.facade.response.HomeResponse;
 import com.realmus.facade.response.RDResponse;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,11 +17,11 @@ import java.util.stream.Collectors;
 
 public class InfoConverter {
 
-    public static QueryHomeResponse toQueryHomeResponse(HomeInfoEntity homeInfoEntity) {
+    public static HomeResponse toQueryHomeResponse(HomeInfoEntity homeInfoEntity) {
         if (homeInfoEntity == null) {
             return null;
         }
-        QueryHomeResponse homeResponse = new QueryHomeResponse();
+        HomeResponse homeResponse = new HomeResponse();
 
         //轮播
         List<BannerEntity> bannerEntityList = homeInfoEntity.getBannerList();
@@ -44,18 +43,18 @@ public class InfoConverter {
         }
         Company company = new Company();
         if (entity.getBackgroundImg() != null) {
-            company.setBackgroundImg(entity.getBackgroundImg().getMultimediaUrl());
+            company.setBgImg(entity.getBackgroundImg().getMultimediaUrl());
         }
         if (entity.getPromotionalMp4() != null) {
             company.setPromotionalMp4(entity.getPromotionalMp4().getMultimediaUrl());
         }
         if (entity.getVideoBackgroundImg() != null) {
-            company.setVideoBackgroundImg(entity.getVideoBackgroundImg().getMultimediaUrl());
+            company.setVideoBgImg(entity.getVideoBackgroundImg().getMultimediaUrl());
         }
         company.setH5Url(entity.getH5Url());
-        company.setInfoTitle(entity.getInfoTitle());
-        company.setInfoDescription(entity.getInfoDescription());
-        company.setInfoContent(entity.getInfoContent());
+        company.setTitle(entity.getInfoTitle());
+        company.setDesc(entity.getInfoDescription());
+        company.setContent(entity.getInfoContent());
 
         return company;
     }
@@ -68,9 +67,9 @@ public class InfoConverter {
         Banner banner = new Banner();
 
         banner.setH5Url(entity.getH5Url());
-        banner.setInfoTitle(entity.getInfoTitle());
-        banner.setInfoDescription(entity.getInfoDescription());
-        banner.setInfoContent(entity.getInfoContent());
+        banner.setTitle(entity.getInfoTitle());
+        banner.setDesc(entity.getInfoDescription());
+        banner.setContent(entity.getInfoContent());
         if (entity.getBannerImg() != null) {
             banner.setImgUrl(entity.getBannerImg().getMultimediaUrl());
         }
@@ -104,7 +103,7 @@ public class InfoConverter {
         }
         DataDisplay display = new DataDisplay();
         if (entity.getBackground() != null) {
-            display.setBackground(entity.getBackground().getMultimediaUrl());
+            display.setBgImg(entity.getBackground().getMultimediaUrl());
         }
 
         display.setDataDetailsList(entity.getDataDetailsList()
@@ -173,8 +172,8 @@ public class InfoConverter {
         RDIInfo info = new RDIInfo();
         info.setMainBanner(toBanner(entity.getMainBanner()));
         info.setHeadLine(entity.getHeadLine());
-        info.setDescription(entity.getDescription());
-        info.setDatabaseBanner(toBanner(entity.getDatabaseBanner()));
+        info.setDesc(entity.getDescription());
+        info.setDataBanner(toBanner(entity.getDatabaseBanner()));
         info.setTeamBanner(toBanner(entity.getTeamBanner()));
         info.setPatentBanner(toBanner(entity.getPatentBanner()));
 
@@ -199,8 +198,8 @@ public class InfoConverter {
             return null;
         }
         Video video = new Video();
-        video.setCoverImgUrl(entity.getCoverImgUrl());
-        video.setMultimediaUrl(entity.getMultimediaUrl());
+        video.setVideoImgUrl(entity.getCoverImgUrl());
+        video.setVideoUrl(entity.getMultimediaUrl());
         return video;
     }
 }

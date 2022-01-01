@@ -3,7 +3,7 @@ package com.realmus.facade;
 import com.realmus.common.result.ResultModel;
 import com.realmus.facade.response.AboutUsResponse;
 import com.realmus.facade.response.PageNavigationResponse;
-import com.realmus.facade.response.QueryHomeResponse;
+import com.realmus.facade.response.HomeResponse;
 import com.realmus.facade.response.RDResponse;
 
 import java.util.List;
@@ -31,7 +31,7 @@ public interface NavigationFacade {
      * @param type
      * @return
      */
-    ResultModel<QueryHomeResponse> getHomeInfo(Integer type);
+    ResultModel<HomeResponse> getHomeInfo(Integer type);
 
     /**
      * 获取 关于我们  信息

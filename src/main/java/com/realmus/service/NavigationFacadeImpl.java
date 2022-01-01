@@ -13,7 +13,7 @@ import com.realmus.domain.service.NavigationService;
 import com.realmus.facade.NavigationFacade;
 import com.realmus.facade.response.AboutUsResponse;
 import com.realmus.facade.response.PageNavigationResponse;
-import com.realmus.facade.response.QueryHomeResponse;
+import com.realmus.facade.response.HomeResponse;
 import com.realmus.facade.response.RDResponse;
 import com.realmus.service.converter.InfoConverter;
 import com.realmus.service.converter.NavigationConverter;
@@ -68,11 +68,11 @@ public class NavigationFacadeImpl implements NavigationFacade {
     @ApiImplicitParam(name = "type", value = "语言类型", required = true, dataType = "int")
     @Override
     @GetMapping("/home/{type}")
-    public ResultModel<QueryHomeResponse> getHomeInfo(@PathVariable Integer type) {
+    public ResultModel<HomeResponse> getHomeInfo(@PathVariable Integer type) {
         logger.info("=====NavigationFacadeImpl getHomeInfo request : ");
         try {
             HomeInfoEntity homeInfoEntity = navigationService.getHomeInfo(LanguageEnum.getLanguageEnum(type));
-            QueryHomeResponse homeResponse = InfoConverter.toQueryHomeResponse(homeInfoEntity);
+            HomeResponse homeResponse = InfoConverter.toQueryHomeResponse(homeInfoEntity);
             return ResultUtil.success(homeResponse);
         } catch (BizException e) {
             logger.error("=====BizException  NavigationFacadeImpl getNavigationInfo request :}", e);

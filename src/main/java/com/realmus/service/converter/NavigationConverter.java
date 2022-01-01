@@ -3,9 +3,7 @@ package com.realmus.service.converter;
 import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.facade.param.Navigation;
 import com.realmus.facade.response.PageNavigationResponse;
-import org.mapstruct.Mapper;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,15 +24,15 @@ public class NavigationConverter {
             return null;
         }
         PageNavigationResponse pageNavigationResponse = new PageNavigationResponse();
-        pageNavigationResponse.setNavigationId(entityList.getNavigationId());
-        pageNavigationResponse.setNavigationName(entityList.getNavigationName());
+        pageNavigationResponse.setId(entityList.getNavigationId());
+        pageNavigationResponse.setNavName(entityList.getNavigationName());
         pageNavigationResponse.setH5Url(entityList.getH5Url());
-        pageNavigationResponse.setNavigationTier(entityList.getNavigationTier());
+        pageNavigationResponse.setNavTier(entityList.getNavigationTier());
 
         List<NavigationEntity> sonNavigationList = entityList.getSonNavigationList();
         List<Navigation> navigationList = sonNavigationList.stream().map(NavigationConverter::toNavigation).collect(Collectors.toList());
 
-        pageNavigationResponse.setSonNavigationList(navigationList);
+        pageNavigationResponse.setSubset(navigationList);
 
         return pageNavigationResponse;
     }
@@ -45,10 +43,10 @@ public class NavigationConverter {
             return null;
         }
         Navigation navigation = new Navigation();
-        navigation.setNavigationId(entity.getNavigationId());
-        navigation.setNavigationName(entity.getNavigationName());
+        navigation.setId(entity.getNavigationId());
+        navigation.setNavName(entity.getNavigationName());
         navigation.setH5Url(entity.getH5Url());
-        navigation.setNavigationTier(entity.getNavigationTier());
+        navigation.setNavTier(entity.getNavigationTier());
 
         return navigation;
     }

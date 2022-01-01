@@ -6,7 +6,6 @@ import com.realmus.facade.response.ProductResponse;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -83,13 +82,13 @@ public class ProductFacadeConverter {
             return null;
         }
         ProductResponse response = new ProductResponse();
-        response.setProductId(entity.getProductId());
-        response.setProductName(entity.getProductName());
+        response.setId(entity.getProductId());
+        response.setProName(entity.getProductName());
         if (!CollectionUtils.isEmpty(entity.getSonProductInfoList())) {
-            response.setSonProductInfoList(entity.getSonProductInfoList().stream().map(ProductFacadeConverter::ProductResponse).collect(Collectors.toList()));
+            response.setSubset(entity.getSonProductInfoList().stream().map(ProductFacadeConverter::ProductResponse).collect(Collectors.toList()));
         }
         response.setIngredient(entity.getIngredient());
-        response.setDescription(entity.getDescription());
+        response.setDesc(entity.getDescription());
         if (entity.getMultimedia() != null) {
             response.setImgUrl(entity.getMultimedia().getMultimediaUrl());
         }

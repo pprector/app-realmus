@@ -1,6 +1,5 @@
 package com.realmus.facade.param;
 
-import com.realmus.domain.entity.BannerEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,12 +28,12 @@ public class RDIInfo {
      * 研发描述
      */
     @ApiModelProperty(example = " 研发描述")
-    private String description;
+    private String desc;
     /**
      * banner
      */
     @ApiModelProperty(example = " 数据 banner")
-    private Banner databaseBanner;
+    private Banner dataBanner;
     /**
      * banner
      */

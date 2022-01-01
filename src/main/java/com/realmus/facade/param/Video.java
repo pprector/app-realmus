@@ -18,10 +18,10 @@ public class Video {
      * 视频封面URl
      */
     @ApiModelProperty(example = "视频封面URl")
-    private String coverImgUrl;
+    private String videoImgUrl;
     /**
      * 媒体获取地址
      */
     @ApiModelProperty(example = "媒体获取地址")
-    private String multimediaUrl;
+    private String videoUrl;
 }
