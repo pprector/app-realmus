@@ -32,7 +32,7 @@ public class InfoConverter {
         NavHomeResponse homeResponse = new NavHomeResponse();
 
         //轮播
-        List<BannerEntity> bannerEntityList = homeInfoEntity.getBannerList();
+        List<BannerEntity> bannerEntityList = homeInfoEntity.getBannerList().getData();
         List<Banner> bannerList = bannerEntityList.stream().map(InfoConverter::toBanner).collect(Collectors.toList());
         homeResponse.setBannerList(bannerList);
         //关于我们

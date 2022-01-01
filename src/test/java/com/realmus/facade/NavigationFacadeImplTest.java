@@ -24,7 +24,7 @@ import java.util.List;
  */
 @SpringBootTest
 class NavigationFacadeImplTest {
-    private String str1 = "上海Realmus成立于2010年，是一家集研发、生产、批发为一体的专业公司。 瑞玛斯致力于世界各地的膳食补充剂基地。  \n" +
+    private String str1 = "上海Realmus成立于2010年，是一家集研发、生产、批发为一体的专业公司。 瑞玛斯致力于世界各地的膳食补充剂基地。" +
             "瑞勒姆斯凭借近20年的研发和生产经验，不断完善和完善研发和生产的高精度系统。 满足客户对高品质产品与服务的需求。  ";
 
 
@@ -49,8 +49,153 @@ class NavigationFacadeImplTest {
     @Test
     public void updateHomeInfoEntityInfo() {
         //1. 查询数据
-        NavigationEntity<HomeInfoEntity> extendInfo = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.HOME_INFO.getId());
-        System.out.println(JSON.toJSONString(extendInfo, true));
+        NavigationEntity<HomeInfoEntity> homeInfo = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.HOME_INFO.getId());
+        HomeInfoEntity homeInfoEntity = new HomeInfoEntity();
+
+        List<BannerEntity> bannerEntityList = new ArrayList<>();
+        BannerEntity bannerEntity1 = new BannerEntity();
+        MultimediaEntity multimediaEntity1 = new MultimediaEntity();
+        multimediaEntity1.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/banner/banner1.jpg");
+        multimediaEntity1.setMultimediaType(MultimediaEnum.IMG);
+        multimediaEntity1.setDescription("代加工厂");
+        bannerEntity1.setBannerImg(multimediaEntity1);
+
+        bannerEntity1.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        bannerEntity1.setH5Url("url");
+        bannerEntity1.setInfoTitle("创新赋能");
+        bannerEntity1.setInfoDescription("数十年保健视频OEM/ODM方案供应方");
+        bannerEntity1.setInfoContent("realmus为您提供全程无忧的一站式服务");
+
+        bannerEntityList.add(bannerEntity1);
+
+        BannerEntity bannerEntity2 = new BannerEntity();
+        MultimediaEntity multimediaEntity2 = new MultimediaEntity();
+        multimediaEntity2.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/banner/banner2.jpg");
+        multimediaEntity2.setMultimediaType(MultimediaEnum.IMG);
+        multimediaEntity2.setDescription("代加工厂");
+        bannerEntity2.setBannerImg(multimediaEntity2);
+
+        bannerEntity2.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        bannerEntity2.setH5Url("url");
+        bannerEntity2.setInfoTitle("面向全球");
+        bannerEntity2.setInfoDescription("致力成为全球保健食品行业领头羊");
+        bannerEntity2.setInfoContent("");
+
+        bannerEntityList.add(bannerEntity2);
+
+        BannerEntity bannerEntity3 = new BannerEntity();
+        MultimediaEntity multimediaEntity3 = new MultimediaEntity();
+        multimediaEntity3.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/banner/banner3.jpg");
+        multimediaEntity3.setMultimediaType(MultimediaEnum.IMG);
+        multimediaEntity3.setDescription("代加工厂");
+        bannerEntity3.setBannerImg(multimediaEntity3);
+
+        bannerEntity3.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        bannerEntity3.setH5Url("url");
+        bannerEntity3.setInfoTitle("专注健康");
+        bannerEntity3.setInfoDescription("拥有全球领先的营养保健品制造工厂");
+        bannerEntity3.setInfoContent("");
+
+        bannerEntityList.add(bannerEntity3);
+
+        //模块2
+        CompanyEntity companyEntity = new CompanyEntity();
+
+        MultimediaEntity videoBackgroundImg = new MultimediaEntity();
+        videoBackgroundImg.setMultimediaType(MultimediaEnum.IMG);
+        videoBackgroundImg.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/videocover.jpg");
+        videoBackgroundImg.setDescription("视频封面图");
+        companyEntity.setVideoBackgroundImg(videoBackgroundImg);
+        //1
+        MultimediaEntity backgroundImg = new MultimediaEntity();
+        backgroundImg.setMultimediaType(MultimediaEnum.IMG);
+        backgroundImg.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/background%20.jpg");
+        backgroundImg.setDescription("模块2背景图");
+        companyEntity.setBackgroundImg(backgroundImg);
+
+        MultimediaEntity promotionalMp4 = new MultimediaEntity();
+        promotionalMp4.setMultimediaType(MultimediaEnum.VIDEO);
+        promotionalMp4.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/promotional.mp4");
+        promotionalMp4.setDescription("模块2视频");
+        companyEntity.setPromotionalMp4(promotionalMp4);
+
+        companyEntity.setInfoType(ModuleEnum.COMPANY);
+        companyEntity.setH5Url("url");
+        companyEntity.setInfoTitle("关于我们");
+        companyEntity.setInfoDescription("专业的健康食品化妆品供应商");
+        companyEntity.setInfoContent("中国上海Realmus成立于2010年，是一家集研发、生产、批发为一体的专业公司。 Realmus致力于世界各地的膳食补充剂基地。瑞勒姆斯凭借近20年的研发和生产经验，不断完善和完善研发和生产的高精度系统。 满足客户对高品质生活方式的需求。");
+        //小  banner
+        List<BannerEntity> bannerEntityList2 = new ArrayList<>();
+        BannerEntity bannerEntity4 = new BannerEntity();
+        MultimediaEntity multimediaEntity4 = new MultimediaEntity();
+        multimediaEntity4.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module3/1module3.jpg");
+        multimediaEntity4.setMultimediaType(MultimediaEnum.IMG);
+        multimediaEntity4.setDescription("模块3图1");
+        bannerEntity4.setBannerImg(multimediaEntity4);
+
+        bannerEntity4.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        bannerEntity4.setH5Url("url");
+        bannerEntity4.setInfoTitle("研发创新");
+        bannerEntity4.setInfoDescription("");
+        bannerEntity4.setInfoContent("建有CNAS实验室认可标准的检测中心，拥有100余名专业的研发团队，配有来自美国、日本的气、液相色谱仪、光度计、气、液质联用仪等进口检测设备，与中科院、中国海洋大学等多个知名高校合作，不断加大研发投入，现已取得批准证书及备案凭证的保健食品配方达213个，居行业发展前列。");
+
+        bannerEntityList2.add(bannerEntity4);
+
+        BannerEntity bannerEntity5 = new BannerEntity();
+        MultimediaEntity multimediaEntity5 = new MultimediaEntity();
+        multimediaEntity5.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module3/2model3.jpg");
+        multimediaEntity5.setMultimediaType(MultimediaEnum.IMG);
+        multimediaEntity5.setDescription("模块3图2");
+        bannerEntity5.setBannerImg(multimediaEntity5);
+
+        bannerEntity5.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        bannerEntity5.setH5Url("url");
+        bannerEntity5.setInfoTitle("出口国家");
+        bannerEntity5.setInfoDescription("");
+        bannerEntity5.setInfoContent("百合股份与全球65个国家合作现拥有150余亩的两大厂区，2万余平米净化车间，数十条软胶囊、硬胶囊、片剂、粉剂、颗粒剂、口服液等现代化生产线，可开发保健食品、SC营养食品、孕婴童辅食食品等2000余种");
+
+        bannerEntityList2.add(bannerEntity5);
+
+
+        BannerEntity bannerEntity6 = new BannerEntity();
+        MultimediaEntity multimediaEntity6 = new MultimediaEntity();
+        multimediaEntity6.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module3/3model3.jpg");
+        multimediaEntity6.setMultimediaType(MultimediaEnum.IMG);
+        multimediaEntity6.setDescription("模块3图3");
+        bannerEntity6.setBannerImg(multimediaEntity6);
+
+        bannerEntity6.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        bannerEntity6.setH5Url("url");
+        bannerEntity6.setInfoTitle("发展历程");
+        bannerEntity6.setInfoDescription("");
+        bannerEntity6.setInfoContent("2005年保健食品生产企业需具备良好生产设备，合理生产过程，完善质量管理和严格检测系统，确保最终产品质量符合法规要求");
+
+        bannerEntityList2.add(bannerEntity6);
+
+        BannerEntity bannerEntity7 = new BannerEntity();
+        MultimediaEntity multimediaEntity7 = new MultimediaEntity();
+        multimediaEntity7.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module3/4model3.jpg");
+        multimediaEntity7.setMultimediaType(MultimediaEnum.IMG);
+        multimediaEntity7.setDescription("模块3图4");
+        bannerEntity7.setBannerImg(multimediaEntity7);
+
+        bannerEntity7.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        bannerEntity7.setH5Url("url");
+        bannerEntity7.setInfoTitle("合作伙伴");
+        bannerEntity7.setInfoDescription("");
+        bannerEntity7.setInfoContent("拥有100余名专业的研发团队，配有来自美国、日本的气、液相色谱仪、光度计、气、液质联用仪等进口检测设备，与中科院、中国海洋大学等多个知名高校合作，不断加大研发投入，现已取得批准证书及备案凭证的保健食品配方达213个，居行业发展前列。");
+
+        bannerEntityList2.add(bannerEntity7);
+
+
+
+        homeInfoEntity.setAdvantageBanner(bannerEntityList2);
+        homeInfoEntity.setCompany(companyEntity);
+        homeInfoEntity.setBannerList(bannerEntityList);
+        System.out.println(JSON.toJSONString(homeInfo, true));
+
+        homeInfo.setExtension(homeInfoEntity);
+        navigationService.updateNavigationInfo(LanguageEnum.CHINESE, homeInfo);
 
     }
 
@@ -101,7 +246,7 @@ class NavigationFacadeImplTest {
 
         companyEntity.setInfoType(ModuleEnum.COMPANY);
         companyEntity.setH5Url("url");
-        companyEntity.setInfoTitle("关于百合");
+        companyEntity.setInfoTitle("关于我们");
         companyEntity.setInfoDescription("专业的健康食品化妆品供应商");
         companyEntity.setInfoContent(str1);
         aboutUsEntity.setCompany(companyEntity);
@@ -364,9 +509,7 @@ class NavigationFacadeImplTest {
         mainBanner6.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner6.setH5Url("url");
         mainBanner6.setInfoTitle("年研发产品超过300种以上，授权专利近百项");
-        mainBanner6.setInfoDescription("现已拥有专业的配方实验室、工艺实验室，高标准的检测中心，可开展片剂、粉剂、然胶囊、硬胶囊、口服液等多样化产品的配方设计、工艺研究、质量标准检测、稳定性实验等项目的研究开发。\n" +
-                "\n" +
-                "百合股份凭借优异的创新研发能力，先后承单国家十三五重点计划，特色海洋多不饱和脂肪酸的开发及产业链应用，山东省产业链计划、山东省重点研发计划等多项国家、省市级项目研发。。");
+        mainBanner6.setInfoDescription("现已拥有专业的配方实验室、工艺实验室，高标准的检测中心，可开展片剂、粉剂、然胶囊、硬胶囊、口服液等多样化产品的配方设计、工艺研究、质量标准检测、稳定性实验等项目的研究开发。百合股份凭借优异的创新研发能力，先后承单国家十三五重点计划，特色海洋多不饱和脂肪酸的开发及产业链应用，山东省产业链计划、山东省重点研发计划等多项国家、省市级项目研发。。");
         mainBanner6.setInfoContent("");
         rdiInfoEntity.setTeamBanner(mainBanner5);
 
@@ -385,9 +528,7 @@ class NavigationFacadeImplTest {
         mainBanner7.setH5Url("url");
         mainBanner7.setInfoTitle("CNAS实验室");
         mainBanner7.setInfoDescription("权威认证 高标准检测能力");
-        mainBanner7.setInfoContent("CNAS实验室认可标准的检测中心\n" +
-                "配备美国Agilent、waters、德国塞卡姆等进口研发检验设备70余台套\n" +
-                "检测项目超过300余项、鉴定100余项、开发分析方法40余项");
+        mainBanner7.setInfoContent("CNAS实验室认可标准的检测中心配备美国Agilent、waters、德国塞卡姆等进口研发检验设备70余台套检测项目超过300余项、鉴定100余项、开发分析方法40余项");
         laboratory.setMainBanner(mainBanner7);
 
         BannerEntity mainBanner8 = new BannerEntity();
@@ -442,9 +583,8 @@ class NavigationFacadeImplTest {
         mainBanner11.setBannerImg(bannerImg11);
         mainBanner11.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner11.setH5Url("url");
-        mainBanner11.setInfoTitle("配备美国Agilent、waters\n" +
-                "德国塞卡姆等\n" +
-                "进口研发检验设备70余台套");
+        mainBanner11.setInfoTitle("配备美国Agilent、waters" +
+                "德国塞卡姆等进口研发检验设备70余台套");
         mainBanner11.setInfoDescription("");
         mainBanner11.setInfoContent("拥有电感耦合等离子体质谱仪（ICP-MS）、液相质谱仪（LC/MS）、液相色谱仪（HPLC）、气相色谱仪（GC）、气质联用仪、氨基酸分析仪、瑞士步琪凯氏定氮仪、水活度测定仪、原子吸收分光光度计、RGF-7800原子荧光分光光度计等先进检测设备，及智能拉力机、顶空气体分析仪等包材检测设备。");
         laboratory.setEquipmentBanner(mainBanner11);
@@ -476,11 +616,9 @@ class NavigationFacadeImplTest {
         mainBanner13.setH5Url("url");
         mainBanner13.setInfoTitle("打造全链条的质量管理体系");
         mainBanner13.setInfoDescription("");
-        mainBanner13.setInfoContent("从产品设计、供应商管理、生产过程控制、检验过程、产品追溯及售后管理等五个方面设立多道质量监控及质量服务。\n" +
-                "\n" +
-                "公司由自动化的生产工厂向数字化、智能化工厂转型，通过MES管理系统，采用可视化的管理模式，通过人机料法环等环节，从现场状况监控，用料追踪管理，讯息及时反馈、质量管理分析、超控超差预警及分析等方面实行全场面动态现场管控，实现产品的全过程追溯，确保每一粒产品的质量生命。\n" +
-                "\n" +
-                "通过MES、ERP、WMS、SRM等系统的互联互通，提供可靠的制造数据管理为计划排程、生产调度、库存、质量、成本等提供可靠的数据依据，实现更低成本、更高性能、更大柔性的生产制造能力，实现百合智能制造。");
+        mainBanner13.setInfoContent("从产品设计、供应商管理、生产过程控制、检验过程、产品追溯及售后管理等五个方面设立多道质量监控及质量服务。公司由自动化的生产工厂向数字化、智能化工厂转型，通过MES管理系统，" +
+                "采用可视化的管理模式，通过人机料法环等环节，从现场状况监控，用料追踪管理，讯息及时反馈、质量管理分析、" +
+                "超控超差预警及分析等方面实行全场面动态现场管控，实现产品的全过程追溯，确保每一粒产品的质量生命。通过MES、ERP、WMS、SRM等系统的互联互通，提供可靠的制造数据管理为计划排程、生产调度、库存、质量、成本等提供可靠的数据依据，实现更低成本、更高性能、更大柔性的生产制造能力，实现百合智能制造。");
         quality.setQualityBanner(mainBanner13);
 
 
@@ -526,7 +664,6 @@ class NavigationFacadeImplTest {
         navigationEntity.setExtension(rdEntity);
         navigationService.updateNavigationInfo(LanguageEnum.CHINESE, navigationEntity);
     }
-
 
     /**
      * 更新 产品中心 数据
