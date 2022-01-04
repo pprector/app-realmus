@@ -55,7 +55,7 @@ class NavigationFacadeImplTest {
         List<BannerEntity> bannerEntityList = new ArrayList<>();
         BannerEntity bannerEntity1 = new BannerEntity();
         MultimediaEntity multimediaEntity1 = new MultimediaEntity();
-        multimediaEntity1.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/banner/banner1.jpg");
+        multimediaEntity1.setMultimediaUrl("/home/banner/banner1.jpg");
         multimediaEntity1.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity1.setDescription("代加工厂");
         bannerEntity1.setBannerImg(multimediaEntity1);
@@ -70,7 +70,7 @@ class NavigationFacadeImplTest {
 
         BannerEntity bannerEntity2 = new BannerEntity();
         MultimediaEntity multimediaEntity2 = new MultimediaEntity();
-        multimediaEntity2.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/banner/banner2.jpg");
+        multimediaEntity2.setMultimediaUrl("/home/banner/banner2.jpg");
         multimediaEntity2.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity2.setDescription("代加工厂");
         bannerEntity2.setBannerImg(multimediaEntity2);
@@ -85,7 +85,7 @@ class NavigationFacadeImplTest {
 
         BannerEntity bannerEntity3 = new BannerEntity();
         MultimediaEntity multimediaEntity3 = new MultimediaEntity();
-        multimediaEntity3.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/banner/banner3.jpg");
+        multimediaEntity3.setMultimediaUrl("/home/banner/banner3.jpg");
         multimediaEntity3.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity3.setDescription("代加工厂");
         bannerEntity3.setBannerImg(multimediaEntity3);
@@ -103,19 +103,19 @@ class NavigationFacadeImplTest {
 
         MultimediaEntity videoBackgroundImg = new MultimediaEntity();
         videoBackgroundImg.setMultimediaType(MultimediaEnum.IMG);
-        videoBackgroundImg.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/videocover.jpg");
+        videoBackgroundImg.setMultimediaUrl("/home/module2/videocover.jpg");
         videoBackgroundImg.setDescription("视频封面图");
         companyEntity.setVideoBackgroundImg(videoBackgroundImg);
         //1
         MultimediaEntity backgroundImg = new MultimediaEntity();
         backgroundImg.setMultimediaType(MultimediaEnum.IMG);
-        backgroundImg.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/background%20.jpg");
+        backgroundImg.setMultimediaUrl("/home/module2/background%20.jpg");
         backgroundImg.setDescription("模块2背景图");
         companyEntity.setBackgroundImg(backgroundImg);
 
         MultimediaEntity promotionalMp4 = new MultimediaEntity();
         promotionalMp4.setMultimediaType(MultimediaEnum.VIDEO);
-        promotionalMp4.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/promotional.mp4");
+        promotionalMp4.setMultimediaUrl("/home/module2/promotional.mp4");
         promotionalMp4.setDescription("模块2视频");
         companyEntity.setPromotionalMp4(promotionalMp4);
 
@@ -128,7 +128,7 @@ class NavigationFacadeImplTest {
         List<BannerEntity> bannerEntityList2 = new ArrayList<>();
         BannerEntity bannerEntity4 = new BannerEntity();
         MultimediaEntity multimediaEntity4 = new MultimediaEntity();
-        multimediaEntity4.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module3/1module3.jpg");
+        multimediaEntity4.setMultimediaUrl("/home/module3/1module3.jpg");
         multimediaEntity4.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity4.setDescription("模块3图1");
         bannerEntity4.setBannerImg(multimediaEntity4);
@@ -143,7 +143,7 @@ class NavigationFacadeImplTest {
 
         BannerEntity bannerEntity5 = new BannerEntity();
         MultimediaEntity multimediaEntity5 = new MultimediaEntity();
-        multimediaEntity5.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module3/2model3.jpg");
+        multimediaEntity5.setMultimediaUrl("/home/module3/2model3.jpg");
         multimediaEntity5.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity5.setDescription("模块3图2");
         bannerEntity5.setBannerImg(multimediaEntity5);
@@ -159,7 +159,7 @@ class NavigationFacadeImplTest {
 
         BannerEntity bannerEntity6 = new BannerEntity();
         MultimediaEntity multimediaEntity6 = new MultimediaEntity();
-        multimediaEntity6.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module3/3model3.jpg");
+        multimediaEntity6.setMultimediaUrl("/home/module3/3model3.jpg");
         multimediaEntity6.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity6.setDescription("模块3图3");
         bannerEntity6.setBannerImg(multimediaEntity6);
@@ -174,7 +174,7 @@ class NavigationFacadeImplTest {
 
         BannerEntity bannerEntity7 = new BannerEntity();
         MultimediaEntity multimediaEntity7 = new MultimediaEntity();
-        multimediaEntity7.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module3/4model3.jpg");
+        multimediaEntity7.setMultimediaUrl("/home/module3/4model3.jpg");
         multimediaEntity7.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity7.setDescription("模块3图4");
         bannerEntity7.setBannerImg(multimediaEntity7);
@@ -212,7 +212,7 @@ class NavigationFacadeImplTest {
         // 模块 1 小banner
         BannerEntity bannerEntity = new BannerEntity();
         MultimediaEntity multimediaEntity = new MultimediaEntity();
-        multimediaEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner1.jpg");
+        multimediaEntity.setMultimediaUrl("/home/dataImg/banner1.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity.setDescription("关于我们banner");
         bannerEntity.setBannerImg(multimediaEntity);
@@ -228,19 +228,19 @@ class NavigationFacadeImplTest {
 
         MultimediaEntity videoBackgroundImg = new MultimediaEntity();
         videoBackgroundImg.setMultimediaType(MultimediaEnum.IMG);
-        videoBackgroundImg.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/videocover.jpg");
+        videoBackgroundImg.setMultimediaUrl("/home/module2/videocover.jpg");
         videoBackgroundImg.setDescription("视频封面图");
         companyEntity.setVideoBackgroundImg(videoBackgroundImg);
 
         MultimediaEntity backgroundImg = new MultimediaEntity();
         backgroundImg.setMultimediaType(MultimediaEnum.IMG);
-        backgroundImg.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/background2.jpg");
+        backgroundImg.setMultimediaUrl("/home/module2/background2.jpg");
         backgroundImg.setDescription("背景图片");
         companyEntity.setBackgroundImg(backgroundImg);
 
         MultimediaEntity promotionalMp4 = new MultimediaEntity();
         promotionalMp4.setMultimediaType(MultimediaEnum.VIDEO);
-        promotionalMp4.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/promotional.mp4");
+        promotionalMp4.setMultimediaUrl("/home/module2/promotional.mp4");
         promotionalMp4.setDescription("关于我们视频");
         companyEntity.setPromotionalMp4(promotionalMp4);
 
@@ -255,7 +255,7 @@ class NavigationFacadeImplTest {
 
         MultimediaEntity displayImgEntity = new MultimediaEntity();
         displayImgEntity.setMultimediaType(MultimediaEnum.IMG);
-        displayImgEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/background2.jpg");
+        displayImgEntity.setMultimediaUrl("/home/module2/background2.jpg");
         displayImgEntity.setDescription("数据详情背景图");
         displayEntity.setBackground(displayImgEntity);
 
@@ -274,28 +274,28 @@ class NavigationFacadeImplTest {
         MultimediaEntity certification1 = new MultimediaEntity();
         certification1.setMultimediaType(MultimediaEnum.IMG);
         certification1.setDescription("证书信息");
-        certification1.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/zizhi1.png");
+        certification1.setMultimediaUrl("/home/module2/zizhi1.png");
 
         MultimediaEntity certification2 = new MultimediaEntity();
         certification2.setMultimediaType(MultimediaEnum.IMG);
         certification2.setDescription("证书信息");
-        certification2.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/zizhi2.png");
+        certification2.setMultimediaUrl("/home/module2/zizhi2.png");
 
         MultimediaEntity certification3 = new MultimediaEntity();
         certification3.setMultimediaType(MultimediaEnum.IMG);
         certification3.setDescription("证书信息");
-        certification3.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/zizhi3.png");
+        certification3.setMultimediaUrl("/home/module2/zizhi3.png");
 
 
         MultimediaEntity certification4 = new MultimediaEntity();
         certification4.setMultimediaType(MultimediaEnum.IMG);
         certification4.setDescription("证书信息");
-        certification4.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/zizhi4.png");
+        certification4.setMultimediaUrl("/home/module2/zizhi4.png");
 
         MultimediaEntity certification5 = new MultimediaEntity();
         certification5.setMultimediaType(MultimediaEnum.IMG);
         certification5.setDescription("证书信息");
-        certification5.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/module2/zizhi5.png");
+        certification5.setMultimediaUrl("/home/module2/zizhi5.png");
 
         multimediaEntityList.add(certification1);
         multimediaEntityList.add(certification2);
@@ -321,7 +321,7 @@ class NavigationFacadeImplTest {
         NewsEntity newsEntity = new NewsEntity();
         BannerEntity bannerEntity = new BannerEntity();
         MultimediaEntity multimediaEntity = new MultimediaEntity();
-        multimediaEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner3.jpg");
+        multimediaEntity.setMultimediaUrl("/home/dataImg/banner3.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity.setDescription("新闻中心banner");
         bannerEntity.setBannerImg(multimediaEntity);
@@ -352,7 +352,7 @@ class NavigationFacadeImplTest {
         RDEntity rdEntity = new RDEntity();
         BannerEntity bannerEntity = new BannerEntity();
         MultimediaEntity multimediaEntity = new MultimediaEntity();
-        multimediaEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner2.jpg");
+        multimediaEntity.setMultimediaUrl("/home/dataImg/banner2.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity.setDescription("智造研发banner");
         bannerEntity.setBannerImg(multimediaEntity);
@@ -370,7 +370,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner = new BannerEntity();
         MultimediaEntity bannerImg1 = new MultimediaEntity();
         bannerImg1.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg1.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner10.jpg");
+        bannerImg1.setMultimediaUrl("/home/dataImg/banner10.jpg");
         bannerImg1.setDescription("研发工厂");
 
         mainBanner.setBannerImg(bannerImg1);
@@ -383,7 +383,7 @@ class NavigationFacadeImplTest {
         BannerEntity factoryBanner = new BannerEntity();
         MultimediaEntity bannerImg2 = new MultimediaEntity();
         bannerImg2.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg2.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner11.jpg");
+        bannerImg2.setMultimediaUrl("/home/dataImg/banner11.jpg");
         bannerImg2.setDescription("研发工厂");
         //详情
         factoryBanner.setBannerImg(bannerImg2);
@@ -396,45 +396,45 @@ class NavigationFacadeImplTest {
         List<VideoEntity> videoList = new ArrayList<>();
 
         VideoEntity videoEntity1 = new VideoEntity();
-        videoEntity1.setCoverImgUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg1.jpg");
+        videoEntity1.setCoverImgUrl("/home/video/vimg1.jpg");
         videoEntity1.setMultimediaType(MultimediaEnum.VIDEO);
-        videoEntity1.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg1.mp4");
+        videoEntity1.setMultimediaUrl("/home/video/vimg1.mp4");
         videoEntity1.setDescription("潮流好营养的饮品生产工厂");
 
         VideoEntity videoEntity2 = new VideoEntity();
-        videoEntity2.setCoverImgUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg2.jpg");
+        videoEntity2.setCoverImgUrl("/home/video/vimg2.jpg");
         videoEntity2.setMultimediaType(MultimediaEnum.VIDEO);
-        videoEntity2.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg2.mp4");
+        videoEntity2.setMultimediaUrl("/home/video/vimg2.mp4");
         videoEntity2.setDescription("创新功能型软硬胶囊生产工厂");
 
         VideoEntity videoEntity3 = new VideoEntity();
-        videoEntity3.setCoverImgUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg3.jpg");
+        videoEntity3.setCoverImgUrl("/home/video/vimg3.jpg");
         videoEntity3.setMultimediaType(MultimediaEnum.VIDEO);
-        videoEntity3.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg3.mp4");
+        videoEntity3.setMultimediaUrl("/home/video/vimg3.mp4");
         videoEntity3.setDescription("功能科技感的运营营养生产工厂");
 
         VideoEntity videoEntity4 = new VideoEntity();
-        videoEntity4.setCoverImgUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg4.jpg");
+        videoEntity4.setCoverImgUrl("/home/video/vimg4.jpg");
         videoEntity4.setMultimediaType(MultimediaEnum.VIDEO);
-        videoEntity4.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg4.mp4");
+        videoEntity4.setMultimediaUrl("/home/video/vimg4.mp4");
         videoEntity4.setDescription("好吃零食化的片剂工厂");
 
         VideoEntity videoEntity5 = new VideoEntity();
-        videoEntity5.setCoverImgUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg5.jpg");
+        videoEntity5.setCoverImgUrl("/home/video/vimg5.jpg");
         videoEntity5.setMultimediaType(MultimediaEnum.VIDEO);
-        videoEntity5.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg5.mp4");
+        videoEntity5.setMultimediaUrl("/home/video/vimg5.mp4");
         videoEntity5.setDescription("简约不简单的粉剂工厂");
 
         VideoEntity videoEntity6 = new VideoEntity();
-        videoEntity6.setCoverImgUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg6.jpg");
+        videoEntity6.setCoverImgUrl("/home/video/vimg6.jpg");
         videoEntity6.setMultimediaType(MultimediaEnum.VIDEO);
-        videoEntity6.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg6.mp4");
+        videoEntity6.setMultimediaUrl("/home/video/vimg6.mp4");
         videoEntity6.setDescription("科学营养化的特膳食品生产工厂");
 
         VideoEntity videoEntity7 = new VideoEntity();
-        videoEntity7.setCoverImgUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg7.jpg");
+        videoEntity7.setCoverImgUrl("/home/video/vimg7.jpg");
         videoEntity7.setMultimediaType(MultimediaEnum.VIDEO);
-        videoEntity7.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/video/vimg7.mp4");
+        videoEntity7.setMultimediaUrl("/home/video/vimg7.mp4");
         videoEntity7.setDescription("严谨智能化的益生菌生产工厂");
 
         videoList.add(videoEntity7);
@@ -456,7 +456,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner3 = new BannerEntity();
         MultimediaEntity bannerImg3 = new MultimediaEntity();
         bannerImg3.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg3.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/yanfa1.jpg");
+        bannerImg3.setMultimediaUrl("/home/dataImg/yanfa1.jpg");
         bannerImg3.setDescription("研发创新");
 
         mainBanner3.setBannerImg(bannerImg3);
@@ -474,7 +474,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner4 = new BannerEntity();
         MultimediaEntity bannerImg4 = new MultimediaEntity();
         bannerImg4.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg4.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/yanfa2.jpg");
+        bannerImg4.setMultimediaUrl("/home/dataImg/yanfa2.jpg");
         bannerImg4.setDescription("研发数据库");
 
         mainBanner4.setBannerImg(bannerImg4);
@@ -488,7 +488,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner5 = new BannerEntity();
         MultimediaEntity bannerImg5 = new MultimediaEntity();
         bannerImg5.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg5.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/yanfa3.jpg");
+        bannerImg5.setMultimediaUrl("/home/dataImg/yanfa3.jpg");
         bannerImg5.setDescription("团队");
 
         mainBanner5.setBannerImg(bannerImg5);
@@ -502,7 +502,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner6 = new BannerEntity();
         MultimediaEntity bannerImg6 = new MultimediaEntity();
         bannerImg6.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg6.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/yanfa4.jpg");
+        bannerImg6.setMultimediaUrl("/home/dataImg/yanfa4.jpg");
         bannerImg6.setDescription("专利");
 
         mainBanner6.setBannerImg(bannerImg6);
@@ -520,7 +520,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner7 = new BannerEntity();
         MultimediaEntity bannerImg7 = new MultimediaEntity();
         bannerImg7.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg7.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/shiyanshi1.jpg");
+        bannerImg7.setMultimediaUrl("/home/dataImg/shiyanshi1.jpg");
         bannerImg7.setDescription("实验室");
 
         mainBanner7.setBannerImg(bannerImg7);
@@ -534,7 +534,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner8 = new BannerEntity();
         MultimediaEntity bannerImg8 = new MultimediaEntity();
         bannerImg8.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg8.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/shiyanshi2.jpg");
+        bannerImg8.setMultimediaUrl("/home/dataImg/shiyanshi2.jpg");
         bannerImg8.setDescription("实验室");
 
         mainBanner8.setBannerImg(bannerImg8);
@@ -548,7 +548,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner9 = new BannerEntity();
         MultimediaEntity bannerImg9 = new MultimediaEntity();
         bannerImg9.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg9.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/shiyanshi3.jpg");
+        bannerImg9.setMultimediaUrl("/home/dataImg/shiyanshi3.jpg");
         bannerImg9.setDescription("实验室");
 
         mainBanner9.setBannerImg(bannerImg9);
@@ -562,7 +562,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner10 = new BannerEntity();
         MultimediaEntity bannerImg10 = new MultimediaEntity();
         bannerImg10.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg10.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/shiyanshi4.jpg");
+        bannerImg10.setMultimediaUrl("/home/dataImg/shiyanshi4.jpg");
         bannerImg10.setDescription("实验室");
 
         mainBanner10.setBannerImg(bannerImg10);
@@ -577,7 +577,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner11 = new BannerEntity();
         MultimediaEntity bannerImg11 = new MultimediaEntity();
         bannerImg11.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg11.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/shiyanshi5.jpg");
+        bannerImg11.setMultimediaUrl("/home/dataImg/shiyanshi5.jpg");
         bannerImg11.setDescription("实验室");
 
         mainBanner11.setBannerImg(bannerImg11);
@@ -594,7 +594,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner12 = new BannerEntity();
         MultimediaEntity bannerImg12 = new MultimediaEntity();
         bannerImg12.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg12.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/zhiliang1.jpg");
+        bannerImg12.setMultimediaUrl("/home/dataImg/zhiliang1.jpg");
         bannerImg12.setDescription("质量管控");
 
         mainBanner12.setBannerImg(bannerImg12);
@@ -608,7 +608,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner13 = new BannerEntity();
         MultimediaEntity bannerImg13 = new MultimediaEntity();
         bannerImg13.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg13.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/zhiliang2.jpg");
+        bannerImg13.setMultimediaUrl("/home/dataImg/zhiliang2.jpg");
         bannerImg13.setDescription("质量管控");
 
         mainBanner13.setBannerImg(bannerImg13);
@@ -625,7 +625,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner14 = new BannerEntity();
         MultimediaEntity bannerImg14 = new MultimediaEntity();
         bannerImg14.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg14.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/zhiliang3.jpg");
+        bannerImg14.setMultimediaUrl("/home/dataImg/zhiliang3.jpg");
         bannerImg14.setDescription("质量管控");
 
         mainBanner14.setBannerImg(bannerImg14);
@@ -640,7 +640,7 @@ class NavigationFacadeImplTest {
         BannerEntity mainBanner15 = new BannerEntity();
         MultimediaEntity bannerImg15 = new MultimediaEntity();
         bannerImg15.setMultimediaType(MultimediaEnum.IMG);
-        bannerImg15.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/zhiliang4.jpg");
+        bannerImg15.setMultimediaUrl("/home/dataImg/zhiliang4.jpg");
         bannerImg15.setDescription("质量管控");
 
         mainBanner15.setBannerImg(bannerImg15);
@@ -677,7 +677,7 @@ class NavigationFacadeImplTest {
         RDEntity rdEntity = new RDEntity();
         BannerEntity bannerEntity = new BannerEntity();
         MultimediaEntity multimediaEntity = new MultimediaEntity();
-        multimediaEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner4.jpg");
+        multimediaEntity.setMultimediaUrl("/home/dataImg/banner4.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity.setDescription("产品中心banner");
         bannerEntity.setBannerImg(multimediaEntity);
@@ -707,7 +707,7 @@ class NavigationFacadeImplTest {
         BrandEntity brandEntity = new BrandEntity();
         BannerEntity bannerEntity = new BannerEntity();
         MultimediaEntity multimediaEntity = new MultimediaEntity();
-        multimediaEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner6.jpg");
+        multimediaEntity.setMultimediaUrl("/home/dataImg/banner6.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity.setDescription("品牌中心banner");
         bannerEntity.setBannerImg(multimediaEntity);
@@ -737,7 +737,7 @@ class NavigationFacadeImplTest {
         BrandEntity brandEntity = new BrandEntity();
         BannerEntity bannerEntity = new BannerEntity();
         MultimediaEntity multimediaEntity = new MultimediaEntity();
-        multimediaEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner5.jpg");
+        multimediaEntity.setMultimediaUrl("/home/dataImg/banner5.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity.setDescription("外贸出口banner");
         bannerEntity.setBannerImg(multimediaEntity);
@@ -767,7 +767,7 @@ class NavigationFacadeImplTest {
         BrandEntity brandEntity = new BrandEntity();
         BannerEntity bannerEntity = new BannerEntity();
         MultimediaEntity multimediaEntity = new MultimediaEntity();
-        multimediaEntity.setMultimediaUrl("https://realmus.oss-cn-hongkong.aliyuncs.com/home/dataImg/banner7.jpg");
+        multimediaEntity.setMultimediaUrl("/home/dataImg/banner7.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity.setDescription("联系我们banner");
         bannerEntity.setBannerImg(multimediaEntity);
