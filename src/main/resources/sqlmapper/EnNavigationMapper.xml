@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.realmus.repository.mapper.EnNavigationMapper">
+    <resultMap id="BaseResultMap" type="com.realmus.repository.model.NavigationDO">
+        <!--@mbg.generated-->
+        <!--@Table en_navigation-->
+        <id column="navigation_id" jdbcType="VARCHAR" property="navigationId"/>
+        <result column="navigation_name" jdbcType="VARCHAR" property="navigationName"/>
+        <result column="navigation_url" jdbcType="VARCHAR" property="navigationUrl"/>
+        <result column="navigation_tier" jdbcType="TINYINT" property="navigationTier"/>
+        <result column="navigation_parent_id" jdbcType="VARCHAR" property="navigationParentId"/>
+        <result column="is_valid" jdbcType="TINYINT" property="isValid"/>
+        <result column="modifier" jdbcType="VARCHAR" property="modifier"/>
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+        <result column="extend_json" jdbcType="VARCHAR" property="extendJson"/>
+        <result column="weight" jdbcType="TINYINT" property="weight"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        navigation_id, navigation_name, navigation_url, navigation_tier, navigation_parent_id,
+        is_valid, modifier, gmt_modified, extend_json, weight
+    </sql>
+    <sql id="Base_Column_One">
+        <!--@mbg.generated-->
+        navigation_id, navigation_name, navigation_url, navigation_tier, navigation_parent_id,
+        is_valid, modifier, gmt_modified, weight
+    </sql>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.realmus.repository.model.NavigationDO">
+        <!--@mbg.generated-->
+        update en_navigation
+        <set>
+            <if test="navigationName != null">
+                navigation_name = #{navigationName,jdbcType=VARCHAR},
+            </if>
+            <if test="navigationUrl != null">
+                navigation_url = #{navigationUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="navigationTier != null">
+                navigation_tier = #{navigationTier,jdbcType=TINYINT},
+            </if>
+            <if test="navigationParentId != null">
+                navigation_parent_id = #{navigationParentId,jdbcType=VARCHAR},
+            </if>
+            <if test="isValid != null">
+                is_valid = #{isValid,jdbcType=TINYINT},
+            </if>
+            <if test="modifier != null">
+                modifier = #{modifier,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="extendJson != null">
+                extend_json = #{extendJson,jdbcType=VARCHAR},
+            </if>
+            <if test="weight != null">
+                weight = #{weight,jdbcType=TINYINT},
+            </if>
+        </set>
+        where navigation_id = #{navigationId,jdbcType=VARCHAR}
+    </update>
+
+    <!--查询所有数据-->
+    <select id="findAllNavigationInfo" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_One"/>
+        from en_navigation
+        where is_valid = 1
+        group by gmt_modified
+    </select>
+    <!--根据ID 查询 包晗扩展信息-->
+    <select id="findNavigationInfoById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from en_navigation
+        where navigation_id = #{navigationId,jdbcType=VARCHAR}
+          and is_valid = 1
+        group by gmt_modified
+    </select>
+
+</mapper>

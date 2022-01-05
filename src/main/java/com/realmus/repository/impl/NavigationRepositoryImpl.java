@@ -9,6 +9,7 @@ import com.realmus.domain.repository.NavigationRepository;
 import com.realmus.repository.converter.DoTOEntity;
 import com.realmus.repository.converter.EntityToDo;
 import com.realmus.repository.mapper.CnNavigationMapper;
+import com.realmus.repository.mapper.EnNavigationMapper;
 import com.realmus.repository.model.NavigationDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -27,6 +28,9 @@ public class NavigationRepositoryImpl implements NavigationRepository {
     @Autowired
     private CnNavigationMapper cnNavigationMapper;
 
+    @Autowired
+    private EnNavigationMapper enNavigationMapper;
+
 
     @Override
     public List<NavigationEntity> getNavigationChineseInfo(LanguageEnum languageEnum) {
@@ -36,7 +40,8 @@ public class NavigationRepositoryImpl implements NavigationRepository {
                 navigationDOList = cnNavigationMapper.findAllNavigationInfo();
                 break;
             case ENGLISH:
-                throw new BizException(BizErrorEnum.A001);
+                navigationDOList = enNavigationMapper.findAllNavigationInfo();
+                break;
         }
 
         //数据处理
@@ -57,11 +62,13 @@ public class NavigationRepositoryImpl implements NavigationRepository {
         switch (languageEnum) {
             case CHINESE:
                 navigationDO = cnNavigationMapper.findNavigationInfoById(navigationId);
-                navigationEntity = DoTOEntity.toNavigationEntity(navigationDO);
+
                 break;
             case ENGLISH:
-                throw new BizException(BizErrorEnum.A001);
+                navigationDO = enNavigationMapper.findNavigationInfoById(navigationId);
+                break;
         }
+        navigationEntity = DoTOEntity.toNavigationEntity(navigationDO);
         return navigationEntity;
     }
 
@@ -73,7 +80,8 @@ public class NavigationRepositoryImpl implements NavigationRepository {
                 cnNavigationMapper.updateByPrimaryKeySelective(navigationDO);
                 break;
             case ENGLISH:
-                throw new BizException(BizErrorEnum.A001);
+                enNavigationMapper.updateByPrimaryKeySelective(navigationDO);
+                break;
         }
 
     }

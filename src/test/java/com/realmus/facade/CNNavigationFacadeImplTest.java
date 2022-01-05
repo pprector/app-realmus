@@ -23,7 +23,7 @@ import java.util.List;
  * @date 2021/12/21 - 14:53
  */
 @SpringBootTest
-class NavigationFacadeImplTest {
+class CNNavigationFacadeImplTest {
     private String str1 = "上海Realmus成立于2010年，是一家集研发、生产、批发为一体的专业公司。 瑞玛斯致力于世界各地的膳食补充剂基地。" +
             "瑞勒姆斯凭借近20年的研发和生产经验，不断完善和完善研发和生产的高精度系统。 满足客户对高品质产品与服务的需求。  ";
 
@@ -189,7 +189,7 @@ class NavigationFacadeImplTest {
         //服务项目
         ServiceItemEntity serviceItemEntity = new ServiceItemEntity();
         serviceItemEntity.setHeadLine("服务项目");
-        serviceItemEntity.setDescription("Realmus为您提供的从构思到产品的全程无忧服务。");
+        serviceItemEntity.setDesc("Realmus为您提供的从构思到产品的全程无忧服务。");
 
 
         homeInfoEntity.setAdvantageBanner(bannerEntityList2);
