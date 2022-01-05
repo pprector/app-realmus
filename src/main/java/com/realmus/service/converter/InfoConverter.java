@@ -55,7 +55,6 @@ public class InfoConverter {
         ServiceItem serviceItem = new ServiceItem();
         serviceItem.setHeadLine(entity.getHeadLine());
         serviceItem.setDescription(entity.getDesc());
-
         List<PublicInfo> publicInfoList = entity.getItemInfoList().stream().map(InfoConverter::toPublicInfo).collect(Collectors.toList());
         serviceItem.setItemInfoList(publicInfoList);
 
