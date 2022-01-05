@@ -24,8 +24,8 @@ import java.util.List;
  */
 @SpringBootTest
 class CNNavigationFacadeImplTest {
-    private String str1 = "上海Realmus成立于2010年，是一家集研发、生产、批发为一体的专业公司。 瑞玛斯致力于世界各地的膳食补充剂基地。" +
-            "瑞勒姆斯凭借近20年的研发和生产经验，不断完善和完善研发和生产的高精度系统。 满足客户对高品质产品与服务的需求。  ";
+    private String str1 = "Shanghai realmus was founded in 2010, which is a specialized company focused on the research and development , manufacturing and wholesale. Realmus devotes herself to dietary supplements base all orver the world." +
+            "Realmus with near 20 years experience on the R & D and production is improved and comsummated the hight precision of the research and production system. To meet customers demand for hight quality life style .  ";
 
 
     @Autowired
@@ -49,7 +49,7 @@ class CNNavigationFacadeImplTest {
     @Test
     public void updateHomeInfoEntityInfo() {
         //1. 查询数据
-        NavigationEntity<HomeInfoEntity> homeInfo = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.HOME_INFO.getId());
+        NavigationEntity<HomeInfoEntity> homeInfo = navigationRepository.findExtendInfo(LanguageEnum.ENGLISH, ExtendTypeEnum.HOME_INFO.getId());
         HomeInfoEntity homeInfoEntity = new HomeInfoEntity();
 
         List<BannerEntity> bannerEntityList = new ArrayList<>();
@@ -57,14 +57,14 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity multimediaEntity1 = new MultimediaEntity();
         multimediaEntity1.setMultimediaUrl("/home/banner/banner1.jpg");
         multimediaEntity1.setMultimediaType(MultimediaEnum.IMG);
-        multimediaEntity1.setDescription("代加工厂");
+        multimediaEntity1.setDescription("OEM");
         bannerEntity1.setBannerImg(multimediaEntity1);
 
         bannerEntity1.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity1.setH5Url("url");
-        bannerEntity1.setInfoTitle("创新赋能");
-        bannerEntity1.setInfoDescription("数十年保健视频OEM/ODM方案供应方");
-        bannerEntity1.setInfoContent("realmus为您提供全程无忧的一站式服务");
+        bannerEntity1.setInfoTitle("Innovation can assign");
+        bannerEntity1.setInfoDescription("Supplier of healthcare video OEM/ODM solutions for decades");
+        bannerEntity1.setInfoContent("Realmus provides you with a one-stop service without any worries");
 
         bannerEntityList.add(bannerEntity1);
 
@@ -72,13 +72,13 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity multimediaEntity2 = new MultimediaEntity();
         multimediaEntity2.setMultimediaUrl("/home/banner/banner2.jpg");
         multimediaEntity2.setMultimediaType(MultimediaEnum.IMG);
-        multimediaEntity2.setDescription("代加工厂");
+        multimediaEntity2.setDescription("OEM");
         bannerEntity2.setBannerImg(multimediaEntity2);
 
         bannerEntity2.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity2.setH5Url("url");
-        bannerEntity2.setInfoTitle("面向全球");
-        bannerEntity2.setInfoDescription("致力成为全球保健食品行业领头羊");
+        bannerEntity2.setInfoTitle("global-oriented");
+        bannerEntity2.setInfoDescription("Committed to become the global health food industry leader");
         bannerEntity2.setInfoContent("");
 
         bannerEntityList.add(bannerEntity2);
@@ -87,13 +87,13 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity multimediaEntity3 = new MultimediaEntity();
         multimediaEntity3.setMultimediaUrl("/home/banner/banner3.jpg");
         multimediaEntity3.setMultimediaType(MultimediaEnum.IMG);
-        multimediaEntity3.setDescription("代加工厂");
+        multimediaEntity3.setDescription("OEM");
         bannerEntity3.setBannerImg(multimediaEntity3);
 
         bannerEntity3.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity3.setH5Url("url");
-        bannerEntity3.setInfoTitle("专注健康");
-        bannerEntity3.setInfoDescription("拥有全球领先的营养保健品制造工厂");
+        bannerEntity3.setInfoTitle("Focus on health");
+        bannerEntity3.setInfoDescription("Has the world's leading nutrition and health products manufacturing plant");
         bannerEntity3.setInfoContent("");
 
         bannerEntityList.add(bannerEntity3);
@@ -104,40 +104,40 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity videoBackgroundImg = new MultimediaEntity();
         videoBackgroundImg.setMultimediaType(MultimediaEnum.IMG);
         videoBackgroundImg.setMultimediaUrl("/home/module2/videocover.jpg");
-        videoBackgroundImg.setDescription("视频封面图");
+        videoBackgroundImg.setDescription("OEM Video");
         companyEntity.setVideoBackgroundImg(videoBackgroundImg);
         //1
         MultimediaEntity backgroundImg = new MultimediaEntity();
         backgroundImg.setMultimediaType(MultimediaEnum.IMG);
         backgroundImg.setMultimediaUrl("/home/module2/background%20.jpg");
-        backgroundImg.setDescription("模块2背景图");
+        backgroundImg.setDescription("OEM Video");
         companyEntity.setBackgroundImg(backgroundImg);
 
         MultimediaEntity promotionalMp4 = new MultimediaEntity();
         promotionalMp4.setMultimediaType(MultimediaEnum.VIDEO);
         promotionalMp4.setMultimediaUrl("/home/module2/promotional.mp4");
-        promotionalMp4.setDescription("模块2视频");
+        promotionalMp4.setDescription("OEM Video");
         companyEntity.setPromotionalMp4(promotionalMp4);
 
         companyEntity.setInfoType(ModuleEnum.COMPANY);
         companyEntity.setH5Url("url");
-        companyEntity.setInfoTitle("关于我们");
-        companyEntity.setInfoDescription("专业的健康食品化妆品供应商");
-        companyEntity.setInfoContent("中国上海Realmus成立于2010年，是一家集研发、生产、批发为一体的专业公司。 Realmus致力于世界各地的膳食补充剂基地。瑞勒姆斯凭借近20年的研发和生产经验，不断完善和完善研发和生产的高精度系统。 满足客户对高品质生活方式的需求。");
+        companyEntity.setInfoTitle("About Us");
+        companyEntity.setInfoDescription("Professional supplier of health food and cosmetics");
+        companyEntity.setInfoContent("Shanghai Realmus, founded in 2010, is a professional company integrating r&d, production and wholesale.  Realmus is dedicated to the dietary supplement base around the world.  With nearly 20 years of research and development and production experience, Relumus constantly improve and perfect the research and development and production of high-precision systems.  Meet customers' demand for high quality lifestyle.  ");
         //小  banner
         List<BannerEntity> bannerEntityList2 = new ArrayList<>();
         BannerEntity bannerEntity4 = new BannerEntity();
         MultimediaEntity multimediaEntity4 = new MultimediaEntity();
         multimediaEntity4.setMultimediaUrl("/home/module3/1module3.jpg");
         multimediaEntity4.setMultimediaType(MultimediaEnum.IMG);
-        multimediaEntity4.setDescription("模块3图1");
+        multimediaEntity4.setDescription("OEM");
         bannerEntity4.setBannerImg(multimediaEntity4);
 
         bannerEntity4.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity4.setH5Url("url");
-        bannerEntity4.setInfoTitle("研发创新");
+        bannerEntity4.setInfoTitle("research and development");
         bannerEntity4.setInfoDescription("");
-        bannerEntity4.setInfoContent("建有CNAS实验室认可标准的检测中心，拥有100余名专业的研发团队，配有来自美国、日本的气、液相色谱仪、光度计、气、液质联用仪等进口检测设备，与中科院、中国海洋大学等多个知名高校合作，不断加大研发投入，现已取得批准证书及备案凭证的保健食品配方达213个，居行业发展前列。");
+        bannerEntity4.setInfoContent("CNAS laboratory accreditation standards testing center, with more than 100 professional R & D team, equipped with from the United States, Japan, gas, liquid chromatograph, photometer, gas, liquid mass spectrometry and other imported testing equipment, and the ENGLISH Academy of Sciences, Ocean University of China and other well-known universities, increasing investment in RESEARCH and development,  Up to now, there are 213 health food formulations which have obtained approval certificate and record certificate, ranking in the forefront of industry development.  ");
 
         bannerEntityList2.add(bannerEntity4);
 
@@ -145,14 +145,14 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity multimediaEntity5 = new MultimediaEntity();
         multimediaEntity5.setMultimediaUrl("/home/module3/2model3.jpg");
         multimediaEntity5.setMultimediaType(MultimediaEnum.IMG);
-        multimediaEntity5.setDescription("模块3图2");
+        multimediaEntity5.setDescription("OEM");
         bannerEntity5.setBannerImg(multimediaEntity5);
 
         bannerEntity5.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity5.setH5Url("url");
-        bannerEntity5.setInfoTitle("出口国家");
+        bannerEntity5.setInfoTitle("export country");
         bannerEntity5.setInfoDescription("");
-        bannerEntity5.setInfoContent("百合股份与全球65个国家合作现拥有150余亩的两大厂区，2万余平米净化车间，数十条软胶囊、硬胶囊、片剂、粉剂、颗粒剂、口服液等现代化生产线，可开发保健食品、SC营养食品、孕婴童辅食食品等2000余种");
+        bannerEntity5.setInfoContent("Realmus cooperates with 65 countries in the world and now has two factories of more than 150 mu, more than 20,000 flat rice purification workshops, dozens of soft capsule, hard capsule, tablet, powder, granule, oral liquid and other modern production lines, can develop more than 2000 kinds of health food, SC nutrition food, pregnant, infant and children supplementary food  ");
 
         bannerEntityList2.add(bannerEntity5);
 
@@ -166,9 +166,9 @@ class CNNavigationFacadeImplTest {
 
         bannerEntity6.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity6.setH5Url("url");
-        bannerEntity6.setInfoTitle("发展历程");
+        bannerEntity6.setInfoTitle("development history ");
         bannerEntity6.setInfoDescription("");
-        bannerEntity6.setInfoContent("2005年保健食品生产企业需具备良好生产设备，合理生产过程，完善质量管理和严格检测系统，确保最终产品质量符合法规要求");
+        bannerEntity6.setInfoContent("In 2005, health food production enterprises should have good production equipment, reasonable production process, perfect quality management and strict testing system to ensure that the final product quality meets the requirements of laws and regulations  ");
 
         bannerEntityList2.add(bannerEntity6);
 
@@ -181,15 +181,15 @@ class CNNavigationFacadeImplTest {
 
         bannerEntity7.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity7.setH5Url("url");
-        bannerEntity7.setInfoTitle("合作伙伴");
+        bannerEntity7.setInfoTitle("cooperative partner");
         bannerEntity7.setInfoDescription("");
-        bannerEntity7.setInfoContent("拥有100余名专业的研发团队，配有来自美国、日本的气、液相色谱仪、光度计、气、液质联用仪等进口检测设备，与中科院、中国海洋大学等多个知名高校合作，不断加大研发投入，现已取得批准证书及备案凭证的保健食品配方达213个，居行业发展前列。");
+        bannerEntity7.setInfoContent("Has more than 100 professional r&d team, equipped with gas from the United States, Japan, liquid chromatograph, spectrophotometer, such as gas, liquid mass combination instrument imported testing equipment, with the ENGLISH Academy of Sciences, China ocean university, and many other well-known colleges and universities cooperation, continuously increased investment in research and development, has obtained the approval certificate and registration certificate of health food formula 213, ranked among the top industry development.  ");
 
         bannerEntityList2.add(bannerEntity7);
         //服务项目
         ServiceItemEntity serviceItemEntity = new ServiceItemEntity();
-        serviceItemEntity.setHeadLine("服务项目");
-        serviceItemEntity.setDesc("Realmus为您提供的从构思到产品的全程无忧服务。");
+        serviceItemEntity.setHeadLine("Service project");
+        serviceItemEntity.setDesc("Realmus provides you with wordless service from conception to product.。");
 
 
         homeInfoEntity.setAdvantageBanner(bannerEntityList2);
@@ -199,35 +199,33 @@ class CNNavigationFacadeImplTest {
         //信息列表
         ArrayList<PublicInfoEntity> publicInfoEntityList = new ArrayList<>();
         PublicInfoEntity infoEntity1 = new PublicInfoEntity();
-        infoEntity1.setInfoTitle("市场分析");
-        infoEntity1.setInfoDescription("分享前沿信息，帮助您制定有价值的增长战略");
-        infoEntity1.setInfoContent("专业定制kosher gummy,中国区唯一一家通过国家犹太认证机构的供货商,中国区第一家koshergummy 供货商");
+        infoEntity1.setInfoTitle("market analysis ");
+        infoEntity1.setInfoDescription("Share cutting edge information to help you develop valuable growth strategies");
+        infoEntity1.setInfoContent("Kosher Gummy is the first kosher Gummy supplier in China and the only one approved by the National Jewish Certification Authority  ");
         publicInfoEntityList.add(infoEntity1);
 
-        PublicInfoEntity infoEntity2= new PublicInfoEntity();
-        infoEntity2.setInfoTitle("研究和发展");
-        infoEntity2.setInfoDescription("专业的研发团队，为您提供领先的产品解决方案。");
-        infoEntity2.setInfoContent("2000+的配方产品， 10+ 剂型，50+ QAQC,50+进口检测设备，300+检测指标,产品全维度研发：剂型，功能，人群，性别，年龄段，区域人群特征，口感，形状，新趋势，使用量，包装规格，区域喜好，颜色，温度，人体吸收度\n" +
-                "成本，配料。");
+        PublicInfoEntity infoEntity2 = new PublicInfoEntity();
+        infoEntity2.setInfoTitle("Research and Development");
+        infoEntity2.setInfoDescription("Professional R & D team, to provide you with leading product solutions.");
+        infoEntity2.setInfoContent("2000+ formula products, 10+ dosage forms,50+ QAQC,50+ imported testing equipment, 300+ test indicators, product development in all dimensions: dosage form, function, population, gender, age, regional population characteristics, taste, shape, new trends, usage, packaging specifications, regional preferences, color, temperature, human absorbance cost, ingredients.  ");
         publicInfoEntityList.add(infoEntity2);
 
         PublicInfoEntity infoEntity3 = new PublicInfoEntity();
-        infoEntity3.setInfoTitle("生产和包装");
-        infoEntity3.setInfoDescription("依据GMP标准，提供多剂型产品，并辅以各种创新包装供您选择。");
-        infoEntity3.setInfoContent("从原材料到成品实施全程质量管控全程可追溯记录" +
-                "十万级洁净级别，24小时恒温恒湿的生产车间。全自动包装生产线30余条，为客户提供多样化的包装解决方案，配备全自动瓶装，盒装，铝箔板，桶装，小袋装，单粒装等多种包装设备。");
+        infoEntity3.setInfoTitle("Production and packaging");
+        infoEntity3.setInfoDescription("In accordance with GMP standards, we provide multi-dosage products, supplemented by a variety of innovative packaging for your choice.  ");
+        infoEntity3.setInfoContent("From raw materials to finished products, the whole process of quality control can be traced back to the production workshop of 100,000 clean grades, 24-hour constant temperature and humidity.  More than 30 automatic packaging production lines, to provide customers with a variety of packaging solutions, equipped with automatic bottles, boxes, aluminum foil board, barrels, bags, single packaging and other packaging equipment.  ");
         publicInfoEntityList.add(infoEntity3);
 
         PublicInfoEntity infoEntity4 = new PublicInfoEntity();
-        infoEntity4.setInfoTitle("供应链管理");
-        infoEntity4.setInfoDescription("严格的供应链准入基质，从源头控制产品质量，优化成本，提升效率。");
-        infoEntity4.setInfoContent("与世界知名食品，保健食品原料供货商保持合作，所有入选供应链均通过国家相关行业要求。帝斯曼，巴斯夫，拜耳，丹尼斯克…  ");
+        infoEntity4.setInfoTitle("supply chain management");
+        infoEntity4.setInfoDescription("Strict supply chain access matrix, from the source to control product quality, optimize costs, improve efficiency.  ");
+        infoEntity4.setInfoContent("With the world famous food, health food raw material suppliers to maintain cooperation, all selected supply chain through the relevant national industry requirements.  DSM, BASF, Bayer, Danisco...   ");
         publicInfoEntityList.add(infoEntity4);
 
         PublicInfoEntity infoEntity5 = new PublicInfoEntity();
-        infoEntity5.setInfoTitle("服务与支持");
-        infoEntity5.setInfoDescription("在全环节为您提供专业服务与支持，成为您得力的合作伙伴。。");
-        infoEntity5.setInfoContent("提供使馆认证，客户当地注册所需证书认证。产品后续升级服务，门到门的运输服务");
+        infoEntity5.setInfoTitle("service and support");
+        infoEntity5.setInfoDescription("In the whole link to provide you with professional services and support, become your effective partner.  ");
+        infoEntity5.setInfoContent("Provide embassy certification, customer local registration required certificate certification.  Product follow-up upgrade service, door to door transportation service  ");
         publicInfoEntityList.add(infoEntity5);
         homeInfoEntity.setBannerList(bannerEntityList);
 
@@ -235,10 +233,8 @@ class CNNavigationFacadeImplTest {
         System.out.println(JSON.toJSONString(homeInfo, true));
 
 
-
-
         homeInfo.setExtension(homeInfoEntity);
-        navigationService.updateNavigationInfo(LanguageEnum.CHINESE, homeInfo);
+        navigationService.updateNavigationInfo(LanguageEnum.ENGLISH, homeInfo);
 
     }
 
@@ -248,7 +244,7 @@ class CNNavigationFacadeImplTest {
     @Test
     public void updateAboutUsEntityInfo() {
         //1. 查询数据
-        NavigationEntity<AboutUsEntity> aboutUs = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.ABOUT_US.getId());
+        NavigationEntity<AboutUsEntity> aboutUs = navigationRepository.findExtendInfo(LanguageEnum.ENGLISH, ExtendTypeEnum.ABOUT_US.getId());
         System.out.println(JSON.toJSONString(aboutUs, true));
         //数据封装
         AboutUsEntity aboutUsEntity = new AboutUsEntity();
@@ -257,40 +253,40 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity multimediaEntity = new MultimediaEntity();
         multimediaEntity.setMultimediaUrl("/home/dataImg/banner1.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
-        multimediaEntity.setDescription("关于我们banner");
+        multimediaEntity.setDescription("Realmus banner");
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("url");
-        bannerEntity.setInfoTitle("关于我们");
-        bannerEntity.setInfoDescription("专业的健康食品化妆品供应商");
+        bannerEntity.setInfoTitle("About us  ");
+        bannerEntity.setInfoDescription("Professional supplier of health food and cosmetics");
         bannerEntity.setInfoContent("");
         aboutUsEntity.setBanner(bannerEntity);
-        //模块2 关于百合 视频
+        //模块2 关于Realmus 视频
         CompanyEntity companyEntity = new CompanyEntity();
 
         MultimediaEntity videoBackgroundImg = new MultimediaEntity();
         videoBackgroundImg.setMultimediaType(MultimediaEnum.IMG);
         videoBackgroundImg.setMultimediaUrl("/home/module2/videocover.jpg");
-        videoBackgroundImg.setDescription("视频封面图");
+        videoBackgroundImg.setDescription("Realmus Video BG");
         companyEntity.setVideoBackgroundImg(videoBackgroundImg);
 
         MultimediaEntity backgroundImg = new MultimediaEntity();
         backgroundImg.setMultimediaType(MultimediaEnum.IMG);
         backgroundImg.setMultimediaUrl("/home/module2/background2.jpg");
-        backgroundImg.setDescription("背景图片");
+        backgroundImg.setDescription("Realmus Bg");
         companyEntity.setBackgroundImg(backgroundImg);
 
         MultimediaEntity promotionalMp4 = new MultimediaEntity();
         promotionalMp4.setMultimediaType(MultimediaEnum.VIDEO);
         promotionalMp4.setMultimediaUrl("/home/module2/promotional.mp4");
-        promotionalMp4.setDescription("关于我们视频");
+        promotionalMp4.setDescription("Realmus Video");
         companyEntity.setPromotionalMp4(promotionalMp4);
 
         companyEntity.setInfoType(ModuleEnum.COMPANY);
         companyEntity.setH5Url("url");
-        companyEntity.setInfoTitle("关于我们");
-        companyEntity.setInfoDescription("专业的健康食品化妆品供应商");
+        companyEntity.setInfoTitle("About Us");
+        companyEntity.setInfoDescription("Professional supplier of health food and cosmetics");
         companyEntity.setInfoContent(str1);
         aboutUsEntity.setCompany(companyEntity);
         // 模块3 数据展示
@@ -299,14 +295,14 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity displayImgEntity = new MultimediaEntity();
         displayImgEntity.setMultimediaType(MultimediaEnum.IMG);
         displayImgEntity.setMultimediaUrl("/home/module2/background2.jpg");
-        displayImgEntity.setDescription("数据详情背景图");
+        displayImgEntity.setDescription("data img Bg");
         displayEntity.setBackground(displayImgEntity);
 
         List<DataDetailsEntity> dataDetailsEntityList = new ArrayList<>();
-        dataDetailsEntityList.add(new DataDetailsEntity("30", "公顷", "区域范围"));
-        dataDetailsEntityList.add(new DataDetailsEntity("79800", "平方米", "全世界客户覆盖"));
-        dataDetailsEntityList.add(new DataDetailsEntity(">1600", "种类", "产品种类"));
-        dataDetailsEntityList.add(new DataDetailsEntity("70", "百万瓶", "年生产"));
+        dataDetailsEntityList.add(new DataDetailsEntity("30", "hectare", "area coverage"));
+        dataDetailsEntityList.add(new DataDetailsEntity("79800", "square meter", "Worldwide customer coverage"));
+        dataDetailsEntityList.add(new DataDetailsEntity(">2000", "kind", "type of production"));
+        dataDetailsEntityList.add(new DataDetailsEntity("70", "Millions of bottles", "Annual production"));
 
         displayEntity.setDataDetailsList(dataDetailsEntityList);
         aboutUsEntity.setDataDisplayEntity(displayEntity);
@@ -316,28 +312,28 @@ class CNNavigationFacadeImplTest {
 
         MultimediaEntity certification1 = new MultimediaEntity();
         certification1.setMultimediaType(MultimediaEnum.IMG);
-        certification1.setDescription("证书信息");
+        certification1.setDescription("Realmus Certificate");
         certification1.setMultimediaUrl("/home/module2/zizhi1.png");
 
         MultimediaEntity certification2 = new MultimediaEntity();
         certification2.setMultimediaType(MultimediaEnum.IMG);
-        certification2.setDescription("证书信息");
+        certification2.setDescription("Realmus Certificate");
         certification2.setMultimediaUrl("/home/module2/zizhi2.png");
 
         MultimediaEntity certification3 = new MultimediaEntity();
         certification3.setMultimediaType(MultimediaEnum.IMG);
-        certification3.setDescription("证书信息");
+        certification3.setDescription("Realmus Certificate");
         certification3.setMultimediaUrl("/home/module2/zizhi3.png");
 
 
         MultimediaEntity certification4 = new MultimediaEntity();
         certification4.setMultimediaType(MultimediaEnum.IMG);
-        certification4.setDescription("证书信息");
+        certification4.setDescription("Realmus Certificate");
         certification4.setMultimediaUrl("/home/module2/zizhi4.png");
 
         MultimediaEntity certification5 = new MultimediaEntity();
         certification5.setMultimediaType(MultimediaEnum.IMG);
-        certification5.setDescription("证书信息");
+        certification5.setDescription("Realmus Certificate");
         certification5.setMultimediaUrl("/home/module2/zizhi5.png");
 
         multimediaEntityList.add(certification1);
@@ -349,7 +345,7 @@ class CNNavigationFacadeImplTest {
 
         //更新
         aboutUs.setExtension(aboutUsEntity);
-        navigationService.updateNavigationInfo(LanguageEnum.CHINESE, aboutUs);
+        navigationService.updateNavigationInfo(LanguageEnum.ENGLISH, aboutUs);
     }
 
     /**
@@ -358,7 +354,7 @@ class CNNavigationFacadeImplTest {
     @Test
     public void updateNewsEntityInfo() {
         //1. 查询数据
-        NavigationEntity<NewsEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.NEWS.getId());
+        NavigationEntity<NewsEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.ENGLISH, ExtendTypeEnum.NEWS.getId());
         System.out.println(JSON.toJSONString(navigationEntity, true));
         //数据封装
         NewsEntity newsEntity = new NewsEntity();
@@ -366,19 +362,19 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity multimediaEntity = new MultimediaEntity();
         multimediaEntity.setMultimediaUrl("/home/dataImg/banner3.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
-        multimediaEntity.setDescription("新闻中心banner");
+        multimediaEntity.setDescription("News banner");
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("url");
-        bannerEntity.setInfoTitle("新闻中心");
-        bannerEntity.setInfoDescription("为全民健康");
+        bannerEntity.setInfoTitle("News ");
+        bannerEntity.setInfoDescription("For the health of all");
         bannerEntity.setInfoContent("");
 
         newsEntity.setBanner(bannerEntity);
         //更新
         navigationEntity.setExtension(newsEntity);
-        navigationService.updateNavigationInfo(LanguageEnum.CHINESE, navigationEntity);
+        navigationService.updateNavigationInfo(LanguageEnum.ENGLISH, navigationEntity);
     }
 
 
@@ -388,7 +384,7 @@ class CNNavigationFacadeImplTest {
     @Test
     public void updateRDEntityInfo() {
         // 查询数据
-        NavigationEntity<RDEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.RD.getId());
+        NavigationEntity<RDEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.ENGLISH, ExtendTypeEnum.RD.getId());
         System.out.println(JSON.toJSONString(navigationEntity, true));
         //数据封装
         //1.通用banner
@@ -397,13 +393,13 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity multimediaEntity = new MultimediaEntity();
         multimediaEntity.setMultimediaUrl("/home/dataImg/banner2.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
-        multimediaEntity.setDescription("智造研发banner");
+        multimediaEntity.setDescription("Research and development banner");
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("url");
-        bannerEntity.setInfoTitle("智造研发(R&D)");
-        bannerEntity.setInfoDescription("致力打造全球领先的营养保健品智能工厂");
+        bannerEntity.setInfoTitle("Research and Development(R&D)");
+        bannerEntity.setInfoDescription("It is committed to building the world's leading intelligent factory of nutrition and health products");
         bannerEntity.setInfoContent("");
 
 
@@ -414,27 +410,27 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity bannerImg1 = new MultimediaEntity();
         bannerImg1.setMultimediaType(MultimediaEnum.IMG);
         bannerImg1.setMultimediaUrl("/home/dataImg/banner10.jpg");
-        bannerImg1.setDescription("研发工厂");
+        bannerImg1.setDescription("Research and development of the factory");
 
         mainBanner.setBannerImg(bannerImg1);
         mainBanner.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner.setH5Url("url");
-        mainBanner.setInfoTitle("智能工厂");
-        mainBanner.setInfoDescription("智能▪智造 全新工艺技术助推工业4.0精益生产");
-        mainBanner.setInfoContent("智设备、智生产、智创造从传统工厂到智能化工厂方向发展，运用产品数字化、生产数字化、设备数字化、管理数据化，以实现“6个1”数字化管理目标：即管理好每1位员工→管理好每1个订单→管理好每1种物料→管理好每1道工序→管理好每1台设备→管理好每1笔资金，生产管理更精细、更透明、更柔性！");
+        mainBanner.setInfoTitle("Intelligent Plant");
+        mainBanner.setInfoDescription("Intelligent - Intelligent manufacturing new technology to boost industry 4.0 lean production");
+        mainBanner.setInfoContent("Intelligent equipment, intelligent production, intelligent creation from the traditional factory to the direction of intelligent factory development, the use of product digitalization, production digitalization, equipment digitalization, management data, in order to achieve the \"6 1\" digital management goals:  That is to manage every employee, manage every order, manage every material, manage every process, manage every equipment, manage every fund, production management is more precise, more transparent, more flexible!  ");
 
         BannerEntity factoryBanner = new BannerEntity();
         MultimediaEntity bannerImg2 = new MultimediaEntity();
         bannerImg2.setMultimediaType(MultimediaEnum.IMG);
         bannerImg2.setMultimediaUrl("/home/dataImg/banner11.jpg");
-        bannerImg2.setDescription("研发工厂");
+        bannerImg2.setDescription("Research and development of the factory");
         //详情
         factoryBanner.setBannerImg(bannerImg2);
         factoryBanner.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         factoryBanner.setH5Url("url");
-        factoryBanner.setInfoTitle("智设备、智生产、智创造");
+        factoryBanner.setInfoTitle("Smart equipment, smart production, smart creation");
         factoryBanner.setInfoDescription("");
-        factoryBanner.setInfoContent("智设备、智生产、智创造从传统工厂到智能化工厂方向发展，运用产品数字化、生产数字化、设备数字化、管理数据化，以实现“6个1”数字化管理目标：即管理好每1位员工→管理好每1个订单→管理好每1种物料→管理好每1道工序→管理好每1台设备→管理好每1笔资金，生产管理更精细、更透明、更柔性！");
+        factoryBanner.setInfoContent("Intelligent equipment, intelligent production, intelligent creation from the traditional factory to the direction of intelligent factory development, the use of product digitalization, production digitalization, equipment digitalization, management data, in order to achieve the \"6 1\" digital management goals:  That is to manage every employee, manage every order, manage every material, manage every process, manage every equipment, manage every fund, production management is more precise, more transparent, more flexible!  ");
         //3 工厂视频集合
         List<VideoEntity> videoList = new ArrayList<>();
 
@@ -442,43 +438,43 @@ class CNNavigationFacadeImplTest {
         videoEntity1.setCoverImgUrl("/home/video/vimg1.jpg");
         videoEntity1.setMultimediaType(MultimediaEnum.VIDEO);
         videoEntity1.setMultimediaUrl("/home/video/vimg1.mp4");
-        videoEntity1.setDescription("潮流好营养的饮品生产工厂");
+        videoEntity1.setDescription("Trend good nutrition beverage production factory");
 
         VideoEntity videoEntity2 = new VideoEntity();
         videoEntity2.setCoverImgUrl("/home/video/vimg2.jpg");
         videoEntity2.setMultimediaType(MultimediaEnum.VIDEO);
         videoEntity2.setMultimediaUrl("/home/video/vimg2.mp4");
-        videoEntity2.setDescription("创新功能型软硬胶囊生产工厂");
+        videoEntity2.setDescription("Innovative functional soft and hard capsule production factory");
 
         VideoEntity videoEntity3 = new VideoEntity();
         videoEntity3.setCoverImgUrl("/home/video/vimg3.jpg");
         videoEntity3.setMultimediaType(MultimediaEnum.VIDEO);
         videoEntity3.setMultimediaUrl("/home/video/vimg3.mp4");
-        videoEntity3.setDescription("功能科技感的运营营养生产工厂");
+        videoEntity3.setDescription("Functional sense of science and technology to operate nutrition production plants");
 
         VideoEntity videoEntity4 = new VideoEntity();
         videoEntity4.setCoverImgUrl("/home/video/vimg4.jpg");
         videoEntity4.setMultimediaType(MultimediaEnum.VIDEO);
         videoEntity4.setMultimediaUrl("/home/video/vimg4.mp4");
-        videoEntity4.setDescription("好吃零食化的片剂工厂");
+        videoEntity4.setDescription("Delicious snacks of the tablet factory");
 
         VideoEntity videoEntity5 = new VideoEntity();
         videoEntity5.setCoverImgUrl("/home/video/vimg5.jpg");
         videoEntity5.setMultimediaType(MultimediaEnum.VIDEO);
         videoEntity5.setMultimediaUrl("/home/video/vimg5.mp4");
-        videoEntity5.setDescription("简约不简单的粉剂工厂");
+        videoEntity5.setDescription("Simple not simple powder factory");
 
         VideoEntity videoEntity6 = new VideoEntity();
         videoEntity6.setCoverImgUrl("/home/video/vimg6.jpg");
         videoEntity6.setMultimediaType(MultimediaEnum.VIDEO);
         videoEntity6.setMultimediaUrl("/home/video/vimg6.mp4");
-        videoEntity6.setDescription("科学营养化的特膳食品生产工厂");
+        videoEntity6.setDescription("Scientific nutrition of the special diet food production factory");
 
         VideoEntity videoEntity7 = new VideoEntity();
         videoEntity7.setCoverImgUrl("/home/video/vimg7.jpg");
         videoEntity7.setMultimediaType(MultimediaEnum.VIDEO);
         videoEntity7.setMultimediaUrl("/home/video/vimg7.mp4");
-        videoEntity7.setDescription("严谨智能化的益生菌生产工厂");
+        videoEntity7.setDescription("Rigorous and intelligent probiotic production plant");
 
         videoList.add(videoEntity7);
         videoList.add(videoEntity6);
@@ -500,31 +496,31 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity bannerImg3 = new MultimediaEntity();
         bannerImg3.setMultimediaType(MultimediaEnum.IMG);
         bannerImg3.setMultimediaUrl("/home/dataImg/yanfa1.jpg");
-        bannerImg3.setDescription("研发创新");
+        bannerImg3.setDescription("research and development");
 
         mainBanner3.setBannerImg(bannerImg3);
         mainBanner3.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner3.setH5Url("url");
-        mainBanner3.setInfoTitle("研发创新");
-        mainBanner3.setInfoDescription("专业▪专注 刷新营养保健食品新标准");
-        mainBanner3.setInfoContent("与国内外多家院校长期合作，每年科研投入达2000余万元；年研发产品超过300种以上，授权专利近百项");
+        mainBanner3.setInfoTitle("research and development");
+        mainBanner3.setInfoDescription("Focus on refreshing the new standards of nutrition and health food");
+        mainBanner3.setInfoContent("Long-term cooperation with many domestic and foreign universities, the annual scientific research investment of more than 20 million yuan;  More than 300 kinds of products have been developed and nearly 100 patents have been authorized.");
 
         rdiInfoEntity.setMainBanner(mainBanner3);
         //3.2 头
-        rdiInfoEntity.setHeadLine("研发创新持续突破");
-        rdiInfoEntity.setDescription(" 注重产学研协同发展，与国内外多家院校长期合作，拥有集咨询、研发、销售于一体的国内外知名专业智囊团队，每年科研投入达2000万元。");
+        rdiInfoEntity.setHeadLine("Continuous breakthroughs were made in R&D and innovation");
+        rdiInfoEntity.setDescription(" It pays attention to the coordinated development of industry, education and research, and has long-term cooperation with many domestic and foreign colleges and universities. It has a well-known professional think tank team integrating consulting, RESEARCH and development, and sales, with an annual scientific research investment of 20 million yuan.  ");
         //
         BannerEntity mainBanner4 = new BannerEntity();
         MultimediaEntity bannerImg4 = new MultimediaEntity();
         bannerImg4.setMultimediaType(MultimediaEnum.IMG);
         bannerImg4.setMultimediaUrl("/home/dataImg/yanfa2.jpg");
-        bannerImg4.setDescription("研发数据库");
+        bannerImg4.setDescription("Research and development database");
 
         mainBanner4.setBannerImg(bannerImg4);
         mainBanner4.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner4.setH5Url("url");
-        mainBanner4.setInfoTitle("产学研专家数据库");
-        mainBanner4.setInfoDescription("与中国科学院青岛生物能源研究所、北京化工大学、中国海洋大学等多所高校的十余位专家及高级工程师合作。");
+        mainBanner4.setInfoTitle("Industry-university-research expert database");
+        mainBanner4.setInfoDescription("We have cooperated with more than ten experts and senior engineers from Qingdao Institute of Bioenergy, ENGLISH Academy of Sciences, Beijing University of Chemical Technology, Ocean University of China and other universities.  ");
         mainBanner4.setInfoContent("");
         rdiInfoEntity.setDatabaseBanner(mainBanner4);
         //
@@ -532,13 +528,13 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity bannerImg5 = new MultimediaEntity();
         bannerImg5.setMultimediaType(MultimediaEnum.IMG);
         bannerImg5.setMultimediaUrl("/home/dataImg/yanfa3.jpg");
-        bannerImg5.setDescription("团队");
+        bannerImg5.setDescription("team ");
 
         mainBanner5.setBannerImg(bannerImg5);
         mainBanner5.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner5.setH5Url("url");
-        mainBanner5.setInfoTitle("产学研专家数据库");
-        mainBanner5.setInfoDescription("与中国科学院青岛生物能源研究所、北京化工大学、中国海洋大学等多所高校的十余位专家及高级工程师合作。");
+        mainBanner5.setInfoTitle("Industry-university-research expert database");
+        mainBanner5.setInfoDescription("We have cooperated with more than ten experts and senior engineers from Qingdao Institute of Bioenergy, ENGLISH Academy of Sciences, Beijing University of Chemical Technology, Ocean University of China and other universities.  ");
         mainBanner5.setInfoContent("");
         rdiInfoEntity.setTeamBanner(mainBanner5);
 
@@ -546,13 +542,13 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity bannerImg6 = new MultimediaEntity();
         bannerImg6.setMultimediaType(MultimediaEnum.IMG);
         bannerImg6.setMultimediaUrl("/home/dataImg/yanfa4.jpg");
-        bannerImg6.setDescription("专利");
+        bannerImg6.setDescription("patent ");
 
         mainBanner6.setBannerImg(bannerImg6);
         mainBanner6.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner6.setH5Url("url");
-        mainBanner6.setInfoTitle("年研发产品超过300种以上，授权专利近百项");
-        mainBanner6.setInfoDescription("现已拥有专业的配方实验室、工艺实验室，高标准的检测中心，可开展片剂、粉剂、然胶囊、硬胶囊、口服液等多样化产品的配方设计、工艺研究、质量标准检测、稳定性实验等项目的研究开发。百合股份凭借优异的创新研发能力，先后承单国家十三五重点计划，特色海洋多不饱和脂肪酸的开发及产业链应用，山东省产业链计划、山东省重点研发计划等多项国家、省市级项目研发。。");
+        mainBanner6.setInfoTitle("More than 300 kinds of products have been developed and nearly 100 patents have been authorized");
+        mainBanner6.setInfoDescription("Now it has a professional formula laboratory, process laboratory, high standard testing center, can carry out tablet, powder, natural capsule, hard capsule, oral liquid and other diversified products formula design, process research, quality standard testing, stability test and other projects of research and development.  With excellent innovation and r & D capability, Realmus has undertaken the national key plan of 13th Five-Year Plan, the development and industrial chain application of characteristic Marine polyunsaturated fatty acids, shandong Industrial chain plan, Shandong Provincial key R & D plan and many other national, provincial and municipal projects.  ");
         mainBanner6.setInfoContent("");
         rdiInfoEntity.setTeamBanner(mainBanner5);
 
@@ -564,27 +560,27 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity bannerImg7 = new MultimediaEntity();
         bannerImg7.setMultimediaType(MultimediaEnum.IMG);
         bannerImg7.setMultimediaUrl("/home/dataImg/shiyanshi1.jpg");
-        bannerImg7.setDescription("实验室");
+        bannerImg7.setDescription("CNAS");
 
         mainBanner7.setBannerImg(bannerImg7);
         mainBanner7.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner7.setH5Url("url");
-        mainBanner7.setInfoTitle("CNAS实验室");
-        mainBanner7.setInfoDescription("权威认证 高标准检测能力");
-        mainBanner7.setInfoContent("CNAS实验室认可标准的检测中心配备美国Agilent、waters、德国塞卡姆等进口研发检验设备70余台套检测项目超过300余项、鉴定100余项、开发分析方法40余项");
+        mainBanner7.setInfoTitle("CNAS lab");
+        mainBanner7.setInfoDescription("Authoritative certification of high standards of testing ability");
+        mainBanner7.setInfoContent("CNAS laboratory accreditation standard testing center equipped with the United States Agilent, Waters, Germany Sekam and other imported R & D testing equipment more than 70 sets of more than 300 items, identification more than 100 items, the development of analysis methods more than 40 items  ");
         laboratory.setMainBanner(mainBanner7);
 
         BannerEntity mainBanner8 = new BannerEntity();
         MultimediaEntity bannerImg8 = new MultimediaEntity();
         bannerImg8.setMultimediaType(MultimediaEnum.IMG);
         bannerImg8.setMultimediaUrl("/home/dataImg/shiyanshi2.jpg");
-        bannerImg8.setDescription("实验室");
+        bannerImg8.setDescription("laboratory");
 
         mainBanner8.setBannerImg(bannerImg8);
         mainBanner8.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner8.setH5Url("url");
-        mainBanner8.setInfoTitle("CNAS实验室认可标准的检测中心");
-        mainBanner8.setInfoDescription("顺利通过CNAS认可监督评审及现场审核，以第一方实验室获得认可资格");
+        mainBanner8.setInfoTitle("CNAS laboratory accreditation standard testing center");
+        mainBanner8.setInfoDescription("Successfully passed CNAS accreditation supervision review and on-site audit, to the first party laboratory accreditation  ");
         mainBanner8.setInfoContent("");
         laboratory.setTestingCenterBanner1(mainBanner8);
 
@@ -592,13 +588,13 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity bannerImg9 = new MultimediaEntity();
         bannerImg9.setMultimediaType(MultimediaEnum.IMG);
         bannerImg9.setMultimediaUrl("/home/dataImg/shiyanshi3.jpg");
-        bannerImg9.setDescription("实验室");
+        bannerImg9.setDescription("laboratory");
 
         mainBanner9.setBannerImg(bannerImg9);
         mainBanner9.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner9.setH5Url("url");
-        mainBanner9.setInfoTitle("CNAS实验室认可标准的检测中心");
-        mainBanner9.setInfoDescription("顺利通过CNAS认可监督评审及现场审核，以第一方实验室获得认可资格");
+        mainBanner9.setInfoTitle("CNAS laboratory accreditation standard testing center");
+        mainBanner9.setInfoDescription("Successfully passed CNAS accreditation supervision review and on-site audit, to the first party laboratory accreditation  ");
         mainBanner9.setInfoContent("");
         laboratory.setTestingCenterBanner2(mainBanner9);
 
@@ -606,14 +602,14 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity bannerImg10 = new MultimediaEntity();
         bannerImg10.setMultimediaType(MultimediaEnum.IMG);
         bannerImg10.setMultimediaUrl("/home/dataImg/shiyanshi4.jpg");
-        bannerImg10.setDescription("实验室");
+        bannerImg10.setDescription("laboratory");
 
         mainBanner10.setBannerImg(bannerImg10);
         mainBanner10.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner10.setH5Url("url");
-        mainBanner10.setInfoTitle("检测项目超过400余项");
+        mainBanner10.setInfoTitle("More than 400 items were tested");
         mainBanner10.setInfoDescription("");
-        mainBanner10.setInfoContent("包含植提鉴别70余项，其他分析类项目酸价、过氧化值、维生素类、元素分析类、氨基酸类、植提类功效指标、农残、真菌毒素类、微生物类等，每年度参与覆盖理化指标、功效成分（液相、气相）、重金属、微生物等全领域的能力验证计划，均满意通过。");
+        mainBanner10.setInfoContent("Phytochemistry identification include more than 70 items, other analysis projects like acid value, peroxide value, vitamins, amino acids, elemental analysis, phytochemistry class efficiency indicators, pesticide residues, mycotoxins, microorganism and so on, annual participation covers the physical and chemical indexes, efficacy components (liquid phase and gas phase), heavy metals, the ability of microorganisms, and other areas of the whole verification plan, are satisfied with.  ");
         laboratory.setTestItemBanner(mainBanner10);
 
 
@@ -626,10 +622,9 @@ class CNNavigationFacadeImplTest {
         mainBanner11.setBannerImg(bannerImg11);
         mainBanner11.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner11.setH5Url("url");
-        mainBanner11.setInfoTitle("配备美国Agilent、waters" +
-                "德国塞卡姆等进口研发检验设备70余台套");
+        mainBanner11.setInfoTitle("Equipped with more than 70 sets of imported R & D inspection equipment such as Agilent from the United States and Waters from Germany  ");
         mainBanner11.setInfoDescription("");
-        mainBanner11.setInfoContent("拥有电感耦合等离子体质谱仪（ICP-MS）、液相质谱仪（LC/MS）、液相色谱仪（HPLC）、气相色谱仪（GC）、气质联用仪、氨基酸分析仪、瑞士步琪凯氏定氮仪、水活度测定仪、原子吸收分光光度计、RGF-7800原子荧光分光光度计等先进检测设备，及智能拉力机、顶空气体分析仪等包材检测设备。");
+        mainBanner11.setInfoContent("With inductively coupled plasma mass spectrometer (ICP-MS), liquid phase mass spectrometer (LC/MS), liquid phase chromatograph (HPLC), gas chromatograph (GC), GC, amino acid analyzer, Swiss Buqi Kessler nitrogen determination instrument, water activity meter, atomic absorption spectrophotometer, RGF-7800 atomic fluorescence spectrophotometer and other advanced detection equipment  Prepare, and intelligent tension machine, roof air body analyzer and other packaging material testing equipment.  ");
         laboratory.setEquipmentBanner(mainBanner11);
         //5.质量管理
         RDQualityEntity quality = new RDQualityEntity();
@@ -638,30 +633,28 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity bannerImg12 = new MultimediaEntity();
         bannerImg12.setMultimediaType(MultimediaEnum.IMG);
         bannerImg12.setMultimediaUrl("/home/dataImg/zhiliang1.jpg");
-        bannerImg12.setDescription("质量管控");
+        bannerImg12.setDescription("quality control");
 
         mainBanner12.setBannerImg(bannerImg12);
         mainBanner12.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner12.setH5Url("url");
-        mainBanner12.setInfoTitle("质量管理");
-        mainBanner12.setInfoDescription("卓越精进 永不止步");
-        mainBanner12.setInfoContent("恪守一套严格的质量管理体系，规范生产、全程质控、严格检验，从配料到成品设立了多道质量关键点，保证每一粒产品都是有质量生命。");
+        mainBanner12.setInfoTitle("quality control");
+        mainBanner12.setInfoDescription("Excellence and progress never stop");
+        mainBanner12.setInfoContent("Strictly abide by a set of strict quality management system, standardize production, the whole process of quality control, strict inspection, from ingredients to finished products to set up a number of key points of quality, to ensure that every product is quality life。");
         quality.setMainBanner(mainBanner12);
 
         BannerEntity mainBanner13 = new BannerEntity();
         MultimediaEntity bannerImg13 = new MultimediaEntity();
         bannerImg13.setMultimediaType(MultimediaEnum.IMG);
         bannerImg13.setMultimediaUrl("/home/dataImg/zhiliang2.jpg");
-        bannerImg13.setDescription("质量管控");
+        bannerImg13.setDescription("quality control ");
 
         mainBanner13.setBannerImg(bannerImg13);
         mainBanner13.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner13.setH5Url("url");
-        mainBanner13.setInfoTitle("打造全链条的质量管理体系");
+        mainBanner13.setInfoTitle("Build the whole chain of quality management system");
         mainBanner13.setInfoDescription("");
-        mainBanner13.setInfoContent("从产品设计、供应商管理、生产过程控制、检验过程、产品追溯及售后管理等五个方面设立多道质量监控及质量服务。公司由自动化的生产工厂向数字化、智能化工厂转型，通过MES管理系统，" +
-                "采用可视化的管理模式，通过人机料法环等环节，从现场状况监控，用料追踪管理，讯息及时反馈、质量管理分析、" +
-                "超控超差预警及分析等方面实行全场面动态现场管控，实现产品的全过程追溯，确保每一粒产品的质量生命。通过MES、ERP、WMS、SRM等系统的互联互通，提供可靠的制造数据管理为计划排程、生产调度、库存、质量、成本等提供可靠的数据依据，实现更低成本、更高性能、更大柔性的生产制造能力，实现百合智能制造。");
+        mainBanner13.setInfoContent("From product design, supplier management, production process control, inspection process, product traceability and after-sales management to set up multiple channels of quality control and quality services.  Company consists of automatic production factory to digital, intelligent plant transformation, by MES management system, using visual management mode, through the man-machine material method ring, from the scene monitoring condition, material tracking management, information feedback, quality management, poor accused of ultra early warning and analysis aspects of practice the whole scene at the scene of the dynamic control,  The whole process of product traceability, to ensure the quality of each product life.  Through the interconnection of MES, ERP, WMS, SRM and other systems, to provide reliable manufacturing data management to provide reliable data basis for planning and scheduling, production scheduling, inventory, quality, cost, etc., to achieve lower cost, higher performance, more flexible production and manufacturing capacity, and realize Realmus intelligent manufacturing.  ");
         quality.setQualityBanner(mainBanner13);
 
 
@@ -669,14 +662,14 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity bannerImg14 = new MultimediaEntity();
         bannerImg14.setMultimediaType(MultimediaEnum.IMG);
         bannerImg14.setMultimediaUrl("/home/dataImg/zhiliang3.jpg");
-        bannerImg14.setDescription("质量管控");
+        bannerImg14.setDescription("quality control");
 
         mainBanner14.setBannerImg(bannerImg14);
         mainBanner14.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner14.setH5Url("url");
-        mainBanner14.setInfoTitle("一体化智能运营管理平台");
+        mainBanner14.setInfoTitle("Integrated intelligent operation management platform");
         mainBanner14.setInfoDescription("");
-        mainBanner14.setInfoContent("基于现代化精益管理理念，依托人工智能、移动物联网、大数据、云等新一代技术，SRM供应商管理平台重塑百合股份庞大的供应商关系网，优化供应商关系管理。企业内外高效协同，快速发货、收货，整体进度实时可见，线上查看未对账明细，建立对账单，财务核对，对账准确、高效，打造和谐商业生态和企业利益共同体。同时，通过物流、商流、资金流和信息流“四流合一”，实现企业一体化智能运营。");
+        mainBanner14.setInfoContent("Based on modern lean management concept and relying on new generation technologies such as artificial intelligence, mobile Internet of Things, big data and cloud, SRM supplier management platform reshaps Realmus' huge supplier network and optimizes supplier relationship management.  Efficient coordination between internal and external enterprises, rapid delivery and receipt of goods, real-time visibility of the overall progress, online checking of unreconciled details, establishment of statements, financial verification, accurate and efficient reconciliation, to create a harmonious business ecology and corporate interests community.  At the same time, through logistics, business flow, capital flow and information flow \"four streams in one\", to achieve integrated intelligent operation of enterprises.  ");
         quality.setPlatformBanner(mainBanner14);
 
 
@@ -684,17 +677,15 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity bannerImg15 = new MultimediaEntity();
         bannerImg15.setMultimediaType(MultimediaEnum.IMG);
         bannerImg15.setMultimediaUrl("/home/dataImg/zhiliang4.jpg");
-        bannerImg15.setDescription("质量管控");
+        bannerImg15.setDescription("quality control");
 
         mainBanner15.setBannerImg(bannerImg15);
         mainBanner15.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner15.setH5Url("url");
-        mainBanner15.setInfoTitle("智能物流管理系统");
+        mainBanner15.setInfoTitle("Intelligent logistics management system");
         mainBanner15.setInfoDescription("");
-        mainBanner15.setInfoContent("通过智能物流系统有效联接各类智能设备、移动终端、企业管理系统，全面覆盖收货、质检、入库、领/发料、销售出库、调拨、盘点等业务流程，实现内部物流移动化、透明化、精益化、智能化的“四化”管理，从而提高效率，降低成本，增加效益，强化行业竞争力。");
+        mainBanner15.setInfoContent("Through intelligent logistics system effective connection of various kinds of intelligent equipment, the mobile terminal, the enterprise management system, universal coverage receiving, inspection, warehousing, led/materials development, sales, outbound, transfers, inventory and other business processes, to achieve internal logistics, mobile, transparency, the lean and intelligent management of four modernizations, so as to improve efficiency, reduce costs, increase efficiency, strengthen the industry competitiveness  ");
         quality.setLogisticsBanner(mainBanner15);
-
-
 
 
         //更新
@@ -705,7 +696,7 @@ class CNNavigationFacadeImplTest {
         rdEntity.setRdiInfo(rdiInfoEntity);
 
         navigationEntity.setExtension(rdEntity);
-        navigationService.updateNavigationInfo(LanguageEnum.CHINESE, navigationEntity);
+        navigationService.updateNavigationInfo(LanguageEnum.ENGLISH, navigationEntity);
     }
 
     /**
@@ -714,7 +705,7 @@ class CNNavigationFacadeImplTest {
     @Test
     public void updatePRODUCTEntityInfo() {
         //1. 查询数据
-        NavigationEntity<RDEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.PRODUCT.getId());
+        NavigationEntity<RDEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.ENGLISH, ExtendTypeEnum.PRODUCT.getId());
         System.out.println(JSON.toJSONString(navigationEntity, true));
         //数据封装
         RDEntity rdEntity = new RDEntity();
@@ -727,14 +718,14 @@ class CNNavigationFacadeImplTest {
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("url");
-        bannerEntity.setInfoTitle("产品中心");
-        bannerEntity.setInfoDescription("做一家受人尊重的企业,做一声良心质量的产品");
+        bannerEntity.setInfoTitle("product center");
+        bannerEntity.setInfoDescription("Do a respected enterprise, do a conscience quality products");
         bannerEntity.setInfoContent("");
 
         rdEntity.setBanner(bannerEntity);
         //更新
         navigationEntity.setExtension(rdEntity);
-        navigationService.updateNavigationInfo(LanguageEnum.CHINESE, navigationEntity);
+        navigationService.updateNavigationInfo(LanguageEnum.ENGLISH, navigationEntity);
     }
 
 
@@ -744,7 +735,7 @@ class CNNavigationFacadeImplTest {
     @Test
     public void updateBrandEntityInfo() {
         //1. 查询数据
-        NavigationEntity<BrandEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.BRAND.getId());
+        NavigationEntity<BrandEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.ENGLISH, ExtendTypeEnum.BRAND.getId());
         System.out.println(JSON.toJSONString(navigationEntity, true));
         //数据封装
         BrandEntity brandEntity = new BrandEntity();
@@ -752,19 +743,19 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity multimediaEntity = new MultimediaEntity();
         multimediaEntity.setMultimediaUrl("/home/dataImg/banner6.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
-        multimediaEntity.setDescription("品牌中心banner");
+        multimediaEntity.setDescription("Brand Center Banner  ");
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("url");
-        bannerEntity.setInfoTitle("品牌中心");
-        bannerEntity.setInfoDescription("精准营养,健康赋能");
+        bannerEntity.setInfoTitle("Brand Center");
+        bannerEntity.setInfoDescription("Precise nutrition, health and energy");
         bannerEntity.setInfoContent("");
 
         brandEntity.setBanner(bannerEntity);
         //更新
         navigationEntity.setExtension(brandEntity);
-        navigationService.updateNavigationInfo(LanguageEnum.CHINESE, navigationEntity);
+        navigationService.updateNavigationInfo(LanguageEnum.ENGLISH, navigationEntity);
     }
 
 
@@ -774,7 +765,7 @@ class CNNavigationFacadeImplTest {
     @Test
     public void updateForeignEntityInfo() {
         //1. 查询数据
-        NavigationEntity<BrandEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.FOREIGN.getId());
+        NavigationEntity<BrandEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.ENGLISH, ExtendTypeEnum.FOREIGN.getId());
         System.out.println(JSON.toJSONString(navigationEntity, true));
         //数据封装
         BrandEntity brandEntity = new BrandEntity();
@@ -782,19 +773,19 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity multimediaEntity = new MultimediaEntity();
         multimediaEntity.setMultimediaUrl("/home/dataImg/banner5.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
-        multimediaEntity.setDescription("外贸出口banner");
+        multimediaEntity.setDescription("Export banner  ");
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("url");
-        bannerEntity.setInfoTitle("外贸出口");
-        bannerEntity.setInfoDescription("来自中国, 面向全球");
+        bannerEntity.setInfoTitle("foreign trade export ");
+        bannerEntity.setInfoDescription("From China, to the world");
         bannerEntity.setInfoContent("");
 
         brandEntity.setBanner(bannerEntity);
         //更新
         navigationEntity.setExtension(brandEntity);
-        navigationService.updateNavigationInfo(LanguageEnum.CHINESE, navigationEntity);
+        navigationService.updateNavigationInfo(LanguageEnum.ENGLISH, navigationEntity);
     }
 
 
@@ -804,7 +795,7 @@ class CNNavigationFacadeImplTest {
     @Test
     public void updateContactUsEntityInfo() {
         //1. 查询数据
-        NavigationEntity<BrandEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.CONTACT_US.getId());
+        NavigationEntity<BrandEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.ENGLISH, ExtendTypeEnum.CONTACT_US.getId());
         System.out.println(JSON.toJSONString(navigationEntity, true));
         //数据封装
         BrandEntity brandEntity = new BrandEntity();
@@ -812,19 +803,19 @@ class CNNavigationFacadeImplTest {
         MultimediaEntity multimediaEntity = new MultimediaEntity();
         multimediaEntity.setMultimediaUrl("/home/dataImg/banner7.jpg");
         multimediaEntity.setMultimediaType(MultimediaEnum.IMG);
-        multimediaEntity.setDescription("联系我们banner");
+        multimediaEntity.setDescription("Contact us banner  ");
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("url");
-        bannerEntity.setInfoTitle("联系我们");
-        bannerEntity.setInfoDescription("一段佳话,从这里留言开始");
+        bannerEntity.setInfoTitle("Contact us");
+        bannerEntity.setInfoDescription("A great story, starting with a message here");
         bannerEntity.setInfoContent("");
 
         brandEntity.setBanner(bannerEntity);
         //更新
         navigationEntity.setExtension(brandEntity);
-        navigationService.updateNavigationInfo(LanguageEnum.CHINESE, navigationEntity);
+        navigationService.updateNavigationInfo(LanguageEnum.ENGLISH, navigationEntity);
     }
 
 
