@@ -186,13 +186,56 @@ class NavigationFacadeImplTest {
         bannerEntity7.setInfoContent("拥有100余名专业的研发团队，配有来自美国、日本的气、液相色谱仪、光度计、气、液质联用仪等进口检测设备，与中科院、中国海洋大学等多个知名高校合作，不断加大研发投入，现已取得批准证书及备案凭证的保健食品配方达213个，居行业发展前列。");
 
         bannerEntityList2.add(bannerEntity7);
-
+        //服务项目
+        ServiceItemEntity serviceItemEntity = new ServiceItemEntity();
+        serviceItemEntity.setHeadLine("服务项目");
+        serviceItemEntity.setDescription("Realmus为您提供的从构思到产品的全程无忧服务。");
 
 
         homeInfoEntity.setAdvantageBanner(bannerEntityList2);
         homeInfoEntity.setCompany(companyEntity);
+
+
+        //信息列表
+        ArrayList<PublicInfoEntity> publicInfoEntityList = new ArrayList<>();
+        PublicInfoEntity infoEntity1 = new PublicInfoEntity();
+        infoEntity1.setInfoTitle("市场分析");
+        infoEntity1.setInfoDescription("分享前沿信息，帮助您制定有价值的增长战略");
+        infoEntity1.setInfoContent("专业定制kosher gummy,中国区唯一一家通过国家犹太认证机构的供货商,中国区第一家koshergummy 供货商");
+        publicInfoEntityList.add(infoEntity1);
+
+        PublicInfoEntity infoEntity2= new PublicInfoEntity();
+        infoEntity2.setInfoTitle("研究和发展");
+        infoEntity2.setInfoDescription("专业的研发团队，为您提供领先的产品解决方案。");
+        infoEntity2.setInfoContent("2000+的配方产品， 10+ 剂型，50+ QAQC,50+进口检测设备，300+检测指标,产品全维度研发：剂型，功能，人群，性别，年龄段，区域人群特征，口感，形状，新趋势，使用量，包装规格，区域喜好，颜色，温度，人体吸收度\n" +
+                "成本，配料。");
+        publicInfoEntityList.add(infoEntity2);
+
+        PublicInfoEntity infoEntity3 = new PublicInfoEntity();
+        infoEntity3.setInfoTitle("生产和包装");
+        infoEntity3.setInfoDescription("依据GMP标准，提供多剂型产品，并辅以各种创新包装供您选择。");
+        infoEntity3.setInfoContent("从原材料到成品实施全程质量管控全程可追溯记录" +
+                "十万级洁净级别，24小时恒温恒湿的生产车间。全自动包装生产线30余条，为客户提供多样化的包装解决方案，配备全自动瓶装，盒装，铝箔板，桶装，小袋装，单粒装等多种包装设备。");
+        publicInfoEntityList.add(infoEntity3);
+
+        PublicInfoEntity infoEntity4 = new PublicInfoEntity();
+        infoEntity4.setInfoTitle("供应链管理");
+        infoEntity4.setInfoDescription("严格的供应链准入基质，从源头控制产品质量，优化成本，提升效率。");
+        infoEntity4.setInfoContent("与世界知名食品，保健食品原料供货商保持合作，所有入选供应链均通过国家相关行业要求。帝斯曼，巴斯夫，拜耳，丹尼斯克…  ");
+        publicInfoEntityList.add(infoEntity4);
+
+        PublicInfoEntity infoEntity5 = new PublicInfoEntity();
+        infoEntity5.setInfoTitle("服务与支持");
+        infoEntity5.setInfoDescription("在全环节为您提供专业服务与支持，成为您得力的合作伙伴。。");
+        infoEntity5.setInfoContent("提供使馆认证，客户当地注册所需证书认证。产品后续升级服务，门到门的运输服务");
+        publicInfoEntityList.add(infoEntity5);
         homeInfoEntity.setBannerList(bannerEntityList);
+
+        homeInfoEntity.setServiceItem(serviceItemEntity);
         System.out.println(JSON.toJSONString(homeInfo, true));
+
+
+
 
         homeInfo.setExtension(homeInfoEntity);
         navigationService.updateNavigationInfo(LanguageEnum.CHINESE, homeInfo);

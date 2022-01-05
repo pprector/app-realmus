@@ -30,5 +30,5 @@ public class HomeInfoEntity {
     /**
      * 服务项目 集合
      */
-    private List<ServiceItemEntity> serviceItemList;
+    private ServiceItemEntity serviceItem;
 }

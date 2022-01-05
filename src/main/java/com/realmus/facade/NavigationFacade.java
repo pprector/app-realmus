@@ -34,27 +34,4 @@ public interface NavigationFacade {
     ResultModel<NavigationExtendResponse> getNavigationExtendInfo(NavExtendRequest request, HttpServletRequest httpServletRequest);
 
 
-
-   /* *//**
-     * 获取 Home 信息
-     *
-     * @param type
-     * @return
-     *//*
-    ResultModel<HomeResponse> getHomeInfo(Integer type);
-
-    *//**
-     * 获取 关于我们  信息
-     *
-     * @param type
-     * @return
-     *//*
-    ResultModel<AboutUsResponse> getAboutUsInfo(Integer type);
-    *//**
-     * 获取 智造研发  信息
-     *
-     * @param type
-     * @return
-     *//*
-    ResultModel<RDResponse> getRDInfo(Integer type);*/
 }

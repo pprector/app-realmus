@@ -1,5 +1,6 @@
-package com.realmus.domain.entity;
+package com.realmus.facade.param;
 
+import com.realmus.domain.entity.PublicInfoEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,7 +15,7 @@ import java.util.List;
 @ToString
 @Getter
 @Setter
-public class ServiceItemEntity {
+public class ServiceItem {
     /**
      * 标题
      */
@@ -22,10 +23,10 @@ public class ServiceItemEntity {
     /**
      * 描述
      */
-    private String desc;
+    private String description;
     /**
      * 服务项目 Banner
      * 六个描述信息
      */
-    private List<PublicInfoEntity> ItemInfoList;
+    private List<PublicInfo> ItemInfoList;
 }

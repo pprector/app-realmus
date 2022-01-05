@@ -69,7 +69,7 @@ public class ProductFacadeImpl implements ProductFacade {
             @ApiImplicitParam(name = "lv1Name", value = "产品一级分类名称", required = true, dataType = "string")
     }
     )
-    @GetMapping("/{lv1Name}")
+    @GetMapping(value = "/{lv1Name}",params = {"language"})
     public ResultModel<ProductResponse> getProductInfo(@PathVariable String lv1Name, HttpServletRequest httpServletRequest) {
         logger.info("=====ProductFacadeImpl productInfoImpl request : " + lv1Name);
         try {

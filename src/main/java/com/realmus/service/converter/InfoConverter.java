@@ -42,7 +42,38 @@ public class InfoConverter {
         List<BannerEntity> advantageBannerEntityList = homeInfoEntity.getAdvantageBanner();
         List<Banner> advantageBannerList = advantageBannerEntityList.stream().map(InfoConverter::toBanner).collect(Collectors.toList());
         homeResponse.setAdvantageBannerList(advantageBannerList);
+        //服务项目
+        homeResponse.setServiceItem(toServiceItem(homeInfoEntity.getServiceItem()));
+
         return homeResponse;
+    }
+
+    private static ServiceItem toServiceItem(ServiceItemEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        ServiceItem serviceItem = new ServiceItem();
+        serviceItem.setHeadLine(entity.getHeadLine());
+        serviceItem.setDescription(entity.getDesc());
+
+        List<PublicInfo> publicInfoList = entity.getItemInfoList().stream().map(InfoConverter::toPublicInfo).collect(Collectors.toList());
+        serviceItem.setItemInfoList(publicInfoList);
+
+        return serviceItem;
+
+    }
+
+    private static PublicInfo toPublicInfo(PublicInfoEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        PublicInfo publicInfo = new PublicInfo();
+        publicInfo.setH5Url(entity.getH5Url());
+        publicInfo.setTitle(entity.getInfoTitle());
+        publicInfo.setDesc(entity.getInfoDescription());
+        publicInfo.setContent(entity.getInfoContent());
+
+        return publicInfo;
     }
 
     private static Company toCompany(CompanyEntity entity) {
@@ -79,7 +110,7 @@ public class InfoConverter {
         banner.setDesc(entity.getInfoDescription());
         banner.setContent(entity.getInfoContent());
         if (entity.getBannerImg() != null) {
-            banner.setImg(new Img(entity.getBannerImg().getMultimediaUrl(),entity.getBannerImg().getDescription()));
+            banner.setImg(new Img(entity.getBannerImg().getMultimediaUrl(), entity.getBannerImg().getDescription()));
         }
         return banner;
     }
@@ -111,7 +142,7 @@ public class InfoConverter {
         }
         DataDisplay display = new DataDisplay();
         if (entity.getBackground() != null) {
-            display.setBgImg(new Img(entity.getBackground().getMultimediaUrl(),entity.getBackground().getDescription()));
+            display.setBgImg(new Img(entity.getBackground().getMultimediaUrl(), entity.getBackground().getDescription()));
         }
 
         display.setDataDetailsList(entity.getDataDetailsList()
@@ -206,81 +237,82 @@ public class InfoConverter {
             return null;
         }
         Video video = new Video();
-        video.setVideoImg(new Img(entity.getCoverImgUrl(),"视频背景图"));
+        video.setVideoImg(new Img(entity.getCoverImgUrl(), "视频背景图"));
         video.setVideoUrl(entity.getMultimediaUrl());
         return video;
     }
 
     /**
      * 导航栏 扩展信息
+     *
      * @param entity
      * @return
      */
     public static NavigationExtendResponse NavigationExtendResponse(NavigationEntity entity) {
-        if (entity == null || StringUtils.isBlank(entity.getNavigationId())){
-            return  null;
+        if (entity == null || StringUtils.isBlank(entity.getNavigationId())) {
+            return null;
         }
 
         NavigationExtendResponse extendResponse = new NavigationExtendResponse();
         ExtendTypeEnum extendTypeEnum = ExtendTypeEnum.getLanguageEnum(entity.getNavigationId());
         switch (extendTypeEnum) {
             case HOME_INFO:
-                HomeInfoEntity homeInfoEntity =  (HomeInfoEntity) entity.getExtension();
+                HomeInfoEntity homeInfoEntity = (HomeInfoEntity) entity.getExtension();
                 extendResponse.setHome(toQueryHomeResponse(homeInfoEntity));
                 break;
             case ABOUT_US:
-                AboutUsEntity aboutUsEntity =  (AboutUsEntity) entity.getExtension();
+                AboutUsEntity aboutUsEntity = (AboutUsEntity) entity.getExtension();
                 extendResponse.setAboutUs(toAboutUsResponse(aboutUsEntity));
                 break;
             case NEWS:
-                NewsEntity  newsEntity =  (NewsEntity) entity.getExtension();
+                NewsEntity newsEntity = (NewsEntity) entity.getExtension();
                 extendResponse.setNews(toNewsResponse(newsEntity));
                 break;
             case RD:
-                RDEntity rdEntity =  (RDEntity) entity.getExtension();
+                RDEntity rdEntity = (RDEntity) entity.getExtension();
                 extendResponse.setRd(toRDResponse(rdEntity));
                 break;
             case PRODUCT:
-                ProductEntity productEntity =  (ProductEntity) entity.getExtension();
+                ProductEntity productEntity = (ProductEntity) entity.getExtension();
                 extendResponse.setProduct(toNavRDResponse(productEntity));
                 break;
             case BRAND:
-                BrandEntity brandEntity =  (BrandEntity) entity.getExtension();
+                BrandEntity brandEntity = (BrandEntity) entity.getExtension();
                 extendResponse.setBrand(toNavBrandResponse(brandEntity));
                 break;
             case FOREIGN:
-                ForeignEntity foreignEntity =  (ForeignEntity) entity.getExtension();
+                ForeignEntity foreignEntity = (ForeignEntity) entity.getExtension();
                 extendResponse.setForeign(toNavForeignResponse(foreignEntity));
                 break;
             case CONTACT_US:
-                ContactUsEntity contactUsEntity =  (ContactUsEntity) entity.getExtension();
+                ContactUsEntity contactUsEntity = (ContactUsEntity) entity.getExtension();
                 extendResponse.setContactUs(toNavContactUsResponse(contactUsEntity));
                 break;
         }
-        return  extendResponse;
+        return extendResponse;
     }
 
     private static NavContactUsResponse toNavContactUsResponse(ContactUsEntity contactUsEntity) {
-        return  null;
+        return null;
     }
 
     private static NavForeignResponse toNavForeignResponse(ForeignEntity foreignEntity) {
-        return  null;
+        return null;
     }
 
     private static NavBrandResponse toNavBrandResponse(BrandEntity brandEntity) {
-        return  null;
+        return null;
     }
 
     private static NvaProductResponse toNavRDResponse(ProductEntity productEntity) {
-        return  null;
+        return null;
     }
 
     private static NewsResponse toNewsResponse(NewsEntity newsEntity) {
-        if (newsEntity == null){
+        if (newsEntity == null) {
             return null;
         }
-        return  null;
+        return null;
     }
 }
 

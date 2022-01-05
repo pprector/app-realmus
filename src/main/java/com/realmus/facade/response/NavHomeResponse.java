@@ -2,6 +2,7 @@ package com.realmus.facade.response;
 
 import com.realmus.facade.param.Banner;
 import com.realmus.facade.param.Company;
+import com.realmus.facade.param.ServiceItem;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,5 +37,12 @@ public class NavHomeResponse {
      */
     @ApiModelProperty(example = "home 模块3，优势信息4个小banner信息 ")
     private List<Banner> advantageBannerList;
+
+    /**
+     * 轮播图信息集合
+     */
+    @ApiModelProperty(example = "home 模块3，优势信息4个小banner信息 ")
+    private ServiceItem serviceItem;
+
 
 }
