@@ -291,7 +291,12 @@ public class InfoConverter {
         return extendResponse;
     }
 
-    private static NavContactUsResponse toNavContactUsResponse(ContactUsEntity contactUsEntity) {
+    private static NavContactUsResponse toNavContactUsResponse(ContactUsEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        NavContactUsResponse response = new NavContactUsResponse();
+
         return null;
     }
 
