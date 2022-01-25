@@ -190,7 +190,11 @@ class EnNavigationFacadeImplTest {
         ServiceItemEntity serviceItemEntity = new ServiceItemEntity();
         serviceItemEntity.setHeadLine("Service project");
         serviceItemEntity.setDesc("Realmus provides you with wordless service from conception to product.。");
-
+        MultimediaEntity multimediaEntityItem = new MultimediaEntity();
+        multimediaEntityItem.setMultimediaUrl("/home/serviceItem/page2bg.jpg");
+        multimediaEntityItem.setMultimediaType(MultimediaEnum.IMG);
+        multimediaEntityItem.setDescription("服务项目背景图");
+        serviceItemEntity.setMultimediaEntity(multimediaEntityItem);
 
         homeInfoEntity.setAdvantageBanner(bannerEntityList2);
         homeInfoEntity.setCompany(companyEntity);

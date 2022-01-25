@@ -205,7 +205,7 @@ class CnNavigationFacadeImplTest {
         infoEntity1.setInfoContent("专业定制kosher gummy,中国区唯一一家通过国家犹太认证机构的供货商,中国区第一家koshergummy 供货商");
         publicInfoEntityList.add(infoEntity1);
 
-        PublicInfoEntity infoEntity2= new PublicInfoEntity();
+        PublicInfoEntity infoEntity2 = new PublicInfoEntity();
         infoEntity2.setInfoTitle("研究和发展");
         infoEntity2.setInfoDescription("专业的研发团队，为您提供领先的产品解决方案。");
         infoEntity2.setInfoContent("2000+的配方产品， 10+ 剂型，50+ QAQC,50+进口检测设备，300+检测指标,产品全维度研发：剂型，功能，人群，性别，年龄段，区域人群特征，口感，形状，新趋势，使用量，包装规格，区域喜好，颜色，温度，人体吸收度\n" +
@@ -232,9 +232,14 @@ class CnNavigationFacadeImplTest {
         publicInfoEntityList.add(infoEntity5);
         serviceItemEntity.setItemInfoList(publicInfoEntityList);
 
+        MultimediaEntity multimediaEntityItem = new MultimediaEntity();
+        multimediaEntityItem.setMultimediaUrl("/home/serviceItem/page2bg.jpg");
+        multimediaEntityItem.setMultimediaType(MultimediaEnum.IMG);
+        multimediaEntityItem.setDescription("服务项目背景图");
+        serviceItemEntity.setMultimediaEntity(multimediaEntityItem);
+
         homeInfoEntity.setServiceItem(serviceItemEntity);
         System.out.println(JSON.toJSONString(homeInfo, true));
-
 
 
         homeInfo.setExtension(homeInfoEntity);
@@ -693,8 +698,6 @@ class CnNavigationFacadeImplTest {
         mainBanner15.setInfoDescription("");
         mainBanner15.setInfoContent("通过智能物流系统有效联接各类智能设备、移动终端、企业管理系统，全面覆盖收货、质检、入库、领/发料、销售出库、调拨、盘点等业务流程，实现内部物流移动化、透明化、精益化、智能化的“四化”管理，从而提高效率，降低成本，增加效益，强化行业竞争力。");
         quality.setLogisticsBanner(mainBanner15);
-
-
 
 
         //更新
