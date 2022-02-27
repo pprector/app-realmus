@@ -26,3 +26,4 @@ public class Img {
     @ApiModelProperty(example = "图片alt")
     private String desc;
 }
+

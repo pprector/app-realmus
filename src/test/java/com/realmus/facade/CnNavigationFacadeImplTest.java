@@ -266,7 +266,7 @@ class CnNavigationFacadeImplTest {
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
-        bannerEntity.setH5Url("url");
+        bannerEntity.setH5Url("/about");
         bannerEntity.setInfoTitle("关于我们");
         bannerEntity.setInfoDescription("专业的健康食品化妆品供应商");
         bannerEntity.setInfoContent("");
@@ -406,7 +406,7 @@ class CnNavigationFacadeImplTest {
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
-        bannerEntity.setH5Url("url");
+        bannerEntity.setH5Url("/research");
         bannerEntity.setInfoTitle("智造研发(R&D)");
         bannerEntity.setInfoDescription("致力打造全球领先的营养保健品智能工厂");
         bannerEntity.setInfoContent("");
@@ -729,7 +729,7 @@ class CnNavigationFacadeImplTest {
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
-        bannerEntity.setH5Url("url");
+        bannerEntity.setH5Url("/products");
         bannerEntity.setInfoTitle("产品中心");
         bannerEntity.setInfoDescription("做一家受人尊重的企业,做一声良心质量的产品");
         bannerEntity.setInfoContent("");
@@ -742,7 +742,7 @@ class CnNavigationFacadeImplTest {
 
 
     /**
-     * 更新 产品中心 数据
+     * 更新 品牌中心 数据
      */
     @Test
     public void updateBrandEntityInfo() {
@@ -789,7 +789,7 @@ class CnNavigationFacadeImplTest {
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
-        bannerEntity.setH5Url("url");
+        bannerEntity.setH5Url("/export");
         bannerEntity.setInfoTitle("外贸出口");
         bannerEntity.setInfoDescription("来自中国, 面向全球");
         bannerEntity.setInfoContent("");
@@ -819,7 +819,7 @@ class CnNavigationFacadeImplTest {
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
-        bannerEntity.setH5Url("url");
+        bannerEntity.setH5Url("/contactus");
         bannerEntity.setInfoTitle("联系我们");
         bannerEntity.setInfoDescription("一段佳话,从这里留言开始");
         bannerEntity.setInfoContent("");

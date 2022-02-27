@@ -33,6 +33,7 @@ NavAboutUsResponse {
     @ApiModelProperty(example = "发展历程 轮播图")
     private List<Banner> courseBannerList;
 
+
     @ApiModelProperty(example = "数据展示 对象")
     private DataDisplay dataDisplay;
 

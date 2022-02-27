@@ -315,6 +315,8 @@ public class InfoConverter {
     }
 
     private static NavForeignResponse toNavForeignResponse(ForeignEntity foreignEntity) {
+        NavForeignResponse response = new NavForeignResponse();
+
         return null;
     }
 

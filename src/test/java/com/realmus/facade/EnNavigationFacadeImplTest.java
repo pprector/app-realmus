@@ -262,7 +262,7 @@ class EnNavigationFacadeImplTest {
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
-        bannerEntity.setH5Url("url");
+        bannerEntity.setH5Url("/about");
         bannerEntity.setInfoTitle("About us  ");
         bannerEntity.setInfoDescription("Professional supplier of health food and cosmetics");
         bannerEntity.setInfoContent("");
@@ -402,7 +402,7 @@ class EnNavigationFacadeImplTest {
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
-        bannerEntity.setH5Url("url");
+        bannerEntity.setH5Url("/research");
         bannerEntity.setInfoTitle("Research and Development(R&D)");
         bannerEntity.setInfoDescription("It is committed to building the world's leading intelligent factory of nutrition and health products");
         bannerEntity.setInfoContent("");
@@ -722,7 +722,7 @@ class EnNavigationFacadeImplTest {
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
-        bannerEntity.setH5Url("url");
+        bannerEntity.setH5Url("/products");
         bannerEntity.setInfoTitle("product center");
         bannerEntity.setInfoDescription("Do a respected enterprise, do a conscience quality products");
         bannerEntity.setInfoContent("");
@@ -735,7 +735,7 @@ class EnNavigationFacadeImplTest {
 
 
     /**
-     * 更新 产品中心 数据
+     * 更新 品牌中心 数据
      */
     @Test
     public void updateBrandEntityInfo() {
@@ -782,7 +782,7 @@ class EnNavigationFacadeImplTest {
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
-        bannerEntity.setH5Url("url");
+        bannerEntity.setH5Url("/export");
         bannerEntity.setInfoTitle("foreign trade export ");
         bannerEntity.setInfoDescription("From China, to the world");
         bannerEntity.setInfoContent("");
@@ -812,7 +812,7 @@ class EnNavigationFacadeImplTest {
         bannerEntity.setBannerImg(multimediaEntity);
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
-        bannerEntity.setH5Url("url");
+        bannerEntity.setH5Url("/contactus");
         bannerEntity.setInfoTitle("Contact us");
         bannerEntity.setInfoDescription("A great story, starting with a message here");
         bannerEntity.setInfoContent("");
