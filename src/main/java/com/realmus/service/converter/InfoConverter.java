@@ -310,22 +310,30 @@ public class InfoConverter {
             return null;
         }
         NavContactUsResponse response = new NavContactUsResponse();
-
-        return null;
+        response.setBanner(toBanner(entity.getBanner()));
+        return response;
     }
 
-    private static NavForeignResponse toNavForeignResponse(ForeignEntity foreignEntity) {
+    private static NavForeignResponse toNavForeignResponse(ForeignEntity entity) {
+        if (entity == null) {
+            return null;
+        }
         NavForeignResponse response = new NavForeignResponse();
-
-        return null;
+        response.setBanner(toBanner(entity.getBanner()));
+        return response;
     }
 
     private static NavBrandResponse toNavBrandResponse(BrandEntity brandEntity) {
         return null;
     }
 
-    private static NvaProductResponse toNavRDResponse(ProductEntity productEntity) {
-        return null;
+    private static NvaProductResponse toNavRDResponse(ProductEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        NvaProductResponse response = new NvaProductResponse();
+        response.setBanner(toBanner(entity.getBanner()));
+        return response;
     }
 
     private static NewsResponse toNewsResponse(NewsEntity newsEntity) {
@@ -335,4 +343,3 @@ public class InfoConverter {
         return null;
     }
 }
-
