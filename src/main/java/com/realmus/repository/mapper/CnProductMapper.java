@@ -45,4 +45,11 @@ public interface CnProductMapper {
      */
     List<ProductDO> getProductInfoIdByParentId(@Param("productId") String productId);
 
+    /**
+     * 模糊获取查询
+     *
+     * @param input
+     * @return
+     */
+    List<ProductDO> productLikeSearch(@Param("input")String input);
 }

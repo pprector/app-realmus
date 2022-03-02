@@ -31,7 +31,7 @@ public class ProductResponse {
     /**
      * 该分类下 实体
      */
-    @ApiModelProperty(example = "产品名称-一级分类-二级分类")
+    @ApiModelProperty(example = "该分类下 实体")
     private List<ProductResponse> subset;
     /**
      * 原料

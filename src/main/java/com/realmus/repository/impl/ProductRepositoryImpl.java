@@ -59,7 +59,8 @@ public class ProductRepositoryImpl implements ProductRepository {
                 productDO = cnProductMapper.getProductInfoIdByLv1Name(lv1Name);
                 break;
             case ENGLISH:
-                throw new BizException(BizErrorEnum.A001);
+                productDO = enProductMapper.getProductInfoIdByLv1Name(lv1Name);
+                break;
         }
 
         return DoTOEntity.toProductInfoEntity(productDO);
@@ -73,7 +74,8 @@ public class ProductRepositoryImpl implements ProductRepository {
                 productDOList = cnProductMapper.getProductInfoIdByParentId(productId);
                 break;
             case ENGLISH:
-                throw new BizException(BizErrorEnum.A001);
+                productDOList = enProductMapper.getProductInfoIdByParentId(productId);
+                break;
         }
 
         return productDOList.stream().sorted(Comparator.comparing(ProductDO::getProductWeight).reversed())
@@ -90,7 +92,8 @@ public class ProductRepositoryImpl implements ProductRepository {
                     productDOList = cnProductMapper.getProductInfoIdByParentId(productInfoLv2Entity.getProductId());
                     break;
                 case ENGLISH:
-                    throw new BizException(BizErrorEnum.A001);
+                    productDOList = enProductMapper.getProductInfoIdByParentId(productInfoLv2Entity.getProductId());
+                    break;
             }
             //产品集合
             List<ProductInfoEntity> productInfoEntityList = productDOList.stream()
@@ -100,5 +103,35 @@ public class ProductRepositoryImpl implements ProductRepository {
         }
 
         return productInfoLv2List;
+    }
+
+    @Override
+    public List<ProductInfoEntity> productSearch(LanguageEnum languageEnum, String input) {
+        List<ProductDO> productDOList = null;
+        switch (languageEnum) {
+            case CHINESE:
+                productDOList = cnProductMapper.productLikeSearch(input);
+                break;
+            case ENGLISH:
+                productDOList = enProductMapper.productLikeSearch(input);
+                break;
+        }
+        //数据封装处理
+
+        return dataEncapsulation(productDOList);
+    }
+
+    /**
+     * 产品数据处理处理规则如下:
+     * 1.保证一级分类的顺序
+     * 2.一级分类下保证二级分类的顺序
+     * 3.二级分类下保证最佳匹配顺序
+     * 4.每个大分类一个集合
+     *
+     * @return
+     */
+    private List<ProductInfoEntity> dataEncapsulation(List<ProductDO> productDOList) {
+
+        return null;
     }
 }

@@ -5,6 +5,7 @@ import com.realmus.facade.response.ProductResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.util.List;
 
 /**
  * @author hkpeng
@@ -31,4 +32,11 @@ public interface ProductFacade {
     ResultModel<ProductResponse> getProductInfo(String lv1Name, HttpServletRequest httpServletRequest);
 
 
+    /**
+     * 产品信息 根据一级分类名称获取 产品信息
+     *
+     * @param
+     * @return
+     */
+    ResultModel<List<ProductResponse>> productSearch(String input, HttpServletRequest httpServletRequest);
 }

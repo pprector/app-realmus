@@ -7,11 +7,11 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
-* @author hkpeng
-* @date 2021/12/31 - 15:19
-*/
-    
-    
+ * @author hkpeng
+ * @date 2021/12/31 - 15:19
+ */
+
+
 @Mapper
 public interface EnProductMapper {
     /**
@@ -43,4 +43,12 @@ public interface EnProductMapper {
      * @return
      */
     List<ProductDO> getProductInfoIdByParentId(@Param("productId") String productId);
+
+    /**
+     * 模糊查询
+     *
+     * @param input
+     * @return
+     */
+    List<ProductDO> productLikeSearch(@Param("input") String input);
 }

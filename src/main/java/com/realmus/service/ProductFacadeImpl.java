@@ -69,13 +69,35 @@ public class ProductFacadeImpl implements ProductFacade {
             @ApiImplicitParam(name = "lv1Name", value = "产品一级分类名称", required = true, dataType = "string")
     }
     )
-    @GetMapping(value = "/{lv1Name}",params = {"language"})
+    @GetMapping(value = "/{lv1Name}", params = {"language"})
     public ResultModel<ProductResponse> getProductInfo(@PathVariable String lv1Name, HttpServletRequest httpServletRequest) {
         logger.info("=====ProductFacadeImpl productInfoImpl request : " + lv1Name);
         try {
             LanguageEnum languageEnum = LanguageUtil.getLanguageEnum(httpServletRequest);
             ProductInfoEntity productInfoEntity = productService.getProductInfo(languageEnum, lv1Name);
             return ResultUtil.success(ProductFacadeConverter.ProductResponse(productInfoEntity));
+        } catch (BizException e) {
+            logger.error("=====ProductFacadeImpl  productInfoImpl  BizException :}", e);
+            return ResultUtil.fail(e.getMessage());
+        } catch (Exception e) {
+            logger.error("=====ProductFacadeImpl  productInfoImpl  Exception : ", e);
+            return ResultUtil.fail(BizErrorEnum.E001.getMessage());
+        }
+    }
+
+    @ApiOperation(value = "产品信息模块 根据产品分类-产品名称搜索", httpMethod = "GET")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "input", value = "搜索条件", required = false, dataType = "string")
+    }
+    )
+    @GetMapping(value = "/{input}", params = {"language"})
+    @Override
+    public ResultModel<List<ProductResponse>> productSearch(@PathVariable String input, HttpServletRequest httpServletRequest) {
+        logger.info("=====ProductFacadeImpl productInfoImpl request : " + input);
+        try {
+            LanguageEnum languageEnum = LanguageUtil.getLanguageEnum(httpServletRequest);
+            List<ProductInfoEntity> productInfoEntityList = productService.productSearch(languageEnum, input);
+            return ResultUtil.success(null);
         } catch (BizException e) {
             logger.error("=====ProductFacadeImpl  productInfoImpl  BizException :}", e);
             return ResultUtil.fail(e.getMessage());

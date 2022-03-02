@@ -47,4 +47,17 @@ public class ProductService {
         productLv1.setSonProductInfoList(productInfoLv2List);
         return productLv1;
     }
+
+    /**
+     * 产品信息模糊(并分页查询)查询
+     *
+     * @param languageEnum
+     * @param input
+     * @return
+     */
+    public List<ProductInfoEntity> productSearch(LanguageEnum languageEnum, String input) {
+        List<ProductInfoEntity> productInfoEntityList = productRepository.productSearch(languageEnum, input);
+
+        return null;
+    }
 }

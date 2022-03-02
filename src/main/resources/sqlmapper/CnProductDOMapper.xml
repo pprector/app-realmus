@@ -61,4 +61,7 @@
         where parent_id = #{productId,jdbcType=VARCHAR}
         order by product_weight desc
     </select>
+
+    <delete id="productLikeSearch">
+    </delete>
 </mapper>
