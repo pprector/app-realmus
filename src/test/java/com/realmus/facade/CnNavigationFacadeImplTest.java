@@ -123,7 +123,11 @@ class CnNavigationFacadeImplTest {
         companyEntity.setH5Url("url");
         companyEntity.setInfoTitle("关于我们");
         companyEntity.setInfoDescription("专业的健康食品化妆品供应商");
-        companyEntity.setInfoContent("中国上海Realmus成立于2010年，是一家集研发、生产、批发为一体的专业公司。 Realmus致力于世界各地的膳食补充剂基地。瑞勒姆斯凭借近20年的研发和生产经验，不断完善和完善研发和生产的高精度系统。 满足客户对高品质生活方式的需求。");
+        companyEntity.setInfoContent("上海锐麦实业有限公司成立于是2010年，集科、工、贸于一体，专业从事营养补充剂研发、生产、外销的高科技企业。" +
+                "" +
+                "上海锐麦凭借在业内良好的品牌口碑、专业的研发能力、完善的制造工艺、严格的质量管控，不断强化在营养保健食品领域的竞争力与影响力。形成软胶囊，硬胶囊，片剂、软糖、粉剂（固体饮料）、口服液六大支柱产业，新增了 颗粒剂、滴剂、瓶饮、软饮等剂型，4000多种保健食品配方。产品远销欧美，东南亚等65+ 国。\n" +
+                "" +
+                "目前已通过ISO9001、ISO14001、 OHSAS18001、知识产权管理体系认证、HACCP认证、NSF认证、BRC认证以及美国FDA注册等。");
         //小  banner
         List<BannerEntity> bannerEntityList2 = new ArrayList<>();
         BannerEntity bannerEntity4 = new BannerEntity();
@@ -152,7 +156,7 @@ class CnNavigationFacadeImplTest {
         bannerEntity5.setH5Url("url");
         bannerEntity5.setInfoTitle("出口国家");
         bannerEntity5.setInfoDescription("");
-        bannerEntity5.setInfoContent("百合股份与全球65个国家合作现拥有150余亩的两大厂区，2万余平米净化车间，数十条软胶囊、硬胶囊、片剂、粉剂、颗粒剂、口服液等现代化生产线，可开发保健食品、SC营养食品、孕婴童辅食食品等2000余种");
+        bannerEntity5.setInfoContent("与全球65个国家合作现拥有150余亩的两大厂区，2万余平米净化车间，数十条软胶囊、硬胶囊、片剂、粉剂、颗粒剂、口服液等现代化生产线，可开发保健食品、SC营养食品、孕婴童辅食食品等2000余种");
 
         bannerEntityList2.add(bannerEntity5);
 

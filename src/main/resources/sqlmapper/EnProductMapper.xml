@@ -38,7 +38,7 @@
     </insert>
     <update id="productInfoUpdate" parameterType="com.realmus.repository.model.ProductDO">
         <!--@mbg.generated-->
-        update cn_product
+        update en_product
         <set>
             <if test="productName != null">
                 product_name = #{productName,jdbcType=VARCHAR},
@@ -83,7 +83,7 @@
     <select id="getProductInfoParentIdList" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from cn_product
+        from en_product
         where parent_id = '0'
     </select>
     <!--查询二级分类-->
@@ -111,8 +111,8 @@
     <select id="getProductInfoById" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from cn_product
-        where parent_id = #{productId,jdbcType=VARCHAR}
+        from en_product
+        where product_id = #{productId,jdbcType=VARCHAR}
         limit 1
     </select>
 </mapper>

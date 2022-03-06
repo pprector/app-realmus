@@ -50,8 +50,19 @@ public class ProductInfoUpdate {
     @Test
     public void ProductInfoUpdateEn() {
 
-       /* productService.getProductInfoById();
-        productService.productInfoUpdate();*/
+        String[] productIdList = {"202112311000001", "202112311000011", "202112311000034", "202112311000070", "202112311000087", "202112311000114", "202112311000128"};
+        //循环设置一张图
+        for (String id : productIdList) {
+            ProductInfoEntity productInfo = productService.getProductInfoById(LanguageEnum.ENGLISH, id);
+
+            MultimediaEntity entity = new MultimediaEntity();
+            entity.setMultimediaType(MultimediaEnum.IMG);
+            entity.setDescription("产品一级分类-化妆品-主图");
+            entity.setMultimediaUrl("/home/prodect/prodect.jpg");
+
+            productInfo.setMultimedia(entity);
+            productService.productInfoUpdate(LanguageEnum.ENGLISH, productInfo);
+        }
     }
 
 

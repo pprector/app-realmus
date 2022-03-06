@@ -62,7 +62,7 @@ public interface EnProductMapper {
 
     /**
      * 更新产品
-     * @param productInfo
+     * @param product
      */
     void productInfoUpdate(ProductDO product);
 }
