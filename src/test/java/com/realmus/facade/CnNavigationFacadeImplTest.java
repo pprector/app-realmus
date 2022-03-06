@@ -717,10 +717,10 @@ class CnNavigationFacadeImplTest {
     @Test
     public void updatePRODUCTEntityInfo() {
         //1. 查询数据
-        NavigationEntity<RDEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.PRODUCT.getId());
+        NavigationEntity<ProductEntity> navigationEntity = navigationRepository.findExtendInfo(LanguageEnum.CHINESE, ExtendTypeEnum.PRODUCT.getId());
         System.out.println(JSON.toJSONString(navigationEntity, true));
         //数据封装
-        RDEntity rdEntity = new RDEntity();
+        ProductEntity productEntity = new ProductEntity();
         BannerEntity bannerEntity = new BannerEntity();
         MultimediaEntity multimediaEntity = new MultimediaEntity();
         multimediaEntity.setMultimediaUrl("/home/dataImg/banner4.jpg");
@@ -734,9 +734,9 @@ class CnNavigationFacadeImplTest {
         bannerEntity.setInfoDescription("做一家受人尊重的企业,做一声良心质量的产品");
         bannerEntity.setInfoContent("");
 
-        rdEntity.setBanner(bannerEntity);
+        productEntity.setBanner(bannerEntity);
         //更新
-        navigationEntity.setExtension(rdEntity);
+        navigationEntity.setExtension(productEntity);
         navigationService.updateNavigationInfo(LanguageEnum.CHINESE, navigationEntity);
     }
 

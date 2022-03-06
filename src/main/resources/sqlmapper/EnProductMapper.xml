@@ -36,6 +36,40 @@
              now())
         </foreach>
     </insert>
+    <update id="productInfoUpdate" parameterType="com.realmus.repository.model.ProductDO">
+        <!--@mbg.generated-->
+        update cn_product
+        <set>
+            <if test="productName != null">
+                product_name = #{productName,jdbcType=VARCHAR},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="productIngredient != null">
+                product_ingredient = #{productIngredient,jdbcType=VARCHAR},
+            </if>
+            <if test="productDescribe != null">
+                product_describe = #{productDescribe,jdbcType=VARCHAR},
+            </if>
+            <if test="productWeight != null">
+                product_weight = #{productWeight,jdbcType=TINYINT},
+            </if>
+            <if test="extendJson != null">
+                extend_json = #{extendJson,jdbcType=VARCHAR},
+            </if>
+            <if test="isValid != null">
+                is_valid = #{isValid,jdbcType=TINYINT},
+            </if>
+            <if test="modifier != null">
+                modifier = #{modifier,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where product_id = #{productId,jdbcType=VARCHAR}
+    </update>
     <!--批量删除-->
     <delete id="deleteByNameList">
         delete
@@ -72,5 +106,13 @@
         </where>
         order by length(product_name)
         limit 20
+    </select>
+
+    <select id="getProductInfoById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cn_product
+        where parent_id = #{productId,jdbcType=VARCHAR}
+        limit 1
     </select>
 </mapper>

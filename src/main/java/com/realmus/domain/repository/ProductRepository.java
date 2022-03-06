@@ -1,6 +1,7 @@
 package com.realmus.domain.repository;
 
 import com.realmus.common.enums.LanguageEnum;
+import com.realmus.domain.entity.ProductEntity;
 import com.realmus.domain.entity.ProductInfoEntity;
 
 import java.util.List;
@@ -52,4 +53,20 @@ public interface ProductRepository {
      * @return
      */
     List<ProductInfoEntity> productSearch(LanguageEnum languageEnum, String input);
+
+    /**
+     * 根据ID 获取产品信息
+     *
+     * @param language
+     * @param productId
+     * @return
+     */
+    ProductInfoEntity getProductInfoById(LanguageEnum language, String productId);
+
+    /**
+     * 更细产品信息
+     * @param language
+     * @param productInfo
+     */
+    void productInfoUpdate(LanguageEnum language, ProductInfoEntity productInfo);
 }

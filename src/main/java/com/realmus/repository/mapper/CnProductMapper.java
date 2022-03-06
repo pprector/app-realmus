@@ -1,5 +1,6 @@
 package com.realmus.repository.mapper;
 
+import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.repository.model.ProductDO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -30,7 +31,7 @@ public interface CnProductMapper {
     void deleteByNameList(@Param("productNameList") List<String> productNameList);
 
     /**
-     * 根据名称查询数据
+     * 获取顶级 产品分类信息
      *
      * @return
      */
@@ -50,5 +51,19 @@ public interface CnProductMapper {
      * @param input
      * @return
      */
-    List<ProductDO> productLikeSearch(@Param("input")String input);
+    List<ProductDO> productLikeSearch(@Param("input") String input);
+
+    /**
+     * 根据ID 获取信息
+     *
+     * @param productId
+     * @return
+     */
+    ProductDO getProductInfoById(@Param("productId") String productId);
+
+    /**
+     * 更细信息
+     * @param
+     */
+    void productInfoUpdate(ProductDO product);
 }

@@ -1,5 +1,6 @@
 package com.realmus.repository.mapper;
 
+import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.repository.model.ProductDO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -50,4 +51,18 @@ public interface EnProductMapper {
      * @return
      */
     List<ProductDO> productLikeSearch(@Param("input") String input);
+
+    /**
+     * 根据ID 获取信息
+     *
+     * @param productId
+     * @return
+     */
+    ProductDO getProductInfoById(@Param("productId") String productId);
+
+    /**
+     * 更新产品
+     * @param productInfo
+     */
+    void productInfoUpdate(ProductDO product);
 }

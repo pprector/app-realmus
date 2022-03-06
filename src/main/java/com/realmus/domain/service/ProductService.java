@@ -1,6 +1,7 @@
 package com.realmus.domain.service;
 
 import com.realmus.common.enums.LanguageEnum;
+import com.realmus.domain.entity.ProductEntity;
 import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.domain.repository.ProductRepository;
 import org.slf4j.Logger;
@@ -61,5 +62,29 @@ public class ProductService {
         List<ProductInfoEntity> productInfoEntityList = productRepository.productSearch(languageEnum, input);
 
         return null;
+    }
+
+    /**
+     * 根据 产品ID 获取信息
+     *
+     * @param language
+     * @param productId
+     * @return
+     */
+    public ProductInfoEntity getProductInfoById(LanguageEnum language, String productId) {
+        logger.info("=====ProductService getProductInfoById request : " + productId);
+        return productRepository.getProductInfoById(language, productId);
+
+
+    }
+
+    /**
+     * 更新产品信息
+     *
+     * @param productInfo
+     */
+    public void productInfoUpdate(LanguageEnum language, ProductInfoEntity productInfo) {
+        logger.info("=====ProductService getProductInfoById request : " + productInfo);
+        productRepository.productInfoUpdate(language, productInfo);
     }
 }

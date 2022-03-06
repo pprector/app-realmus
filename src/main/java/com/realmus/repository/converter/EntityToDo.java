@@ -1,8 +1,10 @@
 package com.realmus.repository.converter;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.realmus.common.enums.GeneralEnum;
 import com.realmus.common.util.IdWorker;
+import com.realmus.domain.entity.MultimediaEntity;
 import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.repository.model.NavigationDO;
@@ -20,7 +22,7 @@ import java.util.List;
 public class EntityToDo {
     private static final Integer productWeight = 100;
 
-    public static List<ProductDO> toProductDO(List<ProductInfoEntity> entityList) {
+    public static List<ProductDO> toProductDOList(List<ProductInfoEntity> entityList) {
 
         if (entityList == null) {
             return null;
@@ -83,5 +85,17 @@ public class EntityToDo {
         navigationDO.setModifier("phk");
         navigationDO.setGmtModified(new Date());
         return navigationDO;
+    }
+
+    public static ProductDO toProductDO(ProductInfoEntity productInfo) {
+        ProductDO productInfoDO = new ProductDO();
+        productInfoDO.setProductId(productInfo.getProductId());
+        productInfoDO.setProductName(productInfo.getProductName());
+        productInfoDO.setProductIngredient(productInfo.getIngredient());
+        productInfoDO.setProductDescribe(productInfo.getDescription());
+        productInfoDO.setExtendJson(JSONObject.toJSONString(productInfo.getMultimedia()));
+        productInfoDO.setGmtModified(new Date());
+
+        return productInfoDO;
     }
 }

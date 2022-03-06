@@ -36,7 +36,7 @@ public class ProductInfoEntity {
      */
     private String description;
     /**
-     * 产品图片集合
+     * 产品图片
      */
     private MultimediaEntity multimedia;
 

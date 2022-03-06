@@ -32,7 +32,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public void addProductList(LanguageEnum languageEnum, List<ProductInfoEntity> entityList) {
         //数据转换
-        List<ProductDO> productDOList = EntityToDo.toProductDO(entityList);
+        List<ProductDO> productDOList = EntityToDo.toProductDOList(entityList);
         //提取产品名称   删除
         List<String> productNameList = productDOList.stream().map(ProductDO::getProductName).collect(Collectors.toList());
 
@@ -118,6 +118,37 @@ public class ProductRepositoryImpl implements ProductRepository {
         //数据封装处理
 
         return dataEncapsulation(productDOList);
+    }
+
+    @Override
+    public ProductInfoEntity getProductInfoById(LanguageEnum language, String productId) {
+        ProductDO product = null;
+        switch (language) {
+            case CHINESE:
+                product = cnProductMapper.getProductInfoById(productId);
+                break;
+            case ENGLISH:
+                product = enProductMapper.getProductInfoById(productId);
+                break;
+        }
+        //数据封装处理
+        return DoTOEntity.toProductInfoEntity(product);
+    }
+
+    @Override
+    public void productInfoUpdate(LanguageEnum language, ProductInfoEntity productInfo) {
+
+        ProductDO product = EntityToDo.toProductDO(productInfo);
+        switch (language) {
+            case CHINESE:
+                cnProductMapper.productInfoUpdate(product);
+                break;
+            case ENGLISH:
+                enProductMapper.productInfoUpdate(product);
+                break;
+        }
+        //数据封装处理
+
     }
 
     /**
