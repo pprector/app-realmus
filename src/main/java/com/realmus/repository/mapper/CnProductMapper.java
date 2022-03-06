@@ -32,10 +32,9 @@ public interface CnProductMapper {
     /**
      * 根据名称查询数据
      *
-     * @param lv1Name
      * @return
      */
-    ProductDO getProductInfoIdByLv1Name(@Param("lv1Name") String lv1Name);
+    List<ProductDO> getProductInfoParentIdList();
 
     /**
      * 根据ID 获取二级分类

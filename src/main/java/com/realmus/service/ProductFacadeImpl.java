@@ -64,18 +64,15 @@ public class ProductFacadeImpl implements ProductFacade {
     }
 
     @Override
-    @ApiOperation(value = "产品信息模块 根据产品1级分类名称获取数据", httpMethod = "GET")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "lv1Name", value = "产品一级分类名称", required = true, dataType = "string")
-    }
-    )
-    @GetMapping(value = "/{lv1Name}", params = {"language"})
-    public ResultModel<ProductResponse> getProductInfo(@PathVariable String lv1Name, HttpServletRequest httpServletRequest) {
-        logger.info("=====ProductFacadeImpl productInfoImpl request : " + lv1Name);
+    @ApiOperation(value = "获取全部分类的产品信息", httpMethod = "GET")
+    @GetMapping(value = "/getProductInfoAll", params = {"language"})
+    public ResultModel<List<ProductResponse>> getProductInfoAll(HttpServletRequest httpServletRequest) {
+        logger.info("=====ProductFacadeImpl getProductInfoAll request : 产品信息全部");
         try {
             LanguageEnum languageEnum = LanguageUtil.getLanguageEnum(httpServletRequest);
-            ProductInfoEntity productInfoEntity = productService.getProductInfo(languageEnum, lv1Name);
-            return ResultUtil.success(ProductFacadeConverter.ProductResponse(productInfoEntity));
+            List<ProductInfoEntity> productInfoEntity = productService.getProductInfoAll(languageEnum);
+            List<ProductResponse> productResponseList = productInfoEntity.stream().map(ProductFacadeConverter::ProductResponse).collect(Collectors.toList());
+            return ResultUtil.success(productResponseList);
         } catch (BizException e) {
             logger.error("=====ProductFacadeImpl  productInfoImpl  BizException :}", e);
             return ResultUtil.fail(e.getMessage());

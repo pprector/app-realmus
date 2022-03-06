@@ -28,24 +28,26 @@ public class ProductService {
     }
 
     /**
-     * 根据 一级分类获取数据
+     * 根据 获取所有产品信息分类
      *
      * @param languageEnum
-     * @param lv1Name
      * @return
      */
-    public ProductInfoEntity getProductInfo(LanguageEnum languageEnum, String lv1Name) {
+    public List<ProductInfoEntity> getProductInfoAll(LanguageEnum languageEnum) {
         //1. 获取ID
-        ProductInfoEntity productLv1 = productRepository.getProductInfoIdByLv1Name(languageEnum, lv1Name);
+        List<ProductInfoEntity> productInfoParentIdList = productRepository.getProductInfoParentList(languageEnum);
 
-        //2.获取二级分类
-        List<ProductInfoEntity> productInfoLv2List = productRepository.getProductInfoLv2List(languageEnum, productLv1.getProductId());
+        for (ProductInfoEntity productInfoEntity : productInfoParentIdList) {
+            //2.获取二级分类
+            List<ProductInfoEntity> productInfoLv2List = productRepository.getProductInfoLv2List(languageEnum, productInfoEntity.getProductId());
 
-        //3.填充二级分类数据
-        productInfoLv2List = productRepository.fillProductInfoLv2List(languageEnum, productInfoLv2List);
+            //3.填充二级分类数据
+            productInfoLv2List = productRepository.fillProductInfoLv2List(languageEnum, productInfoLv2List);
 
-        productLv1.setSonProductInfoList(productInfoLv2List);
-        return productLv1;
+            productInfoEntity.setSonProductInfoList(productInfoLv2List);
+        }
+
+        return productInfoParentIdList;
     }
 
     /**

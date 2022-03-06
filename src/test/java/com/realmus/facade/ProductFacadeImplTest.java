@@ -31,7 +31,5 @@ class ProductFacadeImplTest {
     @Test
     void getProductInfo() {
 
-        ResultModel<ProductResponse> productInfo = productFacade.getProductInfo("软糖 GUMMY",null);
-        System.out.println(JSON.toJSONString(productInfo, true));
     }
 }

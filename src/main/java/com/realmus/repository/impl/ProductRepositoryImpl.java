@@ -1,15 +1,12 @@
 package com.realmus.repository.impl;
 
 import com.realmus.common.enums.LanguageEnum;
-import com.realmus.common.error.BizErrorEnum;
-import com.realmus.common.error.BizException;
 import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.domain.repository.ProductRepository;
 import com.realmus.repository.converter.DoTOEntity;
 import com.realmus.repository.converter.EntityToDo;
 import com.realmus.repository.mapper.CnProductMapper;
 import com.realmus.repository.mapper.EnProductMapper;
-import com.realmus.repository.model.NavigationDO;
 import com.realmus.repository.model.ProductDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -52,18 +49,20 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public ProductInfoEntity getProductInfoIdByLv1Name(LanguageEnum languageEnum, String lv1Name) {
-        ProductDO productDO = null;
+    public List<ProductInfoEntity> getProductInfoParentList(LanguageEnum languageEnum) {
+        //父ID值
+        List<ProductDO> productDOList = null;
         switch (languageEnum) {
             case CHINESE:
-                productDO = cnProductMapper.getProductInfoIdByLv1Name(lv1Name);
+                productDOList = cnProductMapper.getProductInfoParentIdList();
                 break;
             case ENGLISH:
-                productDO = enProductMapper.getProductInfoIdByLv1Name(lv1Name);
+                productDOList = enProductMapper.getProductInfoParentIdList();
                 break;
         }
 
-        return DoTOEntity.toProductInfoEntity(productDO);
+        return productDOList.stream()
+                .map(DoTOEntity::toProductInfoEntity).collect(Collectors.toList());
     }
 
     @Override
@@ -97,7 +96,7 @@ public class ProductRepositoryImpl implements ProductRepository {
             }
             //产品集合
             List<ProductInfoEntity> productInfoEntityList = productDOList.stream()
-                    .map(DoTOEntity::toProductInfoEntity).limit(5).collect(Collectors.toList());
+                    .map(DoTOEntity::toProductInfoEntity).limit(10).collect(Collectors.toList());
 
             productInfoLv2Entity.setSonProductInfoList(productInfoEntityList);
         }

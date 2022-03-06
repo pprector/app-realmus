@@ -24,16 +24,16 @@ public interface ProductFacade {
 
 
     /**
-     * 产品信息 根据一级分类名称获取 产品信息
+     * 查询 产品信息全部分类
      *
      * @param
      * @return
      */
-    ResultModel<ProductResponse> getProductInfo(String lv1Name, HttpServletRequest httpServletRequest);
+    ResultModel<List<ProductResponse>> getProductInfoAll(HttpServletRequest httpServletRequest);
 
 
     /**
-     * 产品信息 根据一级分类名称获取 产品信息
+     * 产品信息
      *
      * @param
      * @return

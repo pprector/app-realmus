@@ -21,12 +21,11 @@ public interface ProductRepository {
     void addProductList(LanguageEnum languageEnum, List<ProductInfoEntity> entityList);
 
     /**
-     * 根据名称获取 一级分类 实体
+     * 获取 所有产品父ID信息
      *
-     * @param lv1Name
      * @return
      */
-    ProductInfoEntity getProductInfoIdByLv1Name(LanguageEnum languageEnum, String lv1Name);
+    List<ProductInfoEntity> getProductInfoParentList(LanguageEnum languageEnum);
 
     /**
      * 根据Id  查询对应的子分类
