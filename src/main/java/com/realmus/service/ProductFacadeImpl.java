@@ -63,24 +63,6 @@ public class ProductFacadeImpl implements ProductFacade {
         }
     }
 
-    @Override
-    @ApiOperation(value = "获取全部分类的产品信息", httpMethod = "GET")
-    @GetMapping(value = "/getProductInfoAll", params = {"language"})
-    public ResultModel<List<ProductResponse>> getProductInfoAll(HttpServletRequest httpServletRequest) {
-        logger.info("=====ProductFacadeImpl getProductInfoAll request : 产品信息全部");
-        try {
-            LanguageEnum languageEnum = LanguageUtil.getLanguageEnum(httpServletRequest);
-            List<ProductInfoEntity> productInfoEntity = productService.getProductInfoAll(languageEnum);
-            List<ProductResponse> productResponseList = productInfoEntity.stream().map(ProductFacadeConverter::ProductResponse).collect(Collectors.toList());
-            return ResultUtil.success(productResponseList);
-        } catch (BizException e) {
-            logger.error("=====ProductFacadeImpl  productInfoImpl  BizException :}", e);
-            return ResultUtil.fail(e.getMessage());
-        } catch (Exception e) {
-            logger.error("=====ProductFacadeImpl  productInfoImpl  Exception : ", e);
-            return ResultUtil.fail(BizErrorEnum.E001.getMessage());
-        }
-    }
 
     @ApiOperation(value = "产品信息模块 根据产品分类-产品名称搜索", httpMethod = "GET")
     @ApiImplicitParams({
@@ -94,7 +76,8 @@ public class ProductFacadeImpl implements ProductFacade {
         try {
             LanguageEnum languageEnum = LanguageUtil.getLanguageEnum(httpServletRequest);
             List<ProductInfoEntity> productInfoEntityList = productService.productSearch(languageEnum, input);
-            return ResultUtil.success(null);
+            List<ProductResponse> productResponseList = productInfoEntityList.stream().map(ProductFacadeConverter::ProductResponse).collect(Collectors.toList());
+            return ResultUtil.success(productResponseList);
         } catch (BizException e) {
             logger.error("=====ProductFacadeImpl  productInfoImpl  BizException :}", e);
             return ResultUtil.fail(e.getMessage());

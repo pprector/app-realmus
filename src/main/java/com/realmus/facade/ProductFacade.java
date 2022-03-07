@@ -24,16 +24,9 @@ public interface ProductFacade {
 
 
     /**
-     * 查询 产品信息全部分类
-     *
-     * @param
-     * @return
-     */
-    ResultModel<List<ProductResponse>> getProductInfoAll(HttpServletRequest httpServletRequest);
-
-
-    /**
-     * 产品信息
+     * 产品信息查询
+     * 参数为空返回全量数据
+     * 参数不为空模糊查询
      *
      * @param
      * @return

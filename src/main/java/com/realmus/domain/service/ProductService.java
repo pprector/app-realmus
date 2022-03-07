@@ -1,13 +1,18 @@
 package com.realmus.domain.service;
 
 import com.realmus.common.enums.LanguageEnum;
+import com.realmus.common.error.BizErrorEnum;
+import com.realmus.common.error.BizException;
+import com.realmus.common.util.ValidationUtil;
 import com.realmus.domain.entity.ProductEntity;
 import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.domain.repository.ProductRepository;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -29,12 +34,13 @@ public class ProductService {
     }
 
     /**
-     * 根据 获取所有产品信息分类
+     * util
+     * 获取所有产品信息分类
      *
      * @param languageEnum
      * @return
      */
-    public List<ProductInfoEntity> getProductInfoAll(LanguageEnum languageEnum) {
+    private List<ProductInfoEntity> getProductInfoAll(LanguageEnum languageEnum) {
         //1. 获取ID
         List<ProductInfoEntity> productInfoParentIdList = productRepository.getProductInfoParentList(languageEnum);
 
@@ -52,6 +58,7 @@ public class ProductService {
     }
 
     /**
+     * 产品信息全部查询
      * 产品信息模糊(并分页查询)查询
      *
      * @param languageEnum
@@ -59,10 +66,24 @@ public class ProductService {
      * @return
      */
     public List<ProductInfoEntity> productSearch(LanguageEnum languageEnum, String input) {
-        List<ProductInfoEntity> productInfoEntityList = productRepository.productSearch(languageEnum, input);
+        //查询全部产品信息
+        List<ProductInfoEntity> productInfoEntityList = null;
+        if (StringUtils.isBlank(input)) {
+            //全量查询信息
+            productInfoEntityList = getProductInfoAll(languageEnum);
+        } else {
+            //模糊查询信息
+            productInfoEntityList = productRepository.productSearch(languageEnum, input);
+        }
 
-        return null;
+        if (CollectionUtils.isEmpty(productInfoEntityList)) {
+            throw new BizException(BizErrorEnum.B002);
+        }
+
+
+        return productInfoEntityList;
     }
+
 
     /**
      * 根据 产品ID 获取信息

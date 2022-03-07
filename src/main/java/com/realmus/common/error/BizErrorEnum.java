@@ -32,7 +32,13 @@ public enum BizErrorEnum {
     /**
      * 输入语言不存在
      */
-    A005("005", "Request 中 不存在语音标识!");
+    A005("005", "Request 中 不存在语音标识!"),
+
+
+    /**
+     * 输入语言不存在
+     */
+    B002("006", "没有查询到产品信息!");
 
 
     private String code;

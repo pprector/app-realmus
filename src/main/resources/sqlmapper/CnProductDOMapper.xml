@@ -62,8 +62,18 @@
         order by product_weight desc
     </select>
 
-    <delete id="productLikeSearch">
-    </delete>
+    <select id="productLikeSearch" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cn_product
+        <where>
+            <if test="input != null and input != ''">
+                product_name like concat('%', #{input,jdbcType=VARCHAR}, '%')
+            </if>
+        </where>
+        order by length(product_name)
+        limit 5
+    </select>
     <update id="productInfoUpdate" parameterType="com.realmus.repository.model.ProductDO">
         <!--@mbg.generated-->
         update cn_product

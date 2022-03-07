@@ -10,6 +10,7 @@ import com.realmus.repository.mapper.EnProductMapper;
 import com.realmus.repository.model.ProductDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Comparator;
 import java.util.List;
@@ -147,8 +148,6 @@ public class ProductRepositoryImpl implements ProductRepository {
                 enProductMapper.productInfoUpdate(product);
                 break;
         }
-        //数据封装处理
-
     }
 
     /**
@@ -161,6 +160,17 @@ public class ProductRepositoryImpl implements ProductRepository {
      * @return
      */
     private List<ProductInfoEntity> dataEncapsulation(List<ProductDO> productDOList) {
+        if (CollectionUtils.isEmpty(productDOList)) {
+            return null;
+        }
+        //上级信息填充  必须有一级菜单
+        for (ProductDO productDO : productDOList) {
+            //如果是一级菜单填充  二级菜单 和 三级菜单
+            if (productDO.getParentId().equals("0")) {
+
+            }
+        }
+
 
         return null;
     }
