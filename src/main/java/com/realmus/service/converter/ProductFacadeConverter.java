@@ -86,7 +86,7 @@ public class ProductFacadeConverter {
         response.setId(entity.getProductId());
         response.setProName(entity.getProductName());
         if (!CollectionUtils.isEmpty(entity.getSonProductInfoList())) {
-            response.setSubset(entity.getSonProductInfoList().stream().map(ProductFacadeConverter::ProductResponse).collect(Collectors.toList()));
+            response.setSubset(entity.getSonProductInfoList().stream().limit(10).map(ProductFacadeConverter::ProductResponse).collect(Collectors.toList()));
         }
         response.setIngredient(entity.getIngredient());
         response.setDesc(entity.getDescription());
