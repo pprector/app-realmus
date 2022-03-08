@@ -72,7 +72,6 @@
             </if>
         </where>
         order by length(product_name)
-        limit 5
     </select>
     <update id="productInfoUpdate" parameterType="com.realmus.repository.model.ProductDO">
         <!--@mbg.generated-->
