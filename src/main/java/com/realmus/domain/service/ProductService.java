@@ -14,7 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author hkpeng
@@ -68,20 +70,75 @@ public class ProductService {
     public List<ProductInfoEntity> productSearch(LanguageEnum languageEnum, String input) {
         //查询全部产品信息
         List<ProductInfoEntity> productInfoEntityList = null;
-        if (StringUtils.isBlank(input)) {
-            //全量查询信息
-            productInfoEntityList = getProductInfoAll(languageEnum);
-        } else {
-            //模糊查询信息
-            productInfoEntityList = productRepository.productSearch(languageEnum, input);
+        //全量查询信息
+        productInfoEntityList = getProductInfoAll(languageEnum);
+        if (StringUtils.isNotBlank(input)) {
+            //数据过滤
+            productInfoEntityList = dataFiltering(productInfoEntityList, input);
         }
 
         if (CollectionUtils.isEmpty(productInfoEntityList)) {
             throw new BizException(BizErrorEnum.B002);
         }
 
-
         return productInfoEntityList;
+    }
+
+    /**
+     * 模糊查询过滤
+     * 1. 先查询一级分类->存在直接返回此所有子数据 --> 否则第二步
+     * 2. 先查询二级分类->存在直接更新一级分类下所有数据-->否则第三步
+     * 3. 查询产品名称->存在保留->否则删除  -->看情况删除二级分类
+     *
+     * @param oldInfoEntityList
+     * @return
+     */
+    private List<ProductInfoEntity> dataFiltering(List<ProductInfoEntity> oldInfoEntityList, String input) {
+        if (CollectionUtils.isEmpty(oldInfoEntityList)) {
+            return null;
+        }
+        List<ProductInfoEntity> newInfoEntityList = null;
+
+        //如果一级菜单存在保留全部数据
+        newInfoEntityList = oldInfoEntityList.stream().filter(productInfo -> productInfo.getProductName().contains(input)).collect(Collectors.toList());
+        //过滤二级菜单
+        for (ProductInfoEntity infoEntity : oldInfoEntityList) {
+            if (newInfoEntityList.contains(infoEntity)) {
+                break;
+            }
+            List<ProductInfoEntity> productInfoEntityListLv2 = infoEntity.getSonProductInfoList().stream().filter(productInfo -> productInfo.getProductName().contains(input)).collect(Collectors.toList());
+            if (!CollectionUtils.isEmpty(productInfoEntityListLv2)) {
+                infoEntity.setSonProductInfoList(productInfoEntityListLv2);
+                newInfoEntityList.add(infoEntity);
+                break;
+            }
+            //如果二级菜单也没有数据 遍历三级菜单
+            List<ProductInfoEntity> productInfoEntityListLv2Not = infoEntity.getSonProductInfoList().stream().filter(productInfo ->
+                    !(productInfo.getProductName().contains(input)))
+                    .collect(Collectors.toList());
+            //三级菜单
+            List<ProductInfoEntity> productInfoEntityListLv3 = null;
+            boolean isAddLv1ProductInfoEntity = false;
+            List<ProductInfoEntity> removeList = new ArrayList<>();
+            for (ProductInfoEntity productInfoEntityLv2 : productInfoEntityListLv2Not) {
+                productInfoEntityListLv3 = productInfoEntityLv2.getSonProductInfoList().stream().filter(productInfo -> productInfo.getProductName().contains(input)).collect(Collectors.toList());
+                if (CollectionUtils.isEmpty(productInfoEntityListLv3)) {
+                    removeList.add(productInfoEntityLv2);  //这里会导致 遍历少一次
+                } else {
+                    productInfoEntityLv2.setSonProductInfoList(productInfoEntityListLv3);
+                    isAddLv1ProductInfoEntity = true;
+                }
+            }
+            //删除 没用的集合信息
+            if (!CollectionUtils.isEmpty(removeList)) {
+                productInfoEntityListLv2Not.removeAll(removeList);
+                infoEntity.setSonProductInfoList(productInfoEntityListLv2Not);
+            }
+            if (isAddLv1ProductInfoEntity) newInfoEntityList.add(infoEntity);
+        }
+
+        return newInfoEntityList;
+
     }
 
 

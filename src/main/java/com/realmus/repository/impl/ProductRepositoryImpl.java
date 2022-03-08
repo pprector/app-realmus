@@ -97,7 +97,7 @@ public class ProductRepositoryImpl implements ProductRepository {
             }
             //产品集合
             List<ProductInfoEntity> productInfoEntityList = productDOList.stream()
-                    .map(DoTOEntity::toProductInfoEntity).limit(10).collect(Collectors.toList());
+                    .map(DoTOEntity::toProductInfoEntity).collect(Collectors.toList());
 
             productInfoLv2Entity.setSonProductInfoList(productInfoEntityList);
         }
@@ -105,21 +105,6 @@ public class ProductRepositoryImpl implements ProductRepository {
         return productInfoLv2List;
     }
 
-    @Override
-    public List<ProductInfoEntity> productSearch(LanguageEnum languageEnum, String input) {
-        List<ProductDO> productDOList = null;
-        switch (languageEnum) {
-            case CHINESE:
-                productDOList = cnProductMapper.productLikeSearch(input);
-                break;
-            case ENGLISH:
-                productDOList = enProductMapper.productLikeSearch(input);
-                break;
-        }
-        //数据封装处理
-
-        return dataEncapsulation(productDOList);
-    }
 
     @Override
     public ProductInfoEntity getProductInfoById(LanguageEnum language, String productId) {
@@ -150,28 +135,4 @@ public class ProductRepositoryImpl implements ProductRepository {
         }
     }
 
-    /**
-     * 产品数据处理处理规则如下:
-     * 1.保证一级分类的顺序
-     * 2.一级分类下保证二级分类的顺序
-     * 3.二级分类下保证最佳匹配顺序
-     * 4.每个大分类一个集合
-     *
-     * @return
-     */
-    private List<ProductInfoEntity> dataEncapsulation(List<ProductDO> productDOList) {
-        if (CollectionUtils.isEmpty(productDOList)) {
-            return null;
-        }
-        //上级信息填充  必须有一级菜单
-        for (ProductDO productDO : productDOList) {
-            //如果是一级菜单填充  二级菜单 和 三级菜单
-            if (productDO.getParentId().equals("0")) {
-
-            }
-        }
-
-
-        return null;
-    }
 }

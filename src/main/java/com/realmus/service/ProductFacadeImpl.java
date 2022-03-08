@@ -13,12 +13,10 @@ import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.domain.service.ProductService;
 import com.realmus.facade.ProductFacade;
 import com.realmus.facade.request.ProductExcel;
+import com.realmus.facade.request.SearchRequest;
 import com.realmus.facade.response.ProductResponse;
 import com.realmus.service.converter.ProductFacadeConverter;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,18 +62,16 @@ public class ProductFacadeImpl implements ProductFacade {
     }
 
 
-    @ApiOperation(value = "产品信息模块 根据产品分类-产品名称搜索", httpMethod = "GET")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "input", value = "搜索条件", required = false, dataType = "string")
-    }
-    )
-    @GetMapping(value = "/{input}", params = {"language"})
+    @ApiOperation(value = "产品信息模块 搜索,参数为空查询全部", httpMethod = "POST")
+    @PostMapping(params = {"language"})
     @Override
-    public ResultModel<List<ProductResponse>> productSearch(@PathVariable String input, HttpServletRequest httpServletRequest) {
+    public ResultModel<List<ProductResponse>> productSearch(@ApiParam(name = "传入对象", value = "传入json格式", required = true)
+                                                                @RequestBody SearchRequest input, HttpServletRequest httpServletRequest) {
         logger.info("=====ProductFacadeImpl productInfoImpl request : " + input);
         try {
+
             LanguageEnum languageEnum = LanguageUtil.getLanguageEnum(httpServletRequest);
-            List<ProductInfoEntity> productInfoEntityList = productService.productSearch(languageEnum, input);
+            List<ProductInfoEntity> productInfoEntityList = productService.productSearch(languageEnum, input.getInputInfo());
             List<ProductResponse> productResponseList = productInfoEntityList.stream().map(ProductFacadeConverter::ProductResponse).collect(Collectors.toList());
             return ResultUtil.success(productResponseList);
         } catch (BizException e) {

@@ -105,7 +105,6 @@
             </if>
         </where>
         order by length(product_name)
-        limit 5
     </select>
 
     <select id="getProductInfoById" resultMap="BaseResultMap">

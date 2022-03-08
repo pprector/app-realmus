@@ -1,6 +1,7 @@
 package com.realmus.facade;
 
 import com.realmus.common.result.ResultModel;
+import com.realmus.facade.request.SearchRequest;
 import com.realmus.facade.response.ProductResponse;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,5 +32,5 @@ public interface ProductFacade {
      * @param
      * @return
      */
-    ResultModel<List<ProductResponse>> productSearch(String input, HttpServletRequest httpServletRequest);
+    ResultModel<List<ProductResponse>> productSearch(SearchRequest input, HttpServletRequest httpServletRequest);
 }

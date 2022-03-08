@@ -45,14 +45,6 @@ public interface ProductRepository {
      */
     List<ProductInfoEntity> fillProductInfoLv2List(LanguageEnum languageEnum, List<ProductInfoEntity> productInfoLv2List);
 
-    /**
-     * 模糊查询产品数据
-     *
-     * @param languageEnum
-     * @param input
-     * @return
-     */
-    List<ProductInfoEntity> productSearch(LanguageEnum languageEnum, String input);
 
     /**
      * 根据ID 获取产品信息
