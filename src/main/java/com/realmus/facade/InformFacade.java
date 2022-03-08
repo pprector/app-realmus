@@ -1,8 +1,11 @@
 package com.realmus.facade;
 
 import com.realmus.common.result.ResultModel;
+import com.realmus.facade.request.InformRequest;
 import com.realmus.facade.request.PageInformRequest;
 import com.realmus.facade.response.PageInformResponse;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author hkpeng
@@ -25,4 +28,13 @@ public interface InformFacade {
      * @return
      */
     ResultModel<PageInformResponse> pageInform(PageInformRequest request);
+
+
+    /**
+     * 1.提交信息
+     *
+     * @param request
+     * @return
+     */
+    ResultModel<PageInformResponse> addInform(HttpServletRequest httpServletRequest, InformRequest request);
 }
