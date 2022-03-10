@@ -36,5 +36,5 @@ public interface InformFacade {
      * @param request
      * @return
      */
-    ResultModel<PageInformResponse> addInform(HttpServletRequest httpServletRequest, InformRequest request);
+    ResultModel<Void> addInform(HttpServletRequest httpServletRequest, InformRequest request);
 }

@@ -5,12 +5,12 @@
     <!--@mbg.generated-->
     <!--@Table inform-->
     <id column="inform_id" jdbcType="VARCHAR" property="informId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
     <result column="emali_code" jdbcType="VARCHAR" property="emaliCode" />
     <result column="is_emali" jdbcType="TINYINT" property="isEmali" />
     <result column="phone_code" jdbcType="VARCHAR" property="phoneCode" />
-    <result column="is_note" jdbcType="TINYINT" property="isNote" />
     <result column="inform_message" jdbcType="VARCHAR" property="informMessage" />
-    <result column="is_documentary" jdbcType="TINYINT" property="isDocumentary" />
     <result column="merchandiser" jdbcType="VARCHAR" property="merchandiser" />
     <result column="remarks" jdbcType="VARCHAR" property="remarks" />
     <result column="is_valid" jdbcType="TINYINT" property="isValid" />
@@ -19,7 +19,7 @@
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    inform_id, emali_code, is_emali, phone_code, is_note, inform_message, is_documentary, 
+    inform_id, `name`, company_name, emali_code, is_emali, phone_code, inform_message, 
     merchandiser, remarks, is_valid, modifier, gmt_modified
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -36,14 +36,14 @@
   </delete>
   <insert id="insert" parameterType="com.realmus.repository.model.InformDO">
     <!--@mbg.generated-->
-    insert into inform (inform_id, emali_code, is_emali, 
-      phone_code, is_note, inform_message, 
-      is_documentary, merchandiser, remarks, 
+    insert into inform (inform_id, `name`, company_name, 
+      emali_code, is_emali, phone_code, 
+      inform_message, merchandiser, remarks, 
       is_valid, modifier, gmt_modified
       )
-    values (#{informId,jdbcType=VARCHAR}, #{emaliCode,jdbcType=VARCHAR}, #{isEmali,jdbcType=TINYINT}, 
-      #{phoneCode,jdbcType=VARCHAR}, #{isNote,jdbcType=TINYINT}, #{informMessage,jdbcType=VARCHAR}, 
-      #{isDocumentary,jdbcType=TINYINT}, #{merchandiser,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+    values (#{informId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
+      #{emaliCode,jdbcType=VARCHAR}, #{isEmali,jdbcType=TINYINT}, #{phoneCode,jdbcType=VARCHAR}, 
+      #{informMessage,jdbcType=VARCHAR}, #{merchandiser,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
       #{isValid,jdbcType=TINYINT}, #{modifier,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -54,6 +54,12 @@
       <if test="informId != null">
         inform_id,
       </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
       <if test="emaliCode != null">
         emali_code,
       </if>
@@ -63,14 +69,8 @@
       <if test="phoneCode != null">
         phone_code,
       </if>
-      <if test="isNote != null">
-        is_note,
-      </if>
       <if test="informMessage != null">
         inform_message,
-      </if>
-      <if test="isDocumentary != null">
-        is_documentary,
       </if>
       <if test="merchandiser != null">
         merchandiser,
@@ -92,6 +92,12 @@
       <if test="informId != null">
         #{informId,jdbcType=VARCHAR},
       </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
       <if test="emaliCode != null">
         #{emaliCode,jdbcType=VARCHAR},
       </if>
@@ -101,14 +107,8 @@
       <if test="phoneCode != null">
         #{phoneCode,jdbcType=VARCHAR},
       </if>
-      <if test="isNote != null">
-        #{isNote,jdbcType=TINYINT},
-      </if>
       <if test="informMessage != null">
         #{informMessage,jdbcType=VARCHAR},
-      </if>
-      <if test="isDocumentary != null">
-        #{isDocumentary,jdbcType=TINYINT},
       </if>
       <if test="merchandiser != null">
         #{merchandiser,jdbcType=VARCHAR},
@@ -131,6 +131,12 @@
     <!--@mbg.generated-->
     update inform
     <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
       <if test="emaliCode != null">
         emali_code = #{emaliCode,jdbcType=VARCHAR},
       </if>
@@ -140,14 +146,8 @@
       <if test="phoneCode != null">
         phone_code = #{phoneCode,jdbcType=VARCHAR},
       </if>
-      <if test="isNote != null">
-        is_note = #{isNote,jdbcType=TINYINT},
-      </if>
       <if test="informMessage != null">
         inform_message = #{informMessage,jdbcType=VARCHAR},
-      </if>
-      <if test="isDocumentary != null">
-        is_documentary = #{isDocumentary,jdbcType=TINYINT},
       </if>
       <if test="merchandiser != null">
         merchandiser = #{merchandiser,jdbcType=VARCHAR},
@@ -170,12 +170,12 @@
   <update id="updateByPrimaryKey" parameterType="com.realmus.repository.model.InformDO">
     <!--@mbg.generated-->
     update inform
-    set emali_code = #{emaliCode,jdbcType=VARCHAR},
+    set `name` = #{name,jdbcType=VARCHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      emali_code = #{emaliCode,jdbcType=VARCHAR},
       is_emali = #{isEmali,jdbcType=TINYINT},
       phone_code = #{phoneCode,jdbcType=VARCHAR},
-      is_note = #{isNote,jdbcType=TINYINT},
       inform_message = #{informMessage,jdbcType=VARCHAR},
-      is_documentary = #{isDocumentary,jdbcType=TINYINT},
       merchandiser = #{merchandiser,jdbcType=VARCHAR},
       remarks = #{remarks,jdbcType=VARCHAR},
       is_valid = #{isValid,jdbcType=TINYINT},

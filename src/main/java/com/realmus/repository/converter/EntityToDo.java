@@ -4,9 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.realmus.common.enums.GeneralEnum;
 import com.realmus.common.util.IdWorker;
+import com.realmus.domain.entity.InformEntity;
 import com.realmus.domain.entity.MultimediaEntity;
 import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.domain.entity.ProductInfoEntity;
+import com.realmus.repository.model.InformDO;
 import com.realmus.repository.model.NavigationDO;
 import com.realmus.repository.model.ProductDO;
 
@@ -97,5 +99,33 @@ public class EntityToDo {
         productInfoDO.setGmtModified(new Date());
 
         return productInfoDO;
+    }
+
+    /**
+     * 表单DO转换信息
+     *
+     * @param entity
+     * @return
+     */
+    public static InformDO toInformDO(InformEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        InformDO informDO = new InformDO();
+        informDO.setInformId(IdWorker.getNextId());
+        informDO.setName(entity.getName());
+        informDO.setCompanyName(entity.getCompanyName());
+        informDO.setEmaliCode(entity.getEmail());
+        informDO.setPhoneCode(entity.getPhone());
+        informDO.setInformMessage(entity.getMessage());
+        if (entity.getFollowUpEntity() != null) {
+            informDO.setMerchandiser(entity.getFollowUpEntity().getMerchandiser());
+            informDO.setRemarks(entity.getFollowUpEntity().getRemarks());
+        }
+        informDO.setIsValid(1);
+        informDO.setModifier("phk");
+        informDO.setGmtModified(new Date());
+
+        return informDO;
     }
 }

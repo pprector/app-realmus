@@ -2,8 +2,10 @@
 package com.realmus.service.converter;
 
 import com.realmus.common.enums.ExtendTypeEnum;
+import com.realmus.common.enums.LanguageEnum;
 import com.realmus.domain.entity.*;
 import com.realmus.facade.param.*;
+import com.realmus.facade.request.InformRequest;
 import com.realmus.facade.response.NavAboutUsResponse;
 import com.realmus.facade.response.NavBrandResponse;
 import com.realmus.facade.response.NavContactUsResponse;
@@ -341,5 +343,27 @@ public class InfoConverter {
             return null;
         }
         return null;
+    }
+
+    /**
+     * 表单提交 转换类
+     *
+     * @param request
+     * @param languageEnum
+     * @return
+     */
+    public static InformEntity toFollowUpEntity(InformRequest request, LanguageEnum languageEnum) {
+        if (request == null) {
+            return null;
+        }
+        InformEntity entity = new InformEntity();
+        entity.setName(request.getName());
+        entity.setCompanyName(request.getCompanyName());
+        entity.setEmail(request.getEmail());
+        entity.setPhone(request.getPhone());
+        entity.setMessage(request.getMessage());
+        entity.setLanguageEnum(languageEnum);
+
+        return entity;
     }
 }
