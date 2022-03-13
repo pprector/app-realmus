@@ -57,6 +57,7 @@ public class NavigationFacadeImpl implements NavigationFacade {
             List<NavigationResponse> pageNavigationResponses = navigationInfo.stream()
                     .map(NavigationConverter::toPageNavigationResponseList)
                     .collect(Collectors.toList());
+
             return ResultUtil.success(pageNavigationResponses);
         } catch (BizException e) {
             logger.error("=====BizException  NavigationFacadeImpl getNavigationInfo request :}", e);

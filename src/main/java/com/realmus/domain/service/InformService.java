@@ -31,8 +31,8 @@ public class InformService {
         //1. 数据入库
         informRepository.addInform(informEntity);
         //2. 通知业务员
-        mailboxService.NotifySalesman(informEntity);
+        //mailboxService.NotifySalesman(informEntity);
         //3. 通知客户
-        mailboxService.NotifyCustomer(informEntity);
+        //mailboxService.NotifyCustomer(informEntity);
     }
 }

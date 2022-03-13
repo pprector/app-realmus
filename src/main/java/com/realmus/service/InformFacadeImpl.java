@@ -35,7 +35,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/inform")
-@Api(tags = "导航栏操作接口组,主数据获取接口")
+@Api(tags = "表达提交接口-")
 public class InformFacadeImpl implements InformFacade {
     private static final Logger logger = LoggerFactory.getLogger(InformFacadeImpl.class);
 
@@ -58,7 +58,7 @@ public class InformFacadeImpl implements InformFacade {
      * @param request
      * @return
      */
-    @ApiOperation(value = "导航栏扩展信息数据根据 一级导航栏Id 获取", httpMethod = "POST")
+    @ApiOperation(value = "表单提交", httpMethod = "POST")
     @PostMapping(value = "/add", params = {"language"})
     @Override
     public ResultModel<Void> addInform(HttpServletRequest httpServletRequest, @ApiParam(name = "表单提交对象", value = "传入json格式", required = true)
