@@ -19,7 +19,10 @@ public class MailConverter {
      * @return
      */
     public static MailUtilDTO toMailUtilDTO(InformEntity informEntity) {
-
-        return null;
+        MailUtilDTO mailUtilDTO = new MailUtilDTO();
+        mailUtilDTO.setRecipientEmail(informEntity.getEmail());
+        mailUtilDTO.setContent(informEntity.getMessage());
+        mailUtilDTO.setEmailType(informEntity.getEmailType());
+        return mailUtilDTO;
     }
 }
