@@ -47,6 +47,8 @@ class RealmusAppApplicationTests {
     }
     @Value("${spring.mail.username}")
     private String  sendEmail;
+
+
     @Test
     void test02(){
         System.out.println(sendEmail);
@@ -97,12 +99,13 @@ class RealmusAppApplicationTests {
 
     @Resource
     private MailboxService service;
+
+
     @Test
     void test09(){
         InformEntity informEntity = new InformEntity();
         informEntity.setMessage("测试消息009999");
         informEntity.setEmail("1509621999@qq.com");
-        informEntity.setEmailType(1);
         service.NotifySalesman(informEntity);
     }
 

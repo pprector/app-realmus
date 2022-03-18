@@ -52,9 +52,4 @@ public class InformEntity {
      * 跟进信息
      */
     FollowUpEntity followUpEntity;
-
-    /**
-     * 邮箱类型
-     */
-    private Integer emailType;
 }
