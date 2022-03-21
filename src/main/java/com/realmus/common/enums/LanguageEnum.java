@@ -10,9 +10,9 @@ import com.realmus.common.error.BizException;
 
 public enum LanguageEnum {
 
-    CHINESE("CN", "中文"),
+    CHINESE("zh-CN", "中文"),
 
-    ENGLISH("EN", "英文");
+    ENGLISH("en-US", "英文");
 
     private String code;
 
