@@ -23,8 +23,7 @@ import java.util.List;
  */
 @SpringBootTest
 class CnNavigationFacadeImplTest {
-    private String str1 = "上海Realmus成立于2010年，是一家集研发、生产、批发为一体的专业公司。 瑞玛斯致力于世界各地的膳食补充剂基地。" +
-            "瑞勒姆斯凭借近20年的研发和生产经验，不断完善和完善研发和生产的高精度系统。 满足客户对高品质产品与服务的需求。  ";
+    private String str1 = "上海锐麦实业有限公司成立于是2010年，集科、工、贸于一体，专业从事营养补充剂研发、生产、外销的高科技企业。锐麦实业 致力于世界各地的膳食补充剂基地。瑞勒姆斯凭借近20年的研发和生产经验，不断完善研发和生产的高精度系统。 满足客户对高品质产品与服务的需求。“上海锐麦凭借在业内良好的品牌口碑、专业的研发能力、完善的制造工艺、严格的质量管控，不断强化在营养保健食品领域的竞争力与影响力。形成软胶囊，硬胶囊，片剂、软糖、粉剂（固体饮料）、口服液六大支柱产业，新增了 软糖、 颗粒剂、滴剂、瓶饮、软饮等剂型，4000多种保健食品配方。锐麦实业正在逐步完善研发和生产的高精度系统。 满足客户对高品质产品与服务的需求.瑞勒姆斯凭借近20年的研发和生产经验，不断完善和完善研发和生产的高精度系统。 满足客户对高品质产品与服务的需求。  ";
 
 
     @Autowired
@@ -125,7 +124,7 @@ class CnNavigationFacadeImplTest {
         companyEntity.setInfoDescription("专业的健康食品化妆品供应商");
         companyEntity.setInfoContent("上海锐麦实业有限公司成立于是2010年，集科、工、贸于一体，专业从事营养补充剂研发、生产、外销的高科技企业。" +
                 "" +
-                "上海锐麦凭借在业内良好的品牌口碑、专业的研发能力、完善的制造工艺、严格的质量管控，不断强化在营养保健食品领域的竞争力与影响力。形成软胶囊，硬胶囊，片剂、软糖、粉剂（固体饮料）、口服液六大支柱产业，新增了 颗粒剂、滴剂、瓶饮、软饮等剂型，4000多种保健食品配方。产品远销欧美，东南亚等65+ 国。\n" +
+                "上海锐麦凭借在业内良好的品牌口碑、专业的研发能力、完善的制造工艺、严格的质量管控，不断强化在营养保健食品领域的竞争力与影响力。形成软胶囊，硬胶囊，片剂、软糖、粉剂（固体饮料）、口服液六大支柱产业，新增了 颗粒剂、滴剂、瓶饮、软饮等剂型，4000多种保健食品配方。产品远销欧美，东南亚等65+ 国。" +
                 "" +
                 "目前已通过ISO9001、ISO14001、 OHSAS18001、知识产权管理体系认证、HACCP认证、NSF认证、BRC认证以及美国FDA注册等。");
         //小  banner
@@ -212,7 +211,7 @@ class CnNavigationFacadeImplTest {
         PublicInfoEntity infoEntity2 = new PublicInfoEntity();
         infoEntity2.setInfoTitle("研究和发展");
         infoEntity2.setInfoDescription("专业的研发团队，为您提供领先的产品解决方案。");
-        infoEntity2.setInfoContent("2000+的配方产品， 10+ 剂型，50+ QAQC,50+进口检测设备，300+检测指标,产品全维度研发：剂型，功能，人群，性别，年龄段，区域人群特征，口感，形状，新趋势，使用量，包装规格，区域喜好，颜色，温度，人体吸收度\n" +
+        infoEntity2.setInfoContent("2000+的配方产品， 10+ 剂型，50+ QAQC,50+进口检测设备，300+检测指标,产品全维度研发：剂型，功能，人群，性别，年龄段，区域人群特征，口感，形状，新趋势，使用量，包装规格，区域喜好，颜色，温度，人体吸收度" +
                 "成本，配料。");
         publicInfoEntityList.add(infoEntity2);
 
@@ -226,7 +225,7 @@ class CnNavigationFacadeImplTest {
         PublicInfoEntity infoEntity4 = new PublicInfoEntity();
         infoEntity4.setInfoTitle("供应链管理");
         infoEntity4.setInfoDescription("严格的供应链准入基质，从源头控制产品质量，优化成本，提升效率。");
-        infoEntity4.setInfoContent("与世界知名食品，保健食品原料供货商保持合作，所有入选供应链均通过国家相关行业要求。帝斯曼，巴斯夫，拜耳，丹尼斯克…  ");
+        infoEntity4.setInfoContent("公司以全球化的视野，将供应链系统延伸至全球范围，与世界知名食品,保健食品原料供货商保持合作,(帝斯曼，巴斯夫，拜耳，丹尼斯克…),所有入选供应链均通过国家相关行业要求。在获得世界各地最优质原料资源的同时，将制造产品提供给世界各地的伙伴，以满足全球消费者需求，实现健康全人类的梦想。");
         publicInfoEntityList.add(infoEntity4);
 
         PublicInfoEntity infoEntity5 = new PublicInfoEntity();
@@ -561,7 +560,7 @@ class CnNavigationFacadeImplTest {
         mainBanner6.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         mainBanner6.setH5Url("url");
         mainBanner6.setInfoTitle("年研发产品超过300种以上，授权专利近百项");
-        mainBanner6.setInfoDescription("现已拥有专业的配方实验室、工艺实验室，高标准的检测中心，可开展片剂、粉剂、然胶囊、硬胶囊、口服液等多样化产品的配方设计、工艺研究、质量标准检测、稳定性实验等项目的研究开发。百合股份凭借优异的创新研发能力，先后承单国家十三五重点计划，特色海洋多不饱和脂肪酸的开发及产业链应用，山东省产业链计划、山东省重点研发计划等多项国家、省市级项目研发。。");
+        mainBanner6.setInfoDescription("现已拥有专业的配方实验室、工艺实验室，高标准的检测中心，可开展片剂、粉剂、然胶囊、硬胶囊、口服液等多样化产品的配方设计、工艺研究、质量标准检测、稳定性实验等项目的研究开发。");
         mainBanner6.setInfoContent("");
         rdiInfoEntity.setTeamBanner(mainBanner5);
 
@@ -668,9 +667,11 @@ class CnNavigationFacadeImplTest {
         mainBanner13.setH5Url("url");
         mainBanner13.setInfoTitle("打造全链条的质量管理体系");
         mainBanner13.setInfoDescription("");
-        mainBanner13.setInfoContent("从产品设计、供应商管理、生产过程控制、检验过程、产品追溯及售后管理等五个方面设立多道质量监控及质量服务。公司由自动化的生产工厂向数字化、智能化工厂转型，通过MES管理系统，" +
-                "采用可视化的管理模式，通过人机料法环等环节，从现场状况监控，用料追踪管理，讯息及时反馈、质量管理分析、" +
-                "超控超差预警及分析等方面实行全场面动态现场管控，实现产品的全过程追溯，确保每一粒产品的质量生命。通过MES、ERP、WMS、SRM等系统的互联互通，提供可靠的制造数据管理为计划排程、生产调度、库存、质量、成本等提供可靠的数据依据，实现更低成本、更高性能、更大柔性的生产制造能力，实现百合智能制造。");
+        mainBanner13.setInfoContent("从产品设计、供应商管理、生产过程控制、检验过程、产品追溯及售后管理等五个方面设立多道质量监控及质量服务。" +
+
+                "公司由自动化的生产工厂向数字化、智能化工厂转型，通过MES管理系统，采用可视化的管理模式，通过人机料法环等环节，从现场状况监控，用料追踪管理，讯息及时反馈、质量管理分析、超控超差预警及分析等方面实行全场面动态现场管控，实现产品的全过程追溯，确保每一粒产品的质量生命。" +
+
+                "通过MES、ERP、WMS、SRM等系统的互联互通，提供可靠的制造数据管理为计划排程、生产调度、库存、质量、成本等提供可靠的数据依据，实现更低成本、更高性能、更大柔性的生产制造能力，实现智能制造。");
         quality.setQualityBanner(mainBanner13);
 
 
@@ -685,7 +686,7 @@ class CnNavigationFacadeImplTest {
         mainBanner14.setH5Url("url");
         mainBanner14.setInfoTitle("一体化智能运营管理平台");
         mainBanner14.setInfoDescription("");
-        mainBanner14.setInfoContent("基于现代化精益管理理念，依托人工智能、移动物联网、大数据、云等新一代技术，SRM供应商管理平台重塑百合股份庞大的供应商关系网，优化供应商关系管理。企业内外高效协同，快速发货、收货，整体进度实时可见，线上查看未对账明细，建立对账单，财务核对，对账准确、高效，打造和谐商业生态和企业利益共同体。同时，通过物流、商流、资金流和信息流“四流合一”，实现企业一体化智能运营。");
+        mainBanner14.setInfoContent("基于现代化精益管理理念，依托人工智能、移动物联网、大数据、云等新一代技术，SRM供应商管理平台重塑锐麦实业庞大的供应商关系网，优化供应商关系管理。企业内外高效协同，快速发货、收货，整体进度实时可见，线上查看未对账明细，建立对账单，财务核对，对账准确、高效，打造和谐商业生态和企业利益共同体。同时，通过物流、商流、资金流和信息流“四流合一”，实现企业一体化智能运营。");
         quality.setPlatformBanner(mainBanner14);
 
 
