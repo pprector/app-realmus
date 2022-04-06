@@ -70,7 +70,7 @@ public class ProductInfoUpdate {
         String[] productIdList = {"202112311000001", "202112311000011", "202112311000034", "202112311000070", "202112311000087", "202112311000114", "202112311000128"};
 
 
-        List<ProductDO> productInfoParentIdList = cnProductMapper.getProductInfoParentIdList();
+        List<ProductDO> productInfoParentIdList = enProductMapper.getProductInfoParentIdList();
         List<String> collect = productInfoParentIdList.stream().map(ProductDO::getProductId).collect(Collectors.toList());
         //循环设置一张图
         for (String id : collect) {
