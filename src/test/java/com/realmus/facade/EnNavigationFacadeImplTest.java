@@ -115,7 +115,7 @@ class EnNavigationFacadeImplTest {
 
         MultimediaEntity promotionalMp4 = new MultimediaEntity();
         promotionalMp4.setMultimediaType(MultimediaEnum.VIDEO);
-        promotionalMp4.setMultimediaUrl("/home/module2/promotional.mp4");
+        promotionalMp4.setMultimediaUrl("/home/void/realmus202204.mp4");
         promotionalMp4.setDescription("OEM Video");
         companyEntity.setPromotionalMp4(promotionalMp4);
 
@@ -284,7 +284,7 @@ class EnNavigationFacadeImplTest {
 
         MultimediaEntity promotionalMp4 = new MultimediaEntity();
         promotionalMp4.setMultimediaType(MultimediaEnum.VIDEO);
-        promotionalMp4.setMultimediaUrl("/home/module2/promotional.mp4");
+        promotionalMp4.setMultimediaUrl("/home/void/realmus202204.mp4");
         promotionalMp4.setDescription("Realmus Video");
         companyEntity.setPromotionalMp4(promotionalMp4);
 
