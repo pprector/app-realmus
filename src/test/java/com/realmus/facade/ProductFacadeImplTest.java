@@ -21,9 +21,17 @@ class ProductFacadeImplTest {
     private ProductFacade productFacade;
 
     @Test
-    void productInfoImpl() {
-        File file = new File("C:\\Users\\issuser\\Desktop\\realmus_img\\Enrealmus产品信息.xlsx");
-        ResultModel<Object> resultModel = productFacade.productInfoImpl("CH", file);
+    void productInfoImplCN() {
+        File file = new File("C:\\Users\\peng\\Desktop\\锐麦文档\\产品信息中文.xls");
+        ResultModel<Object> resultModel = productFacade.productInfoImpl("zh-CN", file);
+        System.out.println(resultModel);
+    }
+
+
+    @Test
+    void productInfoImplEN() {
+        File file = new File("C:\\Users\\peng\\Desktop\\锐麦文档\\产品信息英文.xls");
+        ResultModel<Object> resultModel = productFacade.productInfoImpl("en-US", file);
         System.out.println(resultModel);
     }
 

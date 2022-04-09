@@ -67,7 +67,6 @@
         <include refid="Base_Column_One"/>
         from en_navigation
         where is_valid = 1
-        group by gmt_modified
     </select>
     <!--根据ID 查询 包晗扩展信息-->
     <select id="findNavigationInfoById" resultMap="BaseResultMap">
@@ -76,7 +75,6 @@
         from en_navigation
         where navigation_id = #{navigationId,jdbcType=VARCHAR}
           and is_valid = 1
-        group by gmt_modified
     </select>
 
 </mapper>

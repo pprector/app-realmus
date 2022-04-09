@@ -1,22 +1,17 @@
 package com.realmus.infrastructure;
 
-import com.realmus.common.enums.EmailEnum;
-import com.realmus.common.util.MailUtil;
-import com.realmus.common.util.MailUtilDTO;
 import com.realmus.domain.entity.InformEntity;
-import com.realmus.infrastructure.converter.MailConverter;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
-import java.util.Objects;
 
 /**
  * @author hkpeng
@@ -30,7 +25,10 @@ public class MailboxService {
     private static final Logger logger = LoggerFactory.getLogger(MailboxService.class);
 
     @Value("${spring.mail.username}")
-    private String  sendEmail;
+    private String sendEmail;
+
+    @Value("${spring.mail.recipients}")
+    private String recipients;
 
     @Resource
     private JavaMailSender sender;
@@ -42,40 +40,36 @@ public class MailboxService {
      */
     public void NotifySalesman(InformEntity informEntity) {
 
-        MailUtilDTO mailDTO = MailConverter.toMailUtilDTO(informEntity);
         try {
-            switch (EmailEnum.getByType(mailDTO.getEmailType())) {
-                case ORDINARY_MAIL:
-                    SimpleMailMessage message = new SimpleMailMessage();
-                    //标题
-                    message.setSubject(mailDTO.getTitle());
-                    // 设置邮件发送者
-                    message.setFrom(sendEmail);
-                    //接收者
-                    message.setTo(mailDTO.getRecipientEmail());
-                    // 设置邮件发送日期
-                    message.setSentDate(new Date());
-                    // 设置邮件的正文
-                    message.setText(mailDTO.getContent());
-                    // 发送邮件
-                    sender.send(message);
-                    break;
-                case ENCLOSURE_MAIL:
-                    break;
-                case ORDINARY_IMAGE_MAIL:
-                    break;
-                default:
-                    break;
+            SimpleMailMessage message = new SimpleMailMessage();
+            //标题
+            message.setSubject("【realmus-" + informEntity.getName() + "】");
+            // 设置邮件发送者
+            message.setFrom(sendEmail);
+            //接收者
+            message.setTo(recipients);
+            // 设置邮件发送日期
+            message.setSentDate(new Date());
+            // 设置邮件的正文
+            StringBuilder text = new StringBuilder("name: " + informEntity.getName());
+            if (StringUtils.isBlank(informEntity.getCompanyName())) {
+                text.append("\n companyName : " + informEntity.getCompanyName());
             }
+            if (StringUtils.isBlank(informEntity.getEmail())) {
+                text.append("\n email : " + informEntity.getEmail());
+            }
+            if (StringUtils.isBlank(informEntity.getPhone())) {
+                text.append("\n phone : " + informEntity.getPhone());
+            }
+            if (StringUtils.isBlank(informEntity.getMessage())) {
+                text.append("\n message : " + informEntity.getMessage());
+            }
+            message.setText(text.toString());
+            // 发送邮件
+            sender.send(message);
         } catch (MailException e) {
             logger.error("邮件发送失败：{0}", e);
         }
-
-
-
-//        MailUtil.createSimpleMail(mailUtilDTO);
-
-
     }
 
 
