@@ -114,7 +114,7 @@ class CnNavigationFacadeImplTest {
 
         MultimediaEntity promotionalMp4 = new MultimediaEntity();
         promotionalMp4.setMultimediaType(MultimediaEnum.VIDEO);
-        promotionalMp4.setMultimediaUrl("/home/module2/promotional.mp4");
+        promotionalMp4.setMultimediaUrl("/home/void/realmus202204.mp4");
         promotionalMp4.setDescription("模块2视频");
         companyEntity.setPromotionalMp4(promotionalMp4);
 
@@ -288,7 +288,7 @@ class CnNavigationFacadeImplTest {
 
         MultimediaEntity promotionalMp4 = new MultimediaEntity();
         promotionalMp4.setMultimediaType(MultimediaEnum.VIDEO);
-        promotionalMp4.setMultimediaUrl("/home/module2/promotional.mp4");
+        promotionalMp4.setMultimediaUrl("/home/void/realmus202204.mp4");
         promotionalMp4.setDescription("关于我们视频");
         companyEntity.setPromotionalMp4(promotionalMp4);
 
