@@ -121,12 +121,10 @@ class CnNavigationFacadeImplTest {
         companyEntity.setInfoType(ModuleEnum.COMPANY);
         companyEntity.setH5Url("url");
         companyEntity.setInfoTitle("关于我们");
-        companyEntity.setInfoDescription("专业的健康食品化妆品供应商");
-        companyEntity.setInfoContent("上海锐麦实业有限公司成立于是2010年，集科、工、贸于一体，专业从事营养补充剂研发、生产、外销的高科技企业。" +
-                "" +
-                "上海锐麦凭借在业内良好的品牌口碑、专业的研发能力、完善的制造工艺、严格的质量管控，不断强化在营养保健食品领域的竞争力与影响力。形成软胶囊，硬胶囊，片剂、软糖、粉剂（固体饮料）、口服液六大支柱产业，新增了 颗粒剂、滴剂、瓶饮、软饮等剂型，4000多种保健食品配方。产品远销欧美，东南亚等65+ 国。" +
-                "" +
-                "目前已通过ISO9001、ISO14001、 OHSAS18001、知识产权管理体系认证、HACCP认证、NSF认证、BRC认证以及美国FDA注册等。");
+        companyEntity.setInfoDescription("健康食品,营养补充剂 专业供应商");
+        companyEntity.setInfoContent("上海锐麦实业有限公司成立于2010年，集科、工、贸于一体，专业从事营养补充剂研发、生产和销售。数十年凭借国内外客户对产品质量的高度认可，在业内创造了良好的品牌口碑。拥有专业的研发能力、完善的制造工艺、严格的质量管控体系，不断强化在营养保健食品领域的竞争力与影响力。\n" +
+                "产品主要覆盖软胶囊，硬胶囊，片剂、软糖、粉剂（固体饮料）、口服液，化妆品，颗粒剂、滴剂、瓶饮、软饮等剂型；公司研发出不低于5000多种膳食补充剂配方，产品远销美国，加拿大，墨西哥，智利，巴西，阿根廷，哥伦比亚，英国，德国，俄罗斯等欧美40多个国家，更是在东南亚市场开拓了广泛市场。\n" +
+                "目前已通过ISO9001、ISO14001、知识产权管理体系认证、HACCP认证、KOSHER认证以及美国FDA注册等。");
         //小  banner
         List<BannerEntity> bannerEntityList2 = new ArrayList<>();
         BannerEntity bannerEntity4 = new BannerEntity();
@@ -211,8 +209,7 @@ class CnNavigationFacadeImplTest {
         PublicInfoEntity infoEntity2 = new PublicInfoEntity();
         infoEntity2.setInfoTitle("研究和发展");
         infoEntity2.setInfoDescription("专业的研发团队，为您提供领先的产品解决方案。");
-        infoEntity2.setInfoContent("2000+的配方产品， 10+ 剂型，50+ QAQC,50+进口检测设备，300+检测指标,产品全维度研发：剂型，功能，人群，性别，年龄段，区域人群特征，口感，形状，新趋势，使用量，包装规格，区域喜好，颜色，温度，人体吸收度" +
-                "成本，配料。");
+        infoEntity2.setInfoContent("5000多种配方产品，10多种产品剂型满足 不同客户不同需求，从剂型，功能，人群，性别，年龄段，区域人群特征等多种维度出发，研配出符合当地市场的产品");
         publicInfoEntityList.add(infoEntity2);
 
         PublicInfoEntity infoEntity3 = new PublicInfoEntity();
@@ -298,7 +295,7 @@ class CnNavigationFacadeImplTest {
         companyEntity.setInfoType(ModuleEnum.COMPANY);
         companyEntity.setH5Url("url");
         companyEntity.setInfoTitle("关于我们");
-        companyEntity.setInfoDescription("专业的健康食品化妆品供应商");
+        companyEntity.setInfoDescription("健康食品,营养补充剂 专业供应商");
         companyEntity.setInfoContent(str1);
         aboutUsEntity.setCompany(companyEntity);
         // 模块3 数据展示
@@ -355,6 +352,127 @@ class CnNavigationFacadeImplTest {
         multimediaEntityList.add(certification5);
         aboutUsEntity.setCertificationList(multimediaEntityList);
 
+        //发展历程
+        List<BannerEntity> bannerEntities = new ArrayList<>();
+
+        BannerEntity Lcentity1 = new BannerEntity();
+        MultimediaEntity multimedialc1 = new MultimediaEntity();
+        multimedialc1.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc1.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc1.setDescription("发展历程");
+        Lcentity1.setBannerImg(multimedialc1);
+
+        Lcentity1.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity1.setInfoTitle("2010");
+        Lcentity1.setInfoDescription("2010年正式成立");
+        Lcentity1.setInfoContent("");
+
+        bannerEntities.add(Lcentity1);
+
+
+        BannerEntity Lcentity2 = new BannerEntity();
+        MultimediaEntity multimedialc2 = new MultimediaEntity();
+        multimedialc2.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc2.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc2.setDescription("发展历程");
+        Lcentity2.setBannerImg(multimedialc1);
+
+        Lcentity2.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity2.setInfoTitle("2011");
+        Lcentity2.setInfoDescription("2011年产品出口 泰国，美国和巴西，巴西，美国到访我司，对公司产品高度认可");
+        Lcentity2.setInfoContent("");
+
+        bannerEntities.add(Lcentity2);
+
+
+        BannerEntity Lcentity3 = new BannerEntity();
+        MultimediaEntity multimedialc3 = new MultimediaEntity();
+        multimedialc3.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc3.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc3.setDescription("发展历程");
+        Lcentity3.setBannerImg(multimedialc2);
+
+        Lcentity3.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity3.setInfoTitle("2013");
+        Lcentity3.setInfoDescription("2013 成为新加坡药厂优质供应商");
+        Lcentity3.setInfoContent("");
+
+        bannerEntities.add(Lcentity3);
+
+
+        BannerEntity Lcentity4 = new BannerEntity();
+        MultimediaEntity multimedialc4 = new MultimediaEntity();
+        multimedialc4.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc4.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc4.setDescription("发展历程");
+        Lcentity4.setBannerImg(multimedialc4);
+
+        Lcentity4.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity4.setInfoTitle("2014");
+        Lcentity4.setInfoDescription("2014成立英国公司");
+        Lcentity4.setInfoContent("");
+
+        bannerEntities.add(Lcentity4);
+
+        BannerEntity Lcentity5 = new BannerEntity();
+        MultimediaEntity multimedialc5 = new MultimediaEntity();
+        multimedialc5.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc5.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc5.setDescription("发展历程");
+        Lcentity5.setBannerImg(multimedialc5);
+
+        Lcentity5.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity5.setInfoTitle("2015");
+        Lcentity5.setInfoDescription("开拓软糖产品并认证kosher 开拓国内市场realmus 品牌");
+        Lcentity5.setInfoContent("");
+
+        bannerEntities.add(Lcentity5);
+
+        BannerEntity Lcentity6 = new BannerEntity();
+        MultimediaEntity multimedialc6 = new MultimediaEntity();
+        multimedialc6.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc6.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc6.setDescription("发展历程");
+        Lcentity6.setBannerImg(multimedialc6);
+
+        Lcentity6.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity6.setInfoTitle("2017 ");
+        Lcentity6.setInfoDescription("2017创建河南办事处");
+        Lcentity6.setInfoContent("");
+
+        bannerEntities.add(Lcentity6);
+
+        BannerEntity Lcentity7 = new BannerEntity();
+        MultimediaEntity multimedialc7= new MultimediaEntity();
+        multimedialc7.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc7.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc7.setDescription("发展历程");
+        Lcentity7.setBannerImg(multimedialc7);
+
+        Lcentity7.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity7.setInfoTitle("2019 ");
+        Lcentity7.setInfoDescription("2019产品出口40多国");
+        Lcentity7.setInfoContent("");
+
+        bannerEntities.add(Lcentity7);
+
+
+        BannerEntity Lcentity8 = new BannerEntity();
+        MultimediaEntity multimedialc8= new MultimediaEntity();
+
+        multimedialc8.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc8.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc8.setDescription("发展历程");
+        Lcentity8.setBannerImg(multimedialc8);
+
+        Lcentity8.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity8.setInfoTitle("2021");
+        Lcentity8.setInfoDescription("2021组建犹太认证软糖工厂-创建口喜品牌");
+        Lcentity8.setInfoContent("");
+
+        bannerEntities.add(Lcentity8);
+
+        aboutUsEntity.setCourseBannerList(bannerEntities);
         //更新
         aboutUs.setExtension(aboutUsEntity);
         navigationService.updateNavigationInfo(LanguageEnum.CHINESE, aboutUs);

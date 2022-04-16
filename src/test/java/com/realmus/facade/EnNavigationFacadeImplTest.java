@@ -122,8 +122,11 @@ class EnNavigationFacadeImplTest {
         companyEntity.setInfoType(ModuleEnum.COMPANY);
         companyEntity.setH5Url("url");
         companyEntity.setInfoTitle("About Us");
-        companyEntity.setInfoDescription("Professional supplier of health food and cosmetics");
-        companyEntity.setInfoContent("Shanghai Realmus, founded in 2010, is a professional company integrating r&d, production and wholesale.  Realmus is dedicated to the dietary supplement base around the world.  With nearly 20 years of research and development and production experience, Relumus constantly improve and perfect the research and development and production of high-precision systems.  Meet customers' demand for high quality lifestyle.  ");
+        companyEntity.setInfoDescription("We are professional  healthy supplement supplier , service ODM/OEM more than 10years!\n" +
+                "Health food, nutritional supplements professional supplier");
+        companyEntity.setInfoContent("Shanghai realmus Industrial Co., Ltd. was established in 2010, specializing in nutritional supplementsand other service.  For decades, with the high recognition of product quality from domestic and foreign customers, we have created a good brand reputation in the industry.  With professional research and development ability, perfect manufacturing technology, strict quality control system, and constantly strengthen the competitiveness and influence in the field of nutrition and health food.  \n" +
+                "The products mainly cover soft capsule, hard capsule, tablet, soft candy, powder (solid drink), oral liquid, cosmetics, granules, drops, bottle drink, soft drink and other dosage forms;  shanghai realmus industrial Co.,Ltd. has developed more than 5000 dietary supplement formulations, products  have been exported to the United States, Canada, Mexico, Chile, Brazil, Argentina, Colombia, The United Kingdom, Germany, Russia and other more than 40 Countries ,we also develop a wide range of markets in the Southeast Asian.\n" +
+                "At present, passed ISO9001, ISO14001, HACCP, KOSHER certification and FDA registration. ");
         //小  banner
         List<BannerEntity> bannerEntityList2 = new ArrayList<>();
         BannerEntity bannerEntity4 = new BannerEntity();
@@ -264,7 +267,8 @@ class EnNavigationFacadeImplTest {
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("/about");
         bannerEntity.setInfoTitle("About us  ");
-        bannerEntity.setInfoDescription("Professional supplier of health food and cosmetics");
+        bannerEntity.setInfoDescription("We are professional  healthy supplement supplier , service ODM/OEM more than 10years!\\n\" +\n" +
+                "                \"Health food, nutritional supplements professional supplier");
         bannerEntity.setInfoContent("");
         aboutUsEntity.setBanner(bannerEntity);
         //模块2 关于Realmus 视频
@@ -347,7 +351,129 @@ class EnNavigationFacadeImplTest {
         multimediaEntityList.add(certification4);
         multimediaEntityList.add(certification5);
         aboutUsEntity.setCertificationList(multimediaEntityList);
+        //发展历程
 
+
+        List<BannerEntity> bannerEntities = new ArrayList<>();
+
+        BannerEntity Lcentity1 = new BannerEntity();
+        MultimediaEntity multimedialc1 = new MultimediaEntity();
+        multimedialc1.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc1.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc1.setDescription("发展历程");
+        Lcentity1.setBannerImg(multimedialc1);
+
+        Lcentity1.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity1.setInfoTitle("2010");
+        Lcentity1.setInfoDescription("It was established in 2010");
+        Lcentity1.setInfoContent("");
+
+        bannerEntities.add(Lcentity1);
+
+
+        BannerEntity Lcentity2 = new BannerEntity();
+        MultimediaEntity multimedialc2 = new MultimediaEntity();
+        multimedialc2.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc2.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc2.setDescription("发展历程");
+        Lcentity2.setBannerImg(multimedialc1);
+
+        Lcentity2.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity2.setInfoTitle("2011");
+        Lcentity2.setInfoDescription("In 2011, our products were exported to Thailand, the United States and Brazil. Brazil and the United States visited our company and highly recognized our products  ");
+        Lcentity2.setInfoContent("");
+
+        bannerEntities.add(Lcentity2);
+
+
+        BannerEntity Lcentity3 = new BannerEntity();
+        MultimediaEntity multimedialc3 = new MultimediaEntity();
+        multimedialc3.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc3.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc3.setDescription("发展历程");
+        Lcentity3.setBannerImg(multimedialc2);
+
+        Lcentity3.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity3.setInfoTitle("2013");
+        Lcentity3.setInfoDescription("2013 To become a quality supplier of Singapore pharmaceutical factories");
+        Lcentity3.setInfoContent("");
+
+        bannerEntities.add(Lcentity3);
+
+
+        BannerEntity Lcentity4 = new BannerEntity();
+        MultimediaEntity multimedialc4 = new MultimediaEntity();
+        multimedialc4.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc4.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc4.setDescription("发展历程");
+        Lcentity4.setBannerImg(multimedialc4);
+
+        Lcentity4.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity4.setInfoTitle("2014");
+        Lcentity4.setInfoDescription("The UK company was established in 2014");
+        Lcentity4.setInfoContent("");
+
+        bannerEntities.add(Lcentity4);
+
+        BannerEntity Lcentity5 = new BannerEntity();
+        MultimediaEntity multimedialc5 = new MultimediaEntity();
+        multimedialc5.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc5.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc5.setDescription("发展历程");
+        Lcentity5.setBannerImg(multimedialc5);
+
+        Lcentity5.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity5.setInfoTitle("2015");
+        Lcentity5.setInfoDescription("Develop fudge products and certified Kosher to develop the domestic market realmus brand  ");
+        Lcentity5.setInfoContent("");
+
+        bannerEntities.add(Lcentity5);
+
+        BannerEntity Lcentity6 = new BannerEntity();
+        MultimediaEntity multimedialc6 = new MultimediaEntity();
+        multimedialc6.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc6.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc6.setDescription("发展历程");
+        Lcentity6.setBannerImg(multimedialc6);
+
+        Lcentity6.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity6.setInfoTitle("2017 ");
+        Lcentity6.setInfoDescription("2017 Henan Office was established");
+        Lcentity6.setInfoContent("");
+
+        bannerEntities.add(Lcentity6);
+
+        BannerEntity Lcentity7 = new BannerEntity();
+        MultimediaEntity multimedialc7= new MultimediaEntity();
+        multimedialc7.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc7.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc7.setDescription("发展历程");
+        Lcentity7.setBannerImg(multimedialc7);
+
+        Lcentity7.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity7.setInfoTitle("2019 ");
+        Lcentity7.setInfoDescription("2019 exports more than 40 countries");
+        Lcentity7.setInfoContent("");
+
+        bannerEntities.add(Lcentity7);
+
+
+        BannerEntity Lcentity8 = new BannerEntity();
+        MultimediaEntity multimedialc8= new MultimediaEntity();
+
+        multimedialc8.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc8.setMultimediaType(MultimediaEnum.IMG);
+        multimedialc8.setDescription("发展历程");
+        Lcentity8.setBannerImg(multimedialc8);
+
+        Lcentity8.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
+        Lcentity8.setInfoTitle("2021");
+        Lcentity8.setInfoDescription("In 2021, a Kosher certified fudge factory will be established - kouxi brand will be established");
+        Lcentity8.setInfoContent("");
+
+        bannerEntities.add(Lcentity8);
+
+        aboutUsEntity.setCourseBannerList(bannerEntities);
         //更新
         aboutUs.setExtension(aboutUsEntity);
         navigationService.updateNavigationInfo(LanguageEnum.ENGLISH, aboutUs);
