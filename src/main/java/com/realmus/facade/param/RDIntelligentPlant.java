@@ -33,5 +33,5 @@ public class RDIntelligentPlant {
      * 工厂视频集合
      */
     @ApiModelProperty(example = "视频集合 ")
-    List<Video> videoList;
+    VideoModel videoModel;
 }

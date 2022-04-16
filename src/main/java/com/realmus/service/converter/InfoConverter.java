@@ -242,8 +242,10 @@ public class InfoConverter {
         plant.setMainBanner(toBanner(entity.getMainBanner()));
         plant.setFactoryBanner(toBanner(entity.getFactoryBanner()));
 
-        plant.setVideoList(entity.getVideoList().stream().map(InfoConverter::toVideo).collect(Collectors.toList()));
-
+        VideoModel videoModel = new VideoModel();
+        videoModel.setTitle(entity.getVideoModel().getTitle());
+        videoModel.setVideoList(entity.getVideoModel().getVideoList().stream().map(InfoConverter::toVideo).collect(Collectors.toList()));
+        plant.setVideoModel(videoModel);
         return plant;
     }
 
@@ -254,6 +256,7 @@ public class InfoConverter {
         Video video = new Video();
         video.setVideoImg(new Img(entity.getCoverImgUrl(), "视频背景图"));
         video.setVideoUrl(entity.getMultimediaUrl());
+        video.setVideoDescription(entity.getDescription());
         return video;
     }
 

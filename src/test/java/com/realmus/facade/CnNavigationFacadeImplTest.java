@@ -614,7 +614,13 @@ class CnNavigationFacadeImplTest {
         videoList.add(videoEntity2);
         videoList.add(videoEntity1);
 
-        intelligentPlant.setVideoList(videoList);
+
+        VideoModelEntity videoModelEntity = new VideoModelEntity();
+        videoModelEntity.setVideoList(videoList);
+        videoModelEntity.setTitle("大而广的创新智造生产能力");
+
+
+        intelligentPlant.setVideoModel(videoModelEntity);
         intelligentPlant.setFactoryBanner(factoryBanner);
         intelligentPlant.setMainBanner(mainBanner);
 

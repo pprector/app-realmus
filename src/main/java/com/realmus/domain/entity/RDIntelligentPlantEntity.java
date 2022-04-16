@@ -29,6 +29,6 @@ public class RDIntelligentPlantEntity {
     /**
      * 工厂视频集合
      */
-    List<VideoEntity> videoList;
+    VideoModelEntity videoModel;
 
 }

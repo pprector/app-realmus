@@ -24,4 +24,7 @@ public class Video {
      */
     @ApiModelProperty(example = "媒体获取地址")
     private String videoUrl;
+
+    @ApiModelProperty(example = "媒体描述")
+    private String videoDescription;
 }
