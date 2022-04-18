@@ -194,6 +194,12 @@ class CnNavigationFacadeImplTest {
         serviceItemEntity.setDesc("Realmus为您提供的从构思到产品的全程无忧服务。");
 
 
+        MultimediaEntity fuzhu = new MultimediaEntity();
+        fuzhu.setMultimediaUrl("/home/serviceItem/news.jpg");
+        fuzhu.setMultimediaType(MultimediaEnum.IMG);
+        fuzhu.setDescription("服务项目辅助图");
+        serviceItemEntity.setAssistMultimediaEntity(fuzhu);
+
         homeInfoEntity.setAdvantageBanner(bannerEntityList2);
         homeInfoEntity.setCompany(companyEntity);
 
@@ -204,12 +210,29 @@ class CnNavigationFacadeImplTest {
         infoEntity1.setInfoTitle("市场分析");
         infoEntity1.setInfoDescription("分享前沿信息，帮助您制定有价值的增长战略");
         infoEntity1.setInfoContent("专业定制kosher gummy,中国区唯一一家通过国家犹太认证机构的供货商,中国区第一家koshergummy 供货商");
+
+
+        MultimediaEntity infoImg1 = new MultimediaEntity();
+        infoImg1.setMultimediaUrl("/home/serviceItem/service.jpg");
+        infoImg1.setMultimediaType(MultimediaEnum.IMG);
+        fuzhu.setDescription("服务项目辅助图");
+        infoEntity1.setMultimediaEntity(infoImg1);
+
+
         publicInfoEntityList.add(infoEntity1);
 
         PublicInfoEntity infoEntity2 = new PublicInfoEntity();
         infoEntity2.setInfoTitle("研究和发展");
         infoEntity2.setInfoDescription("专业的研发团队，为您提供领先的产品解决方案。");
         infoEntity2.setInfoContent("5000多种配方产品，10多种产品剂型满足 不同客户不同需求，从剂型，功能，人群，性别，年龄段，区域人群特征等多种维度出发，研配出符合当地市场的产品");
+
+        MultimediaEntity infoImg2 = new MultimediaEntity();
+        infoImg2.setMultimediaUrl("/home/serviceItem/R & D.jpg");
+        infoImg2.setMultimediaType(MultimediaEnum.IMG);
+        fuzhu.setDescription("服务项目辅助图");
+        infoEntity2.setMultimediaEntity(infoImg2);
+
+
         publicInfoEntityList.add(infoEntity2);
 
         PublicInfoEntity infoEntity3 = new PublicInfoEntity();
@@ -217,18 +240,44 @@ class CnNavigationFacadeImplTest {
         infoEntity3.setInfoDescription("依据GMP标准，提供多剂型产品，并辅以各种创新包装供您选择。");
         infoEntity3.setInfoContent("从原材料到成品实施全程质量管控全程可追溯记录" +
                 "十万级洁净级别，24小时恒温恒湿的生产车间。全自动包装生产线30余条，为客户提供多样化的包装解决方案，配备全自动瓶装，盒装，铝箔板，桶装，小袋装，单粒装等多种包装设备。");
+
+
+        MultimediaEntity infoImg3 = new MultimediaEntity();
+        infoImg3.setMultimediaUrl("/home/serviceItem/production 2.jpg");
+        infoImg3.setMultimediaType(MultimediaEnum.IMG);
+        fuzhu.setDescription("服务项目辅助图");
+        infoEntity3.setMultimediaEntity(infoImg3);
+
+
         publicInfoEntityList.add(infoEntity3);
 
         PublicInfoEntity infoEntity4 = new PublicInfoEntity();
         infoEntity4.setInfoTitle("供应链管理");
         infoEntity4.setInfoDescription("严格的供应链准入基质，从源头控制产品质量，优化成本，提升效率。");
         infoEntity4.setInfoContent("公司以全球化的视野，将供应链系统延伸至全球范围，与世界知名食品,保健食品原料供货商保持合作,(帝斯曼，巴斯夫，拜耳，丹尼斯克…),所有入选供应链均通过国家相关行业要求。在获得世界各地最优质原料资源的同时，将制造产品提供给世界各地的伙伴，以满足全球消费者需求，实现健康全人类的梦想。");
+
+
+        MultimediaEntity infoImg4 = new MultimediaEntity();
+        infoImg4.setMultimediaUrl("/home/serviceItem/supply chain.jpg");
+        infoImg4.setMultimediaType(MultimediaEnum.IMG);
+        fuzhu.setDescription("服务项目辅助图");
+        infoEntity4.setMultimediaEntity(infoImg4);
+
+
         publicInfoEntityList.add(infoEntity4);
 
         PublicInfoEntity infoEntity5 = new PublicInfoEntity();
         infoEntity5.setInfoTitle("服务与支持");
         infoEntity5.setInfoDescription("在全环节为您提供专业服务与支持，成为您得力的合作伙伴。。");
         infoEntity5.setInfoContent("提供使馆认证，客户当地注册所需证书认证。产品后续升级服务，门到门的运输服务");
+
+
+        MultimediaEntity infoImg5 = new MultimediaEntity();
+        infoImg5.setMultimediaUrl("/home/serviceItem/service3.jpg");
+        infoImg5.setMultimediaType(MultimediaEnum.IMG);
+        fuzhu.setDescription("服务项目辅助图");
+        infoEntity5.setMultimediaEntity(infoImg5);
+
         publicInfoEntityList.add(infoEntity5);
         serviceItemEntity.setItemInfoList(publicInfoEntityList);
 

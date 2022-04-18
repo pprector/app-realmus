@@ -24,9 +24,14 @@ public class ServiceItemEntity {
      */
     private String desc;
     /**
-     * 媒体信息
+     * 背景图
      */
     private MultimediaEntity multimediaEntity;
+
+    /**
+     * 背景图 辅助图
+     */
+    private MultimediaEntity assistMultimediaEntity;
     /**
      * 服务项目 Banner
      * 六个描述信息

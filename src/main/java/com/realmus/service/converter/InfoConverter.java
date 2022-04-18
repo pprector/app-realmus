@@ -58,7 +58,7 @@ public class InfoConverter {
         serviceItem.setHeadLine(entity.getHeadLine());
         serviceItem.setDescription(entity.getDesc());
         serviceItem.setImg(toImg(entity.getMultimediaEntity()));
-
+        serviceItem.setAssistImg(toImg(entity.getAssistMultimediaEntity()));
         List<PublicInfo> publicInfoList = entity.getItemInfoList().stream().map(InfoConverter::toPublicInfo).collect(Collectors.toList());
         serviceItem.setItemInfoList(publicInfoList);
 
@@ -87,6 +87,8 @@ public class InfoConverter {
         publicInfo.setTitle(entity.getInfoTitle());
         publicInfo.setDesc(entity.getInfoDescription());
         publicInfo.setContent(entity.getInfoContent());
+
+        publicInfo.setImg(toImg(entity.getMultimediaEntity()));
 
         return publicInfo;
     }

@@ -26,4 +26,9 @@ public class PublicInfo {
 
     @ApiModelProperty(example = "信息 内容")
     private String content;
+
+    @ApiModelProperty(example = "信息 内容")
+    private Img img;
+
+
 }

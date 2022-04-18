@@ -199,6 +199,13 @@ class EnNavigationFacadeImplTest {
         multimediaEntityItem.setDescription("服务项目背景图");
         serviceItemEntity.setMultimediaEntity(multimediaEntityItem);
 
+
+        MultimediaEntity fuzhu = new MultimediaEntity();
+        fuzhu.setMultimediaUrl("/home/serviceItem/news.jpg");
+        fuzhu.setMultimediaType(MultimediaEnum.IMG);
+        fuzhu.setDescription("服务项目辅助图");
+        serviceItemEntity.setAssistMultimediaEntity(fuzhu);
+
         homeInfoEntity.setAdvantageBanner(bannerEntityList2);
         homeInfoEntity.setCompany(companyEntity);
 
@@ -209,30 +216,71 @@ class EnNavigationFacadeImplTest {
         infoEntity1.setInfoTitle("market analysis ");
         infoEntity1.setInfoDescription("Share cutting edge information to help you develop valuable growth strategies");
         infoEntity1.setInfoContent("Kosher Gummy is the first kosher Gummy supplier in China and the only one approved by the National Jewish Certification Authority  ");
+
+        MultimediaEntity infoImg1 = new MultimediaEntity();
+        infoImg1.setMultimediaUrl("/home/serviceItem/service.jpg");
+        infoImg1.setMultimediaType(MultimediaEnum.IMG);
+        fuzhu.setDescription("服务项目辅助图");
+        infoEntity1.setMultimediaEntity(infoImg1);
+
         publicInfoEntityList.add(infoEntity1);
 
         PublicInfoEntity infoEntity2 = new PublicInfoEntity();
         infoEntity2.setInfoTitle("Research and Development");
         infoEntity2.setInfoDescription("Professional R & D team, to provide you with leading product solutions.");
         infoEntity2.setInfoContent("2000+ formula products, 10+ dosage forms,50+ QAQC,50+ imported testing equipment, 300+ test indicators, product development in all dimensions: dosage form, function, population, gender, age, regional population characteristics, taste, shape, new trends, usage, packaging specifications, regional preferences, color, temperature, human absorbance cost, ingredients.  ");
+
+
+        MultimediaEntity infoImg2 = new MultimediaEntity();
+        infoImg2.setMultimediaUrl("/home/serviceItem/R & D.jpg");
+        infoImg2.setMultimediaType(MultimediaEnum.IMG);
+        fuzhu.setDescription("服务项目辅助图");
+        infoEntity2.setMultimediaEntity(infoImg2);
+
+
         publicInfoEntityList.add(infoEntity2);
 
         PublicInfoEntity infoEntity3 = new PublicInfoEntity();
         infoEntity3.setInfoTitle("Production and packaging");
         infoEntity3.setInfoDescription("In accordance with GMP standards, we provide multi-dosage products, supplemented by a variety of innovative packaging for your choice.  ");
         infoEntity3.setInfoContent("From raw materials to finished products, the whole process of quality control can be traced back to the production workshop of 100,000 clean grades, 24-hour constant temperature and humidity.  More than 30 automatic packaging production lines, to provide customers with a variety of packaging solutions, equipped with automatic bottles, boxes, aluminum foil board, barrels, bags, single packaging and other packaging equipment.  ");
+
+        MultimediaEntity infoImg3 = new MultimediaEntity();
+        infoImg3.setMultimediaUrl("/home/serviceItem/production 2.jpg");
+        infoImg3.setMultimediaType(MultimediaEnum.IMG);
+        fuzhu.setDescription("服务项目辅助图");
+        infoEntity3.setMultimediaEntity(infoImg3);
+
         publicInfoEntityList.add(infoEntity3);
 
         PublicInfoEntity infoEntity4 = new PublicInfoEntity();
         infoEntity4.setInfoTitle("supply chain management");
         infoEntity4.setInfoDescription("Strict supply chain access matrix, from the source to control product quality, optimize costs, improve efficiency.  ");
         infoEntity4.setInfoContent("With the world famous food, health food raw material suppliers to maintain cooperation, all selected supply chain through the relevant national industry requirements.  DSM, BASF, Bayer, Danisco...   ");
+
+        MultimediaEntity infoImg4 = new MultimediaEntity();
+        infoImg4.setMultimediaUrl("/home/serviceItem/supply chain.jpg");
+        infoImg4.setMultimediaType(MultimediaEnum.IMG);
+        fuzhu.setDescription("服务项目辅助图");
+        infoEntity4.setMultimediaEntity(infoImg4);
+
+
         publicInfoEntityList.add(infoEntity4);
 
         PublicInfoEntity infoEntity5 = new PublicInfoEntity();
         infoEntity5.setInfoTitle("service and support");
         infoEntity5.setInfoDescription("In the whole link to provide you with professional services and support, become your effective partner.  ");
         infoEntity5.setInfoContent("Provide embassy certification, customer local registration required certificate certification.  Product follow-up upgrade service, door to door transportation service  ");
+
+
+        MultimediaEntity infoImg5 = new MultimediaEntity();
+        infoImg5.setMultimediaUrl("/home/serviceItem/service3.jpg");
+        infoImg5.setMultimediaType(MultimediaEnum.IMG);
+        fuzhu.setDescription("服务项目辅助图");
+        infoEntity5.setMultimediaEntity(infoImg5);
+
+
+
         publicInfoEntityList.add(infoEntity5);
         homeInfoEntity.setBannerList(bannerEntityList);
 

@@ -39,5 +39,9 @@ public class PublicInfoEntity {
      * 内容
      */
     private String infoContent;
+    /**
+     * 图片信息
+     */
+    private MultimediaEntity multimediaEntity;
 
 }

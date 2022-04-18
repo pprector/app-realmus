@@ -30,6 +30,9 @@ public class ServiceItem {
 
     @ApiModelProperty(example = "背景图片")
     private Img img;
+
+    @ApiModelProperty(example = "辅助图片")
+    private Img assistImg;
     /**
      * 服务项目 Banner
      * 六个描述信息
