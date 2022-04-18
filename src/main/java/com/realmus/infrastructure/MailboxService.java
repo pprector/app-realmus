@@ -67,6 +67,7 @@ public class MailboxService {
             message.setText(text.toString());
             // 发送邮件
             sender.send(message);
+            logger.error("main ：{0}", "成功");
         } catch (MailException e) {
             logger.error("邮件发送失败：{0}", e);
         }
