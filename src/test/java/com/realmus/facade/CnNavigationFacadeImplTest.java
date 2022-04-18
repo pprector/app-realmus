@@ -83,7 +83,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity bannerEntity3 = new BannerEntity();
         MultimediaEntity multimediaEntity3 = new MultimediaEntity();
-        multimediaEntity3.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimediaEntity3.setMultimediaUrl("/home/banner/lunbo.jpg");
         multimediaEntity3.setMultimediaType(MultimediaEnum.IMG);
         multimediaEntity3.setDescription("代加工厂");
         bannerEntity3.setBannerImg(multimediaEntity3);
@@ -316,8 +316,8 @@ class CnNavigationFacadeImplTest {
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("/about");
-        bannerEntity.setInfoTitle("关于我们");
-        bannerEntity.setInfoDescription("专业的健康食品化妆品供应商");
+        bannerEntity.setInfoTitle("企业文化");
+        bannerEntity.setInfoDescription("研发创新、锐意进取、坚守品质、铸造品牌");
         bannerEntity.setInfoContent("");
         aboutUsEntity.setBanner(bannerEntity);
         //模块2 关于百合 视频
@@ -343,8 +343,9 @@ class CnNavigationFacadeImplTest {
 
         companyEntity.setInfoType(ModuleEnum.COMPANY);
         companyEntity.setH5Url("url");
-        companyEntity.setInfoTitle("关于我们");
-        companyEntity.setInfoDescription("健康食品,营养补充剂 专业供应商");
+        companyEntity.setInfoTitle("愿景");
+        companyEntity.setInfoDescription("健康食品、营养补充剂专业供应商 &#10; " +
+                " 诚信、笃行、创新、互利、同发展");
         companyEntity.setInfoContent(str1);
         aboutUsEntity.setCompany(companyEntity);
         // 模块3 数据展示
@@ -406,7 +407,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity1 = new BannerEntity();
         MultimediaEntity multimedialc1 = new MultimediaEntity();
-        multimedialc1.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc1.setMultimediaUrl("/home/banner/lunbo.jpg");
         multimedialc1.setMultimediaType(MultimediaEnum.IMG);
         multimedialc1.setDescription("发展历程");
         Lcentity1.setBannerImg(multimedialc1);
@@ -421,7 +422,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity2 = new BannerEntity();
         MultimediaEntity multimedialc2 = new MultimediaEntity();
-        multimedialc2.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc2.setMultimediaUrl("/home/banner/lunbo.jpg");
         multimedialc2.setMultimediaType(MultimediaEnum.IMG);
         multimedialc2.setDescription("发展历程");
         Lcentity2.setBannerImg(multimedialc1);
@@ -436,7 +437,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity3 = new BannerEntity();
         MultimediaEntity multimedialc3 = new MultimediaEntity();
-        multimedialc3.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc3.setMultimediaUrl("/home/banner/lunbo.jpg");
         multimedialc3.setMultimediaType(MultimediaEnum.IMG);
         multimedialc3.setDescription("发展历程");
         Lcentity3.setBannerImg(multimedialc2);
@@ -451,7 +452,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity4 = new BannerEntity();
         MultimediaEntity multimedialc4 = new MultimediaEntity();
-        multimedialc4.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc4.setMultimediaUrl("/home/banner/lunbo.jpg");
         multimedialc4.setMultimediaType(MultimediaEnum.IMG);
         multimedialc4.setDescription("发展历程");
         Lcentity4.setBannerImg(multimedialc4);
@@ -465,7 +466,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity5 = new BannerEntity();
         MultimediaEntity multimedialc5 = new MultimediaEntity();
-        multimedialc5.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc5.setMultimediaUrl("/home/banner/lunbo.jpg");
         multimedialc5.setMultimediaType(MultimediaEnum.IMG);
         multimedialc5.setDescription("发展历程");
         Lcentity5.setBannerImg(multimedialc5);
@@ -479,7 +480,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity6 = new BannerEntity();
         MultimediaEntity multimedialc6 = new MultimediaEntity();
-        multimedialc6.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc6.setMultimediaUrl("/home/banner/lunbo.jpg");
         multimedialc6.setMultimediaType(MultimediaEnum.IMG);
         multimedialc6.setDescription("发展历程");
         Lcentity6.setBannerImg(multimedialc6);
@@ -493,7 +494,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity7 = new BannerEntity();
         MultimediaEntity multimedialc7= new MultimediaEntity();
-        multimedialc7.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc7.setMultimediaUrl("/home/banner/lunbo.jpg");
         multimedialc7.setMultimediaType(MultimediaEnum.IMG);
         multimedialc7.setDescription("发展历程");
         Lcentity7.setBannerImg(multimedialc7);
@@ -509,7 +510,7 @@ class CnNavigationFacadeImplTest {
         BannerEntity Lcentity8 = new BannerEntity();
         MultimediaEntity multimedialc8= new MultimediaEntity();
 
-        multimedialc8.setMultimediaUrl("/home/banner/banner3.jpg");
+        multimedialc8.setMultimediaUrl("/home/banner/lunbo.jpg");
         multimedialc8.setMultimediaType(MultimediaEnum.IMG);
         multimedialc8.setDescription("发展历程");
         Lcentity8.setBannerImg(multimedialc8);
