@@ -23,7 +23,7 @@ import java.util.List;
  */
 @SpringBootTest
 class CnNavigationFacadeImplTest {
-    private String str1 = "上海锐麦实业有限公司成立于是2010年，集科、工、贸于一体，专业从事营养补充剂研发、生产、外销的高科技企业。锐麦实业 致力于世界各地的膳食补充剂基地。瑞勒姆斯凭借近20年的研发和生产经验，不断完善研发和生产的高精度系统。 满足客户对高品质产品与服务的需求。“上海锐麦凭借在业内良好的品牌口碑、专业的研发能力、完善的制造工艺、严格的质量管控，不断强化在营养保健食品领域的竞争力与影响力。形成软胶囊，硬胶囊，片剂、软糖、粉剂（固体饮料）、口服液六大支柱产业，新增了 软糖、 颗粒剂、滴剂、瓶饮、软饮等剂型，4000多种保健食品配方。锐麦实业正在逐步完善研发和生产的高精度系统。 满足客户对高品质产品与服务的需求.瑞勒姆斯凭借近20年的研发和生产经验，不断完善和完善研发和生产的高精度系统。 满足客户对高品质产品与服务的需求。  ";
+    private String str1 = "上海锐麦实业有限公司成立于是2010年，集科、工、贸于一体，专业从事营养补充剂研发、生产、外销的高科技企业。锐麦实业 致力于世界各地的膳食补充剂基地。锐麦凭借近20年的研发和生产经验，不断完善研发和生产的高精度系统。 满足客户对高品质产品与服务的需求。“上海锐麦凭借在业内良好的品牌口碑、专业的研发能力、完善的制造工艺、严格的质量管控，不断强化在营养保健食品领域的竞争力与影响力。形成软胶囊，硬胶囊，片剂、软糖、粉剂（固体饮料）、口服液六大支柱产业，新增了 软糖、 颗粒剂、滴剂、瓶饮、软饮等剂型，4000多种保健食品配方。锐麦实业正在逐步完善研发和生产的高精度系统。 满足客户对高品质产品与服务的需求。  ";
 
 
     @Autowired
@@ -407,7 +407,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity1 = new BannerEntity();
         MultimediaEntity multimedialc1 = new MultimediaEntity();
-        multimedialc1.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc1.setMultimediaUrl("/home/banner/2010.png");
         multimedialc1.setMultimediaType(MultimediaEnum.IMG);
         multimedialc1.setDescription("发展历程");
         Lcentity1.setBannerImg(multimedialc1);
@@ -422,7 +422,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity2 = new BannerEntity();
         MultimediaEntity multimedialc2 = new MultimediaEntity();
-        multimedialc2.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc2.setMultimediaUrl("/home/banner/2011.jpg");
         multimedialc2.setMultimediaType(MultimediaEnum.IMG);
         multimedialc2.setDescription("发展历程");
         Lcentity2.setBannerImg(multimedialc1);
@@ -437,7 +437,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity3 = new BannerEntity();
         MultimediaEntity multimedialc3 = new MultimediaEntity();
-        multimedialc3.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc3.setMultimediaUrl("/home/banner/2013.jpg");
         multimedialc3.setMultimediaType(MultimediaEnum.IMG);
         multimedialc3.setDescription("发展历程");
         Lcentity3.setBannerImg(multimedialc2);
@@ -452,7 +452,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity4 = new BannerEntity();
         MultimediaEntity multimedialc4 = new MultimediaEntity();
-        multimedialc4.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc4.setMultimediaUrl("/home/banner/2014.jpg");
         multimedialc4.setMultimediaType(MultimediaEnum.IMG);
         multimedialc4.setDescription("发展历程");
         Lcentity4.setBannerImg(multimedialc4);
@@ -466,7 +466,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity5 = new BannerEntity();
         MultimediaEntity multimedialc5 = new MultimediaEntity();
-        multimedialc5.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc5.setMultimediaUrl("/home/banner/2015.jpg");
         multimedialc5.setMultimediaType(MultimediaEnum.IMG);
         multimedialc5.setDescription("发展历程");
         Lcentity5.setBannerImg(multimedialc5);
@@ -480,7 +480,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity6 = new BannerEntity();
         MultimediaEntity multimedialc6 = new MultimediaEntity();
-        multimedialc6.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc6.setMultimediaUrl("/home/banner/2017.jpg");
         multimedialc6.setMultimediaType(MultimediaEnum.IMG);
         multimedialc6.setDescription("发展历程");
         Lcentity6.setBannerImg(multimedialc6);
@@ -494,7 +494,7 @@ class CnNavigationFacadeImplTest {
 
         BannerEntity Lcentity7 = new BannerEntity();
         MultimediaEntity multimedialc7= new MultimediaEntity();
-        multimedialc7.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc7.setMultimediaUrl("/home/banner/2019.jpg");
         multimedialc7.setMultimediaType(MultimediaEnum.IMG);
         multimedialc7.setDescription("发展历程");
         Lcentity7.setBannerImg(multimedialc7);
@@ -510,7 +510,7 @@ class CnNavigationFacadeImplTest {
         BannerEntity Lcentity8 = new BannerEntity();
         MultimediaEntity multimedialc8= new MultimediaEntity();
 
-        multimedialc8.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc8.setMultimediaUrl("/home/banner/2021.jpg");
         multimedialc8.setMultimediaType(MultimediaEnum.IMG);
         multimedialc8.setDescription("发展历程");
         Lcentity8.setBannerImg(multimedialc8);

@@ -406,7 +406,7 @@ class EnNavigationFacadeImplTest {
 
         BannerEntity Lcentity1 = new BannerEntity();
         MultimediaEntity multimedialc1 = new MultimediaEntity();
-        multimedialc1.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc1.setMultimediaUrl("/home/banner/2010.png");
         multimedialc1.setMultimediaType(MultimediaEnum.IMG);
         multimedialc1.setDescription("发展历程");
         Lcentity1.setBannerImg(multimedialc1);
@@ -421,7 +421,7 @@ class EnNavigationFacadeImplTest {
 
         BannerEntity Lcentity2 = new BannerEntity();
         MultimediaEntity multimedialc2 = new MultimediaEntity();
-        multimedialc2.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc2.setMultimediaUrl("/home/banner/2011.jpg");
         multimedialc2.setMultimediaType(MultimediaEnum.IMG);
         multimedialc2.setDescription("发展历程");
         Lcentity2.setBannerImg(multimedialc1);
@@ -436,7 +436,7 @@ class EnNavigationFacadeImplTest {
 
         BannerEntity Lcentity3 = new BannerEntity();
         MultimediaEntity multimedialc3 = new MultimediaEntity();
-        multimedialc3.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc3.setMultimediaUrl("/home/banner/2013.jpg");
         multimedialc3.setMultimediaType(MultimediaEnum.IMG);
         multimedialc3.setDescription("发展历程");
         Lcentity3.setBannerImg(multimedialc2);
@@ -451,7 +451,7 @@ class EnNavigationFacadeImplTest {
 
         BannerEntity Lcentity4 = new BannerEntity();
         MultimediaEntity multimedialc4 = new MultimediaEntity();
-        multimedialc4.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc4.setMultimediaUrl("/home/banner/2014.jpg");
         multimedialc4.setMultimediaType(MultimediaEnum.IMG);
         multimedialc4.setDescription("发展历程");
         Lcentity4.setBannerImg(multimedialc4);
@@ -465,7 +465,7 @@ class EnNavigationFacadeImplTest {
 
         BannerEntity Lcentity5 = new BannerEntity();
         MultimediaEntity multimedialc5 = new MultimediaEntity();
-        multimedialc5.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc5.setMultimediaUrl("/home/banner/2015.jpg");
         multimedialc5.setMultimediaType(MultimediaEnum.IMG);
         multimedialc5.setDescription("发展历程");
         Lcentity5.setBannerImg(multimedialc5);
@@ -479,13 +479,13 @@ class EnNavigationFacadeImplTest {
 
         BannerEntity Lcentity6 = new BannerEntity();
         MultimediaEntity multimedialc6 = new MultimediaEntity();
-        multimedialc6.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc6.setMultimediaUrl("/home/banner/2017.jpg");
         multimedialc6.setMultimediaType(MultimediaEnum.IMG);
         multimedialc6.setDescription("发展历程");
         Lcentity6.setBannerImg(multimedialc6);
 
         Lcentity6.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
-        Lcentity6.setInfoTitle("2017 ");
+        Lcentity6.setInfoTitle("2017");
         Lcentity6.setInfoDescription("2017 Henan Office was established");
         Lcentity6.setInfoContent("");
 
@@ -493,13 +493,13 @@ class EnNavigationFacadeImplTest {
 
         BannerEntity Lcentity7 = new BannerEntity();
         MultimediaEntity multimedialc7= new MultimediaEntity();
-        multimedialc7.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc7.setMultimediaUrl("/home/banner/2019.jpg");
         multimedialc7.setMultimediaType(MultimediaEnum.IMG);
         multimedialc7.setDescription("发展历程");
         Lcentity7.setBannerImg(multimedialc7);
 
         Lcentity7.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
-        Lcentity7.setInfoTitle("2019 ");
+        Lcentity7.setInfoTitle("2019");
         Lcentity7.setInfoDescription("2019 exports more than 40 countries");
         Lcentity7.setInfoContent("");
 
@@ -509,7 +509,7 @@ class EnNavigationFacadeImplTest {
         BannerEntity Lcentity8 = new BannerEntity();
         MultimediaEntity multimedialc8= new MultimediaEntity();
 
-        multimedialc8.setMultimediaUrl("/home/banner/lunbo.jpg");
+        multimedialc8.setMultimediaUrl("/home/banner/2021.jpg");
         multimedialc8.setMultimediaType(MultimediaEnum.IMG);
         multimedialc8.setDescription("发展历程");
         Lcentity8.setBannerImg(multimedialc8);

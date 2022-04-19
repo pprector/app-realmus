@@ -52,24 +52,24 @@ public class MailboxService {
             message.setSentDate(new Date());
             // 设置邮件的正文
             StringBuilder text = new StringBuilder("name: " + informEntity.getName());
-            if (StringUtils.isBlank(informEntity.getCompanyName())) {
+            if (StringUtils.isNotBlank(informEntity.getCompanyName())) {
                 text.append("\n companyName : " + informEntity.getCompanyName());
             }
-            if (StringUtils.isBlank(informEntity.getEmail())) {
+            if (StringUtils.isNotBlank(informEntity.getEmail())) {
                 text.append("\n email : " + informEntity.getEmail());
             }
-            if (StringUtils.isBlank(informEntity.getPhone())) {
+            if (StringUtils.isNotBlank(informEntity.getPhone())) {
                 text.append("\n phone : " + informEntity.getPhone());
             }
-            if (StringUtils.isBlank(informEntity.getMessage())) {
+            if (StringUtils.isNotBlank(informEntity.getMessage())) {
                 text.append("\n message : " + informEntity.getMessage());
             }
             message.setText(text.toString());
             // 发送邮件
             sender.send(message);
-            logger.error("main ：{0}", "成功");
+            logger.info("main : "+informEntity.getName()+"成功");
         } catch (MailException e) {
-            logger.error("邮件发送失败：{0}", e);
+            logger.error("邮件发送失败：" + e);
         }
     }
 

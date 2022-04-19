@@ -106,6 +106,9 @@ class RealmusAppApplicationTests {
         InformEntity informEntity = new InformEntity();
         informEntity.setMessage("测试消息009999");
         informEntity.setEmail("1509621999@qq.com");
+        informEntity.setCompanyName("公司名称");
+        informEntity.setName("name");
+        informEntity.setPhone("15617889809");
         service.NotifySalesman(informEntity);
     }
 
