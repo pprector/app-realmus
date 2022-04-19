@@ -424,7 +424,7 @@ class EnNavigationFacadeImplTest {
         multimedialc2.setMultimediaUrl("/home/banner/2011.jpg");
         multimedialc2.setMultimediaType(MultimediaEnum.IMG);
         multimedialc2.setDescription("发展历程");
-        Lcentity2.setBannerImg(multimedialc1);
+        Lcentity2.setBannerImg(multimedialc2);
 
         Lcentity2.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         Lcentity2.setInfoTitle("2011");
