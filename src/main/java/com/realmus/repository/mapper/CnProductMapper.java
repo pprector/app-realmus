@@ -66,4 +66,10 @@ public interface CnProductMapper {
      * @param
      */
     void productInfoUpdate(ProductDO product);
+
+    /**
+     * 删除
+     * @param id
+     */
+    void deleteById(@Param("productId") String id);
 }

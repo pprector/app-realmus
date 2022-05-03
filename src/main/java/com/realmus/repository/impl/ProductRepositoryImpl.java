@@ -3,6 +3,7 @@ package com.realmus.repository.impl;
 import com.realmus.common.enums.LanguageEnum;
 import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.domain.repository.ProductRepository;
+import com.realmus.facade.param.Product;
 import com.realmus.repository.converter.DoTOEntity;
 import com.realmus.repository.converter.EntityToDo;
 import com.realmus.repository.mapper.CnProductMapper;
@@ -12,9 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.realmus.common.enums.LanguageEnum.CHINESE;
+import static com.realmus.common.enums.LanguageEnum.ENGLISH;
 
 /**
  * @author hkpeng
@@ -131,6 +136,48 @@ public class ProductRepositoryImpl implements ProductRepository {
                 break;
             case ENGLISH:
                 enProductMapper.productInfoUpdate(product);
+                break;
+        }
+    }
+
+    @Override
+    public void productInfoUpdate(LanguageEnum language, Product product) {
+
+        ProductDO productDO = EntityToDo.toProductDO(product);
+        switch (language) {
+            case CHINESE:
+                cnProductMapper.productInfoUpdate(productDO);
+                break;
+            case ENGLISH:
+                enProductMapper.productInfoUpdate(productDO);
+                break;
+        }
+    }
+
+    @Override
+    public void addProduct(LanguageEnum languageEnum, Product input) {
+        ProductDO product = EntityToDo.toProductDO(input);
+        ArrayList<ProductDO> arrayList = new ArrayList<>();
+        arrayList.add(product);
+        switch (languageEnum) {
+            case CHINESE:
+                cnProductMapper.insertProductDOList(arrayList);
+                break;
+            case ENGLISH:
+                enProductMapper.insertProductDOList(arrayList);
+                break;
+        }
+    }
+
+    @Override
+    public void productInfoDelete(LanguageEnum languageEnum, String id) {
+
+        switch (languageEnum) {
+            case CHINESE:
+                cnProductMapper.deleteById(id);
+                break;
+            case ENGLISH:
+                enProductMapper.deleteById(id);
                 break;
         }
     }

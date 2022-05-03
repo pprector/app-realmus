@@ -63,7 +63,7 @@ class EnNavigationFacadeImplTest {
         bannerEntity1.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity1.setH5Url("url");
         bannerEntity1.setInfoTitle("Innovation can assign");
-        bannerEntity1.setInfoDescription("Supplier of healthcare video OEM/ODM solutions for decades");
+        bannerEntity1.setInfoDescription("Supplier of health foot OEM/ODM solutions for decades");
         bannerEntity1.setInfoContent("Realmus provides you with a one-stop service without any worries");
 
         bannerEntityList.add(bannerEntity1);

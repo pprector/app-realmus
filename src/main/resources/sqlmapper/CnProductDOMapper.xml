@@ -114,4 +114,11 @@
         where product_id = #{productId,jdbcType=VARCHAR}
         limit 1
     </select>
+
+    <!--批量删除-->
+    <delete id="deleteById">
+        delete
+        from cn_product
+        where product_id  = #{productId,jdbcType=VARCHAR}
+    </delete>
 </mapper>

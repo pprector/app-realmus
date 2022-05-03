@@ -17,6 +17,7 @@ import java.util.List;
 public class ProductInfoEntity {
     /**
      * 产品id
+     *
      */
     private String productId;
     /**

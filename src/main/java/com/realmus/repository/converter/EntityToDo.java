@@ -8,9 +8,11 @@ import com.realmus.domain.entity.InformEntity;
 import com.realmus.domain.entity.MultimediaEntity;
 import com.realmus.domain.entity.NavigationEntity;
 import com.realmus.domain.entity.ProductInfoEntity;
+import com.realmus.facade.param.Product;
 import com.realmus.repository.model.InformDO;
 import com.realmus.repository.model.NavigationDO;
 import com.realmus.repository.model.ProductDO;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -97,6 +99,30 @@ public class EntityToDo {
         productInfoDO.setProductDescribe(productInfo.getDescription());
         productInfoDO.setExtendJson(JSONObject.toJSONString(productInfo.getMultimedia()));
         productInfoDO.setGmtModified(new Date());
+
+        return productInfoDO;
+    }
+
+    public static ProductDO toProductDO(Product product) {
+        ProductDO productInfoDO = new ProductDO();
+        if (StringUtils.isBlank(product.getProductId())){
+            productInfoDO.setProductId(IdWorker.getNextId());
+        }else {
+            productInfoDO.setProductId(product.getProductId());
+        }
+        if (StringUtils.isBlank(product.getProductParentId())){
+            productInfoDO.setProductId("0");
+        }else{
+            productInfoDO.setParentId(product.getProductParentId());
+        }
+
+        productInfoDO.setProductName(product.getProductName());
+        productInfoDO.setProductIngredient(product.getIngredient());
+        productInfoDO.setProductDescribe(product.getDescription());
+        productInfoDO.setGmtModified(new Date());
+        productInfoDO.setModifier("phk");
+        productInfoDO.setProductWeight(100);
+        productInfoDO.setIsValid(1);
 
         return productInfoDO;
     }

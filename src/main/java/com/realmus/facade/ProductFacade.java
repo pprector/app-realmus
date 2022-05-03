@@ -1,6 +1,7 @@
 package com.realmus.facade;
 
 import com.realmus.common.result.ResultModel;
+import com.realmus.facade.param.Product;
 import com.realmus.facade.request.SearchRequest;
 import com.realmus.facade.response.ProductResponse;
 
@@ -33,4 +34,26 @@ public interface ProductFacade {
      * @return
      */
     ResultModel<List<ProductResponse>> productSearch(SearchRequest input, HttpServletRequest httpServletRequest);
+
+
+    /**
+     * 产品信息查询
+     * 参数为空返回全量数据
+     * 参数不为空模糊查询
+     *
+     * @param
+     * @return
+     */
+    ResultModel<List<ProductResponse>> productUpdate(Product input, HttpServletRequest httpServletRequest);
+
+    /**
+     * 产品信息查询
+     * 参数为空返回全量数据
+     * 参数不为空模糊查询
+     *
+     * @param
+     * @return
+     */
+    ResultModel<List<ProductResponse>> productDelete(String input, HttpServletRequest httpServletRequest);
+
 }

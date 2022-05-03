@@ -7,6 +7,7 @@ import com.realmus.common.util.ValidationUtil;
 import com.realmus.domain.entity.ProductEntity;
 import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.domain.repository.ProductRepository;
+import com.realmus.facade.param.Product;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -114,7 +115,7 @@ public class ProductService {
             }
             //如果二级菜单也没有数据 遍历三级菜单
             List<ProductInfoEntity> productInfoEntityListLv2Not = infoEntity.getSonProductInfoList().stream().filter(productInfo ->
-                    !(productInfo.getProductName().contains(input)))
+                            !(productInfo.getProductName().contains(input)))
                     .collect(Collectors.toList());
             //三级菜单
             List<ProductInfoEntity> productInfoEntityListLv3 = null;
@@ -164,5 +165,24 @@ public class ProductService {
     public void productInfoUpdate(LanguageEnum language, ProductInfoEntity productInfo) {
         logger.info("=====ProductService getProductInfoById request : " + productInfo);
         productRepository.productInfoUpdate(language, productInfo);
+    }
+
+    /**
+     * 产品信息新增或者修改
+     *
+     * @param languageEnum
+     * @param input
+     */
+    public void productUpdate(LanguageEnum languageEnum, Product input) {
+        ProductInfoEntity entity = productRepository.getProductInfoById(languageEnum, input.getProductId());
+        if (input.getProductId() == null || entity == null || StringUtils.isBlank(entity.getProductId())){
+            productRepository.addProduct(languageEnum, input);
+        }else{
+            productRepository.productInfoUpdate(languageEnum, input);
+        }
+    }
+
+    public void productDelete(LanguageEnum languageEnum, String id) {
+        productRepository.productInfoDelete(languageEnum, id);
     }
 }

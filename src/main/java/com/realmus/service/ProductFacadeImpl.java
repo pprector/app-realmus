@@ -12,6 +12,7 @@ import com.realmus.common.util.ValidationUtil;
 import com.realmus.domain.entity.ProductInfoEntity;
 import com.realmus.domain.service.ProductService;
 import com.realmus.facade.ProductFacade;
+import com.realmus.facade.param.Product;
 import com.realmus.facade.request.ProductExcel;
 import com.realmus.facade.request.SearchRequest;
 import com.realmus.facade.response.ProductResponse;
@@ -74,6 +75,42 @@ public class ProductFacadeImpl implements ProductFacade {
             List<ProductInfoEntity> productInfoEntityList = productService.productSearch(languageEnum, input.getInputInfo());
             List<ProductResponse> productResponseList = productInfoEntityList.stream().map(ProductFacadeConverter::ProductResponse).collect(Collectors.toList());
             return ResultUtil.success(productResponseList);
+        } catch (BizException e) {
+            logger.error("=====ProductFacadeImpl  productInfoImpl  BizException :}", e);
+            return ResultUtil.fail(e.getMessage());
+        } catch (Exception e) {
+            logger.error("=====ProductFacadeImpl  productInfoImpl  Exception : ", e);
+            return ResultUtil.fail(BizErrorEnum.E001.getMessage());
+        }
+    }
+
+    @Override
+    @ApiOperation(value = "产品信息模块 新增或者删除 ", httpMethod = "PUT")
+    @PutMapping(params = {"language"})
+    public ResultModel<List<ProductResponse>> productUpdate(@RequestBody Product input, HttpServletRequest httpServletRequest) {
+        logger.info("=====ProductFacadeImpl productInfoImpl request : " + input);
+        try {
+            LanguageEnum languageEnum = LanguageUtil.getLanguageEnum(httpServletRequest);
+            productService.productUpdate(languageEnum, input);
+            return ResultUtil.success(null);
+        } catch (BizException e) {
+            logger.error("=====ProductFacadeImpl  productInfoImpl  BizException :}", e);
+            return ResultUtil.fail(e.getMessage());
+        } catch (Exception e) {
+            logger.error("=====ProductFacadeImpl  productInfoImpl  Exception : ", e);
+            return ResultUtil.fail(BizErrorEnum.E001.getMessage());
+        }
+    }
+
+    @Override
+    @ApiOperation(value = "产品信息模块 - 产出功能", httpMethod = "DELETE")
+    @DeleteMapping(params = {"language","productId"})
+    public ResultModel<List<ProductResponse>> productDelete(String productId, HttpServletRequest httpServletRequest) {
+        logger.info("=====ProductFacadeImpl productDelete request : " + productId);
+        try {
+            LanguageEnum languageEnum = LanguageUtil.getLanguageEnum(httpServletRequest);
+            productService.productDelete(languageEnum, productId);
+            return ResultUtil.success(null);
         } catch (BizException e) {
             logger.error("=====ProductFacadeImpl  productInfoImpl  BizException :}", e);
             return ResultUtil.fail(e.getMessage());

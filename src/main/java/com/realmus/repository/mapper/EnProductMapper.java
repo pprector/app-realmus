@@ -65,4 +65,10 @@ public interface EnProductMapper {
      * @param product
      */
     void productInfoUpdate(ProductDO product);
+
+    /**
+     * 删除
+     * @param id
+     */
+    void deleteById(String id);
 }

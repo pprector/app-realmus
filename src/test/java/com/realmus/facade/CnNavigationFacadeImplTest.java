@@ -61,7 +61,9 @@ class CnNavigationFacadeImplTest {
         bannerEntity1.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity1.setH5Url("url");
         bannerEntity1.setInfoTitle("创新赋能");
-        bannerEntity1.setInfoDescription("数十年保健视频OEM/ODM方案供应方");
+        bannerEntity1.setInfoDescription("数十年保健食品OEM/ODM方案供应商" +
+                "" +
+                "");
         bannerEntity1.setInfoContent("realmus为您提供全程无忧的一站式服务");
 
         bannerEntityList.add(bannerEntity1);
