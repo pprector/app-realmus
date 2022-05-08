@@ -80,9 +80,6 @@
             <if test="productName != null">
                 product_name = #{productName,jdbcType=VARCHAR},
             </if>
-            <if test="parentId != null">
-                parent_id = #{parentId,jdbcType=VARCHAR},
-            </if>
             <if test="productIngredient != null">
                 product_ingredient = #{productIngredient,jdbcType=VARCHAR},
             </if>

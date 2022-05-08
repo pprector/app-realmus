@@ -122,10 +122,10 @@ class EnNavigationFacadeImplTest {
         companyEntity.setInfoType(ModuleEnum.COMPANY);
         companyEntity.setH5Url("url");
         companyEntity.setInfoTitle("About Us");
-        companyEntity.setInfoDescription("We are professional  healthy supplement supplier , service ODM/OEM more than 10years!\n" +
+        companyEntity.setInfoDescription("We are professional  healthy supplement supplier , service ODM/OEM more than 10years!"+
                 "Health food, nutritional supplements professional supplier");
-        companyEntity.setInfoContent("Shanghai realmus Industrial Co., Ltd. was established in 2010, specializing in nutritional supplementsand other service.  For decades, with the high recognition of product quality from domestic and foreign customers, we have created a good brand reputation in the industry.  With professional research and development ability, perfect manufacturing technology, strict quality control system, and constantly strengthen the competitiveness and influence in the field of nutrition and health food.  \n" +
-                "The products mainly cover soft capsule, hard capsule, tablet, soft candy, powder (solid drink), oral liquid, cosmetics, granules, drops, bottle drink, soft drink and other dosage forms;  shanghai realmus industrial Co.,Ltd. has developed more than 5000 dietary supplement formulations, products  have been exported to the United States, Canada, Mexico, Chile, Brazil, Argentina, Colombia, The United Kingdom, Germany, Russia and other more than 40 Countries ,we also develop a wide range of markets in the Southeast Asian.\n" +
+        companyEntity.setInfoContent("Shanghai realmus Industrial Co., Ltd. was established in 2010, specializing in nutritional supplementsand other service.  For decades, with the high recognition of product quality from domestic and foreign customers, we have created a good brand reputation in the industry.  With professional research and development ability, perfect manufacturing technology, strict quality control system, and constantly strengthen the competitiveness and influence in the field of nutrition and health food." +
+                "The products mainly cover soft capsule, hard capsule, tablet, soft candy, powder (solid drink), oral liquid, cosmetics, granules, drops, bottle drink, soft drink and other dosage forms;  shanghai realmus industrial Co.,Ltd. has developed more than 5000 dietary supplement formulations, products  have been exported to the United States, Canada, Mexico, Chile, Brazil, Argentina, Colombia, The United Kingdom, Germany, Russia and other more than 40 Countries ,we also develop a wide range of markets in the Southeast Asian." +
                 "At present, passed ISO9001, ISO14001, HACCP, KOSHER certification and FDA registration. ");
         //小  banner
         List<BannerEntity> bannerEntityList2 = new ArrayList<>();
@@ -315,8 +315,8 @@ class EnNavigationFacadeImplTest {
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("/about");
         bannerEntity.setInfoTitle("About us  ");
-        bannerEntity.setInfoDescription("We are professional  healthy supplement supplier , service ODM/OEM more than 10years!\\n\" +\n" +
-                "                \"Health food, nutritional supplements professional supplier");
+        bannerEntity.setInfoDescription("We are professional  healthy supplement supplier , service ODM/OEM more than 10years!" +
+                               "Health food, nutritional supplements professional supplier");
         bannerEntity.setInfoContent("");
         aboutUsEntity.setBanner(bannerEntity);
         //模块2 关于Realmus 视频

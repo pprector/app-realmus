@@ -111,7 +111,7 @@ public class EntityToDo {
             productInfoDO.setProductId(product.getProductId());
         }
         if (StringUtils.isBlank(product.getProductParentId())){
-            productInfoDO.setProductId("0");
+            productInfoDO.setParentId("0");
         }else{
             productInfoDO.setParentId(product.getProductParentId());
         }

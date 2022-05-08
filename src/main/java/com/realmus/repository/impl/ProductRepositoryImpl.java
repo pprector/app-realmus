@@ -142,7 +142,6 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public void productInfoUpdate(LanguageEnum language, Product product) {
-
         ProductDO productDO = EntityToDo.toProductDO(product);
         switch (language) {
             case CHINESE:
