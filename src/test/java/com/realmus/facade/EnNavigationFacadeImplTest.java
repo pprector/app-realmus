@@ -63,7 +63,7 @@ class EnNavigationFacadeImplTest {
         bannerEntity1.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity1.setH5Url("url");
         bannerEntity1.setInfoTitle("Innovation can assign");
-        bannerEntity1.setInfoDescription("Supplier of health foot OEM/ODM solutions for decades");
+        bannerEntity1.setInfoDescription("Supplier of health food OEM/ODM solutions for decades");
         bannerEntity1.setInfoContent("Realmus provides you with a one-stop service without any worries");
 
         bannerEntityList.add(bannerEntity1);
@@ -121,7 +121,7 @@ class EnNavigationFacadeImplTest {
 
         companyEntity.setInfoType(ModuleEnum.COMPANY);
         companyEntity.setH5Url("url");
-        companyEntity.setInfoTitle("About Us");
+        companyEntity.setInfoTitle("about us");
         companyEntity.setInfoDescription("We are professional  healthy supplement supplier , service ODM/OEM more than 10years!"+
                 "Health food, nutritional supplements professional supplier");
         companyEntity.setInfoContent("Shanghai realmus Industrial Co., Ltd. was established in 2010, specializing in nutritional supplementsand other service.  For decades, with the high recognition of product quality from domestic and foreign customers, we have created a good brand reputation in the industry.  With professional research and development ability, perfect manufacturing technology, strict quality control system, and constantly strengthen the competitiveness and influence in the field of nutrition and health food." +
@@ -314,7 +314,7 @@ class EnNavigationFacadeImplTest {
 
         bannerEntity.setInfoType(ModuleEnum.ADVANTAGE_BANNER);
         bannerEntity.setH5Url("/about");
-        bannerEntity.setInfoTitle("About us  ");
+        bannerEntity.setInfoTitle("about us ");
         bannerEntity.setInfoDescription("We are professional  healthy supplement supplier , service ODM/OEM more than 10years!" +
                                "Health food, nutritional supplements professional supplier");
         bannerEntity.setInfoContent("");
@@ -342,7 +342,7 @@ class EnNavigationFacadeImplTest {
 
         companyEntity.setInfoType(ModuleEnum.COMPANY);
         companyEntity.setH5Url("url");
-        companyEntity.setInfoTitle("About Us");
+        companyEntity.setInfoTitle("about us");
         companyEntity.setInfoDescription("Professional supplier of health food and cosmetics");
         companyEntity.setInfoContent(str1);
         aboutUsEntity.setCompany(companyEntity);
