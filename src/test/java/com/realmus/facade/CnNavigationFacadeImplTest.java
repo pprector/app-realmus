@@ -397,11 +397,33 @@ class CnNavigationFacadeImplTest {
         certification5.setDescription("证书信息");
         certification5.setMultimediaUrl("/home/module2/zizhi5.png");
 
+        MultimediaEntity certification6 = new MultimediaEntity();
+        certification6.setMultimediaType(MultimediaEnum.IMG);
+        certification6.setDescription("证书信息");
+        certification6.setMultimediaUrl("/home/module2/zizhi6.jpg");
+
+        MultimediaEntity certification7 = new MultimediaEntity();
+        certification7.setMultimediaType(MultimediaEnum.IMG);
+        certification7.setDescription("证书信息");
+        certification7.setMultimediaUrl("/home/module2/zizhi7.jpg");
+        MultimediaEntity certification8 = new MultimediaEntity();
+        certification8.setMultimediaType(MultimediaEnum.IMG);
+        certification8.setDescription("证书信息");
+        certification8.setMultimediaUrl("/home/module2/zizhi8.jpg");
+        MultimediaEntity certification9 = new MultimediaEntity();
+        certification9.setMultimediaType(MultimediaEnum.IMG);
+        certification9.setDescription("证书信息");
+        certification9.setMultimediaUrl("/home/module2/zizhi9.jpg");
+
         multimediaEntityList.add(certification1);
         multimediaEntityList.add(certification2);
         multimediaEntityList.add(certification3);
         multimediaEntityList.add(certification4);
         multimediaEntityList.add(certification5);
+        multimediaEntityList.add(certification6);
+        multimediaEntityList.add(certification7);
+        multimediaEntityList.add(certification8);
+        multimediaEntityList.add(certification9);
         aboutUsEntity.setCertificationList(multimediaEntityList);
 
         //发展历程

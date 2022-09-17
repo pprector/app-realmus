@@ -148,7 +148,10 @@ public class InfoConverter {
         DataDisplayEntity displayEntity = entity.getDataDisplayEntity();
         DataDisplay dataDisplay = toDataDisplay(displayEntity);
         response.setDataDisplay(dataDisplay);
-
+        //证书中心
+        List<MultimediaEntity> certificationList = entity.getCertificationList();
+        List<Img> collect = certificationList.stream().map(InfoConverter::toImg).collect(Collectors.toList());
+        response.setImgList(collect);
         return response;
     }
 
